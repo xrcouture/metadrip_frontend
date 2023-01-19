@@ -1,0 +1,102 @@
+@import url('https://fonts.cdnfonts.com/css/clash-display');
+@import url('https://db.onlinewebfonts.com/c/2206d6cc490084998d531e8c1b2cbb4a?family=Druk+Wide+Bold');
+#root{
+  font-family: 'Clash Display', sans-serif;
+  /* height: 100%; */
+}
+:root{
+  font-family: 'Clash Display', sans-serif;
+  font-size: 16px;
+}
+.app-container{
+  background: conic-gradient(from 152.86deg at 7.93% 17.94%, #48297A 0deg, #000000 120deg, #000000 286.87deg, #48297A 360deg) !important;
+  /* height: 200vh ; */
+  height: auto;
+}
+.swiper-container {
+  width: 100%;
+  padding-top: 150px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 350px;
+  height: 350px;
+}
+
+.info h5{
+  margin: 0;
+  padding-top: 15px;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.685);
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.info span{
+  font-size: 15px;
+  color: red;
+  font-weight: bold;
+}
+.swiper-slide .info button{
+  display:none
+}
+.swiper-slide-active {
+  /* border-radius:0.898961px !important; */
+  border-radius: 33.4262px;
+  border: 0.898961px solid #D19CFB;
+  box-shadow:2px 2px #D19CFB;
+}
+.swiper-slide-active .info button{
+  display:block;
+}
+.slide-button{
+position:absolute;
+width: 165px;
+height: 50px;
+bottom:-25px;
+right:90px;
+background: linear-gradient(180deg, #D981DB 0%, rgba(55, 109, 215, 0.4) 100%);
+border-radius: 22.3736px;
+font-family: 'Druk Wide';
+font-style: normal;
+font-weight: 500;
+font-size: 24.2539px;
+line-height: 29px;
+display: flex;
+align-items: center;
+justify-content:center;
+text-align:center;
+color: #FFFFFF;
+}
+
+
+.carousel {
+  background: #EEE;
+}
+
+.carousel-cell {
+  width: 66%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: gallery-cell;
+}
+
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}

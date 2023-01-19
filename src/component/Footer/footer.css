@@ -1,0 +1,265 @@
+.footer-container {
+  position: relative;
+  height: max-content;
+  background: #282121;
+  width: 100%;
+  padding-bottom: 4%;
+  margin: 0;
+}
+.content-footer-about-header {
+  font-family: "Druk Wide";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  margin-left: 15%;
+  color: #dddada;
+}
+.footer-support-container {
+  position: relative;
+  background: #F3F2F2;
+  border-radius: 22.0267px;
+  height: 245px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+.footer-support-subtitle {
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20.0325px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #d0c5c5;
+}
+.footer-support-title {
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40.6373px;
+  line-height: 44px;
+  letter-spacing: 0.04em;
+  color: #d0c5c5;
+  align-self: flex-start;
+  justify-self: flex-start;
+  position: absolute;
+  top: -2%;
+  left: 2%;
+}
+.footer-input {
+  width: 80%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1.46845px solid rgba(160, 152, 152, 0.69);
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13.004px;
+  line-height: 14px;
+  text-align: left;
+  letter-spacing: 0.02em;
+  color: #a69c9c;
+  justify-self: baseline;
+  position: absolute;
+  bottom: 10%;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #a69c9c;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #a69c9c;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #a69c9c;
+}
+
+.support-footer-header {
+  position: relative;
+  margin-top: 10%;
+  font-family: "Druk Wide";
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+
+  color: #dddada;
+}
+
+
+.footer-logo-container {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+.logo-font {
+  position: relative;
+  margin-top: 10%;
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17.9267px;
+  line-height: 20px;
+  /* or 109% */
+
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #f6f6f1;
+}
+.footer-social-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+  height: 50%;
+}
+.social-icon-1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+}
+.social-content {
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17.4314px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #f6f6f1;
+}
+.terms-container {
+  height: max-content;
+  margin-left: 15%;
+}
+.terms-text {
+  font-family: "Druk Wide";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15.6738px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+
+  color: #dddada;
+}
+/* .footer-img{
+  width: 80%;
+  height: auto;
+} */
+.support-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media only screen and (max-width: 760px) {
+  .footer-section-1{
+    background: #282121; 
+    min-height: 375px;
+    order: 2;
+  }
+  .support-section{
+    order: 1;
+  }
+  .support-container {
+    background-color: transparent;
+    margin-bottom: 10%;
+  }
+  .footer-container{
+    background-color: transparent;
+    margin: 0 !important;
+    padding: 0;
+  }
+
+}
+@media only screen and (max-width: 600px) {
+  .footer-img {
+    width: 80%;
+    height: auto;
+  }
+  .icon-footer {
+    height: 40px !important;
+    width: 40px !important;
+  }
+  .social-content {
+    font-family: "Clash Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 9.86292px;
+    line-height: 11px;
+    /* or 109% */
+
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #f6f6f1;
+  }
+  .logo-font {
+    font-family: "Clash Display";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5.91154px;
+    line-height: 6px;
+    /* or 109% */
+
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #f6f6f1;
+  }
+  .terms-text {
+    font-family: "Druk Wide";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 8.86843px;
+    line-height: 11px;
+    display: flex;
+    align-items: center;
+
+    color: #dddada;
+  }
+
+  .support-container {
+    background-color: transparent;
+    margin-bottom: 10%;
+  }
+  .footer-container{
+    background-color: transparent;
+  }
+  .footer-section-1{
+    background: #282121; 
+    min-height: 375px;
+    order: 2;
+  }
+  .support-section{
+    order: 1;
+  }
+  .support-footer-header{
+    justify-content: center;
+  }
+}

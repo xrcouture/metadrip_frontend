@@ -1,0 +1,40 @@
+.header-container{
+    position: relative;
+    height: 10vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+.header-logo{
+    margin-left: 5%;
+}
+.header-button{
+    /* width: 232px; */
+    padding: 15px 10px;
+    height: 60%;
+    background: linear-gradient(180deg, #D981DB 0%, rgba(55, 109, 215, 0.4) 100%);
+    border-radius: 18.3732px;
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18.4759px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    justify-self: flex-end;
+    position: absolute;
+    right: 10%;
+}
+
+@media  screen and (max-width:500px) {
+    .header-logo{
+        width: 96.15px;
+        height: 11.59px;
+    }
+    .header-button{
+        width: 86px;
+        height: 19.92px;
+        font-size: 10px;
+    }
+}

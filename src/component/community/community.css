@@ -1,0 +1,87 @@
+.community-container {
+  width: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #6E1F9D 100%);  
+  border-radius: 30px;
+  height: auto;
+  padding-bottom: 5%;
+  overflow-x: hidden    ;
+  padding-top: 5%;
+}
+.community-header-1 {
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26.1786px;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #f6f6f1;
+  position: relative;
+  margin-bottom: 1%;
+  margin-top: 10%;
+}
+.community-header-2 {
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 49.579px;
+  line-height: 54px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #f6f6f1;
+  margin-bottom:8% ;
+}
+.community-subtitle{
+font-family: 'Clash Display';
+font-style: normal;
+font-weight: 400;
+font-size: 22.2599px;
+line-height: 24px;
+text-align: center;
+letter-spacing: 0.04em;
+color: #F6F6F1;
+}
+
+.community-subtitle-container{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+
+}
+.button-community-1{
+    background: #1A1919;
+    border-radius: 18.3091px;
+    width: 194.08px;
+    height: 55.54px;
+    border: none;
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22.2599px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #F6F6F1;
+}
+.button-community-2{
+    background: transparent;
+    border-radius: 18.3091px;
+    width: 194.08px;
+    height: 55.54px;
+    border: 1px solid white;
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22.2599px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #F6F6F1;
+}
+.button-groups-community{
+    display: flex;
+    justify-content: space-around;
+    justify-items: space-around;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}

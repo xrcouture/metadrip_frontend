@@ -1,0 +1,146 @@
+.partners-container {
+/* width: 100%; */
+    margin: 0% 5%;
+    width: 100%;
+    height:fit-content;
+    padding: 5% 0%;
+}
+.passive-income {
+  position: relative;
+  height: 100%;
+  width: 90%;
+  background: linear-gradient(180deg, #4F30A7 0%, rgba(134, 110, 110, 0) 100%);
+  border-radius: 15.1479px;
+}
+.partners-container{
+    width: 100%;
+}
+.passive1-img{
+    position: relative;
+    left: 95%;
+    margin-top: -2%;
+    transform: scale(1.5);
+}
+.passive2-img{
+    position: relative;
+    margin-left: 3%;
+    transform: scale(1.5);
+}
+.passive-subtitle-container{
+    position: relative;
+    width: 70%;
+    margin-left: 15%;
+}
+.passive-header{
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 41.9647px;
+    line-height: 46px;
+    /* or 109% */
+
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #F6F6F1;
+}
+.passive-subtitle{
+    font-family: 'Clash Display';
+font-style: normal;
+font-weight: 400;
+font-size: 22.8153px;
+line-height: 25px;
+/* or 109% */
+
+text-align: center;
+letter-spacing: 0.04em;
+
+color: #F6F6F1;
+
+}
+.button-container{
+    position: relative;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+.passive3-img{
+    position: absolute;
+    right: -2%;
+    transform: scale(1.5);
+}
+.button-passive{
+    width: 207px;
+    height: 59.24px;
+    border: 1px solid #E2DCE1;
+    border-radius: 19.5283px;
+    background-color: transparent;
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23.7422px;
+    line-height: 26px;
+/* or 109% */
+
+text-align: center;
+letter-spacing: 0.04em;
+
+color: #F6F6F1;
+}
+.passive4-img{
+transform: scale(1.5);
+}
+
+/* partners container */
+.partners{
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    border-radius: 15.1479px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+}
+.partners-section{
+    padding: 0;
+}
+.partner-title{
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36.0749px;
+    line-height: 39px;
+    position: relative;
+    margin-left: 10%;
+    letter-spacing: 0.02em;
+    color: white;
+    position: relative;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+.partner-icon{
+    width: 50%;
+    height: auto;
+}
+.partner-icon-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10%;
+}
+.partner-text{
+    font-family: 'Clash Display';
+font-style: normal;
+font-weight: 400;
+font-size: 21.0602px;
+line-height: 23px;
+/* or 109% */
+
+text-align: center;
+letter-spacing: 0.04em;
+
+color: #F6F6F1;
+}
