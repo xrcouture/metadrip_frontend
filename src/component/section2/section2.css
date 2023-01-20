@@ -1,0 +1,74 @@
+.section-two-container {
+  height: auto;
+  margin: auto;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.section2-left {
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.8106px;
+  line-height: 22px;
+  /* or 109% */
+  letter-spacing: 0.04em;
+  color: #f6f6f1;
+}
+.section2-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48.2034px;
+  line-height: 53px;
+  /* or 109% */
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #f6f6f1;
+}
+
+.section2-right-small {
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.8106px;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+  color: #f6f6f1;
+}
+@media only screen and (max-width: 600px){
+    .section2-right{
+        font-weight: 600;
+        font-size: 13.127px;
+        line-height: 13px;
+        /* or 103% */
+
+        text-align: center;
+        letter-spacing: 0.02em;
+    }
+    .section2-right-small{
+        font-family: 'Clash Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 5.25081px;
+        line-height: 6px;
+        /* or 105% */
+
+        letter-spacing: 0.04em;
+    }
+    .section2-left{
+        font-family: 'Clash Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 8px;
+        line-height: 8px;
+        /* or 100% */
+
+        letter-spacing: 0.04em;
+    }
+}

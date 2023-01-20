@@ -1,0 +1,66 @@
+.utility-bg{
+    width: 90%;
+    margin-right: 10%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    background: none !important;
+}
+.utility-container{
+    position: relative;
+    margin-right: 15%;
+    /* margin-top: 7%; */
+    background-color: transparent;
+    width: 35%;
+
+}
+.utility{
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+    padding-top: 1.8vw;
+    padding-bottom: 1.8vw;
+    margin-bottom: 10%;
+}
+.utility-content-header{
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3vw;
+    line-height:3vw;
+    text-align: right;
+    letter-spacing: 0.02em;
+    color: #F6F6F1;
+    margin-bottom: 5%;
+}
+.utility-content-subtitle{
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
+    line-height: 2vw;
+    text-align: right;
+    letter-spacing: 0.04em;
+    color: #F6F6F1;
+}
+@media only screen and (min-width: 768px){
+    .utility-bg{
+        width: 90%;
+        margin: 0;
+        margin-left: 10%;
+    }
+    .utility{
+        justify-content: flex-start;
+        /* margin-left: %; */
+    }
+    .utility-container{
+        margin-left: 15%;
+    }
+    .utility-content-header{
+        text-align: left;
+    }
+    .utility-content-subtitle{
+        text-align: left;
+    }
+}

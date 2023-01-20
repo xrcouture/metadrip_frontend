@@ -17,14 +17,14 @@
 }
 .passive1-img{
     position: relative;
-    left: 95%;
-    margin-top: -2%;
-    transform: scale(1.5);
+    left: 89%;
+    margin-top: -5%;
+    /* transform: scale(1.5); */
 }
 .passive2-img{
     position: relative;
-    margin-left: 3%;
-    transform: scale(1.5);
+    margin-left: -5%;
+    /* transform: scale(1.5); */
 }
 .passive-subtitle-container{
     position: relative;
@@ -35,28 +35,21 @@
     font-family: 'Clash Display';
     font-style: normal;
     font-weight: 600;
-    font-size: 41.9647px;
-    line-height: 46px;
-    /* or 109% */
-
+    font-size: 21.1893px;
+    line-height: 23px;
     text-align: center;
     letter-spacing: 0.02em;
-
     color: #F6F6F1;
 }
 .passive-subtitle{
     font-family: 'Clash Display';
-font-style: normal;
-font-weight: 400;
-font-size: 22.8153px;
-line-height: 25px;
-/* or 109% */
-
-text-align: center;
-letter-spacing: 0.04em;
-
-color: #F6F6F1;
-
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11.5201px;
+    line-height: 13px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #F6F6F1;
 }
 .button-container{
     position: relative;
@@ -66,8 +59,8 @@ color: #F6F6F1;
 }
 .passive3-img{
     position: absolute;
-    right: -2%;
-    transform: scale(1.5);
+    right: -5%;
+    /* transform: scale(1.5); */
 }
 .button-passive{
     width: 207px;
@@ -88,7 +81,9 @@ letter-spacing: 0.04em;
 color: #F6F6F1;
 }
 .passive4-img{
-transform: scale(1.5);
+/* transform: scale(1.5); */
+position: relative;
+left: -8%;
 }
 
 /* partners container */
@@ -110,15 +105,14 @@ transform: scale(1.5);
     font-family: 'Clash Display';
     font-style: normal;
     font-weight: 600;
-    font-size: 36.0749px;
-    line-height: 39px;
-    position: relative;
-    margin-left: 10%;
+    font-size: 15.9759px;
+    line-height: 17px;
+    text-align: center;
     letter-spacing: 0.02em;
-    color: white;
+    color: #F6F6F1;
     position: relative;
     padding-top: 10%;
-    padding-bottom: 10%;
+    padding-bottom: 5%;
 }
 .partner-icon{
     width: 50%;
@@ -133,14 +127,14 @@ transform: scale(1.5);
 }
 .partner-text{
     font-family: 'Clash Display';
-font-style: normal;
-font-weight: 400;
-font-size: 21.0602px;
-line-height: 23px;
-/* or 109% */
-
-text-align: center;
-letter-spacing: 0.04em;
-
-color: #F6F6F1;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 10px;
+    /* identical to box height, or 93% */
+    
+    text-align: center;
+    letter-spacing: 0.04em;
+    
+    color: #F6F6F1;
 }

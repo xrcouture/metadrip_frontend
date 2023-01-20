@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import cross1 from "../../assets/cross-1.png";
 import "./cross.css";
 import image from "../../assets/image-1.png";
@@ -12,7 +12,10 @@ import spatial from "../../assets/spatial.png";
 import dbackground from "../../assets/3dbackground.png";
 import threed from "../../assets/3d.png";
 import icon3d from '../../assets/3d-icon.png'
+import section3_1 from '../../assets/section3-1.png'
+
 function Cross() {
+  const [img,setImg] = useState(section3_1)
   const carouselItems = [
     {
       id: 0,
@@ -57,10 +60,17 @@ function Cross() {
       active: false,
     },
   ];
-
+  useEffect(()=>{
+    if(window.innerWidth >= 768){
+      setImg(cross1)
+    }else{
+      setImg(section3_1)
+    }
+  },[window.innerHeight])
+  console.log(window.innerWidth)
   return (
     <div className="cross-container">
-      <img src={cross1} alt="" className="cross-img" />
+      <img src={img} alt="" className="cross-img" />
       <div className="cross-header row">
         <div className="cross-header-content col-md-6 col-sm-6 col-lg-6">
           <h1 className="cross-header-content-1">Cross Platform </h1>
@@ -77,7 +87,7 @@ function Cross() {
               id="carousel-example-generic"
               class="carousel slide carousel-fade"
               data-ride="carousel"
-              data-interval="1500"
+              data-interval="2000"
             >
               <ol class="carousel-indicators carousel-indicators--thumbnails">
                 {carouselItems.map((i, index) => (

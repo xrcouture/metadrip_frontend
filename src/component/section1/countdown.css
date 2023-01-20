@@ -1,0 +1,102 @@
+
+.countdown-wrapper {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+    position: relative;
+    margin-left: 10%;
+}
+.countdown-container{
+    display: flex;
+    flex-direction: column;
+}
+.countdown-item {
+	width: 33.49px;
+    height: 33.49px;
+    background: linear-gradient(180deg, #BF6DD3 0%, rgba(217, 217, 217, 0) 100%);
+    border-radius: 4.83052px;
+    text-align: center;
+    text-justify: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18.5142px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    color: #000000;
+}
+.counter-seperator{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 14.81px;
+    height: 33.49px;
+    display: flex;
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18.5142px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    background: linear-gradient(180deg, #DC40B0 0%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.countdown-container span {
+    font-family: 'Clash Display';
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5.65732px !important;
+    line-height: 6px;
+    letter-spacing: 0.02em;
+    color: #F6F6F1;
+}
+@media only screen and (min-width: 768px){
+    .countdown-item {
+        width: 82.34px;
+        height: 82.34px;
+        border-radius: 11.8755px;
+        font-size: 45.5157px;
+        line-height: 50px;
+        /* or 109% */
+
+        text-align: center;
+        letter-spacing: 0.02em;
+
+        color: #000000;
+
+    }
+    .countdown-container span {
+        font-family: 'Clash Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13.9081px;
+        line-height: 15px;
+        /* or 109% */
+
+        letter-spacing: 0.02em;
+
+        color: #F6F6F1;
+    }
+    .counter-seperator{
+        height: 82.34px;
+        font-weight: 500;
+        font-size: 45.5157px;
+        line-height: 50px;
+        /* or 109% */
+
+        text-align: center;
+        letter-spacing: 0.02em;
+    }
+
+}
+
+

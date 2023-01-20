@@ -1,10 +1,11 @@
 .community-container {
   width: 100%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #6E1F9D 100%);  
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #6E1F9D 100%); */
+  border-radius: 30px;
   border-radius: 30px;
   height: auto;
   padding-bottom: 5%;
-  overflow-x: hidden    ;
+  overflow-x: hidden;
   padding-top: 5%;
 }
 .community-header-1 {
@@ -29,59 +30,92 @@
   text-align: center;
   letter-spacing: 0.04em;
   color: #f6f6f1;
-  margin-bottom:8% ;
+  margin-bottom: 8%;
 }
-.community-subtitle{
-font-family: 'Clash Display';
-font-style: normal;
-font-weight: 400;
-font-size: 22.2599px;
-line-height: 24px;
-text-align: center;
-letter-spacing: 0.04em;
-color: #F6F6F1;
+.community-subtitle {
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22.2599px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #f6f6f1;
 }
 
-.community-subtitle-container{
-    display: flex;
-    justify-items: center;
-    justify-content: center;
-
+.community-subtitle-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
 }
+.button-community-1 {
+  background: #1a1919;
+  border-radius: 7.24577px;
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5vw;
+  line-height: 2vw;
+  width: 76.81px;
+  height: 21.98px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  border: none;
+  color: #f6f6f1;
+}
+.button-community-1:hover {
+  border: 1px solid white;
+  background-color: white;
+  color: black;
+}
+.button-community-2:hover {
+  color: black;
+  border: 2px solid black;
+}
+.button-community-2 {
+  background: transparent;
+  border-radius: 7.24577px;
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5vw;
+  line-height: 2vw;
+  width: 76.81px;
+  height: 21.98px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #f6f6f1;
+  border: 1px solid white;
+  /* margin-left: 5%; */
+}
+.button-groups-community {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.group-button{
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+@media only screen and (min-width: 768px){
 .button-community-1{
-    background: #1A1919;
-    border-radius: 18.3091px;
-    width: 194.08px;
-    height: 55.54px;
-    border: none;
-    font-family: 'Clash Display';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22.2599px;
-    line-height: 24px;
-    text-align: center;
-    letter-spacing: 0.04em;
-    color: #F6F6F1;
+  width: 174.37px;
+height: 49.9px;
+border-radius: 16px;
 }
 .button-community-2{
-    background: transparent;
-    border-radius: 18.3091px;
-    width: 194.08px;
-    height: 55.54px;
-    border: 1px solid white;
-    font-family: 'Clash Display';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22.2599px;
-    line-height: 24px;
-    text-align: center;
-    letter-spacing: 0.04em;
-    color: #F6F6F1;
+  width: 174.37px;
+height: 49.9px;
+border-radius: 16px;
 }
-.button-groups-community{
-    display: flex;
-    justify-content: space-around;
-    justify-items: space-around;
-    padding-top: 5%;
-    padding-bottom: 5%;
+.group-button{
+  width: 100%;
+}
+.community-container{
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #6E1F9D 100%);
+  margin-bottom: 5%;
+}
 }

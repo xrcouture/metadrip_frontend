@@ -1,0 +1,17 @@
+.interoperability-content{
+    width: 40%;
+}
+
+.cross-header-image-container .carousel {
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 768px){
+    .interoperability-content{
+        width: 100%;
+    }
+    .section3-2{
+        margin-top: -20vw;
+    }
+}

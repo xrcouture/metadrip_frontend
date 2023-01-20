@@ -1,9 +1,11 @@
 import React from "react";
 import image from "../../assets/image-1.png";
-import bg from "../../assets/collections-background.png";
+// import bg from "../../assets/collections-background.png";
+import bg from "../../assets/background-section2.png";
 import "./slider.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, EffectCoverflow, Navigation, Pagination } from "swiper";
+import Section2 from "../section2/Section2";
 
 // let items = [
 //   {
@@ -45,6 +47,8 @@ import { A11y, EffectCoverflow, Navigation, Pagination } from "swiper";
 
 function Slider() {
   return (
+    <div className="section2-overall">
+    <img src={bg} alt="" className="section2-container-background" />
     <div className="swiper-container-overall">
       {/* <img src={bg} alt="" className="carousel-background" /> */}
       <div className="slider-container">
@@ -60,6 +64,9 @@ function Slider() {
           direction="horizontal"
           updateOnWindowResize
           loopedSlides={5}
+          autoplay={{
+            delay:500
+          }}
           // loop={true}
           coverflowEffect={{
             rotate: 0,
@@ -74,7 +81,7 @@ function Slider() {
           freeMode={false}
           slideToClickedSlide={true}
         >
-          <SwiperSlide>
+          <SwiperSlide data-swiper-autoplay="2000">
             <img alt="" className="swiper-image" src={image} />
             <div class="info">
               <button class="slide-button">Whitelist</button>
@@ -112,6 +119,8 @@ function Slider() {
           </SwiperSlide> */}
         </Swiper>
       </div>
+    </div>
+      <Section2 />
     </div>
   );
 }

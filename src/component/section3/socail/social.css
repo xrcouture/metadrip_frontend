@@ -1,0 +1,101 @@
+.bg-3d{
+width: 80%;
+height: auto;
+
+border-radius: 14.67px;
+position: absolute;
+}
+.img3d{
+    margin-top: -10%;
+    z-index: 100;
+    width: 100%;
+    height: auto;
+    align-self: center;
+}
+.rotating-container{
+    display: flex;
+    justify-content: center;
+}
+.video-container{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-items: center;
+    justify-content: center;
+}
+.social-container-content{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+.video-container .carousel{
+    width: 70%;
+}
+.icon-video{
+    position: absolute;
+    z-index: 3000;
+    top: 25px;
+    left: 25px;
+}
+.video-container .carousel .carousel-item{
+    border-radius: 25.35px;
+}
+.video-container .carousel .carousel-indicators [data-bs-target]{
+    height: 10px !important;
+    width: 10px !important;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: transparent;
+}
+.video-player{
+    border-radius: 25.35px;
+}
+.video-container .carousel {
+    border-radius: 24px;
+    overflow: hidden;
+}
+.video-container .carousel .carousel-indicators .active{
+        background-color: white;
+}
+
+.passive-income-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    padding: 5%;
+}
+@media only screen and (min-width: 768px){
+    .video-container .carousel {
+        border-radius: 40px;
+        overflow: hidden;
+    }
+    .passive-income{
+        background: linear-gradient(180deg, #7E2AB0 0%, rgba(33, 19, 55, 0) 100%);
+    }
+    .passive1-img{
+        transform: scale(2);
+    }
+    .passive2-img{
+        transform: scale(2);
+    }
+    .passive3-img{
+        transform: scale(1.5);
+        right: -2%;
+    }
+    .passive4-img{
+        transform: scale(1.5);
+    }
+    .bg-3d{
+        width: 100%;
+    }
+    .social-container{
+        position: relative;
+        margin-top: -12%;
+    }
+    .social-container-content{
+        position: relative;
+        margin-top: 15%;
+    }
+}
