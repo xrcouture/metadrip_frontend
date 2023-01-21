@@ -1,11 +1,10 @@
 import React from 'react'
 import './section1.css'
-import DateCountdown from 'react-date-countdown-timer';
 import Countdown from './Countdown';
 
 function Section1() {
   return (
-    <div className='section1-container'>
+    <div className='section1-container' >
       <div className='section1-container-content'>
       <div className='section1-container-1 row m-0'>
         <div className='col-md-7 col-sm-7 col-xs-7'>

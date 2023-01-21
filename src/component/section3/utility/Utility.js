@@ -12,7 +12,7 @@ function Utility() {
         }else{
           setImg(image2)
         }
-      },[window.innerHeight])
+      },[])
 
 
   return (

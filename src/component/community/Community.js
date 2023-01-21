@@ -1,6 +1,5 @@
 import React from "react";
 import "./community.css";
-import threed from "../../assets/3d.png";
 import { RiTwitterLine } from "react-icons/ri";
 import { RxDiscordLogo } from "react-icons/rx";
 import partner1 from "../../assets/partner1.png";
@@ -9,9 +8,8 @@ import partner3 from "../../assets/partner3.png";
 
 function Community() {
   return (
-    <div className="community-container container">
+    <div className="community-container">
       <div className="row">
-        
         <div className="col-md-6">
           <p className="utility-content-subtitle text-center">Join us</p>
           <p className="utility-content-header text-center text-light">Join the community</p>
@@ -34,7 +32,7 @@ function Community() {
         </div>
         <div className="col-md-6 col-lg-6 col-xl-6 p-0">
           <div className="partners container">
-            <p className="utility-content-header">Partners</p>
+            <p className="utility-content-header text-center">Partners</p>
             <div className="row">
               <div className="col-md-4 col-lg-4 col-sm-4 col-xs-4 partner-icon-container">
                 {" "}

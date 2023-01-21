@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue','Druk Wide',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,4 +10,29 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+  font-family: Clash Display Bold;
+  src: url("./ClashDisplay_Complete/Fonts/WEB/fonts/ClashDisplay-Bold.ttf");
+}
+@font-face {
+  font-family: Clash Display Light;
+  src: url("./ClashDisplay_Complete/Fonts/WEB/fonts/ClashDisplay-Light.ttf");
+}
+@font-face {
+  font-family: Clash Display ExtraLight;
+  src: url("./ClashDisplay_Complete/Fonts/WEB/fonts/ClashDisplay-Extralight.ttf");
+}
+@font-face {
+  font-family: Clash Display Bold;
+  src: url("./ClashDisplay_Complete/Fonts/WEB/fonts/ClashDisplay-Bold.ttf");
+}
+@font-face {
+  font-family: Clash Display Medium;
+  src: url("./ClashDisplay_Complete/Fonts/WEB/fonts/ClashDisplay-Medium.ttf");
+}
+@font-face {
+  font-family: Druk Wide Bold; 
+  src: url("https://db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.eot");
 }

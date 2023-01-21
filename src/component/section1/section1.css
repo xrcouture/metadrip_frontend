@@ -3,6 +3,8 @@
   height: 100vh;
   background-image: url('../../assets//carousel-bg.png');
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .section1-container-content{
     position: absolute;
