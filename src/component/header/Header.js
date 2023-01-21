@@ -6,7 +6,8 @@ function Header() {
   return (
     <div className='header-container' id='top'>
         <img src={headerlogo} alt="" className="header-logo" />
-        <button className='header-button text-center'>Connect Wallet</button>
+        <a href='https://heymint.xyz/meta-drip-xrc' className='header-button text-center'>
+          Whitelist</a>
     </div>
   )
 }

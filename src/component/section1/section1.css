@@ -6,10 +6,22 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.video-bg-section1{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 .section1-container-content{
     position: absolute;
     bottom: 10%;
     width: 100%;
+}
+.section1-container-2-button a{
+  text-decoration: none;
+  color: white;
+}
+.section1-container-2-button a:hover{
+  text-decoration: none;
 }
 .section1-counter-container {
   height: 20%;
@@ -41,8 +53,8 @@
   font-size: 8.55957px;
   line-height: 10px;
   text-align: center;
-  background: linear-gradient(180deg, #df77f2 0%, rgba(50, 20, 233, 0) 100%);
-  border-radius: 7.896px;
+  background: linear-gradient(180deg, #DF77F2 0%, rgba(50, 20, 233, 0) 100%);
+    border-radius: 7.896px;
   color: #ffffff;
   filter: drop-shadow(0px 1.29727px 1.29727px rgba(0, 0, 0, 0.25));
 }
@@ -51,7 +63,9 @@
   justify-content: center;
   justify-items: center;
 }
-
+.btn-container{
+  filter: drop-shadow(0px 3.18923px 3.18923px rgba(0, 0, 0, 0.25));
+}
 
 @media only screen and (min-width: 768px){
   .countdown-content {

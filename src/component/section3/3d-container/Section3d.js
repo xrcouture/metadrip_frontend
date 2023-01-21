@@ -92,9 +92,9 @@ function Section3d() {
         </div>
         <div className="cross-header-content col-md-6 col-sm-6 col-lg-6 p-4">
             <div className='interoperability-content'>
-          <h1 className="utility-content-header text-center">Interoperability Exists.</h1>
+          <h1 className="utility-content-header text-center section2-title-right">Interoperability Exists.</h1>
           <div className="cross-header-content-2-containe w-100">
-          <p className="utility-content-subtitle text-center">
+          <p className="section2-subtitle text-center section2-title-right">
             Collectors get access to exclusive Metaverse Wearables, Private
             Events, Airdrops, an Engaging Community and more.
           </p>

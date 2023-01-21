@@ -75,21 +75,34 @@ position: absolute;
         border-radius: 40px;
         overflow: hidden;
     }
+    .passive-income-container{
+        width: 100%;
+        padding: 0;
+        padding-top:5% ;
+        padding-bottom: 5%;
+    }
     .passive-income{
         background: linear-gradient(180deg, #7E2AB0 0%, rgba(33, 19, 55, 0) 100%);
+        border-radius: 32.9138px;
+        padding-top: 5%;
+        padding-bottom: 5%;
     }
     .passive1-img{
         transform: scale(2);
+        display: none;
     }
     .passive2-img{
         transform: scale(2);
+        display: none;
     }
     .passive3-img{
         transform: scale(1.5);
         right: -2%;
+        display: none;
     }
     .passive4-img{
         transform: scale(1.5);
+        display: none;
     }
     .bg-3d{
         width: 100%;
@@ -101,5 +114,45 @@ position: absolute;
     .social-container-content{
         position: relative;
         margin-top: 15%;
+    }
+    .passivelg1{
+        top: -10%;
+        left: 5%;
+        height: 70px;
+        width: 70px;
+        position: absolute;
+        transform: scale(0.8);
+    }
+    .passivelg2{
+        top: -10%;
+        right: 5%;
+        height: 70px;
+        width: 70px;
+        position: absolute;
+        transform: scale(.9);
+    }
+    .passivelg3{
+        position: absolute;
+        bottom:-7%;
+        left: -2%;
+        height: 70px;
+        width: 70px;
+        transform: scale(1.3);
+ 
+    }
+    .passivelg4{
+        position: absolute;
+        right: 0%;
+        bottom: 0%;
+        height: 70px;
+        width: 70px;
+    }
+    .passivelg5{
+        position: absolute;
+        bottom: 15%;
+        left: -5%;
+        height: 70px;
+        width: 70px;
+        transform: scale(.7);
     }
 }

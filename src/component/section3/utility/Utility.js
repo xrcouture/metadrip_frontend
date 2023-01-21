@@ -19,9 +19,8 @@ function Utility() {
     <div className='utility'>
         <img src={img} alt="" className="utility-bg" />
         <div className='utility-container'>
-        <h1 className='utility-content-header'>Utility</h1>
-        <p className='utility-content-subtitle'>Collectors get access to exclusive Metaverse Wearables, Private
-            Events, Airdrops, an Engaging Community and more.
+        <h1 className='section2-title text-right section2-title-left'>Utility</h1>
+        <p className='section2-subtitle text-right section2-subtitle-left'>Collectors get access to exclusive Metaverse wearables, private events, airdrops, an engaging community and more.
         </p>
         </div>
     </div>

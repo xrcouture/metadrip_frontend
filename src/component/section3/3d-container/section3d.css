@@ -632,9 +632,9 @@
       transform: rotate(0deg);
       margin-left: 10%;
     }
-    .cross-header-content{
+    /* .cross-header-content{
       width: 50%;
-    }
+    } */
     .cross-left-container{
       order: 2;
     }
