@@ -12,7 +12,7 @@ function Community() {
       <div className="row">
         <div className="col-md-6">
           <p className="utility-content-subtitle text-center">Join us</p>
-          <p className="utility-content-header text-center text-light">Join the community</p>
+          <p className="utility-content-header-join text-center text-light">Join the community</p>
         <div className="community-subtitle-container">
           <p className="utility-content-subtitle text-center w-50">
             Join our discord channel or follow us on twitter keep up to date
@@ -32,8 +32,8 @@ function Community() {
         </div>
         <div className="col-md-6 col-lg-6 col-xl-6 p-0">
           <div className="partners container">
-            <p className="utility-content-header text-center">Partners</p>
-            <div className="row">
+            <p className="utility-content-header">Partners</p>
+            <div className="row partners-logo-container">
               <div className="col-md-4 col-lg-4 col-sm-4 col-xs-4 partner-icon-container">
                 {" "}
                 <img src={partner1} alt="" className="partner-icon" />{" "}
