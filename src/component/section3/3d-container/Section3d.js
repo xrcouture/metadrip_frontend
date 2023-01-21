@@ -8,10 +8,6 @@ import robolox from "../../../assets/robolox.png";
 import sandbox from "../../../assets/sandbox.png";
 import unreal from "../../../assets/unreal.png";
 import spatial from "../../../assets/spatial.png";
-import dbackground from "../../../assets/3dbackground.png";
-import threed from "../../../assets/3d.png";
-
-import section3_1 from '../../../assets/section3-1.png'
 
 function Section3d() {
     const carouselItems = [
@@ -60,7 +56,7 @@ function Section3d() {
       ];
 
   return (
-    <div className='container section3-2'>
+    <div className='w-80 section3-2'>
     <div className='row'>
         <div className="col-md-6 col-lg-6 cross-left-container">
           <div className="cross-header-image-container w-80">
@@ -87,7 +83,7 @@ function Section3d() {
               <div class="carousel-inner" role="listbox">
                 {carouselItems.map((i) => (
                   <div class={`item ${i.active === true ? "active" : ""}`}>
-                    <img src={image} alt="" width="800" height="400" />
+                    <img src={image} alt="" width="100%" height="auto" />
                   </div>
                 ))}
               </div>
@@ -96,7 +92,7 @@ function Section3d() {
         </div>
         <div className="cross-header-content col-md-6 col-sm-6 col-lg-6 p-4">
             <div className='interoperability-content'>
-          <h1 className="utility-content-subtitle text-center">Interoperability Exists.</h1>
+          <h1 className="utility-content-header text-center">Interoperability Exists.</h1>
           <div className="cross-header-content-2-containe w-100">
           <p className="utility-content-subtitle text-center">
             Collectors get access to exclusive Metaverse Wearables, Private

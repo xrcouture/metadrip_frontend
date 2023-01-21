@@ -23,23 +23,17 @@ import Roadmap from './component/timeline/Roadmap';
 
 
 function App() {
-
   return (
-    <div className='app-container'>
+    <div className="app-container">
       <Header />
       <Section1 />
       <Slider />
       <Section3 />
       <Roadmap />
-    <Community />
-      {/* <Cross />
-      <Partners />
-      <Timeline /> */}
-      {/* <Timeline /> */}
-    <Footer />
-
+      <Community />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

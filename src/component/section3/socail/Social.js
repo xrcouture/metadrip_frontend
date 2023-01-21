@@ -8,6 +8,7 @@ import passive1 from '../../../assets/passive1.png'
 import passive2 from '../../../assets/passive2.png'
 import passive3 from '../../../assets/passive3.png'
 import passive4 from '../../../assets/passive4.png'
+import imagebg from '../../../assets/carousel-img.png'
 
 import { MdVideoCameraBack } from "react-icons/md";
 
@@ -41,7 +42,7 @@ function Social() {
             </p>
             <div className='video-container'>
                 {/* ..................................................... */}
-                <Carousel activeIndex={index} onSelect={handleSelect} className="w-80">
+                <Carousel activeIndex={index} onSelect={handleSelect} className="w-80" controls={false}>
                     <Carousel.Item>
                         <video src={vid} autoPlay={true} muted className='video-player w-100 h-100' />
                         <MdVideoCameraBack color='white' className='icon-video' size={28}/>
@@ -49,8 +50,9 @@ function Social() {
                     <Carousel.Item>
                         <img
                         className="d-block w-100"
-                        src={imgbg}
+                        src={imagebg}
                         alt="Second slide"
+
                         />
                     </Carousel.Item>
                     </Carousel>

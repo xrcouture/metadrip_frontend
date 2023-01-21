@@ -83,33 +83,23 @@ function Slider() {
         >
           <SwiperSlide data-swiper-autoplay="2000">
             <img alt="" className="swiper-image" src={image} />
-            <div class="info">
-              <button class="slide-button">Whitelist</button>
-            </div>
+            
           </SwiperSlide>
           <SwiperSlide>
             <img alt="" className="swiper-image" src={image} />
-            <div class="info">
-              <button class="slide-button">Whitelist</button>
-            </div>
+            
           </SwiperSlide>
           <SwiperSlide>
             <img alt="" className="swiper-image" src={image} />
-            <div class="info">
-              <button class="slide-button">Whitelist</button>
-            </div>
+            
           </SwiperSlide>
           <SwiperSlide>
             <img alt="" className="swiper-image" src={image} />
-            <div class="info">
-              <button class="slide-button">Whitelist</button>
-            </div>
+            
           </SwiperSlide>
           <SwiperSlide>
             <img alt="" className="swiper-image" src={image} />
-            <div class="info">
-              <button class="slide-button">Whitelist</button>
-            </div>
+            
           </SwiperSlide>
           {/* <SwiperSlide>
             <img alt="" className="swiper-image" src={image} />

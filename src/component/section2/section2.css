@@ -6,7 +6,7 @@
 }
 .section2-left {
   font-family: "Clash Display";
-  font-style: normal;
+  font-style: Medium;
   font-weight: 400;
   font-size: 19.8106px;
   line-height: 22px;
@@ -19,7 +19,7 @@
   flex-direction: column;
   align-items: flex-end;
   font-family: "Clash Display";
-  font-style: normal;
+  font-style: bold;
   font-weight: 600;
   font-size: 48.2034px;
   line-height: 53px;

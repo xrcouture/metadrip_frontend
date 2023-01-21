@@ -51,9 +51,13 @@ position: absolute;
 .video-player{
     border-radius: 25.35px;
 }
+.video-container .carousel .carousel-inner{
+    margin-bottom: -2%;
+}
 .video-container .carousel {
     border-radius: 24px;
     overflow: hidden;
+    margin-bottom: -6px;
 }
 .video-container .carousel .carousel-indicators .active{
         background-color: white;
