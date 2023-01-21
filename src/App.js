@@ -19,6 +19,7 @@ import Utility from './component/section3/utility/Utility';
 import Section3d from './component/section3/3d-container/Section3d';
 import Social from './component/section3/socail/Social';
 import Section3 from './component/section3/Section3';
+import Roadmap from './component/timeline/Roadmap';
 
 
 function App() {
@@ -29,10 +30,12 @@ function App() {
       <Section1 />
       <Slider />
       <Section3 />
+      <Roadmap />
     <Community />
       {/* <Cross />
       <Partners />
       <Timeline /> */}
+      {/* <Timeline /> */}
     <Footer />
 
     </div>

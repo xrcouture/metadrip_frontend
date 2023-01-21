@@ -53,7 +53,7 @@ function Slider() {
       {/* <img src={bg} alt="" className="carousel-background" /> */}
       <div className="slider-container">
         <Swiper
-          className="swiper-horizontal"
+          className="swiper-horizontal whitelist-swiper"
           modules={[Pagination,Navigation, A11y, EffectCoverflow]}
           slidesPerView={5}
           centeredSlides={true}
