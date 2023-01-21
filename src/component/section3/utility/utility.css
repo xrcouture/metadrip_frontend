@@ -24,7 +24,7 @@
     margin-bottom: 10%;
 }
 .utility-content-header{
-    font-family: 'Clash Display';
+    font-family: 'Clash Display Medium';
     font-style: bold;
     font-weight: 700;
     font-size: 3vw;
@@ -35,7 +35,7 @@
     margin-bottom: 5%;
 }
 .utility-content-subtitle{
-    font-family: 'Clash Display';
+    font-family: 'Clash Display Light';
     font-style: Medium;
     font-weight: 400;
     font-size: 1.5vw; 
@@ -43,6 +43,17 @@
     text-align: right;
     letter-spacing: 0.04em;
     color: #F6F6F1;
+}
+.utility-content-header-join {
+    font-family: 'Clash Display Light';
+    font-style: bold;
+    font-weight: 700;
+    font-size: 3vw;
+    line-height:3vw;
+    text-align: right;
+    letter-spacing: 0.02em;
+    color: #F6F6F1;
+    margin-bottom: 5%;
 }
 @media only screen and (min-width: 768px){
     .utility-bg{

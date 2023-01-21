@@ -98,7 +98,7 @@
 .group-button{
   width: 70%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .partners-container {
   /* width: 100%; */
@@ -204,7 +204,7 @@
       padding: 0;
   }
   .partner-title{
-      font-family: 'Clash Display';
+      font-family: 'Clash Display Medium';
       font-style: normal;
       font-weight: 600;
       font-size: 15.9759px;
@@ -215,6 +215,9 @@
       position: relative;
       padding-top: 10%;
       padding-bottom: 5%;
+  }
+  .partners-logo-container{
+    margin-top: 3rem;
   }
   .partner-icon{
       width: 50%;
@@ -239,6 +242,10 @@
       letter-spacing: 0.04em;
       
       color: #F6F6F1;
+  }
+
+  .group-button button {
+    font-family: Clash Display Medium;
   }
   
 @media only screen and (min-width: 768px){
