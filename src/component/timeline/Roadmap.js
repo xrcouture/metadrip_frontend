@@ -9,6 +9,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
 
+import roadmapLogo1 from '../../assets/Q12022.png'
+import roadmapLogo2 from '../../assets/Q22022.PNG'
+import roadmapLogo3 from '../../assets/Q32022.PNG'
+
 function Roadmap() {
   
   return (
@@ -42,15 +46,21 @@ function Roadmap() {
           <SwiperSlide className='swip-card'>
             <div className='swip-card-container'>
                 <div className='swip-card-ball'></div>
-                <div className='swip-card-box'></div>
+                <div className='swip-card-box'>
+                  <img className='roadmap-logos' src={roadmapLogo1} alt=''></img>
+                </div>
                 <div className='swip-card-content'>
                   <div className='swip-card-content-title'>
                   <div >Q1 2022</div>
                   <div style={{fontFamily: "Clash Display Light"}}> MVFW 22</div>
                   </div>
                   <div className='swip-card-content-desc'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                  dolore magna aliqua. Ut enim ad minim veniam,
+                  - Launch of Meta Drip <br />
+                  - Partnered with Decentraland <br />
+                  - Launch of XR Couture HQ on DCL <br />
+                  - Sold out: Pre-Sale of Phase 1 <br />
+                  - Released Phase 1 DCL wearables <br />
+                  - Gave-away of 4K DCL wearables <br />
                   </div>
                 </div>
               </div>
@@ -58,15 +68,17 @@ function Roadmap() {
           <SwiperSlide className='swip-card'>
             <div className='swip-card-container'>
                 <div className='swip-card-ball'></div>
-                <div className='swip-card-box'></div>
+                <div className='swip-card-box'>
+                  <img className='roadmap-logos' src={roadmapLogo2} alt=''></img>
+                </div>
                 <div className='swip-card-content'>
                   <div className='swip-card-content-title'>
                   <div >Q2 2022</div>
                   <div style={{fontFamily: "Clash Display Light"}}> SnapChat partnership</div>
                   </div>
                   <div className='swip-card-content-desc'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                  dolore magna aliqua. Ut enim ad minim veniam,
+                  - Launched user dashboard to view and unlock multiple utilities (Virtual fittings, AR/VR features, etc) <br />
+                  - Partnered with Snapchat & launched AR filters for Phase 1 NFTs 
                   </div>
                 </div>
               </div>
@@ -74,15 +86,17 @@ function Roadmap() {
           <SwiperSlide className='swip-card'>
             <div className='swip-card-container'>
                 <div className='swip-card-ball'></div>
-                <div className='swip-card-box'></div>
+                <div className='swip-card-box'>
+                <img className='roadmap-logos border-gradient border-gradient-purple' src={roadmapLogo3} alt=''></img>
+                </div>
                 <div className='swip-card-content'>
                   <div className='swip-card-content-title'>
                   <div >Q3 2022</div>
                   <div style={{fontFamily: "Clash Display Light"}}> Metaverse Event</div>
                   </div>
                   <div className='swip-card-content-desc'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                  dolore magna aliqua. Ut enim ad minim veniam,
+                  - XR Couture’s Pandora, hosted on Spatial to share a glimpse of future utilities
+                  - CloneX unlocked: Made Vibrance Splash available for your CloneX avatar
                   </div>
                 </div>
               </div>
@@ -97,8 +111,8 @@ function Roadmap() {
                   <div style={{fontFamily: "Clash Display Light"}}> Working on launch of Metadrip Phase 2</div>
                   </div>
                   <div className='swip-card-content-desc'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                  dolore magna aliqua. Ut enim ad minim veniam,
+                  - Pause on sales
+                  - New Metaverse partnerships (TBA)
                   </div>
                 </div>
               </div>
@@ -113,8 +127,9 @@ function Roadmap() {
                   <div style={{fontFamily: "Clash Display Light"}}> Launch of Meta Drip Phase 2</div>
                   </div>
                   <div className='swip-card-content-desc'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                  dolore magna aliqua. Ut enim ad minim veniam,
+                  - Relaunch with exciting perks
+                  - Announcement of Passive income utility
+                  - New website and user dashboard experience
                   </div>
                 </div>
               </div>
@@ -129,8 +144,7 @@ function Roadmap() {
                   <div style={{fontFamily: "Clash Display Light"}}> XR Couture Interoperable Ecosystem</div>
                   </div>
                   <div className='swip-card-content-desc'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                  dolore magna aliqua. Ut enim ad minim veniam,
+                  - (details will be posted soon)
                   </div>
                 </div>
               </div>
