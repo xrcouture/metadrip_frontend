@@ -49,7 +49,7 @@ overflow-x: hidden;
     height: 100%;
 }
 
-.swiper-slide {
+.whitelist-swiper .swiper-wrapper .swiper-slide {
     position: relative;
     background-position: center;
     background-size: cover;
@@ -109,7 +109,7 @@ color: #FFFFFF;
 z-index: 100;
 }
 @media only screen and (max-width: 605px){
-    .swiper-slide {
+    .whitelist-swiper .swiper-wrapper .swiper-slide {
         position: relative;
         background-position: center;
         background-size: cover;
