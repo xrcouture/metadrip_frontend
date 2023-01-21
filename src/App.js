@@ -24,7 +24,7 @@ import Roadmap from './component/timeline/Roadmap';
 
 function App() {
   return (
-    <div className="app-container">
+    <div className="app-container" style={{overflow: "hidden"}}>
       <Header />
       <Section1 />
       <Slider />
