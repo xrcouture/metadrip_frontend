@@ -46,6 +46,12 @@
   color: #ffffff;
   filter: drop-shadow(0px 1.29727px 1.29727px rgba(0, 0, 0, 0.25));
 }
+.section2-container2-right{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
 
 @media only screen and (min-width: 768px){
   .countdown-content {
@@ -74,4 +80,19 @@
     border-radius: 19.4117px;
     filter: drop-shadow(0px 3.18923px 3.18923px rgba(0, 0, 0, 0.25));
   }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+ 
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+ 
 }

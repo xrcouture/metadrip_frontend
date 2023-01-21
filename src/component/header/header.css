@@ -1,6 +1,6 @@
 .header-container {
-    position: fixed;
-    top: 0;
+  position: fixed;
+  top: 0;
   height: 44px;
   width: 100%;
   z-index: 10000;
@@ -19,8 +19,8 @@
   height: 19.92px;
   background: linear-gradient(180deg, #732f7e 0%, rgba(55, 109, 215, 0.4) 100%);
   border-radius: 6.81075px;
-  font-family: "Clash Display";
-  font-style: bolder;
+  font-family: "Druk Wide";
+  font-style: bold;
   font-weight: 500;
   font-size: 6.84881px;
   line-height: 22px;
@@ -38,31 +38,83 @@
     height: 11.59px;
   }
 
-@media screen and (min-width: 768px) {
+  /* // Small devices (landscape phones, 576px and up) */
+/* @media (min-width: 576px) { 
+} */
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
   .header-container {
-    position: fixed;
+    height: 100px;
+  }
+  .header-logo {
+    width: 120px;
+    height: 15.62px;
+  }
+  .header-button {
+    width: 220;
+    height: 45px;
+    font-size: 18.4759px;
+    line-height: 8px;
+    border-radius: 15.3732px;
+    color: #ffffff;
+  }
+ }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  .header-container {
+    height: 120px;
+  }
+  .header-button {
+    width: 232px;
+    height: 51px;
+    font-size: 20px;
+    line-height: 10px;
+    border-radius: 17.3732px;
+  }
+  .header-logo {
+    width: 150px;
+    height: 20.62px;
+  }
+ }
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+  .header-container {
     height: 131px;
+  }
+  .header-button {
+    width: 242px;
+    height: 56px;
+    font-size: 22px;
+    line-height: 11px;
+    border-radius: 18.3732px;
+  }
+  .header-logo {
+    width: 200px;
+    height: 25.62px;
+  }
+ }
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+  .header-container {
+    height: 151px;
+  }
+  .header-button {
+    width: 252px;
+    height: 60px;
+    font-size: 24px;
+    line-height: 12px;
+    border-radius: 20.3732px;
   }
   .header-logo {
     width: 248px;
     height: 28.62px;
   }
-  .header-button {
-    width: 232px;
-    height: 51px;
-    font-family: "Clash Display";
-    font-style: bolder;
-    font-weight: 500;
-    font-size: 18.4759px;
-    line-height: 8px;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(
-      180deg,
-      #732f7e 0%,
-      rgba(55, 109, 215, 0.4) 100%
-    );
-    border-radius: 18.3732px;
-    color: #ffffff;
-  }
-}
+ }
+
+
+
+
