@@ -34,5 +34,39 @@ code {
 }
 @font-face {
   font-family: Druk Wide Bold; 
-  src: url("https://db.onlinewebfonts.com/t/2206d6cc490084998d531e8c1b2cbb4a.eot");
+  src: url("./Druk_Collection/Druk\ Wide\ Family/DrukWide-Bold-Trial.otf");
 }
+@font-face {
+  font-family: Druk Wide Medium; 
+  src: url("./Druk_Collection/Druk\ Wide\ Family/DrukWide-Medium-Trial.otf");
+}
+@font-face {
+  font-family: Druk Wide Italic; 
+  src: url("./Druk_Collection/Druk\ Wide\ Family/DrukWide-SuperItalic-Trial.otf");
+}
+
+
+  /* // Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) { 
+  
+  }
+  
+  /* // Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) { 
+    
+   }
+  
+  /* // Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) { 
+    
+   }
+  
+  /* // X-Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) { 
+    
+   }
+  
+  /* // XX-Large devices (larger desktops, 1400px and up) */
+  @media (min-width: 1400px) { 
+    
+   }

@@ -54,49 +54,94 @@
     text-align: center;
     font-style: normal;
     font-weight: 400;
-    font-size: 15.65732px !important;
+    font-size: 5.65732px;
     line-height: 6px;
     letter-spacing: 0.02em;
     color: #F6F6F1;
 }
 @media only screen and (min-width: 768px){
     .countdown-item {
-        width: 82.34px;
-        height: 82.34px;
-        border-radius: 11.8755px;
-        font-size: 45.5157px;
-        line-height: 50px;
-        /* or 109% */
-
-        text-align: center;
-        letter-spacing: 0.02em;
-
-        color: #000000;
+        width: 45.49px;
+        height: 45.49px;
+        border-radius: 6.8755px;
+        font-size: 25.5157px;
+        line-height: 27px;
 
     }
     .countdown-container span {
-        font-family: 'Clash Display';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 13.9081px;
+        font-size: 8.9081px;
         line-height: 15px;
-        /* or 109% */
+    }
+    .counter-seperator{
+        height: 82.34px;
+        font-weight: 500;
+        font-size: 25.5157px;
+        line-height: 50px;
+    }
 
-        letter-spacing: 0.02em;
+}
 
-        color: #F6F6F1;
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .countdown-item {
+        width: 58.34px;
+        height: 58.34px;
+        border-radius: 7.8755px;
+        font-size: 30.5157px;
+        line-height: 34px;
+    }
+    .countdown-container span {
+        font-size: 7.9081px;
+        line-height: 15px;
     }
     .counter-seperator{
         height: 82.34px;
         font-weight: 500;
         font-size: 45.5157px;
         line-height: 50px;
-        /* or 109% */
-
-        text-align: center;
-        letter-spacing: 0.02em;
     }
-
 }
 
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .countdown-item {
+        width: 70.34px;
+        height: 70.34px;
+        border-radius: 9.8755px;
+        font-size: 37.5157px;
+        line-height: 41px;
+    }
+    .countdown-container span {
+        font-size: 8.9081px;
+        line-height: 15px;
+    }
+    .counter-seperator{
+        height: 82.34px;
+        font-weight: 500;
+        font-size: 45.5157px;
+        line-height: 50px;
+    } 
+ 
+}
 
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+    .countdown-item {
+        width: 82.34px;
+        height: 82.34px;
+        border-radius: 11.8755px;
+        font-size: 45.5157px;
+        line-height: 50px;
+    }
+    .countdown-container span {
+        font-size: 10.9081px;
+        line-height: 15px;
+    }
+    .counter-seperator{
+        height: 82.34px;
+        font-weight: 500;
+        font-size: 45.5157px;
+        line-height: 50px;
+    }
+ 
+}

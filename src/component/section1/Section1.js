@@ -15,7 +15,7 @@ function Section1() {
         </div>
       </div>
       <div className='section1-container-2 row mt-4'>
-        <div className='col-md-8 col-sm-8 col-xs-8 col-lg-8'>
+        <div className='col-md-7 col-sm-7 col-xs-7 col-lg-7'>
         <div className='container-left'>
                 <Countdown 
                   timeTillDate="01 30 2023, 6:00 am" 
@@ -23,7 +23,7 @@ function Section1() {
                 />
             </div>
         </div>
-        <div className='col-md-4 col-sm-4 col-xs-4 col-lg-4'>
+        <div className='col-md-5 col-sm-5 col-xs-5 col-lg-5 section2-container2-right'>
           <button className='section1-container-2-button'>Whitelist</button>
         </div>
         </div>
