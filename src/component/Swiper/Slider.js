@@ -14,7 +14,7 @@ import video6 from '../../assets/carousel/6.mp4'
 import video7 from '../../assets/carousel/7.mp4'
 import video8 from '../../assets/carousel/8.mp4'
 import video9 from '../../assets/carousel/9.mp4'
-import video10 from '../../assets/10.mp4'
+import video10 from '../../assets/carousel/10.mp4'
 import video11 from '../../assets/carousel/11.mp4'
 import video12 from '../../assets/carousel/12.mp4'
 import { useSwiperSlide } from 'swiper/react';
