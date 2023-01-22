@@ -37,7 +37,7 @@ function Social() {
         </div>
         <div className='col-md-6 social-container-content p-2' style={{width: "47%"}}>
           <div className='social-media-container'>
-        <h1 className="section3-title-new-2 text-center section2-title-right" style={{fontFamily:"Clash Display bold"}}>Social Media Integrations.</h1>
+        <h1 className="section3-title-new-2 text-center section2-title-right" style={{fontFamily:"Clash Display bold"}}>Social Media Usage.</h1>
             <p className="section3-subtitle-new-1 section2-title-right text-center" style={{fontFamily:"Clash Display Light", marginTop: "1.5vw"}}>
               Create reels with <b>Snapchat AR,</b>
                 <br />wear it on your <br /> 
