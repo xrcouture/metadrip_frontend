@@ -92,11 +92,10 @@ function Section3d() {
         </div>
         <div className="cross-header-content col-md-5 col-sm-5 col-lg-5 p-4">
             <div className='interoperability-content'>
-          <h1 className="section3-title-new-1 text-center section2-title-right" style={{fontFamily:"Clash Display Bold"}}>Interoperability Exists.</h1>
+          <h1 className="section3-title-new-1 text-center section2-title-right" style={{fontFamily:"Clash Display Bold"}}>Cross-Platform usage</h1>
           <div className=" interoperability-content-subtitle">
           <p className="section3-subtitle-new-1 text-center section2-title-right" style={{fontFamily:"Clash Display Light", marginTop: "2vw", padding: "0rem  0rem 0rem 2.5vw"}}>
-            Collectors get access to exclusive Metaverse Wearables, Private
-            Events, Airdrops, an Engaging Community and more.
+          Our aim is to partner with as many Metaverse, Gaming, Avatar, AR/VR platforms as possible to offer cross-platform usage.
           </p>
           </div>
             </div>

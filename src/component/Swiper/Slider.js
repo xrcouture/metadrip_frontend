@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import image from "../../assets/image-1.png";
-// import bg from "../../assets/collections-background.png";
 import bg from "../../assets/background-section2.png";
 import "./slider.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,7 +14,7 @@ import video6 from '../../assets/carousel/6.mp4'
 import video7 from '../../assets/carousel/7.mp4'
 import video8 from '../../assets/carousel/8.mp4'
 import video9 from '../../assets/carousel/9.mp4'
-import video10 from '../../assets/carousel/10.mp4'
+import video10 from '../../assets/10.mp4'
 import video11 from '../../assets/carousel/11.mp4'
 import video12 from '../../assets/carousel/12.mp4'
 import { useSwiperSlide } from 'swiper/react';
