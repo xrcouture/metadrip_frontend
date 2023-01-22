@@ -39,7 +39,7 @@
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 400px) { 
   .header-logo {
-    margin-left: 1.5rem;
+    margin-left: 1.2rem;
     width: 7rem;
   }
   .header-button {
@@ -52,7 +52,7 @@
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 600px) { 
   .header-logo {
-    margin-left: 2.5rem;
+    margin-left: 2.2rem;
     width: 8.5rem;
   }
   .header-button {
@@ -68,7 +68,7 @@
     height: 6rem;
   }
   .header-logo {
-    margin-left: 3rem;
+    margin-left: 2.7rem;
     width: 9.5rem;
   }
   .header-button {
@@ -84,11 +84,11 @@
     height: 7rem;
   }
   .header-logo {
-    margin-left: 3.5rem;
+    margin-left: 3.2rem;
     width: 10rem;
   }
   .header-button {
-    margin-right: 3.5rem;
+    margin-right: 4rem;
     font-size: 0.9rem;
     padding: 0.5rem 1.5rem;
     border-radius: 0.7rem;
@@ -98,7 +98,7 @@
 /* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
   .header-logo {
-    margin-left: 4rem;
+    margin-left: 3.7rem;
     width: 12rem;
   }
   .header-button {
@@ -115,7 +115,7 @@
     height: 7.5rem;
   }
   .header-logo {
-    margin-left: 4.5rem;
+    margin-left: 4.2rem;
     width: 15rem;
   }
   .header-button {
@@ -132,7 +132,7 @@
     height: 8.5rem;
   }
   .header-logo {
-    margin-left: 5rem;
+    margin-left: 4.7rem;
     width: 17rem;
   }
   .header-button {
