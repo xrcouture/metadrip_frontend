@@ -82,6 +82,67 @@ code {
   letter-spacing: 0.04em;
   color: #F6F6F1;
 }
+.section3-title-new-1{
+  font-family: 'Clash Display';
+  font-style: bold;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #F6F6F1;
+}
+
+.section3-subtitle-new-1{
+  font-family: 'Clash Display';
+  font-style: Medium;
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 11px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #F6F6F1;
+}
+.section3-title-new-2{
+  font-family: 'Clash Display';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 21.2523px;
+  line-height: 25px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #F6F6F1;
+}
+.section3-subtitle-new-2{
+  font-family: 'Clash Display';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 9.56355px;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #F6F6F1;
+}
+.passive-subtitle{
+  font-family: 'Clash Display';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11.5201px;
+  line-height: 13px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #F6F6F1;
+}
+.passive-title{
+  font-family: 'Clash Display';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21.1893px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #F6F6F1;
+}
 
   /* // Small devices (landscape phones, 576px and up) */
   @media (min-width: 576px) { 
@@ -100,6 +161,26 @@ code {
   .section2-subtitle{
     font-size: 10.5201px;
     line-height: 11px;
+  }
+  .section3-title-new-1{
+    font-size: 22px;
+    line-height: 23px;
+  }
+  .section3-subtitle-new-1{
+    font-size: 11px;
+    line-height: 13px;
+  }
+  .section3-title-new-2{
+    font-size: 25.2523px;
+    line-height: 29px;
+  }
+  .passive-subtitle{
+    font-size: 15.5201px;
+    line-height: 17px;
+  }
+  .passive-title{
+    font-size: 23.1893px;
+    line-height: 25.5px;
   }
   }
 
@@ -121,6 +202,27 @@ code {
       font-size: 12.5201px;
       line-height: 14px;
     }
+    .section3-title-new-1{
+      font-size: 24px;
+      line-height: 25px;
+      text-align: right !important;
+    }
+    .section3-subtitle-new-1{
+      font-size: 13px;
+      line-height: 15px;
+    }
+    .section3-title-new-2{
+      font-size: 29.2523px;
+      line-height: 34px;
+    }
+    .passive-subtitle{
+      font-size: 19.5201px;
+      line-height: 21px;
+    }
+    .passive-title{
+      font-size: 25.1893px;
+      line-height: 28px;
+    }
    }
   
   /* // Large devices (desktops, 992px and up) */
@@ -140,6 +242,26 @@ code {
     .section2-subtitle{
       font-size: 14.5201px;
       line-height: 17px;
+    }
+    .section3-title-new-1{
+      font-size: 26px;
+      line-height: 27px;
+    }
+    .section3-subtitle-new-1{
+      font-size: 15px;
+      line-height: 17px;
+    }
+    .section3-title-new-2{
+      font-size: 33.2523px;
+      line-height: 38px;
+    }
+    .passive-subtitle{
+      font-size: 23.5201px;
+      line-height: 25px;
+    }
+    .passive-title{
+      font-size: 28.1893px;
+      line-height: 30.5px;
     }
    }
   
@@ -164,6 +286,26 @@ code {
       font-size: 12.5201px;
       line-height: 19px;
     }
+    .section3-title-new-1{
+      font-size: 28px;
+      line-height: 30px;
+    }
+    .section3-subtitle-new-1{
+      font-size: 17px;
+      line-height: 19px;
+    }
+    .section3-title-new-2{
+      font-size: 37.2523px;
+      line-height: 41px;
+    }
+    .passive-subtitle{
+      font-size: 27.5201px;
+      line-height: 29px;
+    }
+    .passive-title{
+      font-size: 30.1893px;
+      line-height: 32px;
+    }
    }
 
    @media (min-width: 1400px) { 
@@ -182,5 +324,25 @@ code {
     .section2-subtitle{
       font-size: 18.5201px;
       line-height: 21px;
+    }
+    .section3-title-new-1{
+      font-size: 30px;
+      line-height: 32px;
+    }
+    .section3-subtitle-new-1{
+      font-size: 19px;
+      line-height: 23px;
+    }
+    .section3-title-new-2{
+      font-size: 41.2523px;
+      line-height: 44px;
+    }
+    .passive-subtitle{
+      font-size: 31.5201px;
+      line-height: 33px;
+    }
+    .passive-title{
+      font-size: 33.1893px;
+      line-height: 35px;
     }
    }

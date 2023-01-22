@@ -70,6 +70,23 @@ position: absolute;
     margin-top: 10%;
     padding: 5%;
 }
+ .passivelg4{
+    display: none;
+}
+ .passivelg1{
+    display: none;
+}
+ .passivelg2{
+    display: none;
+}
+ .passivelg3{
+    display: none;
+}
+ .passivelg5{
+    display: none;
+}
+
+
 @media only screen and (min-width: 768px){
     .video-container .carousel {
         border-radius: 40px;
@@ -116,6 +133,7 @@ position: absolute;
         margin-top: 15%;
     }
     .passivelg1{
+        display:block;
         top: -10%;
         left: 5%;
         height: 70px;
@@ -124,6 +142,7 @@ position: absolute;
         transform: scale(0.8);
     }
     .passivelg2{
+        display:block;
         top: -10%;
         right: 5%;
         height: 70px;
@@ -132,6 +151,7 @@ position: absolute;
         transform: scale(.9);
     }
     .passivelg3{
+        display:block;
         position: absolute;
         bottom:-7%;
         left: -2%;
@@ -141,6 +161,7 @@ position: absolute;
  
     }
     .passivelg4{
+        display:block;
         position: absolute;
         right: 0%;
         bottom: 0%;
@@ -148,6 +169,7 @@ position: absolute;
         width: 70px;
     }
     .passivelg5{
+        display:block;
         position: absolute;
         bottom: 15%;
         left: -5%;

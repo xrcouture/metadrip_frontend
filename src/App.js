@@ -29,8 +29,8 @@ function App() {
       <Section1 />
       <Slider />
       <Section3 />
-      <Roadmap />
       <Community />
+      <Roadmap />
       <Footer />
     </div>
   );

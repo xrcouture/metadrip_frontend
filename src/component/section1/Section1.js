@@ -36,7 +36,7 @@ function Section1() {
         <div className='col-md-5 col-sm-5 col-xs-5 col-lg-5 section2-container2-right'>
           <div className='btn-container'>
             <button className='section1-container-2-button'>
-          <a href='https://heymint.xyz/meta-drip-xrc' target="_blank" >
+          <a href='https://heymint.xyz/meta-drip-xrc' target="_blank"  style={{fontFamily:"Druk Wide Bold"}}>
             Whitelist</a>
             </button>
           </div>

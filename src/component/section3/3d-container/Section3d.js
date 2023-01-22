@@ -56,7 +56,7 @@ function Section3d() {
       ];
 
   return (
-    <div className='w-80 section3-2'>
+    <div className='w-100 section3-2'>
     <div className='row'>
         <div className="col-md-6 col-lg-6 cross-left-container">
           <div className="cross-header-image-container w-80">
@@ -90,17 +90,18 @@ function Section3d() {
             </div>
           </div>
         </div>
-        <div className="cross-header-content col-md-6 col-sm-6 col-lg-6 p-4">
+        <div className="cross-header-content col-md-5 col-sm-5 col-lg-5 p-4">
             <div className='interoperability-content'>
-          <h1 className="utility-content-header text-center section2-title-right">Interoperability Exists.</h1>
-          <div className="cross-header-content-2-containe w-100">
-          <p className="section2-subtitle text-center section2-title-right">
+          <h1 className="section3-title-new-1 text-center section2-title-right" style={{fontFamily:"Clash Display Bold"}}>Interoperability Exists.</h1>
+          <div className=" interoperability-content-subtitle">
+          <p className="section3-subtitle-new-1 text-center section2-title-right" style={{fontFamily:"Clash Display"}}>
             Collectors get access to exclusive Metaverse Wearables, Private
             Events, Airdrops, an Engaging Community and more.
           </p>
           </div>
             </div>
         </div>
+        {/* <div  className='col-md-1'></div> */}
     </div>     
     </div>
    
