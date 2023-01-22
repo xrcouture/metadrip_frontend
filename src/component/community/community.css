@@ -192,7 +192,6 @@ left: -8%;
 .partners{
     position: relative;
     width: 100%;
-    min-height: 100%;
     border-radius: 15.1479px;
     display: flex;
     flex-direction: column;
@@ -429,6 +428,9 @@ left: -8%;
 }
 
 @media only screen and (min-width: 600px){
+  .partners-container {
+    width: 100% !important; 
+  }
   .join-community-container {
     margin-top: 2.5rem !important;
   }
@@ -482,6 +484,7 @@ left: -8%;
     display: block !important;
     order: unset !important;
     margin-top: 1.5rem !important;
+    width: auto !important; 
   }
   .join-community-container {
     display: block !important;

@@ -31,7 +31,7 @@ function Community() {
           </div>
         </div>
         <div className="partners-container col-md-6 col-lg-6 col-xl-6 p-0">
-          <div className="partners container">
+          <div className="" style={{minHeight: "unset !important", height: "unset !important"}}>
             <p className="utility-content-header partners-header">Partners</p>
             <div className="partners-logo-container">
               <div className="partner-icon-container">
