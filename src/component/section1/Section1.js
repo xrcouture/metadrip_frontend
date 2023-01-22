@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './section1.css'
 import Countdown from './Countdown';
 import video from '../../assets/videobg.mp4'
+import videoPortrait from '../../assets/V4_Vid_Portrait.mp4'
 import ReactPlayer from 'react-player'
 
 function Section1() {
@@ -9,10 +10,16 @@ function Section1() {
   return (
     <div className='section1-container' >
       {/* <video src={video}  autoPlay loop ></video> */}
-      <video autoPlay={true} loop muted className="video-bg-section1">
+      <video autoPlay={true} loop muted className="video-bg-section1 d-none d-md-block">
         <source src={video} />
         {/* <source src="video-bar.ogv"/> */}
       </video>
+
+      <video autoPlay={true} loop muted className="video-bg-section1 d-block d-md-none">
+        <source src={videoPortrait} />
+        {/* <source src="video-bar.ogv"/> */}
+      </video>
+
       {/* <ReactPlayer url="../../assets/videobg.mp4" autoPlay /> */}
       {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/z8Z3a7JWsiI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
       <div className='section1-container-content'>
