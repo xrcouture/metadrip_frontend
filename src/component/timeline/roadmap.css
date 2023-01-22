@@ -43,7 +43,7 @@
   margin-top: 40px;
   width: 6rem;
   height: 6rem;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 1rem;
 
   margin: 0;
@@ -68,6 +68,8 @@
   font-size: 10px !important;
   opacity: 0.8;
   padding: 15px;
+  text-align: left !important;
+  font-size: 0.97rem !important;
 }
 
 .swip-container .swiper-slide-active {
@@ -102,6 +104,15 @@
   position: absolute;
   width: 100%;
   margin-top: 45px;
+}
+
+.roadmap-logos {
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  border-radius: inherit;
+  background:linear-gradient(to right, rgb(87, 42, 129), rgb(176, 94, 218)) border-box;
+  border: 4px solid transparent;
 }
 
 /* Extra small devices (phones, 600px and down) */
