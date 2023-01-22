@@ -31,14 +31,14 @@ function Social() {
   return (
     <div className='social-container'>
         <div className='row'>
-        <div className='rotating-container col-md-6'>
+        <div className='rotating-container col-md-6'  style={{width: "53%"}}>
             <img src={imgbg} alt="" className='bg-3d w-80' />
             <img src={img3d} alt="" className='img3d w-90' />  
         </div>
-        <div className='col-md-6 social-container-content p-2'>
+        <div className='col-md-6 social-container-content p-2' style={{width: "47%"}}>
           <div className='social-media-container'>
         <h1 className="section3-title-new-2 text-center section2-title-right" style={{fontFamily:"Clash Display bold"}}>Social Media Integrations.</h1>
-            <p className="section3-subtitle-new-1 section2-title-right text-center" style={{fontFamily:"Clash Display "}}>
+            <p className="section3-subtitle-new-1 section2-title-right text-center" style={{fontFamily:"Clash Display Light", marginTop: "1.5vw"}}>
               Create reels with <b>Snapchat AR,</b>
                 <br />wear it on your <br /> 
               video calls. Get custom<br /> <b>‘virtual-fitting’</b> on a photograph to<br/>
@@ -76,7 +76,7 @@ function Social() {
                     {/* <p className='text-center passive-title pb-4' style={{fontFamily:"Clash Display Bold"}}><b>Multiple Possibilities.</b></p> */}
                     <img src={passive2} alt="" className="passive2-img" />
                     <div className='passive-subtitle-container text-center'>
-                    <p className='text-center passive-subtitle' style={{fontFamily:"Clash Display"}}>The holders of Meta Drip will be able to earn Passive Income. XR Couture will list the Meta Drip collection for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.
+                    <p className='text-center passive-subtitle' style={{fontFamily:"Clash Display Light"}}>The holders of Meta Drip will be able to earn Passive Income. XR Couture will list the Meta Drip collection for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.
  </p>
                     </div>
                     <div className='button-container'>
