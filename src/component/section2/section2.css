@@ -1,11 +1,11 @@
 .section-two-container {
-  height: auto;
+  height: max-content !important;
   margin: auto;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding: 6% 8%;
+
 }
 .section2-left {
-  font-family: "Clash Display";
+  font-family: "Clash Display Light";
   font-style: Medium;
   font-weight: 400;
   font-size: 19.8106px;
