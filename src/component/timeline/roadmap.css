@@ -69,7 +69,7 @@
   opacity: 0.8;
   padding: 15px;
   text-align: left !important;
-  font-size: 0.97rem !important;
+  font-size: 0.7rem !important;
 }
 
 .swip-container .swiper-slide-active {
@@ -134,7 +134,7 @@
   }
 
   .swip-card-content-desc {
-    font-size: 11px !important;
+    font-size: 0.75rem !important;
     padding: 16px;
   }
 }
