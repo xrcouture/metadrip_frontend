@@ -4,6 +4,22 @@
   background: #282121;
   width: 100%;
 }
+.footer-textarea{
+  border: none;
+  background-color: #F3F2F2;
+}
+textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+
+  resize: none; /*remove the resize handle on the bottom right*/
+}
 .content-footer-about-header {
   font-family: "Druk Wide Medium";
   font-style: normal;
@@ -32,7 +48,7 @@
   font-weight: 500;
   font-size: 20.0325px;
   line-height: 22px;
-  text-align: center;
+  /* text-align: center; */
   letter-spacing: 0.04em;
   color: #d0c5c5;
 }
@@ -64,8 +80,13 @@
   text-align: left;
   letter-spacing: 0.02em;
   color: #a69c9c;
+
+}
+.email-container{
   justify-self: baseline;
   position: absolute;
+  width: 100%;
+  left: 10%;
   bottom: 10%;
 }
 .icon-footer {
@@ -88,7 +109,9 @@
   /* Microsoft Edge */
   color: #a69c9c;
 }
-
+.send-button{
+  color: #a69c9c !important;
+}
 .support-footer-header {
   position: relative;
   margin-top: 10%;
@@ -152,6 +175,15 @@
   letter-spacing: 0.02em;
   color: #f6f6f1;
   margin-top: 0.6rem;
+  text-decoration: none;
+}
+.social-content:hover{
+  text-decoration: none;
+  color: #f6f6f1;
+}
+.social-content:focus{
+  text-decoration: none;
+  color: #f6f6f1;
 }
 .terms-container {
   font-family: "Druk Wide Medium";
@@ -530,4 +562,164 @@
   .terms-container {
     margin: 3rem 1rem;
   }
+}
+.footer.send-button{
+  transform: scale(.9);
+  position: absolute;
+  right: 10%;
+}
+
+
+/* ............. */
+/* ====================================================
+Recreating the email field from https://webflow.com/cms. Just an experiment - not as cross-browser friendly as the original.
+Changed:
+- animated gradient bar to :after element
+- flexbox for layout
+==================================================== */
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  border-style: none;
+  background: transparent;
+  outline: none;
+}
+
+button {
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
+}
+
+h1.demo {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
+  color: #f5f6ff;
+}
+
+a.demo {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: rgba(202, 205, 239, 0.8);
+  margin-bottom: 3rem;
+}
+
+.demo-flex-spacer {
+  flex-grow: 1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 1600px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+.webflow-style-input {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 2px;
+  padding: 5px;
+}
+.webflow-style-input:after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 999;
+  height: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-position: 0% 0%;
+  /* background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6); */
+  border-bottom: 1px solid #a69c9c;
+  background-size: 500% auto;
+  -webkit-animation: gradient 3s linear infinite;
+          animation: gradient 3s linear infinite;
+}
+
+.webflow-style-input input {
+  flex-grow: 1;
+  color: #a69c9c;
+  font-weight: 500;
+  font-family: 'Clash Display';
+  font-size: 10.4967px;
+  line-height: 11px;
+  vertical-align: middle;
+}
+.webflow-style-input input::-webkit-input-placeholder {
+  color: #7881A1;
+}
+
+.webflow-style-input button {
+  color: #7881A1;
+  font-weight: 500;
+  font-size: 10.4967px;
+  line-height: 11px;
+  vertical-align: middle;
+  transition: color 0.25s;
+}
+.webflow-style-input button:hover {
+  color: #BFD2FF;
 }
