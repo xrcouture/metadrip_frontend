@@ -76,7 +76,7 @@ function Social() {
                     {/* <p className='text-center passive-title pb-4' style={{fontFamily:"Clash Display Bold"}}><b>Multiple Possibilities.</b></p> */}
                     <img src={passive2} alt="" className="passive2-img" />
                     <div className='passive-subtitle-container text-center'>
-                    <p className='text-center passive-subtitle' style={{fontFamily:"Clash Display Light", fontSize: "0.9vw"}}>The holders of Meta Drip will be able to earn Passive Income. XR Couture will list the Meta Drip collection for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.
+                    <p className='text-center passive-subtitle' style={{fontFamily:"Clash Display Light", fontSize: "0.95vw", marginTop: "2vw"}}>The holders of Meta Drip will be able to earn Passive Income. XR Couture will list the Meta Drip collection for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.
  </p>
                     </div>
                     <div className='button-container'>
