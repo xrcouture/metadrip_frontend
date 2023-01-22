@@ -111,6 +111,7 @@ z-index: 100;
 }
 @media only screen and (min-width: 605px){
     .swiper-container-overall{
+        margin-top: 5%;
         height: 65vh !important;
     }
     .whitelist-swiper .swiper-wrapper .swiper-slide {
