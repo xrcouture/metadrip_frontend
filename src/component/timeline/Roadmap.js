@@ -12,6 +12,9 @@ import 'swiper/modules/pagination/pagination.min.css'
 import roadmapLogo1 from '../../assets/Q12022.png'
 import roadmapLogo2 from '../../assets/Q22022.PNG'
 import roadmapLogo3 from '../../assets/Q32022.PNG'
+import roadmapLogo4 from '../../assets/Q42022.png'
+import roadmapLogo5 from '../../assets/Q12023.PNG'
+import roadmapLogo6 from '../../assets/Q22023.JPG'
 
 function Roadmap() {
   
@@ -104,7 +107,9 @@ function Roadmap() {
           <SwiperSlide className='swip-card'>
             <div className='swip-card-container'>
                 <div className='swip-card-ball'></div>
-                <div className='swip-card-box'></div>
+                <div className='swip-card-box'>
+                <img className='roadmap-logos' src={roadmapLogo4} alt=''></img>
+                </div>
                 <div className='swip-card-content'>
                   <div className='swip-card-content-title'>
                   <div >Q4 2022</div>
@@ -120,7 +125,9 @@ function Roadmap() {
           <SwiperSlide className='swip-card'>
             <div className='swip-card-container'>
                 <div className='swip-card-ball'></div>
-                <div className='swip-card-box'></div>
+                <div className='swip-card-box'>
+                <img className='roadmap-logos' src={roadmapLogo5} alt=''></img>
+                </div>
                 <div className='swip-card-content'>
                   <div className='swip-card-content-title'>
                   <div >Q1 2023</div>
@@ -137,7 +144,9 @@ function Roadmap() {
           <SwiperSlide className='swip-card'>
             <div className='swip-card-container'>
                 <div className='swip-card-ball'></div>
-                <div className='swip-card-box'></div>
+                <div className='swip-card-box'>
+                <img className='roadmap-logos' src={roadmapLogo6} alt=''></img>
+                </div>
                 <div className='swip-card-content'>
                   <div className='swip-card-content-title'>
                   <div >Q2 2023</div>
