@@ -27,7 +27,7 @@ function Roadmap() {
           spaceBetween={'3%'}
           slidesPerView={2}
           onSlideChange={() => console.log("slide")}
-          centeredSlides={true}
+          // centeredSlides={true}
           slideToClickedSlide={true}
           // loop={true}
           className='slides-container'

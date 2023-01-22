@@ -9,7 +9,7 @@
 .section2-container-background{
     position: absolute;
     width: 100%;
-    bottom: 3%;
+    /* bottom: 3%; */
     height: 100% !important;
 }
 .swiper-container-overall{
@@ -28,6 +28,7 @@ overflow-x: hidden;
     height: 100%;
     display: flex;
     align-items: center;
+    width: 1000px;
 }
 .swiper-container-overall .slider-container{
     position: relative;
@@ -38,11 +39,6 @@ overflow-x: hidden;
 }
 .slider-container .swiper{
     height: 100% !important;
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* justify-items: center; */
-    /* align-content: center; */
 }
 .swiper-container-overall .swiper-image{
     width: 100%;
@@ -53,9 +49,18 @@ overflow-x: hidden;
     position: relative;
     background-position: center;
     background-size: cover;
-    width: 500px !important;
-    height: 500px !important;
+    width: 450px !important;
+    height: 450px !important;
+    overflow: hidden;
+    border: 5px solid #D19CFB;
+    border-radius: 30px;
+
+    /* background-color: linear-gradient(180deg, #CE9DF4 0%, rgba(214, 180, 220, 0.65) 100%);; */
 }
+.whitelist-swiper .swiper-wrapper .swiper-slide-active {
+    /* border: 8px solid #D19CFB; */
+}
+
 
 .info h5{
     margin: 0;
@@ -79,11 +84,7 @@ overflow-x: hidden;
 .swiper-slide .info button{
     display:none
 }
-.swiper-slide-active {
-    /* border-radius: 60.4262px !important; */
-    border: 2px solid #D19CFB;
-    /* box-shadow:4px 4px #D19CFB; */
-}
+
 .swiper-slide-active .info button{
     display:block;
     z-index: 100;
@@ -108,6 +109,20 @@ text-align:center;
 color: #FFFFFF;
 z-index: 100;
 }
+@media only screen and (min-width: 605px){
+    .swiper-container-overall{
+        height: 65vh !important;
+    }
+    .whitelist-swiper .swiper-wrapper .swiper-slide {
+        border: 8px solid #D19CFB;
+
+    }
+}
+@media only screen and (min-width: 1200px){
+    /* .swiper-container-overall{
+        height: 55vh !important;
+    } */
+}
 @media only screen and (max-width: 605px){
     .whitelist-swiper .swiper-wrapper .swiper-slide {
         position: relative;
@@ -116,6 +131,7 @@ z-index: 100;
         width: 250px !important;
         height: 250px !important;
     }
+
     .slide-button{
         width: 100px !important;
         height: 40px;
@@ -124,7 +140,7 @@ z-index: 100;
     }
     .swiper-slide-active{
         /* border-radius: 20px !important; */
-        border: 2px solid #D19CFB;
+        /* border: 2px solid #D19CFB; */
         /* box-shadow:1px #D19CFB !important; */
     }
     .carousel-background{

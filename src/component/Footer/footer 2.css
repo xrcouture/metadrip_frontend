@@ -1,0 +1,533 @@
+.footer-container {
+  position: relative;
+  height: max-content;
+  background: #282121;
+  width: 100%;
+}
+.content-footer-about-header {
+  font-family: "Druk Wide Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.85rem;
+  line-height: 1.2rem;
+  display: flex;
+  align-items: center;
+  color: #dddada;
+  margin: 2rem 1rem;
+}
+.footer-support-container {
+  position: relative;
+  background: #F3F2F2;
+  border-radius: 22.0267px;
+  height: 245px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+.footer-support-subtitle {
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20.0325px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #d0c5c5;
+}
+.footer-support-title {
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40.6373px;
+  line-height: 44px;
+  letter-spacing: 0.04em;
+  color: #d0c5c5;
+  align-self: flex-start;
+  justify-self: flex-start;
+  position: absolute;
+  top: -2%;
+  left: 2%;
+}
+.footer-input {
+  width: 80%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1.46845px solid rgba(160, 152, 152, 0.69);
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13.004px;
+  line-height: 14px;
+  text-align: left;
+  letter-spacing: 0.02em;
+  color: #a69c9c;
+  justify-self: baseline;
+  position: absolute;
+  bottom: 10%;
+}
+.icon-footer {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #a69c9c;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #a69c9c;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #a69c9c;
+}
+
+.support-footer-header {
+  position: relative;
+  margin-top: 10%;
+  font-family: "Druk Wide";
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+
+  color: #dddada;
+}
+
+
+.footer-logo-container {
+  margin-top: 5rem;
+  text-align: center;
+}
+.logo-font {
+  position: relative;
+  margin-top: 10%;
+  font-family: "Clash Display Light";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17.9267px;
+  /* or 109% */
+
+  text-align: center !important;
+  letter-spacing: 0.02em;
+
+  color: #f6f6f1;
+  /* margin-left: 0.2rem; */
+}
+.footer-social-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  position: relative;
+  /* height: 50%; */
+  margin-left: 1rem;
+}
+.social-icon-1 {
+  /* width: 100%;
+  height: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  padding-right: 1rem;
+}
+.social-content {
+  font-family: "Clash Display Light";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.65rem;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #f6f6f1;
+  margin-top: 0.6rem;
+}
+.terms-container {
+  font-family: "Druk Wide Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #dddada;
+  margin: 1rem 1rem;
+}
+.terms-text {
+  font-family: "Druk Wide";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.65rem;
+  display: flex;
+  align-items: center;
+
+  color: #dddada;
+}
+/* .footer-img{
+  width: 80%;
+  height: auto;
+} */
+.support-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footer-img {
+  max-width: 4.5rem;
+}
+.footer-section-1 {
+  padding-top: 0.5rem;
+  padding-bottom: 1.5rem;
+  background: #282121; 
+}
+
+
+@media only screen and (max-width: 450px) {
+  .footer-section-1{
+    padding-top: 0.5rem;
+    padding-bottom: 1.5rem;
+    order: 2;
+  }
+  .support-section{
+    order: 1;
+  }
+  .support-container {
+    background-color: transparent;
+    margin-bottom: 10%;
+  }
+  .footer-container{
+    background-color: transparent;
+    margin: 0 !important;
+    padding: 0;
+  }
+  .support-footer-header{
+    justify-content: center;
+  }
+  .icon-footer {
+    height: 1.35rem !important;
+    width: 1.35rem !important;
+  }
+  .social-content {
+    font-size: 0.65rem;
+  }
+  .logo-font {
+    font-family: "Clash Display Light";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.4rem;
+    line-height: 6px;
+    /* or 109% */
+
+    text-align: left;
+    letter-spacing: 0.02em;
+
+    color: #f6f6f1;
+    /* margin-left: 0.4rem; */
+  }
+  .terms-text {
+    font-family: "Druk Wide Medium";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.65rem;
+    color: #dddada;
+  }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 600px) {
+  .content-footer-about-header{
+    font-size: 1.1rem;
+  }
+  .footer-section-1{
+    padding-top: 0.5rem;
+    padding-bottom: 1.5rem;
+    order: 2;
+  }
+  .support-section{
+    order: 1;
+  }
+  .support-container {
+    background-color: transparent;
+    margin-bottom: 10%;
+  }
+  .footer-container{
+    background-color: transparent;
+    margin: 0 !important;
+    padding: 0;
+  }
+  .support-footer-header{
+    justify-content: center;
+  }
+  .icon-footer {
+    height: 1.4rem !important;
+    width: 1.4rem !important;
+  }
+  .social-content {
+    font-size: 0.7rem;
+  }
+  .logo-font {
+    font-family: "Clash Display Light";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.48rem;
+    line-height: 6px;
+    /* or 109% */
+
+    text-align: left;
+    letter-spacing: 0.02em;
+
+    color: #f6f6f1;
+    /* margin-left: 0.45rem; */
+  }
+  .terms-text {
+    font-family: "Druk Wide Medium";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.7rem;
+    color: #dddada;
+  }
+  .footer-img {
+    max-width: 5rem;
+  }
+  .social-icon-1 {
+    padding-right: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .content-footer-about-header{
+    font-size: 1.2rem;
+  }
+  .footer-section-1{
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    order: 2;
+  }
+  .support-section{
+    order: 1;
+  }
+  .support-container {
+    background-color: transparent;
+    margin-bottom: 10%;
+  }
+  .footer-container{
+    background-color: transparent;
+    margin: 0 !important;
+    padding: 0;
+  }
+  .support-footer-header{
+    justify-content: center;
+  }
+  .icon-footer {
+    height: 1.45rem !important;
+    width: 1.45rem !important;
+  }
+  .social-content {
+    font-size: 0.8rem;
+  }
+  .logo-font {
+    font-family: "Clash Display Light";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.58rem;
+    line-height: 6px;
+    /* or 109% */
+
+    text-align: left;
+    letter-spacing: 0.02em;
+
+    color: #f6f6f1;
+    /* margin-left: 0.5rem; */
+  }
+  .terms-text {
+    font-family: "Druk Wide Medium";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: #dddada;
+  }
+  .footer-img {
+    max-width: 6rem;
+  }
+  .social-icon-1 {
+    padding-right: 3rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 950px) {
+  .content-footer-about-header{
+    font-size: 1.2rem;
+  }
+  .footer-section-1{
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  } 
+  .footer-container{
+    margin: 0 !important;
+  }
+  .footer-logo-container {
+    margin-top: 2rem;
+  }
+  .support-footer-header{
+    justify-content: center;
+  }
+  .icon-footer {
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+  }
+  .social-content {
+    font-size: 0.8rem;
+  }
+  .logo-font {
+    font-family: "Clash Display Light";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.76rem;
+    line-height: 6px;
+    /* or 109% */
+
+    text-align: left;
+    letter-spacing: 0.02em;
+
+    color: #f6f6f1;
+    /* margin-left: 0.55rem; */
+  }
+  .terms-text {
+    font-family: "Druk Wide Medium";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: #dddada;
+  }
+  .footer-img {
+    max-width: 8rem;
+  }
+  .social-icon-1 {
+    padding-right: 2rem;
+  }
+  .terms-container {
+    margin: 1.6rem 1rem;
+  }
+}
+
+@media only screen and (min-width: 950px) and (max-width: 1200px) {
+  .content-footer-about-header{
+    font-size: 1.3rem;
+  }
+  .footer-section-1{
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  } 
+  .footer-container{
+    margin: 0 !important;
+  }
+  .footer-logo-container {
+    margin-top: 2rem;
+  }
+  .support-footer-header{
+    justify-content: center;
+  }
+  .icon-footer {
+    height: 1.8rem !important;
+    width: 1.8rem !important;
+  }
+  .social-content {
+    font-size: 0.9rem;
+  }
+  .logo-font {
+    font-family: "Clash Display Light";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 6px;
+    /* or 109% */
+
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #f6f6f1;
+  }
+  .terms-text {
+    font-family: "Druk Wide Medium";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.88rem;
+    color: #dddada;
+  }
+  .footer-img {
+    max-width: 10rem;
+  }
+  .social-icon-1 {
+    padding-right: 3rem;
+  }
+  .terms-container {
+    margin: 1.6rem 1rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .content-footer-about-header{
+    font-size: 1.7rem;
+  }
+  .footer-section-1{
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  } 
+  .footer-container{
+    margin: 0 !important;
+    padding: 0rem 3rem;
+  }
+  .footer-logo-container {
+    margin-top: 2rem;
+  }
+  .support-footer-header{
+    justify-content: center;
+  }
+  .icon-footer {
+    margin-top: 2rem;
+    height: 2.7rem !important;
+    width: 2.7rem !important;
+  }
+  .social-content {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
+  .logo-font {
+    font-family: "Clash Display Light";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 6px;
+    margin-top: 2rem;
+    /* or 109% */
+
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #f6f6f1;
+  }
+  .terms-text {
+    font-family: "Druk Wide Medium";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #dddada;
+  }
+  .footer-img {
+    max-width: 15rem;
+  }
+  .social-icon-1 {
+    padding-right: 6rem;
+  }
+  .terms-container {
+    margin: 3rem 1rem;
+  }
+}
