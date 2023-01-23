@@ -21,7 +21,7 @@ position: absolute;
 }
 .button-3d{
     position: absolute;
-    bottom: 30%;
+    bottom: 23%;
     z-index: 120;
     align-self: center;    
     background: linear-gradient(180deg, #DF77F2 0%, rgba(50, 20, 233, 0) 100%);
@@ -72,7 +72,7 @@ position: absolute;
     height: 100% !important;
     width: 100%;
     background-size: cover !important;
-    transform:scale(1.2)
+    transform:scale(1.11);
 }
 .video-container .carousel .carousel-indicators [data-bs-target]{
     height: 10px !important;
