@@ -7,9 +7,35 @@ import { GrSend } from 'react-icons/gr';
 import { RxTwitterLogo,RxDiscordLogo } from 'react-icons/rx';
 import {FaLinkedinIn} from 'react-icons/fa'
 
+import axios from "axios";
+
+const baseURL = "https://xrcapi.onrender.com/query/set";
+
 function Footer() {
+
+    const [formValue, setformValue] = React.useState({
+        email: '',
+        query: ''
+      });
+
+    const handleSubmit = () => {
+        axios
+        .post(baseURL, {
+          email: formValue.email,
+          query: formValue.query
+        })
+    }
+
+    const handleChange = (event) => {
+        setformValue({
+          ...formValue,
+          [event.target.name]: event.target.value
+        });
+      }
+
     const [msg,setMsg]=useState("")
     const [email,setEmail] = useState("")
+    // console.log(msg, email)
     const fun = () =>{
         const textarea = document.querySelector('.footer-textarea')
         textarea[0].focus()
@@ -90,15 +116,15 @@ function Footer() {
                                 setEmail("")
                                 setMsg("")
                                 }}>
-                            <textarea rows={7} cols={20} className="w-80 h-80 footer-textarea footer-support-subtitle" required="Query is required" style={{display:text}} value={msg} onChange={e => setMsg(e.target.value)} />
+                            <textarea className="w-80 h-80 footer-textarea footer-support-subtitle" required="Query is required" style={{display:text}} name="query" value={formValue.query} onChange={handleChange}/>
                             {/* <div className='email-container'>
                             <input type='email' className='footer-input' required="Email id is required" placeholder='Type your email id' value={email} onChange={e => setEmail(e.target.value)} />
                             <img type='submit' className='footer-send-button' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcElEQVR4nO2VP0vEQBDF4+FZKCJ2nlpY2FhpZSXY2IlY2Vra+hEiVjYWNgeb95YcuZs5TakfQFEELQRBFAQVrBTBP+AHiKzVIed55pLuHoQsye78dng7s57XVRoJeatkLMCsl5eUNAJcCvAk5HEtCJZ93y9kChFr5wS4iuO4T6xddWMh74Rc3zemPxNIkiQ9LuiutdONYCUPBHhRYEvJ0Y5BAmwosP3zuwMLEAn56d51YCo1pB6GE84TY0yx2f84DEfcRoR8/c7Q2oVUIAVOlFxsNYfkoPNKyEcBLpyHh77f2zZEgDUB9tqZ6/t+QYAlAc6UfHDgKIoG/lwYGzOk5JuUy8Nt78xrOCTkh5A71SAYb7lAgSMlk44e4Dq3TBR4d5nElcpYJp4YY4pCrih5/i9PhDzN9XRFwKSQz7/VSdWYUsd1ouRms4qvBcFMJhXvepcC9616V9WYUqrgDQHnc+/CAtj87xPyJvebsSuvDX0BG+devAf/+FAAAAAASUVORK5CYII="></img>
                             {/* <GrSend className='send-button' color='blue' style={{color:"#a69c9c"}} type='submit'/> */}
                             {/* </div>  */}
                             <div class="webflow-style-input">
-                                <input class="" type="email"required="Email id is required" placeholder='Type your email id' value={email} onChange={e => setEmail(e.target.value)}></input>
-                                <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                                <input class="" type="email"required="Email id is required" placeholder='Type your email id' name='email' value={formValue.email} onChange={handleChange}></input>
+                                <button onClick={handleSubmit} type="submit"><i class="fa fa-paper-plane"></i></button>
                             </div>
                             </form>
                         </div>
