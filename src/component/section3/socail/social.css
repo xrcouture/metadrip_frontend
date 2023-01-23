@@ -1,16 +1,43 @@
 .bg-3d{
 width: 80%;
 height: auto;
-
 border-radius: 14.67px;
 position: absolute;
 }
 .img3d{
     margin-top: -10%;
     z-index: 100;
-    width: 100%;
-    height: auto;
+    width: 60%;
+    position: relative;
+    height: 80%;
     align-self: center;
+}
+.button-3d-container{
+    filter: drop-shadow(0px 4.52238px 4.52238px rgba(0, 0, 0, 0.25));
+    height: max-content;
+    width: max-content;
+    position: absolute;
+    top: 50%;
+}
+.button-3d{
+    position: absolute;
+    bottom: 30%;
+    z-index: 120;
+    align-self: center;    
+    background: linear-gradient(180deg, #DF77F2 0%, rgba(50, 20, 233, 0) 100%);
+    border-radius: 27.5261px;
+    font-family: 'Druk Wide bold';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 29.8394px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(0px 4.52238px 4.52238px rgba(0, 0, 0, 0.25));
+    color: #FFFFFF;
+    padding: 2% 4% !important  ;
+
+
 }
 .rotating-container{
     display: flex;
@@ -19,7 +46,7 @@ position: absolute;
 .video-container{
     display: flex;
     width: 100%;
-    height: auto;
+    height: 45%;
     justify-items: center;
     justify-content: center;
 }
@@ -41,6 +68,12 @@ position: absolute;
 .video-container .carousel .carousel-item{
     border-radius: 25.35px;
 }
+.video-container .carousel .carousel-item img{
+    height: 100% !important;
+    width: 100%;
+    background-size: cover !important;
+    transform:scale(1.2)
+}
 .video-container .carousel .carousel-indicators [data-bs-target]{
     height: 10px !important;
     width: 10px !important;
@@ -52,12 +85,13 @@ position: absolute;
     border-radius: 25.35px;
 }
 .video-container .carousel .carousel-inner{
-    margin-bottom: -2%;
+    margin-bottom: -5%;
+    margin-top: -2%;
 }
 .video-container .carousel {
     border-radius: 24px;
     overflow: hidden;
-    margin-bottom: -6px;
+    height: 100%;
 }
 .video-container .carousel .carousel-indicators .active{
         background-color: white;
@@ -130,7 +164,7 @@ position: absolute;
     }
     .social-container-content{
         position: relative;
-        margin-top: 15%;
+        margin-top: 10%;
     }
     .passivelg1{
         display:block;
