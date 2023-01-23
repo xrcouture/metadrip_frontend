@@ -18,11 +18,28 @@ function Footer() {
         query: ''
       });
 
+      const [supportMsg, setSupportMsg] = useState("")
+
     const handleSubmit = () => {
         axios
         .post(baseURL, {
           email: formValue.email,
           query: formValue.query
+        },
+        {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            },
+        }
+        )
+        .then ((res) => {
+            setSupportMsg(res.data.msg)
+            setText("none")
+            setformValue("")
+        })
+        .catch ((error) => {
+            setSupportMsg(error.message)
         })
     }
 
@@ -93,7 +110,7 @@ function Footer() {
                         <div className='footer-support-container' onClick={(e)=> {
                             e.preventDefault()
                             setText("block")
-                            
+                            setSupportMsg("")
                     }}>
                             <h1 className='footer-support-title mt-2' style={{display:text=="none"?"block":"none"}}>Hi,</h1>
                             <p className='footer-support-subtitle text-center' style={{display:text=="none"?"block":"none"}}>Any queries, Pls drop <br /> your email ID Down <br />Below, We’ll get back to<br /> you....</p>
@@ -104,10 +121,13 @@ function Footer() {
                                 }}>
                             <textarea className="w-80 h-80 footer-textarea footer-support-subtitle" required="Query is required" style={{display:text}} name="query" value={formValue.query} onChange={handleChange}/>
                             <div class="webflow-style-input">
-                                <input class="" type="email"required="Email id is required" placeholder='Type your email id' name='email' value={formValue.email} onChange={handleChange}></input>
+                                <input class="" type="email" required placeholder='Type your email id' name='email' value={formValue.email} onChange={handleChange}></input>
                                 <button onClick={handleSubmit} type="submit"><i class="fa fa-paper-plane"></i></button>
                             </div>
                             </form>
+                            <div className='footer-response-msg text-secondary' style={{display: `${supportMsg.length ? "block" : "none"}`}}> {
+                                supportMsg
+                            }</div>
                         </div>
                     </div>
                 </div>

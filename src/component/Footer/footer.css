@@ -222,6 +222,14 @@ textarea {
   background: #282121; 
 }
 
+.footer-response-msg {
+  position: absolute;
+  bottom: 2%;
+  text-align: left;
+  left: 11%;
+  font-size: 0.8rem;
+}
+
 
 @media only screen and (max-width: 450px) {
   .footer-section-1{
@@ -669,7 +677,7 @@ a.demo {
 }
 .webflow-style-input {
   position: absolute;
-  bottom: 10%;
+  bottom: 12%;
   left: 10%;
   display: flex;
   flex-direction: row;
