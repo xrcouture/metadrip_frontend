@@ -8,49 +8,65 @@ import robolox from "../../../assets/robolox.png";
 import sandbox from "../../../assets/sandbox.png";
 import unreal from "../../../assets/unreal.png";
 import spatial from "../../../assets/spatial.png";
+import zepeto from "../../../assets/zepeto.png";
+import decenterlandlg from '../../../assets/cross/Decentraland.png'
+import rtfktlg from '../../../assets/cross/MetaHUman.png'
+import oncyberlg from '../../../assets/cross/Oncybr.png'
+import roboloxlg from '../../../assets/cross/Roblox.png'
+import sandboxlg from '../../../assets/cross/Sandbox.png'
+import zepetolg from '../../../assets/cross/Zepeto.png'
+import clonexlg from '../../../assets/cross/CloneX.png'
+import spatiallg from '../../../assets/cross/Spatial.png'
+
 
 function Section3d() {
     const carouselItems = [
         {
-          id: 0,
-          carouselImage: image,
+          id: "0",
+          carouselImage: decenterlandlg,
           indicator: decenterland,
           active: true,
         },
         {
-          id: 1,
-          carouselImage: image,
+          id: "1",
+          carouselImage: oncyberlg,
           indicator: oncyber,
           active: false,
         },
         {
           id: "3",
-          carouselImage: image,
+          carouselImage: rtfktlg,
           indicator: rtfkt,
           active: false,
         },
         {
           id: "4",
-          carouselImage: image,
+          carouselImage: sandboxlg,
           indicator: sandbox,
           active: false,
         },
         {
           id: "5",
-          carouselImage: image,
+          carouselImage: spatiallg,
           indicator: spatial,
           active: false,
         },
         {
           id: "6",
-          carouselImage: image,
+          carouselImage: clonexlg,
           indicator: unreal,
           active: false,
         },
         {
           id: "7",
-          carouselImage: image,
+          carouselImage: roboloxlg,
           indicator: robolox,
+          active: false,
+        },
+        {
+          id: "8",
+          carouselImage: zepetolg,
+          indicator: zepeto,
           active: false,
         },
       ];
@@ -83,7 +99,7 @@ function Section3d() {
               <div class="carousel-inner" role="listbox">
                 {carouselItems.map((i) => (
                   <div class={`item ${i.active === true ? "active" : ""}`}>
-                    <img src={image} alt="" width="100%" height="auto" />
+                    <img src={i.carouselImage} alt="" width="100%" height="auto" />
                   </div>
                 ))}
               </div>

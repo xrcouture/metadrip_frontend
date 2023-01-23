@@ -9,6 +9,10 @@
   align-items: center;
   justify-content: space-between;
 }
+a:hover{
+  text-decoration: none;
+  color: white;
+}
 .header-logo {
   position: relative;
   margin-left: 1rem;

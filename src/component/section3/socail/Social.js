@@ -3,7 +3,8 @@ import './social.css'
 import imgbg from '../../../assets/3dbackground.png'
 import img3d from '../../../assets/3d.png'
 import Carousel from 'react-bootstrap/Carousel';
-import vid from '../../../assets/sample-video.mp4'
+// import vid from '../../../assets/sample-video.mp4'
+import vid from '../../../assets/vibrant-video.mp4'
 import passive1 from '../../../assets/passive1.png'
 import passive2 from '../../../assets/passive2.png'
 import passive3 from '../../../assets/passive3.png'
@@ -12,8 +13,9 @@ import passivelg1 from '../../../assets/passive1-lg.png'
 import passivelg2 from '../../../assets/passive2-lg.png'
 import passivelg3 from '../../../assets/passive3-lg-.png'
 import imagebg from '../../../assets/carousel-img.png'
-
+import virtualpng from '../../../assets/virtual.png'
 import { MdVideoCameraBack } from "react-icons/md";
+import vibrance from '../../../assets/Vibrance Splash.png'
 
 
 
@@ -33,7 +35,10 @@ function Social() {
         <div className='row'>
         <div className='rotating-container col-md-6'  style={{width: "53%"}}>
             <img src={imgbg} alt="" className='bg-3d w-80' />
-            <img src={img3d} alt="" className='img3d w-90' />  
+            <img src={vibrance} alt="" className='img3d w-90' /> 
+            {/* <div className='button-3d-container'> */}
+            <button className='button-3d'> Whitelist</button> 
+            {/* </div> */}
         </div>
         <div className='col-md-6 social-container-content p-2' style={{width: "47%"}}>
           <div className='social-media-container'>
@@ -49,13 +54,13 @@ function Social() {
                 {/* ..................................................... */}
                 <Carousel activeIndex={index} onSelect={handleSelect} className="w-80" controls={true}>
                     <Carousel.Item>
-                        <video src={vid} autoPlay={true} muted className='video-player w-100 h-100' />
+                        <video src={vid} autoPlay={true} loop muted className='video-player w-100 h-100' />
                         <MdVideoCameraBack color='white' className='icon-video' size={28}/>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                         className="d-block w-100"
-                        src={imagebg}
+                        src={virtualpng}
                         alt="Second slide"
 
                         />

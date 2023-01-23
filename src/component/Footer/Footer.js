@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './footer.css'
 import xrlogo from '../../assets/xr_logo.png'
 import instagramLogo from '../../assets/instagram.png';
-import { RxTwitterLogo } from 'react-icons/rx';
+import websiteLogo from '../../assets/website.png';
+import { GrSend } from 'react-icons/gr';
+import { RxTwitterLogo,RxDiscordLogo } from 'react-icons/rx';
+import {FaLinkedinIn} from 'react-icons/fa'
 
 import axios from "axios";
 
@@ -64,6 +67,23 @@ function Footer() {
                             <div className='social-icon-1'>
                                 <a href='https://twitter.com/XRCouture' target="_blank" style={{textDecoration:"none"}}><RxTwitterLogo color='#EDE9E9' size={50} className='icon-footer'/></a>
                                   <a className='social-content' href='https://twitter.com/XRCouture' target="_blank">xrcouture.com</a>
+                                  </div>
+                        </div>
+                        <div className='footer-social-container'>
+
+                            <div className='social-icon-1'>
+                                <a href='https://www.instagram.com/xr.couture/' target="_blank" style={{textDecoration:"none"}}>
+                                <RxDiscordLogo color='#EDE9E9' size={50} className='icon-footer'/>
+                                </a>
+                                <a className='social-content' href='https://www.instagram.com/xr.couture/' target="_blank">@xr.couture</a>
+
+                                
+                            </div>
+
+                            {/* https://www.instagram.com/xr.couture/ */}
+                            <div className='social-icon-1'>
+                                <a href='https://www.linkedin.com/company/xrcouture/' target="_blank" style={{textDecoration:"none"}}><FaLinkedinIn color='#EDE9E9' size={50} className='icon-footer'/></a>
+                                  <a className='social-content' href='https://www.linkedin.com/company/xrcouture/' target="_blank">xrcouture.com</a>
                                   </div>
                         </div>
 
