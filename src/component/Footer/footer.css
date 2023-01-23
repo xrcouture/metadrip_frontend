@@ -140,7 +140,7 @@ textarea {
   font-size: 17.9267px;
   /* or 109% */
 
-  text-align: center !important;
+  text-align: center;
   letter-spacing: 0.02em;
 
   color: #f6f6f1;
@@ -163,7 +163,7 @@ textarea {
   justify-items: center;
   justify-content: center;
   align-content: center;
-  padding-right: 1rem;
+  padding-right: .7rem;
 }
 .social-content {
   font-family: "Clash Display Light";
@@ -256,10 +256,10 @@ textarea {
     font-style: normal;
     font-weight: 400;
     font-size: 0.4rem;
-    line-height: 6px;
+    line-height: 1.5rem;
     /* or 109% */
 
-    text-align: left;
+    text-align: center;
     letter-spacing: 0.02em;
 
     color: #f6f6f1;
@@ -310,10 +310,10 @@ textarea {
     font-style: normal;
     font-weight: 400;
     font-size: 0.48rem;
-    line-height: 6px;
+    line-height: 1.5rem;
     /* or 109% */
 
-    text-align: left;
+    text-align: center;
     letter-spacing: 0.02em;
 
     color: #f6f6f1;
@@ -330,7 +330,7 @@ textarea {
     max-width: 5rem;
   }
   .social-icon-1 {
-    padding-right: 1.5rem;
+    padding-right: 1.2rem;
   }
 }
 
@@ -370,10 +370,10 @@ textarea {
     font-style: normal;
     font-weight: 400;
     font-size: 0.58rem;
-    line-height: 6px;
+    line-height: 1.5rem;
     /* or 109% */
 
-    text-align: left;
+    text-align: center;
     letter-spacing: 0.02em;
 
     color: #f6f6f1;
@@ -390,7 +390,7 @@ textarea {
     max-width: 6rem;
   }
   .social-icon-1 {
-    padding-right: 3rem;
+    padding-right: 2.5rem;
   }
 }
 
@@ -423,10 +423,10 @@ textarea {
     font-style: normal;
     font-weight: 400;
     font-size: 0.76rem;
-    line-height: 6px;
+    line-height: 1.5rem;
     /* or 109% */
 
-    text-align: left;
+    text-align: center;
     letter-spacing: 0.02em;
 
     color: #f6f6f1;
@@ -443,7 +443,7 @@ textarea {
     max-width: 8rem;
   }
   .social-icon-1 {
-    padding-right: 2rem;
+    padding-right: 1.5rem;
   }
   .terms-container {
     margin: 1.6rem 1rem;
@@ -479,7 +479,7 @@ textarea {
     font-style: normal;
     font-weight: 400;
     font-size: 0.95rem;
-    line-height: 6px;
+    line-height: 1.5rem;
     /* or 109% */
 
     text-align: center;
@@ -498,7 +498,7 @@ textarea {
     max-width: 10rem;
   }
   .social-icon-1 {
-    padding-right: 3rem;
+    padding-right: 2.5rem;
   }
   .terms-container {
     margin: 1.6rem 1rem;
@@ -537,10 +537,8 @@ textarea {
     font-style: normal;
     font-weight: 400;
     font-size: 1.2rem;
-    line-height: 6px;
+    line-height: 1.5rem;
     margin-top: 2rem;
-    /* or 109% */
-
     text-align: center;
     letter-spacing: 0.02em;
 
@@ -557,7 +555,7 @@ textarea {
     max-width: 15rem;
   }
   .social-icon-1 {
-    padding-right: 6rem;
+    padding-right: 4.5rem;
   }
   .terms-container {
     margin: 3rem 1rem;

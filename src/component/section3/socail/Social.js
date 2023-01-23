@@ -4,7 +4,7 @@ import imgbg from '../../../assets/3dbackground.png'
 import img3d from '../../../assets/3d.png'
 import Carousel from 'react-bootstrap/Carousel';
 // import vid from '../../../assets/sample-video.mp4'
-import vid from '../../../assets/vibrant-video.mp4'
+import vid from '../../../assets/vibrant-video_r.mp4'
 import passive1 from '../../../assets/passive1.png'
 import passive2 from '../../../assets/passive2.png'
 import passive3 from '../../../assets/passive3.png'
@@ -36,9 +36,7 @@ function Social() {
         <div className='rotating-container col-md-6'  style={{width: "53%"}}>
             <img src={imgbg} alt="" className='bg-3d w-80' />
             <img src={vibrance} alt="" className='img3d w-90' /> 
-            {/* <div className='button-3d-container'> */}
-            <button className='button-3d'> Whitelist</button> 
-            {/* </div> */}
+            <a href='https://heymint.xyz/meta-drip-xrc' target="_blank" className='button-3d'>Whitelist</a>
         </div>
         <div className='col-md-6 social-container-content p-2' style={{width: "47%"}}>
           <div className='social-media-container'>
@@ -52,7 +50,7 @@ function Social() {
           </div>
             <div className='video-container'>
                 {/* ..................................................... */}
-                <Carousel activeIndex={index} onSelect={handleSelect} className="w-80" controls={true}>
+                <Carousel data-mdb-ride="carousel" activeIndex={index} onSelect={handleSelect} className="w-80" auto controls={true}>
                     <Carousel.Item>
                         <video src={vid} autoPlay={true} loop muted className='video-player w-100 h-100' />
                         <MdVideoCameraBack color='white' className='icon-video' size={28}/>
@@ -81,7 +79,7 @@ function Social() {
                     {/* <p className='text-center passive-title pb-4' style={{fontFamily:"Clash Display Bold"}}><b>Multiple Possibilities.</b></p> */}
                     <img src={passive2} alt="" className="passive2-img" />
                     <div className='passive-subtitle-container text-center'>
-                    <p className='text-center passive-subtitle' style={{fontFamily:"Clash Display Light", fontSize: "0.95vw", marginTop: "2vw"}}>The holders of Meta Drip will be able to earn Passive Income. XR Couture will list the Meta Drip collection for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.
+                    <p className='text-center section3-subtitle-new-1' style={{fontFamily:"Clash Display Light", marginTop:"10%"}}>The holders of Meta Drip will be able to earn Passive Income. XR Couture will list the Meta Drip collection for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.
  </p>
                     </div>
                     <div className='button-container'>
