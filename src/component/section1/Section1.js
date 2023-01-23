@@ -8,7 +8,7 @@ import ReactPlayer from 'react-player'
 function Section1() {
   const [bg, setBg] = useState(false)
   return (
-    <div className='section1-container' >
+    <div className='section1-container' id='top'>
       {/* <video src={video}  autoPlay loop ></video> */}
       <video autoPlay={true} loop muted className="video-bg-section1 d-none d-md-block">
         <source src={video} />

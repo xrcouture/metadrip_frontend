@@ -37,6 +37,7 @@ function Community() {
               <div className="partner-icon-container">
                 {" "}
                 <img src={partner1} alt="" className="partner-icon" />{" "}
+                
                 <p className="partners-social-subtitle">Decentraland</p>
               </div>
               <div className="partner-icon-container">
