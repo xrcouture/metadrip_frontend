@@ -93,13 +93,16 @@ a:hover{
   }
   .header-logo {
     margin-left: 3.2rem;
-    width: 10rem;
+    width: 12rem;
   }
   .header-button {
     margin-right: 4rem;
     font-size: 0.9rem;
     padding: 0.5rem 1.5rem;
     border-radius: 0.7rem;
+  }
+  .register-text {
+    right: 9rem !important;
   }
 }
 
