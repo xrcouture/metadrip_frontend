@@ -32,13 +32,14 @@ a:hover{
   display: flex;
   align-items: center;
   text-align: center;
-  color: #ffffff;
+  color: #ffffff !important;
   /* justify-self: flex-end; */
   /* position: absolute; */
   /* right: 10%; */
   justify-content: center;
   margin-right: 1.5rem;
   letter-spacing: 0.015rem;
+  text-decoration: none !important;
 }
 
 /* // Mobile devices (400px and up) */
