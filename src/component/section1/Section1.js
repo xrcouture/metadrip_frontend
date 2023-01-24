@@ -2,38 +2,19 @@ import React, { useState,useEffect } from 'react'
 import './section1.css'
 import Countdown from './Countdown';
 import video from '../../assets/videobg.mp4'
-import videoPortrait from '../../assets/V4_Vid_Portrait.mp4'
-import ReactPlayer from 'react-player'
-import { Player,ControlBar,BigPlayButton } from 'video-react';
-import Vimeo from '@u-wave/react-vimeo';
-import videojs from '@mux/videojs-kit';
-import MuxPlayer from "@mux/mux-player"; 
-// import ReactPlayer from 'react-player;
-import Iframe from 'react-iframe'
-function Section1() {
-  useEffect(() => {
-  //   const timeoutID = window.setTimeout(() => {
-  //     console.log('timeout');
-  //     let vid = document.getElementsByClassName('video-react-video')[0]
-  //     console.log(vid)
-  //     vid.loop = true
-  //   // vid.load();
-  // }, 5000);
+import videoPortrait from '../../assets/V4_Vid_Portrait.mp4';
 
-  // return () => window.clearTimeout(timeoutID );
-    // let vid = document.getElementsByClassName('video-react-video')
-    // vid.autoplay = true
-    // vid.load();
-  }, []);
-  const [bg, setBg] = useState(false)
+
+function Section1() {
+
   return (
     <div className='section1-container' id='top'>
      
 
-      {/* <video src={video}  autoPlay loop ></video> */} 
       <video autoPlay={true} loop muted className="video-bg-section1 d-none d-md-block">
         <source src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/videobg.mp4"/>
       </video>
+      
     
       <div className='section1-container-content'>
         <div className='section1-container-1 m-0'>
