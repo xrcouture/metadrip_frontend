@@ -41,21 +41,21 @@ a:hover{
   letter-spacing: 0.015rem;
 }
 
-/* // Medium devices (tablets, 768px and up) */
+/* // Mobile devices (400px and up) */
 @media (min-width: 400px) { 
   .header-logo {
-    margin-left: 1.2rem;
-    width: 7rem;
+    margin-left: 2rem;
+    width: 7.5rem;
   }
   .header-button {
-    margin-right: 1.5rem;
+    margin-right: 2.2rem;
     font-size: 0.7rem;
     padding: 0.2rem 1.1rem;
   }
 }
 
 /* // Medium devices (tablets, 768px and up) */
-@media (min-width: 600px) { 
+@media (min-width: 560px) { 
   .header-logo {
     margin-left: 2.2rem;
     width: 8.5rem;
