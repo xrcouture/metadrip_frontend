@@ -15,6 +15,7 @@ import roadmapLogo3 from '../../assets/Q32022.PNG'
 import roadmapLogo4 from '../../assets/Q42022.png'
 import roadmapLogo5 from '../../assets/Q12023.PNG'
 import roadmapLogo6 from '../../assets/Q22023.JPG'
+import { FaSadCry } from 'react-icons/fa';
 
 function Roadmap() {
   
@@ -28,8 +29,11 @@ function Roadmap() {
           slidesPerView={2}
           onSlideChange={() => console.log("slide")}
           centeredSlides={true}
+          // longSwipes={false}
           slideToClickedSlide={true}
-          draggable={false}
+          // shortSwipes={true}
+          // draggable={false}
+          // threshold={1}
           // loop={true}
           className='slides-container'
           breakpoints={{
