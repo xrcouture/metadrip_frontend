@@ -10,5 +10,6 @@ tmp/nanoc/
 crash.log
 
 /node_modules
+/build
 .DS_Store
 **/.DS_Store
