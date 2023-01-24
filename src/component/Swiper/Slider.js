@@ -98,7 +98,7 @@ function Slider() {
           centeredSlides={true}
           grabCursor={true}
           effect="coverflow"
-          initialSlide={5}
+          initialSlide={6}
           direction="horizontal"
           updateOnWindowResize
 
@@ -122,40 +122,40 @@ function Slider() {
         >
 
           <SwiperSlide data-swiper-autoplay="2000" >
-            <video src={video1} className="swiper-image"  muted loop />
+            <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/1.mp4" className="swiper-image"  muted loop />
           </SwiperSlide>
           <SwiperSlide>
-            <video src={video2} className="swiper-image"   muted loop />           
+            <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/2.mp4" className="swiper-image"   muted loop />           
           </SwiperSlide>
           <SwiperSlide>
-          <video src={video3} className="swiper-image"   muted loop />
+          <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/3.mp4" className="swiper-image"   muted loop />
           </SwiperSlide>
           <SwiperSlide>
-          <video src={video4} className="swiper-image"   muted loop />
+          <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/4.mp4" className="swiper-image"   muted loop />
           </SwiperSlide>
           <SwiperSlide>
-          <video src={video5} className="swiper-image"   muted loop />
+          <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/5.mp4" className="swiper-image"   muted loop />
           </SwiperSlide>
           <SwiperSlide>
-          <video src={video6} className="swiper-image"   muted loop />
+          <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/6.mp4" className="swiper-image"   muted loop />
           </SwiperSlide>
           <SwiperSlide>
-          <video src={video7} className="swiper-image"   muted loop />
+          <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/7.mp4" className="swiper-image"   muted loop />
           </SwiperSlide>
           <SwiperSlide>
-          <video src={video8} className="swiper-image"   muted loop />
+          <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/8.mp4" className="swiper-image"   muted loop />
           </SwiperSlide>
           <SwiperSlide>
-          <video src={video9} className="swiper-image"   muted loop />
+          <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/9.mp4" className="swiper-image"   muted loop />
           </SwiperSlide>
           <SwiperSlide>
-          <video src={video10} className="swiper-image"   muted loop />
+          <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/10.mp4" className="swiper-image"   muted loop />
           </SwiperSlide>
           <SwiperSlide>
-          <video src={video11} className="swiper-image"   muted loop />
+          <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/11.mp4" className="swiper-image"   muted loop />
           </SwiperSlide>
           <SwiperSlide>
-          <video src={video12} className="swiper-image"   muted loop />
+          <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/12.mp4" className="swiper-image"   muted loop />
           </SwiperSlide>
           {/* <SwiperSlide>
           <video src={video6} className="swiper-image"   muted loop />

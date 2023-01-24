@@ -1,27 +1,40 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './section1.css'
 import Countdown from './Countdown';
 import video from '../../assets/videobg.mp4'
 import videoPortrait from '../../assets/V4_Vid_Portrait.mp4'
 import ReactPlayer from 'react-player'
-
+import { Player,ControlBar,BigPlayButton } from 'video-react';
+import Vimeo from '@u-wave/react-vimeo';
+import videojs from '@mux/videojs-kit';
+import MuxPlayer from "@mux/mux-player"; 
+// import ReactPlayer from 'react-player;
+import Iframe from 'react-iframe'
 function Section1() {
+  useEffect(() => {
+  //   const timeoutID = window.setTimeout(() => {
+  //     console.log('timeout');
+  //     let vid = document.getElementsByClassName('video-react-video')[0]
+  //     console.log(vid)
+  //     vid.loop = true
+  //   // vid.load();
+  // }, 5000);
+
+  // return () => window.clearTimeout(timeoutID );
+    // let vid = document.getElementsByClassName('video-react-video')
+    // vid.autoplay = true
+    // vid.load();
+  }, []);
   const [bg, setBg] = useState(false)
   return (
     <div className='section1-container' id='top'>
-      {/* <video src={video}  autoPlay loop ></video> */}
+     
+
+      {/* <video src={video}  autoPlay loop ></video> */} 
       <video autoPlay={true} loop muted className="video-bg-section1 d-none d-md-block">
-        <source src={video} />
-        {/* <source src="video-bar.ogv"/> */}
+        <source src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/videobg.mp4"/>
       </video>
-
-      <video autoPlay={true} loop muted className="video-bg-section1 d-block d-md-none">
-        <source src={videoPortrait} />
-        {/* <source src="video-bar.ogv"/> */}
-      </video>
-
-      {/* <ReactPlayer url="../../assets/videobg.mp4" autoPlay /> */}
-      {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/z8Z3a7JWsiI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
+    
       <div className='section1-container-content'>
         <div className='section1-container-1 m-0'>
           <div className=''>
@@ -35,14 +48,6 @@ function Section1() {
             <h1 className='countdown-content countdown-date text-center'>30, January 2023</h1>
           </div>
         </div>
-        {/* <div className='col-md-5 col-sm-5 col-xs-5 col-lg-5 section2-container2-right'>
-            <div className='btn-container'>
-              <button className='section1-container-2-button'>
-                <a href='https://heymint.xyz/meta-drip-xrc' target="_blank" style={{ fontFamily: "Druk Wide Bold" }}>
-                  Whitelist</a>
-              </button>
-            </div>
-          </div> */}
       </div>
     </div>
   )

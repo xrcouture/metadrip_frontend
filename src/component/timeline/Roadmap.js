@@ -29,6 +29,7 @@ function Roadmap() {
           onSlideChange={() => console.log("slide")}
           centeredSlides={true}
           slideToClickedSlide={true}
+          draggable={false}
           // loop={true}
           className='slides-container'
           breakpoints={{
