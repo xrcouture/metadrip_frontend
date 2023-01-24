@@ -28,7 +28,11 @@ function Roadmap() {
           slidesPerView={2}
           onSlideChange={() => console.log("slide")}
           centeredSlides={true}
+          // longSwipes={false}
           slideToClickedSlide={true}
+          // shortSwipes={true}
+          // draggable={false}
+          // threshold={1}
           // loop={true}
           className='slides-container'
           breakpoints={{
