@@ -110,13 +110,16 @@ a:hover{
 @media (min-width: 1200px) { 
   .header-logo {
     margin-left: 3.7rem;
-    width: 12rem;
+    width: 13.5rem;
   }
   .header-button {
-    margin-right: 5rem;
+    margin-right: 4rem;
     font-size: 0.95rem;
     padding: 0.6rem 1.6rem;
     border-radius: 0.8rem;
+  }
+  .register-text {
+    right: 10rem !important;
   }
 }
 
