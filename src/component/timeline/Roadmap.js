@@ -15,7 +15,6 @@ import roadmapLogo3 from '../../assets/Q32022.PNG'
 import roadmapLogo4 from '../../assets/Q42022.png'
 import roadmapLogo5 from '../../assets/Q12023.PNG'
 import roadmapLogo6 from '../../assets/Q22023.JPG'
-import { FaSadCry } from 'react-icons/fa';
 
 function Roadmap() {
   
