@@ -34,12 +34,12 @@
   font-family: "Clash Display Medium" !important;
   font-style: normal;
   font-weight: 500;
-  font-size: 12.317px;
   line-height: 13px;
   letter-spacing: 0.02em;
   color: #f6f6f1;
   text-align: left !important;
   margin-left: 1.5rem !important;
+  font-size: 0.95rem !important;
 }
 .countdown-content-star {
   color: #f00582;
@@ -113,11 +113,6 @@
 /* // XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) { 
  
-}
-
-.countdown-content {
-  margin-left: 1.5rem !important;
-  font-size: 1.1rem !important;
 }
 
 @media (min-width: 400px) {

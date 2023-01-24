@@ -15,8 +15,8 @@ a:hover{
 }
 .header-logo {
   position: relative;
-  margin-left: 1rem;
-  width: 6rem;
+  margin-left: 1.5rem;
+  width: 6.5rem;
 }
 .header-button {
   padding: 0.1rem 0.8rem;
@@ -37,7 +37,8 @@ a:hover{
   /* position: absolute; */
   /* right: 10%; */
   justify-content: center;
-  margin-right: 1rem;
+  margin-right: 1.5rem;
+  letter-spacing: 0.015rem;
 }
 
 /* // Medium devices (tablets, 768px and up) */
