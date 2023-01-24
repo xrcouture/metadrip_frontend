@@ -14,6 +14,10 @@ function Section1() {
       <video autoPlay={true} loop muted className="video-bg-section1 d-none d-md-block">
         <source src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/videobg.mp4"/>
       </video>
+
+      <video autoPlay={true} loop muted className="video-bg-section1 d-block d-md-none">
+        <source src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/V4_Vid_Portrait.mp4" />
+        </video>
       
     
       <div className='section1-container-content'>
