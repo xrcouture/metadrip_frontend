@@ -50,7 +50,7 @@ function Social() {
           </div>
             <div className='video-container'>
                 {/* ..................................................... */}
-                <Carousel data-mdb-ride="carousel" activeIndex={index} onSelect={handleSelect} className="w-80" auto controls={true}>
+                <Carousel  data-bs-interval="1000000000"  activeIndex={index} onSelect={handleSelect} className="w-80" controls={true}>
                     <Carousel.Item>
                         <video src={vid} autoPlay={true} loop muted className='video-player w-100 h-100' />
                         <MdVideoCameraBack color='white' className='icon-video' size={28}/>
