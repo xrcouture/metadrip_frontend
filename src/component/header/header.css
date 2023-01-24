@@ -74,12 +74,15 @@ a:hover{
   }
   .header-logo {
     margin-left: 2.7rem;
-    width: 9.5rem;
+    width: 10rem;
   }
   .header-button {
     margin-right: 3rem;
     font-size: 0.85rem;
     padding: 0.4rem 1.5rem;
+  }
+  .register-text {
+    right: 8rem !important;
   }
 }
 

@@ -205,16 +205,16 @@
     }
 }
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
     .countdown-item {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 3.8rem;
+        height: 3.8rem;
         font-size: 2rem !important;
         border-radius: 0.8rem;
     }
     
     .countdown-item-subtitle {
-        margin-top: 0.2rem;
+        margin-top: 0.35rem;
         font-size: 0.7rem !important;
     }
     
@@ -229,7 +229,7 @@
     }
 }
 
-@media (min-width: 992px) { 
+@media (min-width: 992px) {
     .countdown-item {
         width: 4rem;
         height: 4rem;
