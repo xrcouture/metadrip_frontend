@@ -8,7 +8,7 @@ function Header() {
         <a href="#top">
           <img src={headerlogo} alt="" className="header-logo" />
         </a>
-        <span className='header-button' style={{position: "absolute", right: "12%", color: "rgb(174 171 171)", fontFamily:"Druk Wide Medium", background: "none", opacity: "0.8"}}>Register for</span>
+        <span className='header-button d-none d-md-block' style={{position: "absolute", right: "12%", color: "rgb(174 171 171)", fontFamily:"Druk Wide Medium", background: "none", opacity: "0.8"}}>Register for</span>
         <a href='https://heymint.xyz/meta-drip-xrc' className='header-button text-center' style={{fontFamily:"Druk Wide Medium"}}>
           Whitelist</a>
     </div>
