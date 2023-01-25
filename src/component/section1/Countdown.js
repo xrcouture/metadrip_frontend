@@ -1,5 +1,5 @@
 import "./countdown.css";
-import moment from "moment";
+import moment from "moment-timezone";
 import React from "react";
 class Countdown extends React.Component {
   state = {
@@ -12,15 +12,15 @@ class Countdown extends React.Component {
   componentDidMount() {
     this.interval = setInterval(() => {
       const { timeTillDate, timeFormat } = this.props;
-      const then = moment(timeTillDate, timeFormat);
-      const now = moment();
-      const countdown = moment(then - now);
-      const days = countdown.format("D");
-      const hours = countdown.format("HH");
-      const minutes = countdown.format("mm");
-      const seconds = countdown.format("ss");
-      console.log(then,now)
+      const then = timeTillDate
+      const now = moment.tz();
+      const countdown = moment.duration(moment.tz("2023-02-02T17:30:00","Asia/Kolkata").diff(now));
+      const days = countdown._data.days;
+      const hours = countdown._data.hours;
+      const minutes = countdown._data.minutes;
+      const seconds = countdown._data.seconds;
       this.setState({ days, hours, minutes, seconds });
+      console.log(countdown)
     }, 1000);
   }
 

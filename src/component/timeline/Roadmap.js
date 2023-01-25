@@ -79,7 +79,7 @@ function Roadmap() {
                 <div className='swip-card-content'>
                   <div className='swip-card-content-title'>
                   <div >Q2 2022</div>
-                  <div style={{fontFamily: "Clash Display Light"}}> SnapChat partnership</div>
+                  <div style={{fontFamily: "Clash Display Light"}}> Snapchat partnership</div>
                   </div>
                   <div className='swip-card-content-desc'>
                   - Launched user dashboard to view and unlock multiple utilities (Virtual fittings, AR/VR features, etc) <br />

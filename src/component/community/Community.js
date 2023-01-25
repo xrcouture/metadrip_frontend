@@ -15,7 +15,7 @@ function Community() {
           <p className="utility-content-header-join text-center text-light">Join the community</p>
         <div className="community-subtitle-container">
           <p className="text-center community-subtile-text">
-            Join our discord channel or follow us on twitter keep up to date
+            Join our discord channel or follow us on twitter to keep up to date
             with our latest work and announcements.
           </p>
         </div>
