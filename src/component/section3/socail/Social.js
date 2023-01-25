@@ -16,7 +16,7 @@ import imagebg from '../../../assets/carousel-img.png'
 import virtualpng from '../../../assets/virtual.png'
 import { MdVideoCameraBack } from "react-icons/md";
 import vibrance from '../../../assets/Vibrance Splash.png'
-import ellipse from '../../../assets/ellipse.png'
+import ellipse from '../../../assets/ellipse-bg.png'
 
 
 
@@ -38,7 +38,7 @@ function Social() {
             <img src={imgbg} alt="" className='bg-3d w-80' />
             <img src={vibrance} alt="" className='img3d w-90' /> 
             <a href='https://heymint.xyz/meta-drip-xrc' target="_blank" className='button-3d header-button'>Whitelist</a>
-            {/* <img src={ellipse} alt="" className='' />  */}
+            <img src={ellipse} alt="" className='ellipse-3d' /> 
         </div>
         <div className='col-md-6 social-container-content p-2'>
           <div className='social-media-container'>
@@ -51,7 +51,7 @@ function Social() {
           </div>
             <div className='video-container'>
                 {/* ..................................................... */}
-                <Carousel  data-bs-interval="1000000000"  activeIndex={index} onSelect={handleSelect} className="w-80" controls={true}>
+                <Carousel  interval="10000000"  activeIndex={index} onSelect={handleSelect} className="w-80" controls={true}>
                     <Carousel.Item>
                         <video src={vid} autoPlay={true} loop muted className='video-player w-100 h-100' />
                         <MdVideoCameraBack color='white' className='icon-video' size={28}/>
