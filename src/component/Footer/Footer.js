@@ -106,7 +106,7 @@ function Footer() {
                                 )
                                 .then ((res) => {
                                     console.log(res.data.msg)
-                                    setSupportMsg("Query received successfully, We get back to you")
+                                    setSupportMsg("Query received successfully, We'll get back to you")
                                     console.log(supportMsg)
                                     resetForm()
                                     setText("none")
@@ -145,7 +145,8 @@ function Footer() {
                                 </form>
                             )}
                             </Formik>
-                            {supportMsg == "" ?  <div className='footer-response-msg text-success'>{supportMsg}</div> : <div className='footer-response-msg text-danger'>{error}</div>}
+                            {supportMsg && <div className='footer-response-msg text-success'>{supportMsg}</div> } 
+                            {error &&  <div className='footer-response-msg text-danger'>{error}</div>}
 
                             {/* <div className='footer-response-msg text-secondary' style={{display: `${supportMsg.length ? "block" : "none"}`}}> {
                                 supportMsg
