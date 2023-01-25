@@ -13,13 +13,14 @@
     height: 100% !important;
 }
 .swiper-container-overall{
-position: relative;
-height: 100vh;
-width: 100vw !important;
-display: flex;
-align-items: center;
-justify-content: center;
-overflow-x: hidden;
+    position: relative;
+    height: auto !important;
+    width: 100vw !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    margin-top: 3rem;
 }
 .carousel-background{
     position: absolute;
@@ -54,16 +55,11 @@ overflow-x: hidden;
     position: relative;
     background-position: center;
     background-size: cover;
-    width: 450px !important;
-    height: 450px !important;
+    width: 220px !important;
+    height: 220px !important;
     overflow: hidden;
     border: 5px solid #D19CFB;
     border-radius: 30px;
-
-    /* background-color: linear-gradient(180deg, #CE9DF4 0%, rgba(214, 180, 220, 0.65) 100%);; */
-}
-.whitelist-swiper .swiper-wrapper .swiper-slide-active {
-    /* border: 8px solid #D19CFB; */
 }
 
 
@@ -114,49 +110,94 @@ text-align:center;
 color: #FFFFFF;
 z-index: 100;
 }
-@media only screen and (min-width: 605px){
-    .swiper-container-overall{
-        margin-top: 5%;
-        height: 65vh !important;
-    }
+
+/* // Mobile devices (400px and up) */
+@media (min-width: 400px) { 
     .whitelist-swiper .swiper-wrapper .swiper-slide {
+        width: 260px !important;
+        height: 260px !important;
+        border: 5px solid #D19CFB;
+        border-radius: 30px;
+    }
+    .swiper-container-overall{
+        margin-top: 4rem;
+    }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 560px) { 
+    .whitelist-swiper .swiper-wrapper .swiper-slide {
+        width: 350px !important;
+        height: 350px !important;
+        border: 5px solid #D19CFB;
+        border-radius: 30px;
+    }
+    .swiper-container-overall{
+        margin-top: 4rem;
+    }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .whitelist-swiper .swiper-wrapper .swiper-slide {
+        width: 450px !important;
+        height: 450px !important;
+        border: 5px solid #D19CFB;
+        border-radius: 30px;
+    }
+    .swiper-container-overall{
+        margin-top: 5rem;
+    }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .whitelist-swiper .swiper-wrapper .swiper-slide {
+        width: 450px !important;
+        height: 450px !important;
+        border: 7px solid #D19CFB;
+        border-radius: 30px;
+    }
+    .swiper-container-overall{
+        margin-top: 6rem;
+    }
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .whitelist-swiper .swiper-wrapper .swiper-slide {
+        width: 470px !important;
+        height: 470px !important;
         border: 8px solid #D19CFB;
-
-    }
-}
-@media only screen and (min-width: 1200px){
-    /* .swiper-container-overall{
-        height: 55vh !important;
-    } */
-}
-@media only screen and (max-width: 605px){
-    .whitelist-swiper .swiper-wrapper .swiper-slide {
-        position: relative;
-        background-position: center;
-        background-size: cover;
-        width: 250px !important;
-        height: 250px !important;
-    }
-
-    .slide-button{
-        width: 100px !important;
-        height: 40px;
-        font-size: 20px !important;
-        border-radius: 15px !important;
-    }
-    .swiper-slide-active{
-        /* border-radius: 20px !important; */
-        /* border: 2px solid #D19CFB; */
-        /* box-shadow:1px #D19CFB !important; */
-    }
-    .carousel-background{
-        width: 50vw !important;
-        height: 50vh !important;
-    }
-    .section2-container-background{
-        display: none;
+        border-radius: 30px;
     }
     .swiper-container-overall{
-        height: 60vh;
+        margin-top: 6.5rem;
+    }
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+    .whitelist-swiper .swiper-wrapper .swiper-slide {
+        width: 440px !important;
+        height: 440px !important;
+        border: 9px solid #D19CFB;
+        border-radius: 40px;
+    }
+    .swiper-container-overall{
+        margin-top: 7rem;
+    }
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1800px) { 
+    .whitelist-swiper .swiper-wrapper .swiper-slide {
+        width: 470px !important;
+        height: 470px !important;
+        border: 10px solid #D19CFB;
+        border-radius: 45px;
+    }
+    .swiper-container-overall{
+        margin-top: 8rem;
     }
 }

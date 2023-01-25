@@ -1,9 +1,42 @@
 .section-two-container {
   height: max-content !important;
-  margin: auto;
-  padding: 6% 8%;
-
+  margin: 2.5rem 0rem;
 }
+
+.section-two-container .row {
+  margin: 0 ;
+  padding: 0 0.6rem;
+}
+
+.title .subtitle {
+  padding: 0 !important;
+  margin:  0 !important;
+}
+
+.section-two-container .row .title {
+  font-size: 1.15rem;
+  margin: 0 !important;
+  margin-top: 0.5rem !important;
+}
+.section-two-container .row .subtitle {
+  font-size: 0.75rem;
+  text-align: justify;
+  margin-top: 1.5rem;
+  padding: 0rem 1rem;
+  line-height: unset !important;
+}
+.section2-right-small  {
+  font-size: 7px;
+  margin-top: 0.4rem !important;
+}
+
+.section2-title-quote {
+  font-family: "Clash Display Bold";
+  font-size: 1.5rem;
+  position: absolute;
+  margin-left: -1.2rem;
+}
+
 .section2-left {
   font-family: "Clash Display Light";
   font-style: Medium;
@@ -36,39 +69,221 @@
   font-family: "Clash Display";
   font-style: normal;
   font-weight: 400;
-  font-size: 19.8106px;
   line-height: 22px;
   letter-spacing: 0.04em;
   color: #f6f6f1;
+  font-size: 0.7rem;
+  margin-top: 0.9rem !important;
+  margin-left: -0.2rem;
 }
-@media only screen and (max-width: 600px){
-    .section2-right{
-        font-weight: 600;
-        font-size: 13.127px;
-        line-height: 13px;
-        /* or 103% */
 
-        text-align: center;
-        letter-spacing: 0.02em;
-    }
-    .section2-right-small{
-        font-family: 'Clash Display';
-        font-style: Medium;
-        font-weight: 400;
-        font-size: 5.25081px;
-        line-height: 6px;
-        /* or 105% */
+/* // Mobile devices (400px and up) */
+@media (min-width: 375px) { 
+  .section-two-container {
+    margin: 3rem 0rem;
+  }
+  .section-two-container .row .subtitle {
+    font-size: 0.8rem;
+    margin-top: 2.5rem;
+    padding: 0rem 1.5rem;
+  }
+  .section-two-container .row .title {
+    font-size: 1.25rem;
+    margin: 0 !important;
+    margin-top: 0.8rem !important;
+  }
+  .section2-title-quote {
+    font-size: 1.75rem;
+    position: absolute;
+    margin-left: -1.5rem;
+  }
+  .section2-right-small {
+    font-size: 0.78rem;
+    margin-top: 1.4rem !important;
+    margin-left: -0.35rem;
+  }
+}
 
-        letter-spacing: 0.04em;
-    }
-    .section2-left{
-        font-family: 'Clash Display';
-        font-style: Medium;
-        font-weight: 400;
-        font-size: 8px;
-        line-height: 8px;
-        /* or 100% */
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 560px) { 
+  .section-two-container {
+    margin: 3.5rem 0rem;
+  }
+  .section-two-container .row .subtitle {
+    font-size: 0.95rem;
+    margin-top: 3rem;
+    padding: 0rem 2.2rem;
+  }
+  .section-two-container .row .title {
+    font-size: 1.55rem;
+    margin: 0 !important;
+    margin-top: 0.4rem !important;
+    line-height: 28px !important;
+  }
+  .section2-title-quote {
+    font-size: 2rem;
+    position: absolute;
+    margin-left: -1.6rem;
+  }
+  .section2-right-small {
+    font-size: 0.85rem;
+    margin-top: 1.5rem !important;
+    margin-left: -0.5rem;
+  }
+}
 
-        letter-spacing: 0.04em;
-    }
+@media (min-width: 768px) {
+  .section-two-container {
+    margin: 3.5rem 0rem;
+  }
+  .section-two-container .row .subtitle {
+    font-size: 1rem;
+    margin-top: 3rem;
+    padding: 0rem 2.3rem;
+    text-align: left;
+  }
+  .section-2-title {
+    padding: 0rem 2.3rem;
+    padding-top: 3rem !important;
+  }
+  .section-two-container .row .title {
+    font-size: 1.55rem;
+    margin: 0 !important;
+    margin-top: 0.2rem !important;
+  }
+  .section2-title-quote {
+    font-size: 2rem;
+    position: absolute;
+    margin-left: -1.6rem;
+  }
+  .section2-right-small {
+    font-size: 0.85rem;
+    margin-top: 1.2rem !important;
+    margin-left: -0.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .section-two-container {
+    margin: 3rem 0rem;
+  }
+  .section-two-container .row .subtitle {
+    font-size: 1rem;
+    margin-top: 3rem;
+    padding: 0rem 3rem;
+    text-align: left;
+  }
+  .section-2-title {
+    padding: 0rem 3.2rem;
+    padding-top: 2.8rem !important;
+  }
+  .section-two-container .row .title {
+    font-size: 2rem;
+    margin: 0 !important;
+    margin-top: 0.7rem !important;
+  }
+  .section2-title-quote {
+    font-size: 2.8rem;
+    position: absolute;
+    margin-left: -2.2rem;
+  }
+  .section2-right-small {
+    font-size: 0.9rem;
+    margin-top: 1.5rem !important;
+    margin-left: -0.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-two-container {
+    margin: 3rem 0rem;
+  }
+  .section-two-container .row .subtitle {
+    font-size: 1.1rem;
+    margin-top: 3rem;
+    padding: 0rem 3.5rem;
+    text-align: left;
+  }
+  .section-2-title {
+    padding: 0rem 3.5rem;
+    padding-top: 3.4rem !important;
+  }
+  .section-two-container .row .title {
+    font-size: 2.4rem;
+    margin: 0 !important;
+    margin-top: 0.1rem !important;
+    line-height: 2.5rem !important;
+  }
+  .section2-title-quote {
+    font-size: 3rem;
+    position: absolute;
+    margin-left: -2.3rem;
+  }
+  .section2-right-small {
+    font-size: 1rem;
+    margin-top: 1.5rem !important;
+    margin-left: -0.5rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .section-two-container {
+    margin: 4rem 0rem;
+  }
+  .section-two-container .row .subtitle {
+    font-size: 1.35rem;
+    margin-top: 3rem;
+    padding: 0rem 4rem;
+    text-align: left;
+  }
+  .section-2-title {
+    padding: 0rem 4rem;
+    padding-top: 3.5rem !important;
+  }
+  .section-two-container .row .title {
+    font-size: 2.8rem;
+    margin: 0 !important;
+    margin-top: 0.4rem !important;
+  }
+  .section2-title-quote {
+    font-size: 4rem;
+    position: absolute;
+    margin-left: -3rem;
+  }
+  .section2-right-small {
+    font-size: 1.2rem;
+    margin-top: 2rem !important;
+    margin-left: -0.5rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .section-two-container {
+    margin: 4.5rem 0rem;
+  }
+  .section-two-container .row .subtitle {
+    font-size: 1.7rem;
+    margin-top: 3rem;
+    padding: 0rem 4.5rem;
+    text-align: left;
+  }
+  .section-2-title {
+    padding: 0rem 4.5rem;
+    padding-top: 2rem !important;
+  }
+  .section-two-container .row .title {
+    font-size: 3.6rem;
+    margin: 0 !important;
+    margin-top: 1.5rem !important;
+  }
+  .section2-title-quote {
+    font-size: 5rem;
+    position: absolute;
+    margin-left: -3.8rem;
+  }
+  .section2-right-small {
+    font-size: 1.4rem;
+    margin-top: 4rem !important;
+    margin-left: -0.5rem;
+  }
 }

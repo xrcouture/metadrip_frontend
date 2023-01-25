@@ -157,7 +157,7 @@
 
 /* responsive */
 
-@media (min-width: 400px) {
+@media (min-width: 375px) {
     .countdown-item {
         width: 2.8rem;
         height: 2.8rem;
