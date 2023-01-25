@@ -130,8 +130,7 @@
 }
 .passive-subtitle-container{
     position: relative;
-    width: 70%;
-    margin-left: 15%;
+    padding: 1rem;
 }
 .passive-header{
     font-family: 'Clash Display';
