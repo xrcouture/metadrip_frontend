@@ -136,3 +136,151 @@ left: -8%;
     
     color: #F6F6F1;
 }
+
+@media only screen and (min-width: 768px){
+    .passivelg4 {
+        display: block !important;
+        position: absolute !important;
+        right: -6% !important;
+        bottom: 0% !important;
+        height: 70px !important;
+        width: 70px !important;
+    }
+    .passivelg5 {
+        display: block !important;
+        position: absolute !important;
+        bottom: 15% !important;
+        left: -10% !important;
+        height: 70px !important;
+        width: 70px !important;
+        transform: scale(.7) !important;
+    }
+    .passivelg3 {
+        display: block !important;
+        position: absolute !important;
+        bottom: -2% !important;
+        left: -3% !important;
+        height: 70px !important;
+        width: 70px !important;
+        transform: scale(1.3) !important;
+    }
+}
+
+@media only screen and (min-width: 992px){
+    .passivelg5 {
+        display: block !important;
+        position: absolute !important;
+        bottom: 15% !important;
+        left: -8% !important;
+        height: 70px !important;
+        width: 70px !important;
+        transform: scale(.7) !important;
+    }
+}
+
+
+@media only screen and (min-width: 1400px) {
+    .passivelg1 {
+        display: block !important;
+        top: -7% !important;
+        left: 5% !important;
+        height: 70px !important;
+        width: 70px !important;
+        position: absolute !important;
+        transform: scale(0.8) !important;
+      }
+      .passivelg2 {
+        display: block !important;
+        top: -8% !important;
+        right: 5% !important;
+        height: 70px !important;
+        width: 70px !important;
+        position: absolute !important;
+        transform: scale(.9) !important;
+      }
+      .passivelg3 {
+        display: block !important;
+        position: absolute !important;
+        bottom: 0% !important;
+        left: -2% !important;
+        height: 70px !important; 
+        width: 70px !important;
+        transform: scale(1.3) !important;
+      }
+      .passivelg4 {
+        display: block !important;
+        position: absolute !important;
+        right: -5% !important;
+        bottom: 0% !important;
+        height: 70px !important;
+        width: 70px !important;
+      }
+      .passivelg5 {
+        display: block !important;
+        position: absolute !important;
+        bottom: 15% !important;
+        left: -5% !important;
+        height: 70px !important;
+        width: 70px !important;
+        transform: scale(.7) !important;
+      }
+}
+
+@media only screen and (min-width: 1600px) {
+    .passivelg3 {
+        display: block !important;
+        position: absolute !important;
+        bottom: -3% !important;
+        left: -2% !important;
+        height: 80px !important;
+        width: 80px !important;
+        transform: scale(1.3) !important;
+      }
+}
+
+@media only screen and (min-width: 1800px){
+    .passivelg1 {
+      display: block !important;
+      top: -7% !important;
+      left: 5% !important;
+      height: 80px !important;
+      width: 80px !important;
+      position: absolute !important;
+      transform: scale(0.8) !important;
+    }
+    .passivelg2 {
+      display: block !important;
+      top: -8% !important;
+      right: 5% !important;
+      height: 90px !important;
+      width: 90px !important;
+      position: absolute !important;
+      transform: scale(.9) !important;
+    }
+    .passivelg3 {
+      display: block !important;
+      position: absolute !important;
+      bottom: 3% !important;
+      left: -2% !important;
+      height: 80px !important;
+      width: 80px !important;
+      transform: scale(1.3) !important;
+    }
+    .passivelg4 {
+      display: block !important;
+      position: absolute !important;
+      right: -4% !important;
+      bottom: 0% !important;
+      height: 80px !important;
+      width: 80px !important;
+    }
+    .passivelg5 {
+      display: block !important;
+      position: absolute !important;
+      bottom: 15% !important;
+      left: -5% !important;
+      height: 80px !important;
+      width: 80px !important;
+      transform: scale(.7) !important;
+    }
+  }
