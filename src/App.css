@@ -10,9 +10,11 @@
   font-size: 16px;
 }
 .app-container{
-  background: conic-gradient(from 152.86deg at 7.93% 17.94%, #48297A 0deg, #000000 120deg, #000000 286.87deg, #48297A 360deg) !important;
-  /* height: 200vh ; */
+  background: conic-gradient(from 151deg at 7.93% 50.94%, #48297A 202deg, #000000 229deg, #000000 301deg, #48297A 360deg)no-repeat !important;
   height: auto;
+  z-index: -100;
+  /* position: absolute; */
+
 }
 .swiper-container {
   width: 100%;

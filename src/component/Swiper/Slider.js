@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useCallback } from "react";
 import image from "../../assets/image-1.png";
 import bg from "../../assets/background-section2.png";
 import "./slider.css";
@@ -12,8 +12,7 @@ function Slider() {
   const [activeIndex,setAciveIndex] = useState(5)
   const [clickedIndex, setClickedIndex] = useState(0)
   const swiperSlide = useSwiperSlide();
-  useEffect(() => {
-      // let demo = div.closet()
+  useEffect(() => {   
       let vid = document.querySelector('.whitelist-swiper .swiper-wrapper .swiper-slide-active').children[0]
       vid.autoplay = true
       vid.load();
@@ -61,7 +60,7 @@ function Slider() {
             maxRatio: 5,
           }}
           freeMode={false}
-          speed={1200}
+          speed={1500}
           autoplay
           slideToClickedSlide={true}
           onActiveIndexChange={(index)=>{
