@@ -16,6 +16,7 @@ import imagebg from '../../../assets/carousel-img.png'
 import virtualpng from '../../../assets/virtual.png'
 import { MdVideoCameraBack } from "react-icons/md";
 import vibrance from '../../../assets/Vibrance Splash.png'
+import ellipse from '../../../assets/ellipse.png'
 
 
 
@@ -37,6 +38,7 @@ function Social() {
             <img src={imgbg} alt="" className='bg-3d w-80' />
             <img src={vibrance} alt="" className='img3d w-90' /> 
             <a href='https://heymint.xyz/meta-drip-xrc' target="_blank" className='button-3d header-button'>Whitelist</a>
+            {/* <img src={ellipse} alt="" className='' />  */}
         </div>
         <div className='col-md-6 social-container-content p-2'>
           <div className='social-media-container'>

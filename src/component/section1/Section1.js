@@ -26,11 +26,11 @@ function Section1() {
             <h1 className='countdown-content countdown-content-1'>Pre - Mint Sale begins in<span className='countdown-content-star'>*</span></h1>
           </div>
           <Countdown
-            timeTillDate="01 30 2023, 6:00 am"
-            timeFormat="MM DD YYYY, h:mm a"
+            timeTillDate="February 01st 2023, 5:30:00 pm"
+            timeFormat="MMMM Do YYYY, h:mm:ss p"
           />
           <div className=''>
-            <h1 className='countdown-content countdown-date text-center'>30, January 2023</h1>
+            <h1 className='countdown-content countdown-date text-center'>1, February 2023</h1>
           </div>
         </div>
       </div>
