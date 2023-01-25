@@ -303,13 +303,18 @@ left: -8%;
 .community-subtitle-container {
   margin-top: 1rem;
 }
+.community-subtitle-container p {
+  font-family: "Clash Display Light" !important;
+}
 .community-subtile-text {
+  font-family: "Clash Display Light" !important;
   font-size: 0.85rem;
   color: #F6F6F1;
   padding: 0rem 3rem;
   opacity: 0.8;
 }
 .community-button-text {
+  font-family: "Clash Display Medium" !important;
   margin-left: 0.4rem;
 }
 
