@@ -112,7 +112,7 @@
  
 }
 
-@media (min-width: 400px) {
+@media (min-width: 375px) {
   .countdown-content {
     margin-left: 2rem !important;
     font-size: 1.1rem !important;
