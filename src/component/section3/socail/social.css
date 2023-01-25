@@ -9,7 +9,7 @@ position: absolute;
     z-index: 100;
     width: 60%;
     position: relative;
-    height: 80%;
+    height: 90%;
     align-self: center;
 }
 .button-3d-container{
@@ -21,23 +21,24 @@ position: absolute;
 }
 .button-3d{
     position: absolute;
-    bottom: 23%;
+    bottom: 20%;
     z-index: 120;
-    align-self: center;    
-    background: linear-gradient(180deg, #DF77F2 0%, rgba(50, 20, 233, 0) 100%);
-    border-radius: 27.5261px;
+    /* align-self: center; */
+    background: WhitelistWhitelist;
+    /* border-radius: 27.5261px; */
     font-family: 'Druk Wide bold';
     font-style: normal;
+    background: linear-gradient(180deg, #732f7e 0%, rgba(55, 109, 215, 0.4) 100%);
     font-weight: 500;
-    font-size: 29.8394px;
-    line-height: 36px;
-    display: flex;
-    align-items: center;
-    filter: drop-shadow(0px 4.52238px 4.52238px rgba(0, 0, 0, 0.25));
+    /* font-size: 29.8394px; */
+    /* line-height: 36px; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* filter: drop-shadow(0px 4.52238px 4.52238px rgba(0, 0, 0, 0.25)); */
     color: #FFFFFF;
-    padding: 2% 4% !important  ;
-
-
+    /* padding: 2% 4% !important; */
+    left: 55%;
+    transform: translateX(-50%);
 }
 .rotating-container{
     display: flex;
@@ -122,6 +123,12 @@ position: absolute;
 
 
 @media only screen and (min-width: 768px){
+    .rotating-container {
+        width: 53% !important;
+    }
+    .social-container-content {
+        width: 47% !important;
+    }
     .video-container .carousel {
         border-radius: 40px;
         overflow: hidden;
@@ -210,5 +217,25 @@ position: absolute;
         height: 70px;
         width: 70px;
         transform: scale(.7);
+    }
+}
+
+.social-media-subtitle {
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+
+@media only screen and (min-width: 375px){
+    .social-media-subtitle {
+        padding-right: 4rem;
+        padding-left: 4rem;
+    }
+}
+
+@media only screen and (min-width: 375px){
+    .social-media-subtitle {
+        margin-top: 1rem !important;
+        padding-right: 5rem;
+        padding-left: 5rem;
     }
 }

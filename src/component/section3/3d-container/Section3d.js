@@ -75,7 +75,7 @@ function Section3d() {
     <div className='w-100 section3-2'>
     <div className='row'>
         <div className="col-md-6 col-lg-6 cross-left-container">
-          <div className="cross-header-image-container w-80">
+          <div className="cross-header-image-container">
             <div
               id="carousel-example-generic"
               class="carousel slide carousel-fade"
@@ -106,11 +106,11 @@ function Section3d() {
             </div>
           </div>
         </div>
-        <div className="cross-header-content col-md-5 col-sm-5 col-lg-5 p-4">
+        <div className="cross-header-content col-md-5 col-lg-5 p-4">
             <div className='interoperability-content'>
-          <h1 className="section3-title-new-1 text-center section2-title-right" style={{fontFamily:"Clash Display Bold"}}>Cross-Platform usage</h1>
+          <h1 className="section3-title-new-1 text-center section2-title-right utility-title p-0" style={{fontFamily:"Clash Display Bold"}}>Cross-Platform Usage</h1>
           <div className=" interoperability-content-subtitle">
-          <p className="section3-subtitle-new-1 text-center section2-title-right" style={{fontFamily:"Clash Display Light", marginTop: "2vw", padding: "0rem  0rem 0rem 2.5vw"}}>
+          <p className="text-center section2-title-right utility-subtitle cross-platform-subtitle text-center mobile-subtitle" style={{fontFamily:"Clash Display Light"}}>
           Our aim is to partner with as many Metaverse, Gaming, Avatar, AR/VR platforms as possible to offer cross-platform usage.
           </p>
           </div>

@@ -33,19 +33,18 @@ function Social() {
   return (
     <div className='social-container'>
         <div className='row'>
-        <div className='rotating-container col-md-6'  style={{width: "53%"}}>
+        <div className='rotating-container col-md-6'>
             <img src={imgbg} alt="" className='bg-3d w-80' />
             <img src={vibrance} alt="" className='img3d w-90' /> 
-            <a href='https://heymint.xyz/meta-drip-xrc' target="_blank" className='button-3d'>Whitelist</a>
+            <a href='https://heymint.xyz/meta-drip-xrc' target="_blank" className='button-3d header-button'>Whitelist</a>
         </div>
-        <div className='col-md-6 social-container-content p-2' style={{width: "47%"}}>
+        <div className='col-md-6 social-container-content p-2'>
           <div className='social-media-container'>
-        <h1 className="section3-title-new-2 text-center section2-title-right" style={{fontFamily:"Clash Display bold"}}>Social Media Usage.</h1>
-            <p className="section3-subtitle-new-1 section2-title-right text-center" style={{fontFamily:"Clash Display Light", marginTop: "1.5vw"}}>
-              Create reels with <b>Snapchat AR,</b>
-                <br />wear it on your <br /> 
-              video calls. Get custom<br /> <b>‘virtual-fitting’</b> on a photograph to<br/>
-              flaunt on your social media <br />platforms.
+        <h1 className="section3-title-new-2 text-center section2-title-right utility-title social-media-title" style={{fontFamily:"Clash Display bold"}}>Social Media Usage</h1>
+            <p className="section2-title-right text-center utility-subtitle mobile-subtitle social-media-subtitle" style={{fontFamily:"Clash Display Light", marginTop: "1.5vw"}}>
+              Create reels with <b>Snapchat AR,</b> wear it on your 
+              video calls. Get custom <b>‘virtual-fitting’</b> on a photograph to 
+              flaunt on your social media platforms.
             </p>
           </div>
             <div className='video-container'>
@@ -75,11 +74,11 @@ function Social() {
                   <img src={passivelg3} alt="" className="passivelg5" />
                   <img src={passivelg1} alt="" className="passivelg4" />
                     <img src={passive1} alt="" className="passive1-img" />
-                    <p className='text-center passive-title pt-4' style={{fontFamily:"Clash Display Medium"}}><b>Earn Passive Income</b></p>
+                    <p className='text-center passive-title pt-4 utility-title' style={{fontFamily:"Clash Display Medium"}}><b>Earn Passive Income</b></p>
                     {/* <p className='text-center passive-title pb-4' style={{fontFamily:"Clash Display Bold"}}><b>Multiple Possibilities.</b></p> */}
                     <img src={passive2} alt="" className="passive2-img" />
-                    <div className='passive-subtitle-container text-center'>
-                    <p className='text-center section3-subtitle-new-1' style={{fontFamily:"Clash Display Light", marginTop:"10%"}}>The holders of Meta Drip will be able to earn Passive Income. XR Couture will list the Meta Drip collection for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.
+                    <div className='passive-subtitle-container text-center pt-0'>
+                    <p className='text-center utility-subtitle mobile-subtitle pt-0' style={{fontFamily:"Clash Display Light"}}>The holders of Meta Drip will be able to earn Passive Income. XR Couture will list the Meta Drip collection for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.
  </p>
                     </div>
                     <div className='button-container'>
