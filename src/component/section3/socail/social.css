@@ -232,10 +232,16 @@ position: absolute;
     }
 }
 
-@media only screen and (min-width: 375px){
+@media only screen and (min-width: 560px){
     .social-media-subtitle {
         margin-top: 1rem !important;
         padding-right: 5rem;
         padding-left: 5rem;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .social-media-subtitle {
+        margin-top: -0.3rem !important;
     }
 }
