@@ -69,7 +69,7 @@ function Social() {
             </div>
             <div className='container-passive-income'>
             <div className='passive-income-container'>
-                    <div className='passive-income'>
+                    <div className='passive-income d-md-flex flex-md-column align-items-md-center'>
                     <img src={passivelg1} alt="" className="passivelg1" />
                   <img src={passivelg1} alt="" className="passivelg2" />
                   <img src={passivelg2} alt="" className="passivelg3" />
