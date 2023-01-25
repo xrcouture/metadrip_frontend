@@ -100,7 +100,7 @@ function Roadmap() {
                   <div style={{fontFamily: "Clash Display Light"}}> Metaverse Event</div>
                   </div>
                   <div className='swip-card-content-desc'>
-                  - XR Couture’s Pandora, hosted on Spatial to share a glimpse of future utilities
+                  - XR Couture’s Pandora, hosted on Spatial to share a glimpse of future utilities<br/>
                   - CloneX unlocked: Made Vibrance Splash available for your CloneX avatar
                   </div>
                 </div>
@@ -118,7 +118,7 @@ function Roadmap() {
                   <div style={{fontFamily: "Clash Display Light"}}> Working on launch of Metadrip Phase 2</div>
                   </div>
                   <div className='swip-card-content-desc'>
-                  - Pause on sales
+                  - Pause on sales<br/>
                   - New Metaverse partnerships (TBA)
                   </div>
                 </div>
@@ -133,11 +133,11 @@ function Roadmap() {
                 <div className='swip-card-content'>
                   <div className='swip-card-content-title'>
                   <div >Q1 2023</div>
-                  <div style={{fontFamily: "Clash Display Light"}}> Launch of Meta Drip Phase 2</div>
+                  <div style={{fontFamily: "Clash Display Light"}}> Launch of Meta Drip <br/>Phase 2</div>
                   </div>
                   <div className='swip-card-content-desc'>
-                  - Relaunch with exciting perks
-                  - Announcement of Passive income utility
+                  - Relaunch with exciting perks<br/>
+                  - Announcement of Passive income utility <br />
                   - New website and user dashboard experience
                   </div>
                 </div>

@@ -228,6 +228,7 @@ textarea {
   text-align: left;
   left: 11%;
   font-size: 0.8rem;
+  margin-right: 10%;
 }
 
 
@@ -682,7 +683,7 @@ a.demo {
   display: flex;
   flex-direction: row;
   width: 80%;
-  max-width: 400px;
+  max-width: 80%;
   margin: 0 auto;
   border-radius: 2px;
   padding: 5px;
@@ -710,7 +711,7 @@ a.demo {
   /* color: #a69c9c; */
   font-weight: 500;
   font-family: 'Clash Display Light';
-  font-size: 0.9vw;
+  /* font-size: 0.9vw; */
   line-height: 11px;
   vertical-align: middle;
 }
@@ -731,8 +732,16 @@ a.demo {
 }
 
 .footer-textarea {
+  position: relative;
   display: block;
-  height: 10vw;
-  margin-top: -3vw;
-  width: 22vw;
+  /* height: 80%; */
+  /* margin-top: -3vw; */
+  /* width: 80%; */
+}
+.footer-support-container form{
+  width: 100%;
+}
+textarea{
+  width: 80%;
+  margin: 10%;
 }
