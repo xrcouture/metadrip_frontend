@@ -37,17 +37,14 @@ function Roadmap() {
             450: {
               width: 450,
               slidesPerView: 2,
-              touchRatio:1,
             },
             768: {
               width: 768,
               slidesPerView: 3,
-              touchRatio:0
             },
             1200: {
               width: 1200,
               slidesPerView: 4,
-              touchRatio:0
             },
           }}
         >
