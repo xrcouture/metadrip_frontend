@@ -6,6 +6,7 @@ import websiteLogo from '../../assets/website.png';
 import { GrSend } from 'react-icons/gr';
 import { RxTwitterLogo,RxDiscordLogo } from 'react-icons/rx';
 import {FaLinkedinIn} from 'react-icons/fa'
+import { Formik } from 'formik';
 
 import axios from "axios";
 
@@ -13,50 +14,13 @@ const baseURL = "https://xrcapi.onrender.com/query/set";
 
 function Footer() {
 
-    const [formValue, setformValue] = React.useState({
-        email: '',
-        query: ''
-      });
-
+   
       const [supportMsg, setSupportMsg] = useState("")
+      const [error, setError] = useState("")
 
-    const handleSubmit = () => {
-        axios
-        .post(baseURL, {
-          email: formValue.email,
-          query: formValue.query
-        },
-        {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json',
-            },
-        }
-        )
-        .then ((res) => {
-            setSupportMsg(res.data.msg)
-            setText("none")
-            setformValue("")
-        })
-        .catch ((error) => {
-            setSupportMsg(error.message)
-        })
-    }
 
-    const handleChange = (event) => {
-        setformValue({
-          ...formValue,
-          [event.target.name]: event.target.value
-        });
-      }
 
-    const [msg,setMsg]=useState("")
-    const [email,setEmail] = useState("")
-    // console.log(msg, email)
-    const fun = () =>{
-        const textarea = document.querySelector('.footer-textarea')
-        textarea[0].focus()
-    }
+    
     const [text,setText] = useState("none")
     useEffect(()=>{
             document.getElementsByTagName('textarea')[0].focus();
@@ -114,20 +78,87 @@ function Footer() {
                     }}>
                             <h1 className='footer-support-title mt-2' style={{display:text=="none"?"block":"none"}}>Hi,</h1>
                             <p className='footer-support-subtitle text-center' style={{display:text=="none"?"block":"none"}}>Any queries, Pls drop <br /> your email ID Down <br />Below, We’ll get back to<br /> you....</p>
-                            <form onSubmit={()=>{
-                                console.log(msg,email)
-                                setEmail("")
-                                setMsg("")
-                                }}>
-                            <textarea className="w-80 h-80 footer-textarea footer-support-subtitle" required="Query is required" style={{display:text}} name="query" value={formValue.query} onChange={handleChange}/>
+
+
+                            <Formik
+                            initialValues={{ email: '', query: '' }}
+                            validate={values => {
+                                const errors = {};
+                                if (!values.email) {
+                                errors.email = 'Email address is required';
+                                } else if (
+                                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                                ) {
+                                errors.email = 'Invalid email address';
+                                }
+                                return errors;
+                            }}
+                            onSubmit={(values, { setSubmitting,resetForm }) => {
+                                setSubmitting(false)
+                                axios
+                                .post(baseURL,values,
+                                {
+                                    headers: {
+                                        'Access-Control-Allow-Origin': '*',
+                                        'Content-Type': 'application/json',
+                                    },
+                                }
+                                )
+                                .then ((res) => {
+                                    console.log(res)
+                                    setSupportMsg(res.data.msg)
+                                    resetForm()
+                                    setText("none")
+                                })
+                                .catch ((error) => {
+                                    setError(error.message)
+                                })
+                            }}
+                            >
+                            {({
+                                values,
+                                errors,
+                                touched,
+                                handleChange,
+                                handleBlur,
+                                handleSubmit,
+                                isSubmitting,
+                                /* and other goodies */
+                            }) => (
+                                <form onSubmit={handleSubmit}>
+                            <textarea className="w-80 h-80 footer-textarea footer-support-subtitle" style={{display:text}} name="query" value={values.query} onChange={handleChange}/>
                             <div class="webflow-style-input">
-                                <input class="" type="email" required placeholder='Type your email id' name='email' value={formValue.email} onChange={handleChange}></input>
-                                <button onClick={handleSubmit} type="submit"><i class="fa fa-paper-plane"></i></button>
+                                <input 
+                                type="email" 
+                                required 
+                                placeholder='Type your email id' 
+                                name='email' 
+                                value={values.email}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                ></input>
+                                <button onClick={handleSubmit} disabled={isSubmitting} type="submit"><i class="fa fa-paper-plane"></i></button><br />
                             </div>
-                            </form>
-                            <div className='footer-response-msg text-secondary' style={{display: `${supportMsg.length ? "block" : "none"}`}}> {
+                                <div className='support-notifier-error text-danger'>{errors.email && touched.email && errors.email}</div>
+                                {supportMsg == "" ?  <div className='footer-response-msg text-success'>{supportMsg}</div> : <div className='footer-response-msg text-error'>{error}</div>}
+                                {/* <input
+                                    type="email"
+                                    name="email"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.email}
+                                />
+                                {errors.email && touched.email && errors.email}
+                                <button type="submit" disabled={isSubmitting}>
+                                    Submit
+                                </button> */}
+                                </form>
+                            )}
+                            </Formik>
+
+                            {/* <div className='footer-response-msg text-secondary' style={{display: `${supportMsg.length ? "block" : "none"}`}}> {
                                 supportMsg
-                            }</div>
+                            }</div> */}
                         </div>
                     </div>
                 </div>

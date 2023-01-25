@@ -182,3 +182,8 @@
     margin-top: 1.9rem !important;
   }
 }
+.support-notifier-error{
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+}
