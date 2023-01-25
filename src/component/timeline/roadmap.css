@@ -20,7 +20,6 @@
 
 .swip-card-container {
   width: 100%;
-  height: 50vh;
   margin-top: 10%;
 }
 
@@ -133,9 +132,6 @@
     font-size: 0.75rem !important;
     padding: 16px;
   }
-  .swip-card-container{
-    height: 50vh;
-  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -208,9 +204,6 @@
   .swip-card-content-desc {
     font-size: 14px !important;
     padding: 19px;
-  }
-  .swip-card-container{
-    height: 60vh;
   }
 }
 
