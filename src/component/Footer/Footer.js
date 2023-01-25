@@ -7,6 +7,7 @@ import { GrSend } from 'react-icons/gr';
 import { RxTwitterLogo,RxDiscordLogo } from 'react-icons/rx';
 import {FaLinkedinIn} from 'react-icons/fa'
 import { Formik } from 'formik';
+import { ToastContainer, toast } from 'react-toast'
 
 import axios from "axios";
 
@@ -27,6 +28,7 @@ function Footer() {
     },[text,supportMsg])
     return (
         <div className='footer-container row'>
+            <ToastContainer />
             <div className='col-md-8  footer-section-1'>
                 <div className='row h-100'>
                     <div className='col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-8 h-100' >
@@ -94,7 +96,7 @@ function Footer() {
                             }}
                             onSubmit={(values, { setSubmitting,resetForm }) => {
                                 setSubmitting(false)
-                                setSupportMsg("Query received successfully, We get back to you")
+                                // setSupportMsg("Query received successfully, We' get back to you")
                                 axios
                                 .post(baseURL,values,
                                 {
@@ -107,12 +109,15 @@ function Footer() {
                                 .then ((res) => {
                                     console.log(res.data.msg)
                                     setSupportMsg("Query received successfully, We'll get back to you")
-                                    console.log(supportMsg)
+                                    // toast.success('Query received successfully, We will get back to you!')
                                     resetForm()
                                     setText("none")
+                                    setTimeout(()=>{
+                                        setSupportMsg("")
+                                    },[5000])
                                 })
                                 .catch ((error) => {
-                                    setError("Oops!, Something gone wrong Please try again..!")
+                                    toast.error("Oops!, Something gone wrong Please try again..!")
                                 })
                             }}
                             >
@@ -145,6 +150,7 @@ function Footer() {
                                 </form>
                             )}
                             </Formik>
+
                             {supportMsg && <div className='footer-response-msg text-success'>{supportMsg}</div> } 
                             {error &&  <div className='footer-response-msg text-danger'>{error}</div>}
 

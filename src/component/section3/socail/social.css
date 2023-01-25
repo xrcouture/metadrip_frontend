@@ -237,3 +237,9 @@ position: absolute;
         margin-top: -0.3rem !important;
     }
 }
+.ellipse-3d{
+    position: absolute;
+    /* width: 10%; */
+    bottom: 0;
+    left: 15%;
+}
