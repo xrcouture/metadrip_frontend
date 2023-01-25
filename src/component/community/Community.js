@@ -21,12 +21,12 @@ function Community() {
         </div>
           <div className="button-groups-community">
             <div className="group-button">
-            <button className="button-community-1">
+            <a href="https://discord.gg/zHJ3UA5CeR" target="_blank" className="button-community-1">
               <RxDiscordLogo /> <span className="community-button-text">Discord</span>
-            </button>
-            <button className="button-community-1 button-community-2-style">
+            </a>
+            <a href="https://twitter.com/XRCouture" className="button-community-1 button-community-2-style">
               <RiTwitterLine /><span className="community-button-text">Twitter</span>
-            </button>
+            </a>
             </div>
           </div>
         </div>

@@ -83,7 +83,6 @@ function Slider() {
         next.children[0].load() 
       }
 
-    console.log("Hello")
   },[activeIndex])
   return (
     <div className="section2-overall">
@@ -93,7 +92,7 @@ function Slider() {
       <div className="slider-container">
         <Swiper
           className="swiper-horizontal whitelist-swiper"
-          modules={[Pagination,Navigation, A11y, EffectCoverflow,Thumbs]}
+          modules={[Pagination,Navigation, A11y, EffectCoverflow]}
           slidesPerView={"auto"}
           centeredSlides={true}
           grabCursor={true}
@@ -101,7 +100,6 @@ function Slider() {
           initialSlide={6}
           direction="horizontal"
           updateOnWindowResize
-
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
@@ -113,14 +111,14 @@ function Slider() {
             maxRatio: 5,
           }}
           freeMode={false}
+          speed={1200}
+          autoplay
           slideToClickedSlide={true}
           onActiveIndexChange={(index)=>{
-            console.log(index.previousIndex)
             setClickedIndex(index.previousIndex)
               setAciveIndex(index.activeIndex)
           }}
         >
-
           <SwiperSlide data-swiper-autoplay="2000" >
             <video src="https://rakesh-testbucket.s3.ap-south-1.amazonaws.com/Metadrip/1.mp4" className="swiper-image"  muted loop />
           </SwiperSlide>
