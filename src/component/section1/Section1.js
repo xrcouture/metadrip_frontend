@@ -3,6 +3,7 @@ import './section1.css'
 import Countdown from './Countdown';
 import video from '../../assets/videobg.mp4'
 import videoPortrait from '../../assets/V4_Vid_Portrait.mp4';
+import moment from 'moment-timezone';
 
 
 function Section1() {
@@ -26,11 +27,12 @@ function Section1() {
             <h1 className='countdown-content countdown-content-1'>Pre - Mint Sale begins in<span className='countdown-content-star'>*</span></h1>
           </div>
           <Countdown
-            timeTillDate="February 01st 2023, 5:30:00 pm"
-            timeFormat="MMMM Do YYYY, h:mm:ss p"
+            // timeTillDate="February 1st 2023, 12:00:00 pm"
+            timeTillDate = {moment.tz("2023-02-02T17:30:00","Asia/Kolkata")}
+            timeFormat="MMMM Do YYYY, h:mm:ss a"
           />
           <div className=''>
-            <h1 className='countdown-content countdown-date text-center'>1, February 2023</h1>
+            <h1 className='countdown-content countdown-date text-center'>2nd, February 2023</h1>
           </div>
         </div>
       </div>
