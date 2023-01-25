@@ -60,7 +60,7 @@ function Slider() {
             maxRatio: 5,
           }}
           freeMode={false}
-          speed={1500}
+          speed={1200}
           autoplay
           slideToClickedSlide={true}
           onActiveIndexChange={(index)=>{

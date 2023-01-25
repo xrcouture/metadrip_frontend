@@ -10,7 +10,7 @@ import { Formik } from 'formik';
 
 import axios from "axios";
 
-const baseURL = "https://xrcapi.onrender.com/query/set";
+const baseURL = "https://api.metadrip.xrcouture.com/query/set";
 
 function Footer() {
 
@@ -24,7 +24,7 @@ function Footer() {
     const [text,setText] = useState("none")
     useEffect(()=>{
             document.getElementsByTagName('textarea')[0].focus();
-    },[text])
+    },[text,supportMsg])
     return (
         <div className='footer-container row'>
             <div className='col-md-8  footer-section-1'>
@@ -56,9 +56,9 @@ function Footer() {
                                 </a>
                             </div>
                         </div>
-                            <div>
-                                <h1 className='logo-font w-100 ' style={{textAlign:"left"}} > For press queries contact, hello@xcouture.com</h1>
-                            </div>
+                        <div className='footer-social-container mt-3'>
+                            <h1 className='logo-font w-100 ' style={{textAlign:"left"}} > For press queries contact, hello@xcouture.com</h1>
+                        </div>
                     </div>
                     <div className='col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-4 footer-logo-container'>
                         <img src={xrlogo} alt="" className='footer-img' />
@@ -74,10 +74,9 @@ function Footer() {
                         <div className='footer-support-container' onClick={(e)=> {
                             e.preventDefault()
                             setText("block")
-                            setSupportMsg("")
                     }}>
                             <h1 className='footer-support-title mt-2' style={{display:text=="none"?"block":"none"}}>Hi,</h1>
-                            <p className='footer-support-subtitle text-center' style={{display:text=="none"?"block":"none"}}>Any queries, Pls drop <br /> your email ID Down <br />Below, We’ll get back to<br /> you....</p>
+                            <p className='footer-support-subtitle text-center' style={{display:text=="none"?"block":"none"}}>Type your queries here and drop <br /> your email ID down <br />below, We’ll get back to<br /> you....</p>
 
 
                             <Formik
@@ -95,6 +94,7 @@ function Footer() {
                             }}
                             onSubmit={(values, { setSubmitting,resetForm }) => {
                                 setSubmitting(false)
+                                setSupportMsg("Query received successfully, We get back to you")
                                 axios
                                 .post(baseURL,values,
                                 {
@@ -105,13 +105,14 @@ function Footer() {
                                 }
                                 )
                                 .then ((res) => {
-                                    console.log(res)
-                                    setSupportMsg(res.data.msg)
+                                    console.log(res.data.msg)
+                                    setSupportMsg("Query received successfully, We get back to you")
+                                    console.log(supportMsg)
                                     resetForm()
                                     setText("none")
                                 })
                                 .catch ((error) => {
-                                    setError(error.message)
+                                    setError("Oops!, Something gone wrong Please try again..!")
                                 })
                             }}
                             >
@@ -125,8 +126,8 @@ function Footer() {
                                 isSubmitting,
                                 /* and other goodies */
                             }) => (
-                                <form onSubmit={handleSubmit}>
-                            <textarea className="w-80 h-80 footer-textarea footer-support-subtitle" style={{display:text}} name="query" value={values.query} onChange={handleChange}/>
+                            <form onSubmit={handleSubmit}>
+                            <textarea rows={6}  className="footer-textarea footer-support-subtitle" style={{display:text}} placeholder="Type your query" name="query" value={values.query} onChange={handleChange}/>
                             <div class="webflow-style-input">
                                 <input 
                                 type="email" 
@@ -139,22 +140,12 @@ function Footer() {
                                 ></input>
                                 <button onClick={handleSubmit} disabled={isSubmitting} type="submit"><i class="fa fa-paper-plane"></i></button><br />
                             </div>
-                                <div className='support-notifier-error text-danger'>{errors.email && touched.email && errors.email}</div>
-                                {supportMsg == "" ?  <div className='footer-response-msg text-success'>{supportMsg}</div> : <div className='footer-response-msg text-error'>{error}</div>}
-                                {/* <input
-                                    type="email"
-                                    name="email"
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    value={values.email}
-                                />
-                                {errors.email && touched.email && errors.email}
-                                <button type="submit" disabled={isSubmitting}>
-                                    Submit
-                                </button> */}
+                                <div className='footer-response-msg text-danger'>{errors.email && touched.email && errors.email}</div>
+                                
                                 </form>
                             )}
                             </Formik>
+                            {supportMsg == "" ?  <div className='footer-response-msg text-success'>{supportMsg}</div> : <div className='footer-response-msg text-danger'>{error}</div>}
 
                             {/* <div className='footer-response-msg text-secondary' style={{display: `${supportMsg.length ? "block" : "none"}`}}> {
                                 supportMsg
