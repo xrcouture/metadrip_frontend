@@ -11,7 +11,7 @@ function Community() {
     <div className="community-container">
       <div className="row">
         <div className="join-community-container col-md-6">
-          <p className="utility-content-subtitle utility-content-header-join-us text-center">Join us</p>
+          {/* <p className="utility-content-subtitle utility-content-header-join-us text-center">Join us</p> */}
           <p className="utility-content-header-join text-center text-light">Join the community</p>
         <div className="community-subtitle-container">
           <p className="text-center community-subtile-text">
