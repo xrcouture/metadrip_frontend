@@ -1,0 +1,43 @@
+.asset-container{
+    position: relative;
+    background: linear-gradient(180deg, #000000 0%, rgba(214, 40, 196, 0.3) 80.73%, rgba(4, 3, 4, 0) 99.98%, #C376B6 99.99%, rgba(134, 110, 110, 0) 100%);
+}
+.asset-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+}
+.profile-container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    z-index: 20;
+    margin-left: 5%;
+    align-items: baseline;
+    justify-items: baseline;
+}
+.text-profile-name{
+    font-weight: 500;
+    font-size: 55.9749px;
+    line-height: 61px;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #FFEEFA;
+}
+.text-profile-id{
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 38.7974px;
+    line-height: 42px;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #470D62;
+}
+.asset-profile{
+    width: 183px;
+    height: 183px;
+}
