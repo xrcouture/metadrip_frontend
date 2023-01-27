@@ -1,7 +1,7 @@
 .roadmap-container {
   margin: 3rem 0px;
   /* padding:1rem; */
-  /* height: 80vh; */
+  /* height: max-content;  */
 }
 
 .swip-container {
@@ -38,7 +38,7 @@
 .swip-card-box {
   margin-top: 40px;
   width: 7rem;
-  height: 7rem;
+  min-height: 7rem;
   background-color: transparent;
   border-radius: 1rem;
   margin: 0;
@@ -80,7 +80,7 @@
 
 .swip-container .slides-container .swiper-wrapper .swiper-slide-active .swip-card-container .swip-card-box{
   width: 7rem;
-  height: 7rem;
+  min-height: 8rem;
 }
 
 .swip-container .slides-container .swiper-wrapper .swiper-slide-active .swip-card-container .swip-card-ball{
