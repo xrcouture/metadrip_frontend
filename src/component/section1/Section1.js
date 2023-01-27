@@ -32,7 +32,7 @@ function Section1() {
             timeFormat="MMMM Do YYYY, h:mm:ss a"
           />
           <div className=''>
-            <h1 className='countdown-content countdown-date text-center'>2nd, February 2023</h1>
+            <h1 className='countdown-content countdown-date text-center'>2nd February, 2023</h1>
           </div>
         </div>
       </div>
