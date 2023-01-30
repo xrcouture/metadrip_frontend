@@ -7,7 +7,7 @@ import { A11y, EffectCoverflow, Navigation, Pagination,Thumbs } from "swiper";
 import Section2 from "../section2/Section2";
 
 import { useSwiperSlide } from 'swiper/react';
-
+import {Link} from 'react-router-dom'
 function Slider() {
 
   return (

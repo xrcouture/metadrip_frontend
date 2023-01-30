@@ -9,6 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Assets from './Pages/Assets';
+import Utility from './component/utility/Utility';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path:'/assets',
     element: <Assets />,
+  },
+  {
+    path:'/utility/:name',
+    element: <Utility />,
   }
 ]);
 
