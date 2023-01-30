@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 
 import Assets from './Pages/Assets';
+import Utility from './component/utility/Utility';
 import ProductPage from './Pages/ProductPage';
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/assets',
     element: <Assets />,
+  },
+  {
+    path:'/utility/:name',
+    element: <Utility />,
   },
   {
     path: "/product",

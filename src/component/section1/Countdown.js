@@ -20,6 +20,7 @@ class Countdown extends React.Component {
       const minutes = countdown._data.minutes;
       const seconds = countdown._data.seconds;
       this.setState({ days, hours, minutes, seconds });
+      console.log(hours)
     }, 1000);
   }
 
@@ -39,21 +40,21 @@ class Countdown extends React.Component {
     return (
       <div>
         <div className="countdown-wrapper countdown-content">
-          {days && (
+
             <div className="countdown-container">
               <div className="countdown-item">{days}</div>
               <span className="utility-content-subtitle countdown-item-subtitle">Days</span>
             </div>
-          )}
+
           <span className="counter-seperator">:</span>
-          {hours && (
+          
             <div className="countdown-container">
               <div className="countdown-item">{hours}</div>
               <span className="utility-content-subtitle countdown-item-subtitle">Hours</span>
             </div>
-          )}
+          
           <span className="counter-seperator">:</span>
-          {minutes && (
+
             <div className="countdown-container">
               <div className="countdown-item">
                 {/* <SVGCircle radius={minutesRadius} /> */}
@@ -61,10 +62,10 @@ class Countdown extends React.Component {
               </div>
               <span className="utility-content-subtitle countdown-item-subtitle">Minutes</span>
             </div>
-          )}
+
           <span className="counter-seperator">:</span>
 
-          {seconds && (
+
             <div className="countdown-container">
               <div className="countdown-item">
                 {/* <SVGCircle radius={secondsRadius} /> */}
@@ -72,7 +73,7 @@ class Countdown extends React.Component {
               </div>
               <span className="utility-content-subtitle countdown-item-subtitle">Seconds</span>
             </div>
-          )}
+
         </div>
       </div>
     );

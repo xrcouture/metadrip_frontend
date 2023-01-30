@@ -3,10 +3,9 @@
     background: linear-gradient(180deg, #000000 0%, rgba(214, 40, 196, 0.3) 80.73%, rgba(4, 3, 4, 0) 99.98%, #C376B6 99.99%, rgba(134, 110, 110, 0) 100%);
 }
 .asset-bg{
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
-    height: 100%;
     width: 100%;
 
 }
@@ -40,4 +39,33 @@
 .asset-profile{
     width: 183px;
     height: 183px;
+}
+.asset-card{
+    width: 80%;
+    height: auto;
+    /* padding:20% 0%; */
+    background: linear-gradient(180deg, #B15EB3 0%, rgba(197, 138, 138, 0) 100%);
+    border-radius: 37.1408px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.asset-img{
+    position: relative;
+    width:100%;
+    height: auto;
+    border: 5px solid #D19CFB;
+    border-radius: 5%;
+}
+.asset-title{
+    font-size: calc(15px + 0.390625vw);
+    color: white;
+}
+.loading{
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+    color: white;
 }

@@ -14,7 +14,7 @@
   height: auto;
   z-index: -100;
   /* position: absolute; */
-
+  /* background: url('./assets/overall.png') cover no-repeat; */
 }
 .swiper-container {
   width: 100%;
