@@ -1,14 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './App.css'
 import 'swiper/swiper.min.css'
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";  
-import Homepage from './Pages/Homepage';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Homepage from './Pages/HomePage';
+
+import { Context } from './Context';
+
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
 import Assets from './Pages/Assets';
+import ProductPage from './Pages/ProductPage';
 
 const router = createBrowserRouter([
   {
@@ -16,17 +21,26 @@ const router = createBrowserRouter([
     element: <Homepage />,
   },
   {
-    path:'/assets',
+    path: '/assets',
     element: <Assets />,
+  },
+  {
+    path: "/product",
+    element: <ProductPage />
   }
 ]);
 
 
 function App() {
+
+  const [walletAddress, setWalletAddress] = useState("")
+
   return (
-    <div className="app-container" style={{overflow: "hidden"}}>
-      <RouterProvider router={router} />
-    </div>
+    <Context.Provider value={{walletAddress, setWalletAddress}}>
+      <div className="app-container" style={{ overflow: "hidden" }}>
+        <RouterProvider router={router} />
+      </div>
+    </Context.Provider>
   );
 }
 

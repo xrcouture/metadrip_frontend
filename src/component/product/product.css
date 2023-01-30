@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-product {
+  /* background: conic-gradient(from 151deg at 7.93% 50.94%, #48297A 202deg, #000000 229deg, #000000 301deg, #48297A 360deg)no-repeat !important; */
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
