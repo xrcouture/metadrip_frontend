@@ -11,11 +11,13 @@ import Section1 from '../component/section1/Section1';
 import Section3 from '../component/section3/Section3';
 import Roadmap from '../component/timeline/Roadmap';
 
+// import ProductHeader from '../component/productHeader/ProductHeader';
 
-function Homepage() {
+function HomePage() {
   return (
     <div className="app-container" style={{overflow: "hidden"}}>
       <Header />
+      {/* <ProductHeader /> */}
       <Section1 />
       <Slider />
       <Section3 />
@@ -26,4 +28,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default HomePage;
