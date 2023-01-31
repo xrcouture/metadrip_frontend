@@ -7,9 +7,20 @@ import { utils } from 'ethers';
 
 import { Context } from "../../Context";
 
+import transakSDK from '@transak/transak-sdk'
+import { useParams } from "react-router";
+import { items } from "../../data's/utility";
+import Footer from "../Footer/Footer";
+
 // based on the product id show the product info
 
 const Product = () => {
+
+  const {name} = useParams()
+  console.log(name)
+
+  const {video} = items[name]
+  console.log(video)
 
   const networkMap = {
     POLYGON_MAINNET: {
@@ -30,6 +41,23 @@ const Product = () => {
 
   const {walletAddress, setWalletAddress} = useContext(Context)
 
+  const settings = {
+    // apiKey: 'b48cfd7e-12a9-4be3-90e7-8bd8386735dd',
+    // environment: 'PRODUCTION',
+    apiKey: '6d705e03-0b9d-4190-bc69-1fcdc7dd80bc',
+    environment: 'STAGING',
+    defaultCryptoCurrency: 'MATIC',
+    themeColor: '732f7e',
+    hostURL: window.location.origin,
+    widgetHeight: "75 vh",
+    widgetWidth: "30vw",
+    walletAddress: walletAddress,
+    exchangeScreenTitle: "Purchase NFT",
+    // fiatCurrency: 'GBP', // If you want to limit fiat selection eg 'GBP'
+    // email: 'example@gmail.com', // Your customer's email address
+    // redirectURL: '' // Redirect URL of your app    
+  }
+
   const connectWallet = async () => {
     console.log("connecting")
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
@@ -39,7 +67,8 @@ const Product = () => {
           method: "eth_requestAccounts",
         })
 
-        const chainId = networkMap.POLYGON_MAINNET.chainId // Polygon Mainnet
+        // const chainId = networkMap.POLYGON_MAINNET.chainId // Polygon Mainnet
+        const chainId = networkMap.MUMBAI_TESTNET.chainId // MUMBAI TESTNET
 
         if (window.ethereum.networkVersion !== chainId) {
             console.log("switching network")
@@ -54,7 +83,7 @@ const Product = () => {
                 console.log("adding network")
                 await window.ethereum.request({
                     method: "wallet_addEthereumChain",
-                    params: [networkMap.POLYGON_MAINNET],
+                    params: [networkMap.MUMBAI_TESTNET],
                 })
               }
             }
@@ -79,12 +108,30 @@ const Product = () => {
     console.log("buying")
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
 
-        const chainId = networkMap.POLYGON_MAINNET.chainId // Polygon Mainnet
+        const chainId = networkMap.MUMBAI_TESTNET.chainId // MUMBAI_TESTNET
         const currentChainId = utils.hexValue(parseInt(window.ethereum.networkVersion))
-        const isConnected = localStorage.getItem("isConnected")
+        const isConnected = localStorage.getItem("isConnected") || 'false'
 
         if (isConnected === 'true' && window.ethereum.networkVersion && currentChainId === chainId) {
-          console.log("Purchase successful")
+          const transak = new transakSDK(settings);
+          transak.init();
+
+          transak.on(transak.ALL_EVENTS, (data) => {
+              console.log(data)
+          });
+
+          // This will trigger when the user closed the widget
+          transak.on(transak.EVENTS.TRANSAK_WIDGET_CLOSE, (eventData) => {
+              console.log(eventData);
+              transak.close();
+          });
+
+          // This will trigger when the user marks payment is made.
+          transak.on(transak.EVENTS.TRANSAK_ORDER_SUCCESSFUL, (orderData) => {
+            console.log(orderData);
+            // window.alert("Payment Success")
+            // transak.close();
+          });
         }
         else if (isConnected === 'true' && window.ethereum.networkVersion && currentChainId !== chainId) {
           console.log(window.ethereum.networkVersion, chainId)
@@ -105,7 +152,7 @@ const Product = () => {
   const switcher = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
 
-      const chainId = networkMap.POLYGON_MAINNET.chainId // Polygon Mainnet
+      const chainId = networkMap.MUMBAI_TESTNET.chainId // MUMBAI_TESTNET
 
       if (window.ethereum.networkVersion !== chainId) {
         try {
@@ -118,7 +165,7 @@ const Product = () => {
           if (err.code === 4902) {
             await window.ethereum.request({
                 method: "wallet_addEthereumChain",
-                params: [networkMap.POLYGON_MAINNET],
+                params: [networkMap.MUMBAI_TESTNET],
             })
           }
         }
@@ -132,6 +179,27 @@ const Product = () => {
   return (
     <div className="bg-product">
       <ProductHeader />
+
+      {/* Product Content */}
+
+      <div className="products-container">
+
+        {/* product img and description container */}
+        {/* flex on desktop and block on mobile */}
+
+        <div className="product-content d-md-flex">
+
+          {/* product img container */}
+          <div className="product-img-container d-flex justify-content-center d-md-block">
+            <video src={video} style={{width: "65vw", height: "65vh"}} muted loop />
+          </div>
+
+          {/* product description container */}
+          <div>
+            
+          </div>
+        </div>
+      </div>
 
       <div className='extra'>
         <button className='buy-now text-white' onClick={buyNow}>buy now</button>
@@ -148,6 +216,8 @@ const Product = () => {
           <button className='buy-now' onClick={connectWallet}>Connect Wallet</button>
         </div>
       </div>
+
+      <Footer />
 
     </div>
   )
