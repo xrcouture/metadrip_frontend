@@ -11,9 +11,13 @@ import Section1 from './component/section1/Section1';
 import Section3 from './component/section3/Section3';
 import Roadmap from './component/timeline/Roadmap';
 import 'react-toastify/dist/ReactToastify.css';
-
+import ReactGA from 'react-ga';
 
 function App() {
+
+  const TRACKING_ID = 'G-DVSQY565V0'; // YOUR_OWN_TRACKING_ID
+  ReactGA.initialize(TRACKING_ID);
+
   return (
     <div className="app-container" style={{overflow: "hidden"}}>
       <Header />
