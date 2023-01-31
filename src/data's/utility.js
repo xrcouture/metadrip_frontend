@@ -30,7 +30,7 @@ export const items = {
         get_3d_assets:[],
         try_on_AR:[],
         claim_virtual_fitting:[],
-        video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/5.mp4"
+        video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/2.mp4"
     },
     "Yifan":{
         name:"Oyster Spell",

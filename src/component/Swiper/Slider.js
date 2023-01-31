@@ -6,15 +6,28 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, EffectCoverflow, Navigation, Pagination,Thumbs } from "swiper";
 import Section2 from "../section2/Section2";
 
-import { useSwiperSlide } from 'swiper/react';
 import {Link} from 'react-router-dom'
 function Slider() {
 
+  const links = {
+    1:"/utility/Chrome_Heart",
+    2:"/utility/Puffy_Crossroads",
+    3:"/utility/Yifan",
+    4:"/utility/Technological_Hippie",
+    5:"/utility/Flora_Flamboyance",
+    6:"/utility/Xenia",
+    7:"/utility/Star_Cloak",
+    8:"/utility/Celestial_Dream",
+    9:"/utility/Dazzling_Devil",
+    10:"/utility/Pop_Kiss",
+    11:"/utility/Comic_Boom",
+    12:"/utility/Human_Masquerade"
+  }
+  const [buyLink,setBuyLink] = useState(links[7])
   return (
     <div className="section2-overall">
     <img src={bg} alt="" className="section2-container-background" />
     <div className="swiper-container-overall">
-      {/* <img src={bg} alt="" className="carousel-background" /> */}
       <div className="slider-container">
         <Swiper
           className="swiper-horizontal whitelist-swiper"
@@ -36,6 +49,7 @@ function Slider() {
           zoom={{
             maxRatio: 5,
           }}
+          onSlideChange={(e) => {setBuyLink(links[e.activeIndex+1])}}
           freeMode={false}
           speed={1200}
           autoplay={true}
@@ -91,6 +105,9 @@ function Slider() {
           </SwiperSlide>
         </Swiper>
       </div>
+    </div>
+    <div className="swiper-btn-container">
+          <Link to={buyLink} className="button-buy-swiper header-button" href="">BUY NOW</Link>
     </div>
       <Section2 />
     </div>

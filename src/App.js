@@ -42,9 +42,7 @@ function App() {
 
   return (
     <Context.Provider value={{walletAddress, setWalletAddress}}>
-      <div className="app-container" style={{ overflow: "hidden" }}>
         <RouterProvider router={router} />
-      </div>
     </Context.Provider>
   );
 }
