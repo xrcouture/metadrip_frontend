@@ -8,7 +8,18 @@ import { items } from "../../data's/utility";
 import { RxTwitterLogo,RxDiscordLogo,RxLinkBreak2 } from 'react-icons/rx';
 import {FaLinkedinIn} from 'react-icons/fa'
 import {BsInstagram} from 'react-icons/bs'
+import { Alchemy, Network } from "alchemy-sdk";
+import { getContractInstance } from "../../data's/helper";
+
+
 function Utility() {
+  const config = {
+    apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
+    network: Network.MATIC_MAINNET,
+  };
+  const [nft,setNfts] = useState([]);
+
+  const alchemy = new Alchemy(config);
 
   const collectionAddress = [
     "0xEDe30DF507576e461cc2cB3AdA75bf9B22dc778d", //phase 1
@@ -16,6 +27,20 @@ function Utility() {
   ];  
 
   useEffect(() => {
+    var temp = {
+      "Chrome Heart":0,
+      "Puffy Crossroads":0,
+      "Oyster Spell":0,
+      "Vibrance Splash":0,
+      "Flora Flamboyance":0,
+      "Rufflanza":0,
+      "Star Cloak":0,
+      "Celestial Dream":0,
+      "Dazzling Devil":0,
+      "Pop Kiss":0,
+      "Comic Boom":0,
+      "Human Masquerade":0,
+    }
     // const convert = new CryptoConvert({
     //   cryptoInterval: 2000, //Crypto prices update interval in ms (default 5 seconds on Node.js & 15 seconds on Browsers)
     //   fiatInterval: 60 * 1e3 * 60, //Fiat prices update interval (default every 1 hour)
@@ -31,13 +56,23 @@ function Utility() {
     // setInterval(() => {
     //   console.log(convert.MATIC.USD(1).toFixed(2));
     // },2000);
+    alchemy.nft.getNftsForContract(collectionAddress[1]).then(res=>{
+      // console.log(res.nfts)
+      res.nfts.map((i)=>{
+        let t = i.description.split(":")[0]
+        temp[i.title]++
+      })
+    })
+    setNfts(temp)
   },[]);
-
+  console.log(nft)
   let { name } = useParams();
-  console.log(name);
   const item = items[name]
   console.log(items)
-
+  setTimeout(()=>{
+    console.log(name,nft[name.replace("_"," ")]+1,nft);
+    console.log(`available wearables ${10-nft[name.replace("_"," ")]}/10`)
+  },1000)
   $(document).ready(function () {
     $(".collapse").on("show.bs.collapse", function () {
       var id = $(this).attr("id");

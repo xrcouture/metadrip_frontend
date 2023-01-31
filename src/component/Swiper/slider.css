@@ -223,3 +223,16 @@ z-index: 100;
         margin-top: 8rem;
     }
 }
+.swiper-btn-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10000000;
+    margin-bottom: -5% !important;
+}
+.button-buy-swiper{
+    position: absolute;
+    margin-right: 0 !important;
+}

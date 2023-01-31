@@ -64,3 +64,11 @@
   justify-content: center;
   align-items: center;
 }
+.dropdown-menu>li>a{
+  color: inherit;
+  padding: 0;
+}
+.dropdown-menu>li>a:hover{
+  background-color: transparent;
+  color:inherit;
+}
