@@ -9,6 +9,8 @@ import { Context } from "../../Context";
 
 import transakSDK from '@transak/transak-sdk'
 import { useParams } from "react-router";
+import { items } from "../../data's/utility";
+import Footer from "../Footer/Footer";
 
 // based on the product id show the product info
 
@@ -16,6 +18,9 @@ const Product = () => {
 
   const {name} = useParams()
   console.log(name)
+
+  const {video} = items[name]
+  console.log(video)
 
   const networkMap = {
     POLYGON_MAINNET: {
@@ -175,6 +180,27 @@ const Product = () => {
     <div className="bg-product">
       <ProductHeader />
 
+      {/* Product Content */}
+
+      <div className="products-container">
+
+        {/* product img and description container */}
+        {/* flex on desktop and block on mobile */}
+
+        <div className="product-content d-md-flex">
+
+          {/* product img container */}
+          <div className="product-img-container d-flex justify-content-center d-md-block">
+            <video src={video} style={{width: "65vw", height: "65vh"}} muted loop />
+          </div>
+
+          {/* product description container */}
+          <div>
+            
+          </div>
+        </div>
+      </div>
+
       <div className='extra'>
         <button className='buy-now text-white' onClick={buyNow}>buy now</button>
 
@@ -190,6 +216,8 @@ const Product = () => {
           <button className='buy-now' onClick={connectWallet}>Connect Wallet</button>
         </div>
       </div>
+
+      <Footer />
 
     </div>
   )
