@@ -45,7 +45,8 @@ const ProductHeader = () => {
           method: "eth_requestAccounts",
         })
 
-        const chainId = networkMap.POLYGON_MAINNET.chainId // Polygon Mainnet
+        // const chainId = networkMap.POLYGON_MAINNET.chainId // Polygon Mainnet
+        const chainId = networkMap.MUMBAI_TESTNET.chainId // MUMBAI TESTNET
 
         if (isConnected === 'false' && window.ethereum.networkVersion !== chainId) {
             console.log("switching network")
@@ -60,7 +61,7 @@ const ProductHeader = () => {
                 console.log("adding network")
                 await window.ethereum.request({
                     method: "wallet_addEthereumChain",
-                    params: [networkMap.POLYGON_MAINNET],
+                    params: [networkMap.MUMBAI_TESTNET],
                 })
               }
             }
