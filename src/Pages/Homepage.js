@@ -11,13 +11,13 @@ import Section1 from '../component/section1/Section1';
 import Section3 from '../component/section3/Section3';
 import Roadmap from '../component/timeline/Roadmap';
 
-// import ProductHeader from '../component/productHeader/ProductHeader';
+import ProductHeader from '../component/productHeader/ProductHeader';
 
 function HomePage() {
   return (
     <div className="app-container" style={{overflow: "hidden"}}>
-      <Header />
-      {/* <ProductHeader /> */}
+      {/* <Header /> */}
+      <ProductHeader />
       <Section1 />
       <Slider />
       <Section3 />

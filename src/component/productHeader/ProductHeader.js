@@ -5,6 +5,7 @@ import { Context } from '../../Context';
 
 
 import './productHeader.css'
+import { Link } from 'react-router-dom';
 
 const ProductHeader = () => {
 
@@ -182,7 +183,8 @@ const ProductHeader = () => {
           </button>
 
           <ul className="dropdown-menu header-button" style={{ fontFamily: "Druk Wide Medium" }}>
-            <li className='dropdown-items p-1'>My Assets</li>
+            <li className='dropdown-items p-1'>
+              <Link to="/assets">Assets</Link></li>
             <li className='dropdown-items p-1 pt-2' onClick={disconnect}>Disconnect Wallet</li>
             {/* <li className='dropdown-items p-1 pt-2' onClick={changeNetwork}>Switch Network</li> */}
           </ul>

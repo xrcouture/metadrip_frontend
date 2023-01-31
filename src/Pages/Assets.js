@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import Header from "../component/header/Header";
 import "./Assets.css";
 import asset from "../assets/asset-bg.png";
@@ -6,11 +6,14 @@ import { Link } from "react-router-dom";
 import { Alchemy, Network } from "alchemy-sdk";
 import { ThreeDots } from "react-loader-spinner";
 import { getContractInstance } from "../data's/helper";
+import { Context } from "../Context";
+import ProductHeader from "../component/productHeader/ProductHeader";
 
 function Assets() {
   const [assets, setAssets] = useState([]);
   // setAssets("hello")
   // console.log(assets)
+  const {walletAddress} = useContext(Context);
   const [pending, setPending] = useState(false);
   const [user, setuser] = useState(false);
   const [state, setstate] = useState(
@@ -41,7 +44,7 @@ function Assets() {
     ];
     const alchemy = new Alchemy(config);
     alchemy.nft
-      .getNftsForOwner(state, {
+      .getNftsForOwner(walletAddress, {
         contractAddresses: collectionAddress,
         omitMetadata: false,
       })
@@ -51,7 +54,7 @@ function Assets() {
         console.log(a)
       })
       .catch((e) => {
-        alert(e);
+        // alert(e);
       });
       // alchemy.nft.getNftsForContract(collectionAddress[0]).then(res=>console.log(res))
     setTimeout(() => {
@@ -79,7 +82,7 @@ function Assets() {
 
   return (
     <div className="asset-page">
-      <Header />
+      <ProductHeader />
       <img src={asset} alt="asset" className="asset-bg" />
       <div className="asset-container">
         <div></div>
@@ -126,7 +129,7 @@ function Assets() {
                     </Link>
                   </div>
                 ))
-              : !pending && <h1>No NFT's "Start Collecting"</h1>}
+              : !pending && walletAddress ? <h1 style={{color:"white",textAlign:"center"}}>No NFT's "Start Collecting"</h1> : <h1 style={{color:"white",textAlign:"center"}}>Connect Your Wallet</h1>}
           </div>
         </div>
       </div>

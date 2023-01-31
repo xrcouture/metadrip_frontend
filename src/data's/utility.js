@@ -5,14 +5,16 @@ export const items = {
         description:"A hearty treat, this dress is perfect for the Metaverse retreat! The glistening hues and the bewitching iridescent is sure to grab eyeballs.",
         phase:1,
         metaverse:[],
-        get_3d_assets:[],
+        get_3d_assets:[
+            // pfp
+        ],
         try_on_AR:[],
         claim_virtual_fitting:[],
         video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/1.mp4"
     },
     "Flora_Flamboyance":{
-        name:"Gulnara Gulia",
-        designed_by:"Flora Flamboyance",
+        name:"Flora Flamboyance",
+        designed_by:"Gulnara Gulia",
         description:"Antique and priceless, this outfit is sure to make your Metaverse Vogue seamless! The glistening hues and the sleeve just amps the look.",
         phase:1,
         metaverse:[],
@@ -32,7 +34,7 @@ export const items = {
         claim_virtual_fitting:[],
         video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/2.mp4"
     },
-    "Yifan":{
+    "Oyster_Spell":{
         name:"Oyster Spell",
         designed_by:"Yifan Pu",
         description:"As soft to the eyes as cotton, be the ‘cool’ Metaverse Diva with more so cool gloves and purse in hand’. Get ready to make a fashion statement like never before!",
@@ -54,7 +56,7 @@ export const items = {
         claim_virtual_fitting:[],
         video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/4.mp4"
     },
-    "Xenia":{
+    "Rufflanza":{
         name:"Rufflanza",
         designed_by:"Xenia Joost",
         description:"To keep the Metaverse clean and pristine, the goddess with its extravagant dress has arrived. Guess what, it’s the dress that’s become the favorite talk of the town!",
