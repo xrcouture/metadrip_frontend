@@ -4,11 +4,7 @@ import { useParams } from "react-router-dom";
 import CryptoConvert from "crypto-convert";
 import { ethers } from 'ethers'
 import $ from "jquery";
-import { Link } from "react-router-dom";
 import { items } from "../../data's/utility";
-import { RxTwitterLogo, RxDiscordLogo, RxLinkBreak2 } from "react-icons/rx";
-import { FaLinkedinIn } from "react-icons/fa";
-import { BsInstagram } from "react-icons/bs";
 import { Alchemy, Network } from "alchemy-sdk";
 import { getContractInstance, getGasFees } from "../../data's/helper";
 import { Formik } from 'formik';
@@ -40,7 +36,7 @@ function Utility() {
       "Oyster Spell": 0,
       "Vibrance Splash": 0,
       "Flora Flamboyance": 0,
-      Rufflanza: 0,
+      "Rufflanza": 0,
       "Star Cloak": 0,
       "Celestial Dream": 0,
       "Dazzling Devil": 0,
@@ -48,21 +44,6 @@ function Utility() {
       "Comic Boom": 0,
       "Human Masquerade": 0,
     };
-    // const convert = new CryptoConvert({
-    //   cryptoInterval: 2000, //Crypto prices update interval in ms (default 5 seconds on Node.js & 15 seconds on Browsers)
-    //   fiatInterval: 60 * 1e3 * 60, //Fiat prices update interval (default every 1 hour)
-    //   calculateAverage: true, //Calculate the average crypto price from exchanges
-    //   binance: true, //Use binance rates
-    //   bitfinex: true, //Use bitfinex rates
-    //   coinbase: true, //Use coinbase rates
-    //   kraken: true, //Use kraken rates
-    //   // onUpdate: (tickers, isFiatUpdate?)=> any, //Callback on every crypto update
-    //   HTTPAgent: null, //HTTP Agent for server-side proxies (Node.js only)
-    // });
-
-    // setInterval(() => {
-    //   console.log(convert.MATIC.USD(1).toFixed(2));
-    // },2000);
     alchemy.nft.getNftsForContract(collectionAddress[1]).then((res) => {
       res.nfts.map((i) => {
         let t = i.description.split(":")[0];
@@ -128,55 +109,6 @@ function Utility() {
             autoPlay
             loop
           />
-          {/* <div className="utility-social-container w-100">
-            <p>Share</p>
-            <div className="d-flex justify-content-around w-100">
-              <a
-                href="https://discord.gg/zHJ3UA5CeR"
-                target="_blank"
-                style={{ textDecoration: "none" }}
-              >
-                <RxDiscordLogo
-                  color="#EDE9E9"
-                  size={50}
-                  className="icon-footer"
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/xrcouture/"
-                target="_blank"
-                style={{ textDecoration: "none" }}
-              >
-                <BsInstagram
-                  color="#EDE9E9"
-                  size={50}
-                  className="icon-footer"
-                />
-              </a>
-              <a
-                href="https://twitter.com/XRCouture"
-                target="_blank"
-                style={{ textDecoration: "none" }}
-              >
-                <RxTwitterLogo
-                  color="#EDE9E9"
-                  size={50}
-                  className="icon-footer"
-                />
-              </a>
-              <a
-                href="https://twitter.com/XRCouture"
-                target="_blank"
-                style={{ textDecoration: "none" }}
-              >
-                <RxLinkBreak2
-                  color="#EDE9E9"
-                  size={50}
-                  className="icon-footer"
-                />
-              </a>
-            </div>
-          </div> */}
         </div>
         <div className="col-md-5 col-sm-12">
           <div className="asset-details-header">
