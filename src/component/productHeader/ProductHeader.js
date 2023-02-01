@@ -94,7 +94,7 @@ const ProductHeader = () => {
           })
   
           if (accounts.length > 0) {
-            console.log(accounts)
+            // console.log(accounts)
             // setIsConnected(true)
             setWalletAddress(accounts[0])
             document.getElementById("header-btn").setAttribute("data-bs-toggle", "dropdown")
