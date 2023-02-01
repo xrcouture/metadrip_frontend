@@ -266,7 +266,7 @@ const Product = () => {
           // maxPriorityFeePerGas,
           // value: ethers.utils.parseUnits(totalSupply.toString(), 0),
           value: ethers.utils.parseUnits(totalSupply.toString(), "wei"),
-          // gasLimit: 1000000,
+          gasLimit: 1000000,
         });
         // const tx = await contract.setSeedSaleOn()
         await tx.wait();
