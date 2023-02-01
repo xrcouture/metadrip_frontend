@@ -244,14 +244,13 @@ const Product = () => {
         // });
       const contract = await getContractInstance(2);
       // try {
-      //   const seedSale = await contract.setSeedSaleOn();
+      //   const seedSale = await contract.setSeedSaleOff();
       //   console.log(seedSale);
-      //   toast.success("Seed Sale On");
+      //   toast.success("Seed Sale Off");
       // } catch (error) {
       //   toast.error(`Transaction not successful - ${error.error.data.message.split(":")[2]}`);
       //   console.log(error.error.data.message); 
       // }
-      // const seedSale = await contract.transferOwnership("0x1FAd0D17687998FD5e921F7E1379262E7BA7355a")
       let totalSupply = await contract.publicCost();
       const { maxFeePerGas, maxPriorityFeePerGas } = await getGasFees();
       const ethereum = window.ethereum;
@@ -268,7 +267,7 @@ const Product = () => {
           // maxFeePerGas,
           // maxPriorityFeePerGas,
           value: ethers.utils.parseEther("0.0245"),
-          gasLimit: 50000,
+          gasLimit: 100000,
         });
         // const tx = await contract.setSeedSaleOn()
         await tx.wait();
