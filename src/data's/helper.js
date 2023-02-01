@@ -1,8 +1,8 @@
 import { ethers } from 'ethers'
 import axios from 'axios';
-const DCL_PHASE1_CONTRACT_ADDRESS = "0xEDe30DF507576e461cc2cB3AdA75bf9B22dc778d"; //Live - 1
+export const DCL_PHASE1_CONTRACT_ADDRESS = "0xEDe30DF507576e461cc2cB3AdA75bf9B22dc778d"; //Live - 1
 // const DCL_PHASE2_CONTRACT_ADDRESS = "0x99D6C0d1A656a1ee1F345AE6482D0aFD76daF8a5"; //Live - 2
-const DCL_PHASE2_CONTRACT_ADDRESS = "0xdeea9f60923DCc917c49eedcDc8209c3D9EC1B02"; //Testing - 2
+export const DCL_PHASE2_CONTRACT_ADDRESS = "0xdeea9f60923DCc917c49eedcDc8209c3D9EC1B02"; //Testing - 2
 const NETWORK = process.env.NETWORK;
 
 const dclPhase1Contract = require("./MetaDrip_1.json");
