@@ -10,18 +10,18 @@ import {Link} from 'react-router-dom'
 function Slider() {
 
   const links = {
-    1:"/utility/Chrome_Heart",
-    2:"/utility/Puffy_Crossroads",
-    3:"/utility/Yifan",
-    4:"/utility/Technological_Hippie",
-    5:"/utility/Flora_Flamboyance",
-    6:"/utility/Xenia",
-    7:"/utility/Star_Cloak",
-    8:"/utility/Celestial_Dream",
-    9:"/utility/Dazzling_Devil",
-    10:"/utility/Pop_Kiss",
-    11:"/utility/Comic_Boom",
-    12:"/utility/Human_Masquerade"
+    1:"/assets/Chrome_Heart",
+    2:"/assets/Puffy_Crossroads",
+    3:"/assets/Yifan",
+    4:"/assets/Technological_Hippie",
+    5:"/assets/Flora_Flamboyance",
+    6:"/assets/Xenia",
+    7:"/assets/Star_Cloak",
+    8:"/assets/Celestial_Dream",
+    9:"/assets/Dazzling_Devil",
+    10:"/assets/Pop_Kiss",
+    11:"/assets/Comic_Boom",
+    12:"/assets/Human_Masquerade"
   }
   const [buyLink,setBuyLink] = useState(links[7])
   return (
