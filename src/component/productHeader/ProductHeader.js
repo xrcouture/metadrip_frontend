@@ -30,6 +30,10 @@ const ProductHeader = () => {
 
   useEffect(() => {
     getCurrentWalletConnected()
+
+    return () => {
+      console.log('This will be logged on unmount');
+    };
   }, [])
 
   useEffect(() => {

@@ -4,6 +4,8 @@ import 'swiper/swiper.min.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Homepage from './Pages/Homepage';
+import NotFound from './Pages/NotFound';
+
 import 'react-toastify/dist/ReactToastify.css';
 import { Context } from './Context';
 
@@ -26,12 +28,16 @@ const router = createBrowserRouter([
     element: <Assets />,
   },
   {
-    path:'/utility/:name',
+    path:'/assets/:name',
     element: <Utility />,
   },
   {
     path: "/:name",
     element: <ProductPage />
+  },
+  {
+    path: '*',
+    element: <NotFound />
   }
 ]);
 

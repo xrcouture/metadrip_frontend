@@ -191,13 +191,11 @@ const Product = () => {
           }
         }
 
-        console.log("connected");
-        setWalletAddress(accounts[0]);
-        localStorage.setItem("isConnected", true);
-        document
-          .getElementById("header-btn")
-          .setAttribute("data-bs-toggle", "dropdown");
-        document.getElementById("modal-1").style.display = "none";
+        console.log("connected")
+        setWalletAddress(accounts[0])
+        localStorage.setItem("isConnected", true)
+        document.getElementById("header-btn").setAttribute("data-bs-toggle", "dropdown")
+        document.getElementById('connect-modal').style.display = "none"
       } catch (err) {
         console.log(err.message);
       }
@@ -280,16 +278,14 @@ const Product = () => {
       // const tm = await contract.connect(signer)
 
 
-      } else if (
-        isConnected === "true" &&
-        window.ethereum.networkVersion &&
-        currentChainId !== chainId
-      ) {
-        console.log(window.ethereum.networkVersion, chainId);
-        document.getElementById("modal").style.display = "flex";
-      } else if (isConnected === "false") {
-        console.log("connect metamask");
-        document.getElementById("modal-1").style.display = "flex";
+      }
+      else if (isConnected === 'true' && window.ethereum.networkVersion && currentChainId !== chainId) {
+        console.log(window.ethereum.networkVersion, chainId)
+        document.getElementById('switch-network-modal').style.display = "flex"
+      }
+      else if (isConnected === 'false') {
+        console.log("connect metamask")
+        document.getElementById('connect-modal').style.display = "flex"
       }
     } else {
       console.log("No wallet");
@@ -319,8 +315,8 @@ const Product = () => {
         }
       }
 
-      console.log("network switched");
-      document.getElementById("modal").style.display = "none";
+      console.log("network switched")
+      document.getElementById('switch-network-modal').style.display = "none"
     }
   };
   console.log(nft[name.replace("_", " ")])
@@ -404,17 +400,6 @@ const Product = () => {
                       ) : (
                       <button className='buy-now text-white mt-2' onClick={buyNow}>Buy now</button>
                       )}
-                      <div className='switch-network-modal text-white' id='modal' style={{ display: "none" }}>
-                        <div className='modal-title' >Switch Network</div>
-                        <div className='modal-description'>Wrong network detected. Please Switch.</div>
-                        <button className='buy-now' onClick={switcher}>Switch Network</button>
-                      </div>
-
-                      <div className='switch-network-modal connect-modal text-white' id='modal-1' style={{ display: "none" }}>
-                        <div className='modal-title' >Connect Wallet</div>
-                        <div className='modal-description'>No wallet Found, please connect</div>
-                        <button className='buy-now' onClick={connectWallet}>Connect Wallet</button>
-                      </div>
                     </div>
                     <div className="mt-md-3">
                       <div
@@ -446,34 +431,6 @@ const Product = () => {
                         Buy now
                       </button>
                     )}
-
-                    <div
-                      className="switch-network-modal text-white"
-                      id="modal"
-                      style={{ display: "none" }}
-                    >
-                      <div className="modal-title">Switch Network</div>
-                      <div className="modal-description">
-                        Wrong network detected. Please Switch.
-                      </div>
-                      <button className="buy-now" onClick={switcher}>
-                        Switch Network
-                      </button>
-                    </div>
-
-                    <div
-                      className="switch-network-modal connect-modal text-white"
-                      id="modal-1"
-                      style={{ display: "none" }}
-                    >
-                      <div className="modal-title">Connect Wallet</div>
-                      <div className="modal-description">
-                        No wallet Found, please connect
-                      </div>
-                      <button className="buy-now" onClick={connectWallet}>
-                        Connect Wallet
-                      </button>
-                    </div>
                   </div>
                 </div>
 
@@ -704,6 +661,22 @@ const Product = () => {
               </div>
             </div>
           </div>
+
+          {/* Modals */}
+          <div className="modal-background">
+            <div className='switch-network-modal text-white' id='switch-network-modal' style={{ display: "none" }}>
+              <div className='modal-title' style={{fontFamily: "Clash Display SemiBold", fontSize: "1.5rem"}}>Wrong Network Detected</div>
+              <div className='modal-description' style={{fontFamily: "Clash Display Light", fontSize: "1rem"}}>You need to be connected to Polygon Mainnet to buy, but you are currently connected to different network.</div>
+              <button className='buy-now' style={{width: "100%", fontFamily: "Clash Display SemiBold"}} onClick={switcher}>Switch To Polygon Mainnet</button>
+            </div>
+
+            <div className='switch-network-modal connect-modal text-white' id='connect-modal' style={{ display: "none" }}>
+              <div className='modal-title' style={{fontFamily: "Clash Display SemiBold", fontSize: "1.5rem"}}>Please Connect Your Wallet</div>
+              <div className='modal-description' style={{fontFamily: "Clash Display Light", fontSize: "1rem"}}>You need to connect your MetaMask Wallet, Please click the below button the connect to MetaMask.</div>
+              <button className='buy-now' style={{width: "100%", fontFamily: "Clash Display SemiBold"}} onClick={connectWallet}>Connect Wallet</button>
+            </div>
+          </div>
+
         </div>
       </div>
 

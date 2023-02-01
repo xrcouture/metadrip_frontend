@@ -7,7 +7,7 @@
     top: 0;
     left: 0;
     width: 100%;
-
+    height: 25rem;
 }
 .profile-container{
     position: relative;
@@ -50,6 +50,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin: auto;
 }
 .asset-img{
     position: relative;
@@ -68,4 +69,12 @@
     align-items: center;
     justify-content: center;;
     color: white;
+}
+.asset-profile-icon {
+    position: absolute !important;
+    top: 35% !important;
+    width: 10rem !important;
+    /* height: 100px; */
+    z-index: 100 !important;
+    transform: translate(0%, -50%) !important;
 }

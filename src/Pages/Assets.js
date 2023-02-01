@@ -2,12 +2,14 @@ import React, { useEffect, useState,useContext } from "react";
 import Header from "../component/header/Header";
 import "./Assets.css";
 import asset from "../assets/asset-bg.png";
+import assetProfile from "../assets/asset-profile.png"
 import { Link } from "react-router-dom";
 import { Alchemy, Network } from "alchemy-sdk";
 import { ThreeDots } from "react-loader-spinner";
 import { getContractInstance } from "../data's/helper";
 import { Context } from "../Context";
 import ProductHeader from "../component/productHeader/ProductHeader";
+import Footer from "../component/Footer/Footer" 
 
 function Assets() {
   const [assets, setAssets] = useState([]);
@@ -86,12 +88,24 @@ function Assets() {
   return (
     <div className="asset-page">
       <ProductHeader />
-      <img src={asset} alt="asset" className="asset-bg" />
+
+      <div>
+        <div className="d-flex">
+          <img src={assetProfile} alt="asset profile icon" className="asset-profile-icon header-logo" />
+          <div className="asset-profile-icon header-logo" style={{fontFamily: "Clash Display Bold", color: "#fff", fontSize: "3rem", marginLeft: "18rem"}}>{walletAddress.substring(
+                0,
+                8
+              )}...{walletAddress.substring(38)}</div>
+        </div>
+        <img src={asset} alt="asset" className="asset-bg" />
+      </div>
+
+
       <div className="asset-container">
         <div></div>
         <h1
-          className="text-center m-4"
-          style={{ fontFamily: "Clash Display Medium", color: "white" }}
+          className="text-center pt-5 pb-5"
+          style={{ fontFamily: "Clash Display Medium", color: "white", textDecoration: "underline #C44DD6" }}
         >
           Assets
         </h1>
@@ -117,7 +131,7 @@ function Assets() {
                     <Link
                       to={`/utility/${i.rawMetadata.name.replace(" ", "_")}`}
                     >
-                      <div className="asset-card pb-4">
+                      <div className="asset-card pb-5 mb-5">
                         <img src={i.rawMetadata.image} className="asset-img" />
                         <p
                           style={{
@@ -136,6 +150,7 @@ function Assets() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
