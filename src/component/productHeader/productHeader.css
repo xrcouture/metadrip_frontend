@@ -63,7 +63,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  left: -110%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
 }
+
 .dropdown-menu>li>a{
   color: inherit;
   padding: 0;
