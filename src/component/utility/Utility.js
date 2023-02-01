@@ -14,6 +14,9 @@ import { getContractInstance, getGasFees } from "../../data's/helper";
 import { Formik } from 'formik';
 import {saveAs} from 'file-saver';
 
+import ProductHeader from "../productHeader/ProductHeader";
+import Footer from "../Footer/Footer";
+
 
 function Utility() {
   $(".panel-title").on('click',function(){
@@ -116,11 +119,15 @@ function Utility() {
     });
   });
   console.log(item['metaverse_wearables']['sandbox'].status)
+
+
   return (
-    <div className="utility-page mt-4">
+    <div className="products-container" style={{background: "#000"}}>
+    <ProductHeader />
+    <div className="utility-page mb-5">
       {/* <iframe src="https://metadrip.xrcouture.com" width="100%" height="500"/> */}
-      <div className="row mt-4">
-        <div className="col-md-7 col-sm-12 overflow-hidden d-flex d-flex flex-column">
+      <div className="row mt-4 align-items-start product-video-and-content">
+        <div className="col-xs-12 col-sm-7 col-md-6 col-lg-6 col-xl-5 overflow-hidden d-flex justify-content-center d-flex flex-column">
           <video
             src={item.video}
             className="utility-page-video align-self-center"
@@ -178,8 +185,9 @@ function Utility() {
             </div>
           </div> */}
         </div>
-        <div className="col-md-5 col-sm-12">
+        <div className="col-xs-12 col-sm-5 col-md-6 col-lg-6 col-xl-7 product-content">
           <div className="asset-details-header">
+
             <h1
               className="title-asset text-left"
               style={{ fontFamily: "Clash Display Bold" }}
@@ -187,13 +195,18 @@ function Utility() {
               {" "}
               {item.name}
             </h1>
-            <div className="details-container">
-              <div>
-                <p>Created by</p>
-               <b><h3>{item.designed_by}</h3></b> 
+
+            <div className="details-container mb-4 mt-5 align-items-start">
+            <div className="product-creator d-flex align-items-center">
+              <div className="product-creator-img"></div>
+              <div className="product-creator-info">
+                <div className="product-creator-info-title product-content-subtitle" style={{fontFamily: "Clash Display Light"}}>Created by</div>
+                <div className="product-creator-info-name" style={{fontFamily: "Clash Display Bold"}}>{item.designed_by}</div>
               </div>
-              <p className="w-50">{item.description}</p>
             </div>
+              <p className="w-50 product-content-subtitle" style={{fontFamily: "Clash Display Light"}}>{item.description}</p>
+            </div>
+
             <div className="tab-accordion">
               <div>
                 <ul className="nav nav-tabs faq-cat-tabs">
@@ -201,7 +214,7 @@ function Utility() {
                     <a
                       href="#faq-cat-1"
                       data-toggle="tab"
-                      style={{ fontFamily: "Clash Dispaly Medium", fontWeight:'bolder'}}
+                      style={{ fontFamily: "Clash Display Medium" }}
                     >
                       Utilities
                     </a>
@@ -210,7 +223,7 @@ function Utility() {
                     <a
                       href="#faq-cat-2"
                       data-toggle="tab"
-                      style={{ fontFamily: "Clash Dispaly Medium", fontWeight:'bolder' }}
+                      style={{ fontFamily: "Clash Display Medium" }}
                     >
                       Blockchain Info{" "}
                     </a>
@@ -228,6 +241,7 @@ function Utility() {
                           >
                             <h4
                               className="panel-title"
+                              style={{ fontFamily: "Clash Display SemiBold" }}
                             >
                               Metaverse Wearables
                               <span className="pull-right">
@@ -535,6 +549,8 @@ function Utility() {
           </div>
         </div>
       </div>
+    </div>
+    <Footer />
     </div>
   );
 }
