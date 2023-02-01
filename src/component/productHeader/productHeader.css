@@ -42,12 +42,12 @@
   cursor: pointer;
 }
 
-.extra {
+/* .extra {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
 .buy-now {
   background-color: brown;

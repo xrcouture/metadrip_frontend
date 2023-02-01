@@ -9,6 +9,9 @@
   align-items: center;
   justify-content: space-between;
 }
+.products-container {
+  padding-top: 5rem;
+}
 a:hover{
   text-decoration: none;
   color: white;
@@ -17,6 +20,10 @@ a:hover{
   position: relative;
   margin-left: 1.5rem;
   width: 6.5rem;
+}
+.product-content {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 .header-button {
   padding: 0.1rem 0.8rem;
@@ -55,6 +62,10 @@ a:hover{
     margin-left: 2rem;
     width: 7rem;
   }
+  .product-content {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
   .header-button {
     margin-right: 2rem;
     font-size: 0.7rem;
@@ -79,6 +90,10 @@ a:hover{
     margin-left: 2.5rem;
     width: 9rem;
   }
+  .product-content {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
   .header-button {
     margin-right: 2.8rem;
     font-size: 0.8rem;
@@ -95,14 +110,24 @@ a:hover{
   .header-container {
     height: 6rem;
   }
+  .products-container {
+    padding-top: 8rem;
+  }
   .header-logo {
     margin-left: 2.7rem;
     width: 10rem;
+  }
+  .product-content {
+    padding-left: 0rem;
+    padding-right: 0rem;
   }
   .header-button {
     margin-right: 3rem;
     font-size: 0.85rem;
     padding: 0.4rem 1.5rem;
+  }
+  .product-video-and-content {
+    margin-right: 3rem;
   }
   .register-text {
     right: 7.5rem !important;
@@ -114,6 +139,9 @@ a:hover{
   .header-container {
     height: 7rem;
   }
+  .products-container {
+    padding-top: 9rem;
+  }
   .header-logo {
     margin-left: 3.2rem;
     width: 12rem;
@@ -124,8 +152,15 @@ a:hover{
     padding: 0.5rem 1.5rem;
     border-radius: 0.7rem;
   }
+  .product-video-and-content {
+    margin-right: 4rem;
+  }
   .register-text {
     right: 8rem !important;
+  }
+  .product-content {
+    padding-left: 0rem;
+    padding-right: 0rem;
   }
 }
 
@@ -141,8 +176,15 @@ a:hover{
     padding: 0.6rem 1.6rem;
     border-radius: 0.8rem;
   }
+  .product-video-and-content {
+    margin-right: 4rem;
+  }
   .register-text {
     right: 8.5rem !important;
+  }
+  .product-content {
+    padding-left: 0rem;
+    padding-right: 0rem;
   }
 }
 
@@ -150,6 +192,9 @@ a:hover{
 @media (min-width: 1400px) { 
   .header-container {
     height: 7.5rem;
+  }
+  .products-container {
+    padding-top: 9.5rem;
   }
   .header-logo {
     margin-left: 4.2rem;
@@ -161,15 +206,25 @@ a:hover{
     padding: 0.7rem 1.8rem;
     border-radius: 0.9rem;
   }
+  .product-video-and-content {
+    margin-right: 5rem;
+  }
   .register-text {
     right: 10.5rem !important;
-  } 
+  }
+  .product-content {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
 }
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1800px) { 
   .header-container {
     height: 8.5rem;
+  }
+  .products-container {
+    padding-top: 10.5rem;
   }
   .header-logo {
     margin-left: 4.7rem;
@@ -181,10 +236,14 @@ a:hover{
     padding: 1rem 2rem;
     border-radius: 1rem;
   }
+  .product-video-and-content {
+    margin-right: 5.5rem;
+  }
   .register-text {
     right: 13rem !important;
-  } 
+  }
+  .product-content {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
 }
-
-
-
