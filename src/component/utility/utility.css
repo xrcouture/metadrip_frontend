@@ -19,6 +19,7 @@
     display: flex;
     align-content: space-between;
     justify-content: space-between;
+    font-family: 'Clash Display Light';
 }
 /* ................ */
 .faq-cat-content {
@@ -51,10 +52,11 @@
 /* .active-faq {
     border-left: 5px solid #888888;
 } */
-
+.panel-faq .panel-heading .panel-title,
 .panel-faq .panel-heading .panel-title span {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: normal;
+    font-family: "Clash Display Medium";
 }
 .tab-accordion{
     background: #191717;
@@ -111,6 +113,18 @@
     color: #FFFFFF;
     font-family: "Clash Display Light";
 }
+.button-group-1 a{
+    background: linear-gradient(180deg, #732F7E 0%, rgba(55, 109, 215, 0.4) 100%, #000000 100%);
+    border-radius: 10%;
+    font-weight: 700;
+    font-size: 10.50227px;
+    line-height: 10px;
+    text-align: center;
+    justify-items: center;
+    padding: 1.5% 1%;
+    color: #FFFFFF;
+
+}
 .panel-group .panel-heading+.panel-collapse>.panel-body, 
 .panel-group .panel-heading+.panel-collapse>.list-group{
     border:none;
@@ -125,4 +139,17 @@
     background: linear-gradient(180deg, rgba(33, 30, 30, 0.51) 0%, rgba(18, 18, 18, 0.24) 100%);
     border-radius: 22.5px;
 
+}
+.form-virtual-fitting{
+    align-items: center;
+}
+.form-virtual-fitting form{
+    display: flex;
+    flex-direction: column;
+}
+.form-virtual-fitting form input{
+    background-color: white;
+}
+#floatingTextarea2{
+    margin: 0 !important;
 }
