@@ -1,24 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import "./utility.css";
 import { useParams } from "react-router-dom";
 import CryptoConvert from "crypto-convert";
 import { ethers } from 'ethers'
 import $ from "jquery";
-import { Link } from "react-router-dom";
 import { items } from "../../data's/utility";
-import { RxTwitterLogo, RxDiscordLogo, RxLinkBreak2 } from "react-icons/rx";
-import { FaLinkedinIn } from "react-icons/fa";
-import { BsInstagram } from "react-icons/bs";
 import { Alchemy, Network } from "alchemy-sdk";
 import { getContractInstance, getGasFees } from "../../data's/helper";
 import { Formik } from 'formik';
 import {saveAs} from 'file-saver';
 
-import ProductHeader from "../productHeader/ProductHeader";
 import Footer from "../Footer/Footer";
 
+import { Context } from "../../Context";
+import ProductHeader from "../productHeader/ProductHeader";
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
 
 function Utility() {
+  
+  let { name } = useParams();
+  const [claimed,setClaimed] = useState(false)
+  const item = items[name];
+  console.log(items);
+  const {walletAddress} = useContext(Context)
+  console.log(item['start']/10,walletAddress,item['phase'])
+    axios.post("http://localhost:5000/contract/isItemClaimed",
+    {
+      address:walletAddress,
+      itemId:item['start']/10,
+      contractId:item['phase']
+    }).then(res=>{
+      setClaimed(res.data.claimed)
+      console.log(res.data.claimed)
+    }).catch(e=>{
+      console.log(e)
+    })
+  console.log(walletAddress)
   $(".panel-title").on('click',function(){
       $(this).find('i').toggleClass('glyphicon-chevron-down  glyphicon-chevron-up');
   })
@@ -35,15 +53,28 @@ function Utility() {
     "0xEDe30DF507576e461cc2cB3AdA75bf9B22dc778d", //phase 1
     "0x99D6C0d1A656a1ee1F345AE6482D0aFD76daF8a5", //phase 2
   ];
-
-  useEffect(async () => {
+  const claimDCL = () => {
+    
+    console.log(item['start']/10,walletAddress,item['phase'])
+    axios.post("http://localhost:5000/contract/issueTokens",{
+      address:[walletAddress],
+      itemIds:[item['start']/10],
+      contractId:item['phase']
+    }).then(res=>{
+      toast.success(res.data.message);
+    }).catch(e=>{
+      console.log(e)
+      toast.error(e.response.data.message);
+    })
+  }
+  const fun=async()=>{
     var temp = {
       "Chrome Heart": 0,
       "Puffy Crossroads": 0,
       "Oyster Spell": 0,
       "Vibrance Splash": 0,
       "Flora Flamboyance": 0,
-      Rufflanza: 0,
+      "Rufflanza": 0,
       "Star Cloak": 0,
       "Celestial Dream": 0,
       "Dazzling Devil": 0,
@@ -51,21 +82,6 @@ function Utility() {
       "Comic Boom": 0,
       "Human Masquerade": 0,
     };
-    // const convert = new CryptoConvert({
-    //   cryptoInterval: 2000, //Crypto prices update interval in ms (default 5 seconds on Node.js & 15 seconds on Browsers)
-    //   fiatInterval: 60 * 1e3 * 60, //Fiat prices update interval (default every 1 hour)
-    //   calculateAverage: true, //Calculate the average crypto price from exchanges
-    //   binance: true, //Use binance rates
-    //   bitfinex: true, //Use bitfinex rates
-    //   coinbase: true, //Use coinbase rates
-    //   kraken: true, //Use kraken rates
-    //   // onUpdate: (tickers, isFiatUpdate?)=> any, //Callback on every crypto update
-    //   HTTPAgent: null, //HTTP Agent for server-side proxies (Node.js only)
-    // });
-
-    // setInterval(() => {
-    //   console.log(convert.MATIC.USD(1).toFixed(2));
-    // },2000);
     alchemy.nft.getNftsForContract(collectionAddress[1]).then((res) => {
       res.nfts.map((i) => {
         let t = i.description.split(":")[0];
@@ -77,23 +93,14 @@ function Utility() {
     console.log(contract)
     let totalSupply = await contract.publicCost();
     console.log(totalSupply);
-    setNftCost(Number(totalSupply._hex) * Math.pow(10, -18));
-    const {maxFeePerGas, maxPriorityFeePerGas} = await getGasFees()
-    console.log(maxFeePerGas, maxPriorityFeePerGas);
-    const tx = await contract.tokenMint(1,{
-        maxFeePerGas,
-        maxPriorityFeePerGas,
-        value:ethers.utils.parseUnits(totalSupply.toString(), "gwei"),
-      })
-    // const tx = await contract.setSeedSaleOn()
-      await tx.wait();
-      console.log(tx);
-      
+    setNftCost(Number(totalSupply._hex) * Math.pow(10, -18)); 
+  }
+
+  useEffect( () => {
+    fun()
     }, []);
   console.log(nftCost);
-  let { name } = useParams();
-  const item = items[name];
-  console.log(items);
+
   setTimeout(() => {
     console.log(name, nft[name.replace("_", " ")] + 1, nft);
     console.log(`available wearables ${10 - nft[name.replace("_", " ")]}/10`);
@@ -123,6 +130,21 @@ function Utility() {
 
   return (
     <div className="products-container" style={{background: "#000"}}>
+    <ToastContainer
+      position="top-right"
+      autoClose={2000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="dark"
+      style={{zIndex:100000}}
+      />
+      {/* Same as */}
+    <ToastContainer />
     <ProductHeader />
     <div className="utility-page mb-5">
       {/* <iframe src="https://metadrip.xrcouture.com" width="100%" height="500"/> */}
@@ -135,55 +157,6 @@ function Utility() {
             autoPlay
             loop
           />
-          {/* <div className="utility-social-container w-100">
-            <p>Share</p>
-            <div className="d-flex justify-content-around w-100">
-              <a
-                href="https://discord.gg/zHJ3UA5CeR"
-                target="_blank"
-                style={{ textDecoration: "none" }}
-              >
-                <RxDiscordLogo
-                  color="#EDE9E9"
-                  size={50}
-                  className="icon-footer"
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/xrcouture/"
-                target="_blank"
-                style={{ textDecoration: "none" }}
-              >
-                <BsInstagram
-                  color="#EDE9E9"
-                  size={50}
-                  className="icon-footer"
-                />
-              </a>
-              <a
-                href="https://twitter.com/XRCouture"
-                target="_blank"
-                style={{ textDecoration: "none" }}
-              >
-                <RxTwitterLogo
-                  color="#EDE9E9"
-                  size={50}
-                  className="icon-footer"
-                />
-              </a>
-              <a
-                href="https://twitter.com/XRCouture"
-                target="_blank"
-                style={{ textDecoration: "none" }}
-              >
-                <RxLinkBreak2
-                  color="#EDE9E9"
-                  size={50}
-                  className="icon-footer"
-                />
-              </a>
-            </div>
-          </div> */}
         </div>
         <div className="col-xs-12 col-sm-5 col-md-6 col-lg-6 col-xl-7 product-content">
           <div className="asset-details-header">
@@ -257,11 +230,11 @@ function Utility() {
                           <div className="panel-body">
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" }}>Decentraland</h5>
-                              <button>Claim</button>
+                              {claimed ? <p className="text-success">Claimed</p> : <button onClick={claimDCL}>Claim</button> }
                             </div>
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" }}>Sandbox</h5>
-                              {item['metaverse_wearables']['sandbox'].status? <a href="" target="_blank" download="MyFile"> <button>Claim</button></a>: <p className="text-danger">Coming Soon...</p>}
+                              {item['metaverse_wearables']['sandbox'].status?  <button>Claim</button>: <p className="text-danger">Coming Soon...</p>}
                             </div>
                           </div>
                         </div>
@@ -294,19 +267,19 @@ function Utility() {
                             </div>
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" }}>GLB File</h5>
-                              {item['get_3d_assets']['glb_file'].status? <a href="" target="_blank" download="MyFile"> <button>Download</button></a>: <p className="text-danger">Coming Soon...</p>}
+                              {item['get_3d_assets']['glb_file'].status?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
                             </div>
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" }}>
                                 Metahuman
                               </h5>
-                              {item['get_3d_assets']['metahuman'].status ?<a href="" target="_blank" download="MyFile">  <button>Download</button></a>: <p className="text-danger">Coming Soon...</p>}
+                              {item['get_3d_assets']['metahuman'].status ?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
                             </div>
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" }}>
                                 CloneX
                               </h5>
-                              {item['get_3d_assets']['cloneX'].status ?<a href="" target="_blank" download="MyFile">  <button>Download</button></a>: <p className="text-danger">Coming Soon...</p>}
+                              {item['get_3d_assets']['cloneX'].status ?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
                             </div>
                           </div>
                         </div>
@@ -335,19 +308,19 @@ function Utility() {
                                 <h5 style={{ color: "#978097" }}>
                                   OnCyber
                                 </h5>
-                                {item['metaverse_showcase']['oncyber'].status ?<a href="" target="_blank" download="MyFile">  <button>Download</button></a>: <p className="text-danger">Coming Soon...</p>}
+                                {item['metaverse_showcase']['oncyber'].status ?  <p className="text-success">Available</p>: <p className="text-danger">Coming Soon...</p>}
                               </div>
                               <div className="button-group-1">
                                 <h5 style={{ color: "#978097" }}>
                                   Spatial
                                 </h5>
-                                {item['metaverse_showcase']['spatial'].status ?<a href="" target="_blank" download="MyFile">  <button>Download</button></a>: <p className="text-danger">Coming Soon...</p>}
+                                {item['metaverse_showcase']['spatial'].status ?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
                               </div>
                               <div className="button-group-1">
                                 <h5 style={{ color: "#978097" }}>
                                   AR
                                 </h5>
-                                {item['metaverse_showcase']['ar'].status ?<a href="" target="_blank" download="MyFile">  <button>Download</button></a>: <p className="text-danger">Coming Soon...</p>}
+                                {item['metaverse_showcase']['ar'].status ?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
                               </div>
                           </div>
                         </div>
@@ -376,7 +349,7 @@ function Utility() {
                                 <h5 style={{ color: "#978097" }}>
                                   AR
                                 </h5>
-                                {item['snapchat_ar'].status ?<a href="" target="_blank" download="MyFile">  <button>Download</button></a>: <p className="text-danger">Coming Soon...</p>}
+                                {item['snapchat_ar'].status ?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
                             </div>
                           </div>
                         </div>
@@ -513,7 +486,7 @@ function Utility() {
                                 <h5 style={{ color: "#978097" }}>
                                   Earn Passive Income
                                 </h5>
-                                {item['earn_passive'].status ?<a href="" target="_blank" download="MyFile">  <button>Download</button></a>: <p className="text-danger">Coming Soon...</p>}
+                                {item['earn_passive'].status ?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
                             </div>
                           </div>
                         </div>

@@ -22,8 +22,7 @@ function Assets() {
     "0x065366ec359a64dbf3f02cad7987122053fedcb0"
   );
   let itemSold = {}
-
-  useEffect(async () => {
+  const fun=async()=>{
     let supply = {
       0:0,
       1:0,
@@ -62,6 +61,10 @@ function Assets() {
     setTimeout(() => {
       setPending(false);
     }, 1000);
+  }
+
+  useEffect(() => {
+    fun()
     // const contract = await getContractInstance(1);
     // const name = await contract.totalBalance();
     // let totalSupply = await contract.totalSupply()

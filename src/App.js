@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Homepage from './Pages/Homepage';
 import NotFound from './Pages/NotFound';
 
+import 'react-toastify/dist/ReactToastify.css';
 import { Context } from './Context';
 
 import {
