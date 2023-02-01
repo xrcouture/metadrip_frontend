@@ -115,7 +115,7 @@ function Assets() {
               ? assets.map((i) => (
                   <div className="col-md-4 d-flex justify-content-center">
                     <Link
-                      to={`/utility/${i.rawMetadata.name.replace(" ", "_")}`}
+                      to={`/assets/${i.rawMetadata.name.replace(" ", "_")}`}
                     >
                       <div className="asset-card pb-4">
                         <img src={i.rawMetadata.image} className="asset-img" />
