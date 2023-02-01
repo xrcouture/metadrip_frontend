@@ -216,7 +216,7 @@ const Product = () => {
               </h1>
 
               {/* product desc and buy now */}
-              <div className="d-md-flex flex-md-row-reverse mt-md-5 mb-md-5">
+              <div className="d-md-flex flex-md-row-reverse mt-md-4 mb-md-5">
 
                 {/* Cost, Quantity, buy now */}
                 <div className="prod-cost text-white mt-5 mt-md-0 col-md-5" style={{padding: "0%"}}>
@@ -263,7 +263,7 @@ const Product = () => {
                 </div>
 
                 {/* created by and description */}
-                <div className="prod-description text-white mt-5 mb-5 mt-md-0 mb-md-0 col-md-7" style={{padding: "0%"}}>
+                <div className="prod-description text-white mt-5 mb-5 mt-md-0 mb-md-0 col-md-7 d-flex flex-column justify-content-around" style={{padding: "0%"}}>
                   <div className="product-creator d-flex align-items-center">
                     <div className="product-creator-img"></div>
                     <div className="product-creator-info">

@@ -167,6 +167,11 @@
   .product-content-subtitle {
     font-size: 0.95rem;
   }
+  .product-creator-img {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1.2rem;
+  }
 }
 
 /* // X-Large devices (large desktops, 1200px and up) */
@@ -207,6 +212,11 @@
   }
   .utility-page-video {
     width: 80%;
+  }
+  .product-creator-img {
+    width: 2.7rem;
+    height: 2.7rem;
+    margin-right: 1.4rem;
   }
 }
 
@@ -252,6 +262,11 @@
   .product-content-subtitle {
     font-size: 1.15rem;
   }
+  .product-creator-img {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1.7rem;
+  }
 }
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
@@ -295,5 +310,10 @@
   }
   .product-content-subtitle {
     font-size: 1.35rem;
+  }
+  .product-creator-img {
+    width: 3.4rem;
+    height: 3.4rem;
+    margin-right: 2rem;
   }
 }
