@@ -1,5 +1,5 @@
 .utility-page-video{
-    width: 70%;
+    width: 85%;
     height: fit-content;
     overflow: hidden;
     border: 10px solid #D19CFB;
@@ -26,7 +26,7 @@
 }
 
 .faq-cat-tabs li a {
-    padding: 15px 10px 15px 10px;
+    padding: 15px 10px 14px 10px;
     border: 0.5px solid #fff;
     color: #777777;
     margin-right: 20px;
@@ -103,13 +103,13 @@
     background: linear-gradient(180deg, #732F7E 0%, rgba(55, 109, 215, 0.4) 100%, #000000 100%);
     border-radius: 10%;
     font-weight: 700;
-    font-size: 10.50227px;
+    font-size: 12px;
     line-height: 10px;
     text-align: center;
     justify-items: center;
-    padding: 1.5% 1%;
+    padding: 0.5rem 0.5rem;
     color: #FFFFFF;
-
+    font-family: "Clash Display Light";
 }
 .panel-group .panel-heading+.panel-collapse>.panel-body, 
 .panel-group .panel-heading+.panel-collapse>.list-group{
