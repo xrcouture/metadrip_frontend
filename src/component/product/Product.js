@@ -192,7 +192,7 @@ const Product = () => {
           </h1>
 
           {/* video */}
-          <div className="col-xs-12 col-sm-7 overflow-hidden d-flex justify-content-center d-flex flex-column">
+          <div className="col-xs-12 col-sm-7 col-md-6 col-lg-6 col-xl-5 overflow-hidden d-flex justify-content-center d-flex flex-column">
             <video
               src={item.video}
               className="utility-page-video align-self-center"
@@ -203,7 +203,7 @@ const Product = () => {
           </div>
 
           {/* Contents */}
-          <div className="col-xs-12 col-sm-5 product-content">
+          <div className="col-xs-12 col-sm-5 col-md-6 col-lg-6 col-xl-7 product-content">
             <div className="asset-details-header">
 
               {/* name */}
@@ -216,21 +216,36 @@ const Product = () => {
               </h1>
 
               {/* product desc and buy now */}
-              <div className="d-md-flex flex-md-row-reverse mt-md-5">
+              <div className="d-md-flex flex-md-row-reverse mt-md-5 mb-md-5">
 
                 {/* Cost, Quantity, buy now */}
-                <div className="prod-cost text-white mt-5 mt-md-0">
+                <div className="prod-cost text-white mt-5 mt-md-0 col-md-5" style={{padding: "0%"}}>
                   <div className="d-flex d-md-block justify-content-between">
                     <div className="prod-cost-details">
                       <div className="product-cost" style={{color: "#F9F9F9"}}>45 $</div>
                       <div className="product-cost" style={{color: "#D062D3"}}>245 MAT</div>
                     </div>
-                    <div>
+                    <div className='extra mt-3 mt-md-2 mt-lg-1 d-none d-md-block '>
+                      <button className='buy-now text-white mt-2' onClick={buyNow}>Buy now</button>
+
+                      <div className='switch-network-modal text-white' id='modal' style={{ display: "none" }}>
+                        <div className='modal-title' >Switch Network</div>
+                        <div className='modal-description'>Wrong network detected. Please Switch.</div>
+                        <button className='buy-now' onClick={switcher}>Switch Network</button>
+                      </div>
+
+                      <div className='switch-network-modal connect-modal text-white' id='modal-1' style={{ display: "none" }}>
+                        <div className='modal-title' >Connect Wallet</div>
+                        <div className='modal-description'>No wallet Found, please connect</div>
+                        <button className='buy-now' onClick={connectWallet}>Connect Wallet</button>
+                      </div>
+                    </div>
+                    <div className="mt-md-3">
                       <div className="product-cost" style={{color: "#F9F9F9", textAlign: "right"}}>1 / 10</div>
-                      <div className="product-cost" style={{color: "#F9F9F9", textAlign: "right", fontFamily: "Clash Display Light"}}>Wearables available</div>
+                      <div className="product-cost product-content-subtitle" style={{color: "#F9F9F9", textAlign: "right", fontFamily: "Clash Display Light"}}>Wearables available</div>
                     </div>
                   </div>
-                  <div className='extra mt-3 mt-md-0'>
+                  <div className='extra mt-3 mt-md-0 d-md-none'>
                     <button className='buy-now text-white mt-2' onClick={buyNow}>Buy now</button>
 
                     <div className='switch-network-modal text-white' id='modal' style={{ display: "none" }}>
@@ -248,15 +263,15 @@ const Product = () => {
                 </div>
 
                 {/* created by and description */}
-                <div className="prod-description text-white mt-5 mb-5 mt-md-0 mb-md-0">
+                <div className="prod-description text-white mt-5 mb-5 mt-md-0 mb-md-0 col-md-7" style={{padding: "0%"}}>
                   <div className="product-creator d-flex align-items-center">
                     <div className="product-creator-img"></div>
                     <div className="product-creator-info">
-                      <div className="product-creator-info-title" style={{fontFamily: "Clash Display Light"}}>Created by</div>
+                      <div className="product-creator-info-title product-content-subtitle" style={{fontFamily: "Clash Display Light"}}>Created by</div>
                       <div className="product-creator-info-name" style={{fontFamily: "Clash Display Bold"}}>{item.designed_by}</div>
                     </div>
                   </div>
-                  <div className="mt-3" style={{fontFamily: "Clash Display Light"}}>{item.description}</div>
+                  <div className="mt-3 product-content-subtitle" style={{fontFamily: "Clash Display Light"}}>{item.description}</div>
                 </div>
 
               </div>
