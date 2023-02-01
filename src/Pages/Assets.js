@@ -44,7 +44,7 @@ function Assets() {
     ];
     const alchemy = new Alchemy(config);
     alchemy.nft
-      .getNftsForOwner(walletAddress, {
+      .getNftsForOwner(state, {
         contractAddresses: collectionAddress,
         omitMetadata: false,
       })
