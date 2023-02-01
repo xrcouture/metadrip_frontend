@@ -6,11 +6,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import ProductHeader from "../productHeader/ProductHeader";
 import { utils } from "ethers";
 import { Alchemy, Network } from "alchemy-sdk";
-import { getContractInstance, getGasFees } from "../../data's/helper";
+import { DCL_PHASE2_CONTRACT_ADDRESS, getContractInstance, getGasFees } from "../../data's/helper";
 import { Context } from "../../Context";
 
 import transakSDK from "@transak/transak-sdk";
-import { useParams } from "react-router";
+import { useAsyncError, useParams } from "react-router";
 import { items } from "../../data's/utility";
 import Footer from "../Footer/Footer";
 import { ethers } from "ethers";
@@ -19,14 +19,18 @@ import $ from "jquery";
 // based on the product id show the product info
 
 const Product = () => {
+  let { name } = useParams();
+  const item = items[name];
   const config = {
     apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
-    network: Network.MATIC_MAINNET,
+    // network: Network.MATIC_MAINNET,
+    network:Network.MATIC_MUMBAI
   };
   const [nft, setNfts] = useState([]);
   const [nftCost, setNftCost] = useState(0);
+  const [available,setAvailable] = useState(0)
   const [costInDollar, setCostInDollar] = useState(0);
-
+  const [id,setId] = useState(item['start'])
   const alchemy = new Alchemy(config);
 
   const collectionAddress = [
@@ -34,14 +38,15 @@ const Product = () => {
     "0x99D6C0d1A656a1ee1F345AE6482D0aFD76daF8a5", //phase 2
   ];
 
-  useEffect(async () => {
+  // setId(item['start'])
+  const fun=async()=>{
     var temp = {
       "Chrome Heart": 0,
       "Puffy Crossroads": 0,
       "Oyster Spell": 0,
       "Vibrance Splash": 0,
       "Flora Flamboyance": 0,
-      Rufflanza: 0,
+      "Rufflanza": 0,
       "Star Cloak": 0,
       "Celestial Dream": 0,
       "Dazzling Devil": 0,
@@ -61,42 +66,35 @@ const Product = () => {
       HTTPAgent: null, //HTTP Agent for server-side proxies (Node.js only)
     });
     // setCostInDollar(convert.MATIC.USD(1).toFixed(2));  
-
+    const contract = await getContractInstance(2);
+    let totalSupply = await contract.publicCost();
+    // console.log(totalSupply);
+    setNftCost(Number(totalSupply._hex) * Math.pow(10, -18));
     setInterval(() => {
       // console.log(convert.MATIC.USD(1).toFixed(2));
-      setCostInDollar(convert.MATIC.USD(1).toFixed(2));
-    }, 5000);
-    alchemy.nft.getNftsForContract(collectionAddress[1]).then((res) => {
+      setCostInDollar(convert.MATIC.USD(Number(totalSupply._hex) * Math.pow(10, -18)).toFixed(2));
+    }, 400);
+    alchemy.nft.getNftsForContract(DCL_PHASE2_CONTRACT_ADDRESS).then((res) => {
       res.nfts.map((i) => {
         let t = i.description.split(":")[0];
         temp[i.title]++;
       });
     });
     setNfts(temp);
-    const contract = await getContractInstance(2);
-    // console.log(contract);
-    let totalSupply = await contract.publicCost();
-    // console.log(totalSupply);
-    setNftCost(Number(totalSupply._hex) * Math.pow(10, -18));
-    // const { maxFeePerGas, maxPriorityFeePerGas } = await getGasFees();
-    // console.log(maxFeePerGas, maxPriorityFeePerGas);
-    // const tx = await contract.tokenMint(1, {
-    //   maxFeePerGas,
-    //   maxPriorityFeePerGas,
-    //   value: ethers.utils.parseUnits(totalSupply.toString(), "gwei"),
-    // });
-    // // const tx = await contract.setSeedSaleOn()
-    // await tx.wait();
-    // console.log(tx);
+    setAvailable(10 - nft[name.replace("_", " ")])
+  }
+  useEffect(() => {
+   fun()
   }, []);
-  // console.log(nftCost);
-  let { name } = useParams();
-  const item = items[name];
+  console.log(nft)
+
+
   // console.log(items);
-  // setTimeout(() => {
-  //   // console.log(name, nft[name.replace("_", " ")] + 1, nft);
-  //   // console.log(`available wearables ${10 - nft[name.replace("_", " ")]}/10`);
-  // }, 1000);
+  setTimeout(() => {
+    console.log(name, nft[name.replace("_", " ")] + 1, nft);
+    console.log(`available wearables ${10 - nft[name.replace("_", " ")]}/10`);
+    setAvailable(10 - nft[name.replace("_", " ")])
+  }, 1000);
   $(document).on(function () {
     $(".collapse").on("show.bs.collapse", function () {
       var id = $(this).attr("id");
@@ -117,6 +115,7 @@ const Product = () => {
       );
     });
   });
+
   // console.log(item["metaverse_wearables"]["sandbox"].status);
 
   // const { name } = useParams()
@@ -251,6 +250,7 @@ const Product = () => {
       //   toast.error(`Transaction not successful - ${error.error.data.message.split(":")[2]}`);
       //   console.log(error.error.data.message); 
       // }
+      console.log(nft[name.replace("_", " ")]+id+1)
       let totalSupply = await contract.publicCost();
       const { maxFeePerGas, maxPriorityFeePerGas } = await getGasFees();
       const ethereum = window.ethereum;
@@ -261,16 +261,18 @@ const Product = () => {
       const provider = new ethers.providers.Web3Provider(ethereum)
       const walletAddress = accounts[0]    // first account in MetaMask
       const signer = provider.getSigner(walletAddress)
-  
       try {
-        const tx = await contract.tokenMint(3, {
+        const tx = await contract.tokenMint(nft[name.replace("_", " ")]+id+1, {
+        // const tx = await contract.tokenMint(13, {
           // maxFeePerGas,
           // maxPriorityFeePerGas,
-          value: ethers.utils.parseEther("0.0245"),
-          gasLimit: 100000,
+          // value: ethers.utils.parseUnits(totalSupply.toString(), 0),
+          value: ethers.utils.parseUnits(totalSupply.toString(), "wei"),
+          // gasLimit: 1000000,
         });
         // const tx = await contract.setSeedSaleOn()
         await tx.wait();
+        toast.success("Token Minted Successfully")
         console.log(tx);
       } catch (error) {
         console.log(error)
@@ -321,7 +323,7 @@ const Product = () => {
       document.getElementById("modal").style.display = "none";
     }
   };
-
+  console.log(nft[name.replace("_", " ")])
   return (
     <div className="bg-product">
       <ProductHeader />
@@ -395,7 +397,26 @@ const Product = () => {
                         {nftCost} MAT
                       </div>
                     </div>
-                    <div>
+                    <div className='extra mt-3 mt-md-2 mt-lg-1 d-none d-md-block '>
+                    {10 - nft[name.replace("_", " ")] == 0 ? (
+                      // <p className="text-danger">Sold Out</p>
+                      <button className='buy-now text-white mt-2' disabled>Sold Out</button>
+                      ) : (
+                      <button className='buy-now text-white mt-2' onClick={buyNow}>Buy now</button>
+                      )}
+                      <div className='switch-network-modal text-white' id='modal' style={{ display: "none" }}>
+                        <div className='modal-title' >Switch Network</div>
+                        <div className='modal-description'>Wrong network detected. Please Switch.</div>
+                        <button className='buy-now' onClick={switcher}>Switch Network</button>
+                      </div>
+
+                      <div className='switch-network-modal connect-modal text-white' id='modal-1' style={{ display: "none" }}>
+                        <div className='modal-title' >Connect Wallet</div>
+                        <div className='modal-description'>No wallet Found, please connect</div>
+                        <button className='buy-now' onClick={connectWallet}>Connect Wallet</button>
+                      </div>
+                    </div>
+                    <div className="mt-md-3">
                       <div
                         className="product-cost"
                         style={{ color: "#F9F9F9", textAlign: "right" }}
@@ -403,7 +424,7 @@ const Product = () => {
                         {10 - nft[name.replace("_", " ")]} / 10
                       </div>
                       <div
-                        className="product-cost"
+                        className="product-cost product-content-subtitle"
                         style={{
                           color: "#F9F9F9",
                           textAlign: "right",
@@ -414,8 +435,8 @@ const Product = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="extra mt-3 mt-md-2 mt-lg-1 d-none d-md-block ">
-                    {10 - nft[name.replace("_", " ")] == 10 ? (
+                  <div className="extra mt-3 mt-md-0 d-md-none ">
+                    {10 - nft[name.replace("_", " ")] == 0 ? (
                       <p className="text-danger">Sold Out</p>
                     ) : (
                       <button
