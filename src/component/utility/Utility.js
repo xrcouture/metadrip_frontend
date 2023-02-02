@@ -21,41 +21,35 @@ function Utility() {
   
   let { name } = useParams();
   const [claimed,setClaimed] = useState(false)
+  const [virtual,setVirtual] = useState(false)
   const item = items[name];
-  console.log(items);
+  // console.log(items);
   const {walletAddress} = useContext(Context)
-  console.log(item['start']/10,walletAddress,item['phase'])
-    axios.post("http://localhost:5000/contract/isItemClaimed",
-    {
-      address:walletAddress,
-      itemId:item['start']/10,
-      contractId:item['phase']
-    }).then(res=>{
-      setClaimed(res.data.claimed)
-      console.log(res.data.claimed)
-    }).catch(e=>{
-      console.log(e)
-    })
+  // console.log(item['start']/10,walletAddress,item['phase'])
+    // axios.post("http://localhost:5000/contract/isItemClaimed",
+    // {
+    //   address:walletAddress,
+    //   itemId:item['start']/10,
+    //   contractId:item['phase']
+    // }).then(res=>{
+    //   setClaimed(res.data.claimed)
+    //   console.log(res.data.claimed)
+    // }).catch(e=>{
+    //   console.log(e)
+    // })
   console.log(walletAddress)
-  $(".panel-title").on('click',function(){
-      $(this).find('i').toggleClass('glyphicon-chevron-down  glyphicon-chevron-up');
+  $("[data-toggle=collapse] .panel-title").on('click',function(){
+    
   })
-  const config = {
-    apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
-    network: Network.MATIC_MAINNET,
-  };
+
   const [nft, setNfts] = useState([]);
   const [nftCost, setNftCost] = useState(0);
 
-  const alchemy = new Alchemy(config);
 
-  const collectionAddress = [
-    "0xEDe30DF507576e461cc2cB3AdA75bf9B22dc778d", //phase 1
-    "0x99D6C0d1A656a1ee1F345AE6482D0aFD76daF8a5", //phase 2
-  ];
+
+
   const claimDCL = () => {
-    
-    console.log(item['start']/10,walletAddress,item['phase'])
+    // console.log(item['start']/10,walletAddress,item['phase'])
     axios.post("http://localhost:5000/contract/issueTokens",{
       address:[walletAddress],
       itemIds:[item['start']/10],
@@ -63,11 +57,21 @@ function Utility() {
     }).then(res=>{
       toast.success(res.data.message);
     }).catch(e=>{
-      console.log(e)
+      // console.log(e)
       toast.error(e.response.data.message);
     })
   }
+  const collectionAddress = [
+    "0xEDe30DF507576e461cc2cB3AdA75bf9B22dc778d", //phase 1
+    "0x99D6C0d1A656a1ee1F345AE6482D0aFD76daF8a5", //phase 2
+  ];
   const fun=async()=>{
+    const config = {
+      apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
+      network: Network.MATIC_MAINNET,
+    };
+    const alchemy = new Alchemy(config);
+
     var temp = {
       "Chrome Heart": 0,
       "Puffy Crossroads": 0,
@@ -82,50 +86,56 @@ function Utility() {
       "Comic Boom": 0,
       "Human Masquerade": 0,
     };
-    alchemy.nft.getNftsForContract(collectionAddress[1]).then((res) => {
-      res.nfts.map((i) => {
-        let t = i.description.split(":")[0];
-        temp[i.title]++;
-      });
+    // alchemy.nft.getNftsForContract(collectionAddress[1]).then((res) => {
+    //   res.nfts.map((i) => {
+    //     let t = i.description.split(":")[0];
+    //     temp[i.title]++;
+    //   });
+    // });
+    alchemy.nft 
+    .getNftsForOwner("0x065366ec359a64dbf3f02cad7987122053fedcb0", {
+      contractAddresses: collectionAddress,
+      omitMetadata: false,
+    })
+    .then((res) => {
+      let a = res["ownedNfts"];
+      console.log(a)
+    })
+    .catch((e) => {
+      // alert(e);
     });
     setNfts(temp);
-    const contract = await getContractInstance(2);
-    console.log(contract)
-    let totalSupply = await contract.publicCost();
-    console.log(totalSupply);
-    setNftCost(Number(totalSupply._hex) * Math.pow(10, -18)); 
   }
 
   useEffect( () => {
     fun()
     }, []);
-  console.log(nftCost);
 
-  setTimeout(() => {
-    console.log(name, nft[name.replace("_", " ")] + 1, nft);
-    console.log(`available wearables ${10 - nft[name.replace("_", " ")]}/10`);
-  }, 1000);
+
+
   $(document).on(function () {
     $(".collapse").on("show.bs.collapse", function () {
+      console.log("opened")
       var id = $(this).attr("id");
       $('a[href="#' + id + '"]')
         .closest(".panel-heading")
         .addClass("active-faq");
       $('a[href="#' + id + '"] .panel-title span').html(
-        '<i class="glyphicon glyphicon-minus"></i>'
+        '<i class="glyphicon glyphicon-chevron-up"></i>'
       );
     });
     $(".collapse").on("hide.bs.collapse", function () {
+      console.log("closed")
       var id = $(this).attr("id");
       $('a[href="#' + id + '"]')
         .closest(".panel-heading")
         .removeClass("active-faq");
       $('a[href="#' + id + '"] .panel-title span').html(
-        '<i class="glyphicon glyphicon-plus"></i>'
+        '<i class="glyphicon glyphicon-chevron-down"></i>'
       );
     });
   });
-  console.log(item['metaverse_wearables']['sandbox'].status)
+  // console.log(item['metaverse_wearables']['sandbox'].status)
 
 
   return (
@@ -211,12 +221,13 @@ function Utility() {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-1"
+                            className="collapsed"
                           >
                             <h4
                               className="panel-title"
                               style={{ fontFamily: "Clash Display SemiBold" }}
                             >
-                              Metaverse Wearables
+                              Cross-Platform Usage
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-down" />
                               </span>
@@ -234,7 +245,7 @@ function Utility() {
                             </div>
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" }}>Sandbox</h5>
-                              {item['metaverse_wearables']['sandbox'].status?  <button>Claim</button>: <p className="text-danger">Coming Soon...</p>}
+                              {item['metaverse_wearables']['sandbox'].status?  <button>Claim</button>: <p className="text-secondary">Coming Soon...</p>}
                             </div>
                           </div>
                         </div>
@@ -244,46 +255,165 @@ function Utility() {
                           <a
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
-                            href="#faq-cat-1-sub-2"
+                            href="#faq-cat-1-sub-4"
                           >
-                            <h5 className="panel-title">
-                              Download 3D files, PFP &Artwork			
+                            <h4 className="panel-title">
+                            AR Try-on
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-down" />
                               </span>
-                            </h5>
+                            </h4>
                           </a>
                         </div>
                         <div
-                          id="faq-cat-1-sub-2"
+                          id="faq-cat-1-sub-4"
                           className="panel-collapse collapse"
                         >
                           <div className="panel-body">
-                            <div className="button-group-1">
-                              <h5 style={{ color: "#978097" }}>
-                                PFP File
-                              </h5>
-                              {item['get_3d_assets']['pfp'].status?  <button onClick={()=>saveAs("https://drive.google.com/file/d/1jKnJ7gnUSxBkfDxslGlEaEYgF-XT_p0P/view?usp=sharing")}>Download</button>: <p className="text-danger">Coming Soon...</p>}
+                            {
+                              item['snapchat_ar'].status ?
+                              <>
+                              <video src={item['snapchat_ar'].video} muted autoPlay loop className="snapvideo"></video>
+                              <img src={item['snapchat_ar'].qr} className="snapimg"></img>
+                              </> : 
+                              <div className="button-group-1">
+                                <h5 style={{ color: "#978097" }}>
+                                  AR
+                                </h5>
+                                {item['snapchat_ar'].status ?  <button>Download</button>: <p className="text-secondary">Coming Soon...</p>}
                             </div>
-                            <div className="button-group-1">
-                              <h5 style={{ color: "#978097" }}>GLB File</h5>
-                              {item['get_3d_assets']['glb_file'].status?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
-                            </div>
-                            <div className="button-group-1">
-                              <h5 style={{ color: "#978097" }}>
-                                Metahuman
-                              </h5>
-                              {item['get_3d_assets']['metahuman'].status ?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
-                            </div>
-                            <div className="button-group-1">
-                              <h5 style={{ color: "#978097" }}>
-                                CloneX
-                              </h5>
-                              {item['get_3d_assets']['cloneX'].status ?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
-                            </div>
+                            }
+                          
                           </div>
                         </div>
                       </div>
+                      <div className="panel panel-default panel-faq">
+                        <div className="panel-heading">
+                          <a
+                            data-toggle="collapse"
+                            data-parent="#accordion-cat-1"
+                            href="#faq-cat-1-sub-6"
+                          >
+                            <h4 className="panel-title">
+                              Virtual Fitting
+                              <span className="pull-right">
+                                <i className="glyphicon glyphicon-chevron-down" />
+                              </span>
+                            </h4>
+                          </a>
+                        </div>
+                        <div
+                          id="faq-cat-1-sub-6"
+                          className="panel-collapse collapse"
+                        >
+                          <div className="panel-body">
+                          <div className="form-virtual-fitting">
+                          {!virtual?<Formik
+                              initialValues={{ 
+                                email: '', 
+                                files: null,
+                                comments:""
+                              }}
+                              validate={values => {
+                                const errors = {};
+                                if (!values.email) {
+                                  errors.email = 'Required';
+                                } else if (
+                                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                                ) {
+                                  errors.email = 'Invalid email address';
+                                }
+                                return errors;
+                              }}
+                              onSubmit={(values, { setSubmitting }) => {
+                                console.log(values)
+                                setTimeout(() => {
+                                  alert(JSON.stringify(values, null, 2));
+                                  setSubmitting(false);
+                                }, 400);
+                              }}
+                            >
+                              {({
+                                values,
+                                errors,
+                                touched,
+                                handleChange,
+                                handleBlur,
+                                handleSubmit,
+                                isSubmitting,
+                                setFieldValue
+                                /* and other goodies */
+                              }) => (
+                                <form onSubmit={handleSubmit}>
+                                  <div className="row">
+                                  <div class="mb-3 col-md-6">
+                                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                                    <input 
+                                    type="email" 
+                                    class="form-control" 
+                                    id="exampleFormControlInput1" 
+                                    placeholder="Enter your email address" 
+                                    onChange={handleChange}
+                                    name="email"
+                                    onBlur={handleBlur}
+                                    value={values.email}
+                                    />
+                                  </div>
+                                  {errors.email && touched.email && errors.email}
+
+
+                                  <div class="mb-3 col-md-6">
+                                    <label for="formFileMultiple" class="form-label">Select files</label>
+                                    <input 
+                                    class="form-control" 
+                                    type="file" 
+                                    name="files" 
+                                    id="formFileMultiple" 
+                                    multiple 
+                                    required
+                                    onChange={(event) => {
+                                      if(event.currentTarget.files.length>10){
+                                        alert(`You can upload a maximum of 10 files and you are trying to upload ${event.currentTarget.files.length} files`)
+                                        $("#formFileMultiple").val(null)
+                                      }else{
+                                        setFieldValue("files", event.currentTarget.files)}}
+                                      }
+                                    />
+                                  </div>
+
+                                  {errors.email && touched.email && errors.email}
+                                  <div class="">
+                                    <label for="floatingTextarea">Comments</label>
+                                    <textarea 
+                                    class="form-control" 
+                                    placeholder="Leave a comment here" 
+                                    id="floatingTextarea2" 
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.comments}
+                                    style={{height: "100px"}}
+                                    name="comments"
+                                    ></textarea>
+                                  </div>
+                                  {/* <input
+                                    type="password"
+                                    name="password"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.password}
+                                    className="form-control-plaintext"
+                                  /> */}
+
+                                  </div>
+                                  <button type="submit" disabled={isSubmitting} class="btn btn-secondary mt-4">Submit</button>
+                                </form>
+                              )}
+                            </Formik> : <p className="text-success">You already uploaded the file, We'll contact you soon..</p>}
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+
                       <div className="panel panel-default panel-faq">
                         <div className="panel-heading">
                           <a
@@ -308,19 +438,19 @@ function Utility() {
                                 <h5 style={{ color: "#978097" }}>
                                   OnCyber
                                 </h5>
-                                {item['metaverse_showcase']['oncyber'].status ?  <p className="text-success">Available</p>: <p className="text-danger">Coming Soon...</p>}
+                                {item['metaverse_showcase']['oncyber'].status ?  <p className="text-success">Available</p>: <p className="text-secondary">Coming Soon...</p>}
                               </div>
                               <div className="button-group-1">
                                 <h5 style={{ color: "#978097" }}>
                                   Spatial
                                 </h5>
-                                {item['metaverse_showcase']['spatial'].status ?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
+                                {item['metaverse_showcase']['spatial'].status ?  <p className="text-success">Available</p>: <p className="text-secondary">Coming Soon...</p>}
                               </div>
                               <div className="button-group-1">
                                 <h5 style={{ color: "#978097" }}>
                                   AR
                                 </h5>
-                                {item['metaverse_showcase']['ar'].status ?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
+                                {item['metaverse_showcase']['ar'].status ?  <button>Download</button>: <p className="text-secondary">Coming Soon...</p>}
                               </div>
                           </div>
                         </div>
@@ -330,138 +460,47 @@ function Utility() {
                           <a
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
-                            href="#faq-cat-1-sub-4"
+                            href="#faq-cat-1-sub-2"
                           >
-                            <h4 className="panel-title">
-                              Snapchat AR
+                            <h5 className="panel-title">
+                              3D Assets
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-down" />
                               </span>
-                            </h4>
+                            </h5>
                           </a>
                         </div>
                         <div
-                          id="faq-cat-1-sub-4"
+                          id="faq-cat-1-sub-2"
                           className="panel-collapse collapse"
                         >
                           <div className="panel-body">
-                          <div className="button-group-1">
-                                <h5 style={{ color: "#978097" }}>
-                                  AR
-                                </h5>
-                                {item['snapchat_ar'].status ?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
+                            <div className="button-group-1">
+                              <h5 style={{ color: "#978097" }}>
+                              PFPs & Artwork
+                              </h5>
+                              {item['get_3d_assets']['pfp'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['pfp'].link)}>Download</button>: <p className="text-secondary">Coming Soon...</p>}
+                            </div>
+                            <div className="button-group-1">
+                              <h5 style={{ color: "#978097" }}>Universal File-Download</h5>
+                              {item['get_3d_assets']['glb_file'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['glb_file'].link)}>Download</button>: <p className="text-secondary">Coming Soon...</p>}
+                            </div>
+                            <div className="button-group-1">
+                              <h5 style={{ color: "#978097" }}>
+                              CloneX Avatar
+                              </h5>
+                              {item['get_3d_assets']['metahuman'].status ?  <button>Download</button>: <p className="text-secondary">Coming Soon...</p>}
+                            </div>
+                            <div className="button-group-1">
+                              <h5 style={{ color: "#978097" }}>
+                              MetaHuman
+                              </h5>
+                              {item['get_3d_assets']['cloneX'].status ?  <button>Download</button>: <p className="text-secondary">Coming Soon...</p>}
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div className="panel panel-default panel-faq">
-                        <div className="panel-heading">
-                          <a
-                            data-toggle="collapse"
-                            data-parent="#accordion-cat-1"
-                            href="#faq-cat-1-sub-6"
-                          >
-                            <h4 className="panel-title">
-                              Claim Virtual Fittings
-                              <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
-                              </span>
-                            </h4>
-                          </a>
-                        </div>
-                        <div
-                          id="faq-cat-1-sub-6"
-                          className="panel-collapse collapse"
-                        >
-                          <div className="panel-body">
-                          <div className="form-virtual-fitting">
-                          <Formik
-                              initialValues={{ 
-                                email: '', 
-                                files: null,
-                                comments:""
-                              }}
-                              validate={values => {
-                                const errors = {};
-                                if (!values.email) {
-                                  errors.email = 'Required';
-                                } else if (
-                                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                                ) {
-                                  errors.email = 'Invalid email address';
-                                }
-                                return errors;
-                              }}
-                              onSubmit={(values, { setSubmitting }) => {
-                                setTimeout(() => {
-                                  alert(JSON.stringify(values, null, 2));
-                                  setSubmitting(false);
-                                }, 400);
-                              }}
-                            >
-                              {({
-                                values,
-                                errors,
-                                touched,
-                                handleChange,
-                                handleBlur,
-                                handleSubmit,
-                                isSubmitting,
-                                /* and other goodies */
-                              }) => (
-                                <form onSubmit={handleSubmit}>
-                                  <div className="row">
-                                  <div class="mb-3 col-md-6">
-                                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                    <input 
-                                    type="email" 
-                                    class="form-control" 
-                                    id="exampleFormControlInput1" 
-                                    placeholder="Enter your email address" 
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    value={values.email}
-                                    />
-                                  </div>
-                                  {errors.email && touched.email && errors.email}
 
-
-                                  <div class="mb-3 col-md-6">
-                                    <label for="formFileMultiple" class="form-label">Select files</label>
-                                    <input class="form-control" type="file" id="formFileMultiple" multiple />
-                                  </div>
-
-                                  {errors.email && touched.email && errors.email}
-                                  <div class="">
-                                    <label for="floatingTextarea">Comments</label>
-                                    <textarea 
-                                    class="form-control" 
-                                    placeholder="Leave a comment here" 
-                                    id="floatingTextarea2" 
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    value={values.comments}
-                                    style={{height: "100px"}}
-                                    ></textarea>
-                                  </div>
-                                  {/* <input
-                                    type="password"
-                                    name="password"
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    value={values.password}
-                                    className="form-control-plaintext"
-                                  /> */}
-
-                                  </div>
-                                  <button type="submit" disabled={isSubmitting} class="btn btn-secondary mt-4">Secondary</button>
-                                </form>
-                              )}
-                            </Formik>
-                          </div>
-                          </div>
-                        </div>
-                      </div>
                       <div className="panel panel-default panel-faq">
                         <div className="panel-heading">
                           <a
@@ -486,7 +525,7 @@ function Utility() {
                                 <h5 style={{ color: "#978097" }}>
                                   Earn Passive Income
                                 </h5>
-                                {item['earn_passive'].status ?  <button>Download</button>: <p className="text-danger">Coming Soon...</p>}
+                                {item['earn_passive'].status ?  <button>Download</button>: <p className="text-secondary">Coming Soon...</p>}
                             </div>
                           </div>
                         </div>
@@ -501,17 +540,16 @@ function Utility() {
                     >
                       <ul>
                         <li>
-                          <h5 style={{ color: "#978097" }}>
-                            Blockchain : Polygon
-                          </h5>
+                          <div className="d-flex">
+                            <p className="text-secondary">Blockchain</p> <span className="text-white">: Polygon</span>
+                          </div>
                         </li>
                         <li>
-                          <h5 style={{ color: "#978097" }}>
-                            Contract Address:{" "}
-                            {item.phase == 1
+                        <div className="d-flex">
+                            <p className="text-secondary">Contract Address:{" "}</p> <span className="text-white">: {item.phase == 1
                               ? collectionAddress[0]
-                              : collectionAddress[1]}
-                          </h5>
+                              : collectionAddress[1]}</span>
+                          </div>
                         </li>
                       </ul>
                     </div>
