@@ -98,21 +98,25 @@ function Utility() {
       "Comic Boom": 0,
       "Human Masquerade": 0,
     };
-    // alchemy.nft.getNftsForContract(collectionAddress[1]).then((res) => {
-    //   res.nfts.map((i) => {
-    //     let t = i.description.split(":")[0];
-    //     temp[i.title]++;
-    //   });
-    // });
-    console.log("hello world",collectionAddress[item['phase']-1],item['start']+1)
-     alchemy.nft.getOwnersForNft(collectionAddress[item['phase']-1],item['start']+1).then(res=>{
-      if(!res.owners.includes(walletAddress)){
-        console.log(!res.owners.includes(walletAddress))
-        window.location.href = "/"
-        redirect('/')
+    alchemy.nft.getNftsForOwner(walletAddress,{contractAddresses:[collectionAddress[item['phase']-1]]}).then(res=>{
+      if(res.owners){
+        if(!res.owners.includes(walletAddress)){
+          console.log(res.owners.includes(walletAddress));
+          redirect('/')
+          window.location.href = "/"
+        }
+      }else{
+        // redirect('/')
+        // window.location.href = "/"
       }
-      console.log(res)
-    }).catch(e=>console.log(e))
+     
+    })
+    alchemy.nft.getNftsForContract(collectionAddress[1]).then((res) => {
+      res.nfts.map((i) => {
+        let t = i.description.split(":")[0];
+        temp[i.title]++;
+      });
+    });
     alchemy.nft 
     .getNftsForOwner(walletAddress, {
       contractAddresses: collectionAddress,
