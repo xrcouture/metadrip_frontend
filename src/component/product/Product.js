@@ -747,7 +747,7 @@ const Product = () => {
         {itemToShow.map((i)=>(
           <SwiperSlide >
             <Link to={`/${items[i].name.replace(" ","_")}`}>
-          <video src={items[i].video} style={{height:"95%", width:"95%"}} autoPlay muted loop />
+          <video src={items[i].video} style={{width:"95%"}} autoPlay muted loop />
           <p className="text-center" style={{color:"white",fontFamily:"Clash Display Medium"}}>{items[i].name}</p>
             </Link>
         </SwiperSlide>
