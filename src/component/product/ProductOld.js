@@ -15,20 +15,12 @@ import { items } from "../../data's/utility";
 import Footer from "../Footer/Footer";
 import { ethers } from "ethers";
 import $ from "jquery";
-import { Formik } from 'formik';
-import {saveAs} from 'file-saver';
-import { RxIconjarLogo } from "react-icons/rx";
+import { LineWave } from "react-loader-spinner";
 // based on the product id show the product info
 
 const Product = () => {
   let { name } = useParams();
   const item = items[name];
-  const [costLoading,setCostLoading] = useState(true)
-  const [saleOn,setSaleOn] = useState(true)
-  console.log(item['phase'])
-
-
-
   const config = {
     apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
     // network: Network.MATIC_MAINNET,
@@ -40,6 +32,7 @@ const Product = () => {
   const [costInDollar, setCostInDollar] = useState(0);
   const [id,setId] = useState(item['start'])
   const alchemy = new Alchemy(config);
+  const [costLoading,setCostLoading] = useState(true)
 
   const collectionAddress = [
     "0xEDe30DF507576e461cc2cB3AdA75bf9B22dc778d", //phase 1
@@ -90,25 +83,24 @@ const Product = () => {
     });
     setNfts(temp);
     setAvailable(10 - nft[name.replace("_", " ")])
-    if(item['phase']===1){
-      setSaleOn(true)
-    }else{
-      setSaleOn(false)
-    }
+    setTimeout(()=>{
+      setCostLoading(false)
+    },1000)
   }
   useEffect(() => {
    fun()
-  }, []);
+
+  }, [available,nftCost,costInDollar]);
   console.log(nft)
 
 
   // console.log(items);
+  
   setTimeout(() => {
     console.log(name, nft[name.replace("_", " ")] + 1, nft);
     console.log(`available wearables ${10 - nft[name.replace("_", " ")]}/10`);
     setAvailable(10 - nft[name.replace("_", " ")])
-    setCostLoading(false)
-  }, 1000);
+  }, 400);
   $(document).on(function () {
     $(".collapse").on("show.bs.collapse", function () {
       var id = $(this).attr("id");
@@ -273,6 +265,7 @@ const Product = () => {
       const provider = new ethers.providers.Web3Provider(ethereum)
       const walletAddress = accounts[0]    // first account in MetaMask
       const signer = provider.getSigner(walletAddress)
+
       try {
         const tx = await contract.tokenMint(nft[name.replace("_", " ")]+id+1, {
         // const tx = await contract.tokenMint(13, {
@@ -280,15 +273,18 @@ const Product = () => {
           // maxPriorityFeePerGas,
           // value: ethers.utils.parseUnits(totalSupply.toString(), 0),
           value: ethers.utils.parseUnits(totalSupply.toString(), "wei"),
-          gasLimit: 1000000,
+          // gasLimit: 1000000,
         });
         // const tx = await contract.setSeedSaleOn()
         await tx.wait();
+        fun()
         toast.success("Token Minted Successfully")
         console.log(tx);
       } catch (error) {
-        console.log(error)
+        const parsedEthersError = getParsedEthersError(error);
+        console.log(parsedEthersError)
       }
+      
       // const tm = await contract.connect(signer)
 
 
@@ -334,7 +330,6 @@ const Product = () => {
     }
   };
   console.log(nft[name.replace("_", " ")])
-  console.log(`Phase ${saleOn}`)
   return (
     <div className="bg-product">
       <ProductHeader />
@@ -388,11 +383,13 @@ const Product = () => {
                 {item.name}
               </h1>
 
-              {/* product desc and buy now - Container */}
+              {/* product desc and buy now */}
               <div className="d-md-flex flex-md-row-reverse mt-md-4 mb-md-5">
 
-                {costLoading ? <Loader type="spinner-default" className="prod-cost mt-5 mt-md-0 col-md-5" bgColor={"#D062D3"} color={'#D062D3'} size={50} />
-                :
+                {/* Cost, Quantity, buy now */}
+                {
+                  costLoading ? <Loader type="spinner-default" bgColor={"#FFFFFF"} color={'#FFFFFF'} size={50} /> :
+                
                 <div className="prod-cost text-white mt-5 mt-md-0 col-md-5" style={{padding: "0%"}}>
                   <div className="d-flex d-md-block justify-content-between">
                     <div className="prod-cost-details">
@@ -400,7 +397,7 @@ const Product = () => {
                         className="product-cost"
                         style={{ color: "#F9F9F9" }}
                       >
-                        {costInDollar} $
+                        { `${costInDollar} $`}
                       </div>
                       <div
                         className="product-cost"
@@ -412,9 +409,9 @@ const Product = () => {
                     <div className='extra mt-3 mt-md-2 mt-lg-1 d-none d-md-block '>
                     {10 - nft[name.replace("_", " ")] == 0 ? (
                       // <p className="text-danger">Sold Out</p>
-                      <button className='buy-now text-white mt-2 btn btn-secondary' disabled>Sold Out</button>
+                      <button className='buy-now text-white mt-2' disabled>Sold Out</button>
                       ) : (
-                      <button type="button" className={`buy-now text-white mt-2 ${saleOn ? "btn btn-secondary": ""}`} onClick={buyNow} disabled={saleOn}>Buy now</button>
+                      <button className='buy-now text-white mt-2' onClick={buyNow}>Buy now</button>
                       )}
                     </div>
                     <div className="mt-md-3">
@@ -422,7 +419,7 @@ const Product = () => {
                         className="product-cost"
                         style={{ color: "#F9F9F9", textAlign: "right" }}
                       >
-                        {10 - nft[name.replace("_", " ")]} / 10
+                        {available} / 10
                       </div>
                       <div
                         className="product-cost product-content-subtitle"
@@ -438,13 +435,11 @@ const Product = () => {
                   </div>
                   <div className="extra mt-3 mt-md-0 d-md-none ">
                     {10 - nft[name.replace("_", " ")] == 0 ? (
-                      <button className='buy-now text-white mt-2 btn btn-secondary' disabled>Sold Out</button>
+                      <p className="text-danger">Sold Out</p>
                     ) : (
                       <button
-                      type="button"
-                        className={`buy-now text-white mt-2 ${saleOn ? "btn btn-secondary": ""}`}
+                        className="buy-now text-white mt-2"
                         onClick={buyNow}
-                        disabled={saleOn}
                       >
                         Buy now
                       </button>
@@ -452,8 +447,6 @@ const Product = () => {
                   </div>
                 </div>
                 }
-                {/* Cost, Quantity, buy now */}
-                
 
                 {/* created by and description */}
                 <div className="prod-description text-white mt-5 mb-5 mt-md-0 mb-md-0 col-md-7 d-flex flex-column justify-content-around" style={{padding: "0%"}}>
@@ -482,210 +475,204 @@ const Product = () => {
                   </div>
                 </div>
               </div>
-              {saleOn && <h4 className="text-center mb-4" style={{color:"#D062D3"}}>Sales start from 3rd February, 2023</h4>}
+
               {/* utilities */}
-              <div className="tab-accordion mb-4">
-              <div>
-                <ul className="nav nav-tabs faq-cat-tabs">
-                  <li className="active">
-                    <a
-                      href="#faq-cat-1"
-                      data-toggle="tab"
-                      style={{ fontFamily: "Clash Display Medium" }}
-                    >
-                      Utilities
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#faq-cat-2"
-                      data-toggle="tab"
-                      style={{ fontFamily: "Clash Display Medium" }}
-                    >
-                      Blockchain Info{" "}
-                    </a>
-                  </li>
-                </ul>
-                <div className="tab-content faq-cat-content">
-                  <div className="tab-pane active in fade" id="faq-cat-1">
-                    <div className="panel-group" id="accordion-cat-1">
-                      <div className="panel panel-default panel-faq">
-                        <div className="panel-heading">
-                          <a
-                            data-toggle="collapse"
-                            data-parent="#accordion-cat-1"
-                            href="#faq-cat-1-sub-1"
-                            className="collapsed"
-                          >
-                            <h4
-                              className="panel-title"
-                              style={{ fontFamily: "Clash Display SemiBold" }}
+              <div className="tab-accordion mb-5">
+                <div>
+                  <ul className="nav nav-tabs faq-cat-tabs">
+                    <li className="active">
+                      <a
+                        href="#faq-cat-1"
+                        data-toggle="tab"
+                        style={{ fontFamily: "Clash Display Medium" }}
+                      >
+                        Utilities
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#faq-cat-2"
+                        data-toggle="tab"
+                        style={{ fontFamily: "Clash Display Medium" }}
+                      >
+                        Blockchain Info{" "}
+                      </a>
+                    </li>
+                  </ul>
+                  <div className="tab-content faq-cat-content">
+                    <div className="tab-pane active in fade" id="faq-cat-1">
+                      <div className="panel-group" id="accordion-cat-1">
+                        <div className="panel panel-default panel-faq">
+                          <div className="panel-heading">
+                            <a
+                              data-toggle="collapse"
+                              data-parent="#accordion-cat-1"
+                              href="#faq-cat-1-sub-1"
                             >
-                              Cross-Platform Usage
-                              <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
-                              </span>
-                            </h4>
-                          </a>
-                        </div>
-                        <div
-                          id="faq-cat-1-sub-1"
-                          className="panel-collapse collapse"
-                        >
-                          <div className="panel-body">
-                            <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Unlock the future of virtual fashion with this origin NFT, granting exclusive access to wearables in future metaverses through airdrops or linked wearables, starting with  Decentraland.</p>
+                              <h4
+                                className="panel-title"
+                                style={{ fontFamily: "Clash Display SemiBold" }}
+                              >
+                                Metaverse Wearables
+                                <span className="pull-right">
+                                  <i className="glyphicon glyphicon-chevron-down" />
+                                </span>
+                              </h4>
+                            </a>
                           </div>
-                        </div>
-                      </div>
-                      <div className="panel panel-default panel-faq">
-                        <div className="panel-heading">
-                          <a
-                            data-toggle="collapse"
-                            data-parent="#accordion-cat-1"
-                            href="#faq-cat-1-sub-4"
+                          <div
+                            id="faq-cat-1-sub-1"
+                            className="panel-collapse collapse"
                           >
-                            <h4 className="panel-title">
-                            AR Try-on
-                              <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
-                              </span>
-                            </h4>
-                          </a>
-                        </div>
-                        <div
-                          id="faq-cat-1-sub-4"
-                          className="panel-collapse collapse"
-                        >
-                          <div className="panel-body">
-                            <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Wear it digitally on Snapchat AR and make a statement like never before.</p>             
+                            <div className="panel-body">
+                              <div className="button-group-1">
+                                <h5 style={{ color: "#978097" }}>
+                                  Decentraland
+                                </h5>
+                                <button>Claim</button>
+                              </div>
+                              <div className="button-group-1">
+                                <h5 style={{ color: "#978097" }}>Sandbox</h5>
+                                <button>Claim</button>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="panel panel-default panel-faq">
-                        <div className="panel-heading">
-                          <a
-                            data-toggle="collapse"
-                            data-parent="#accordion-cat-1"
-                            href="#faq-cat-1-sub-6"
+                        <div className="panel panel-default panel-faq">
+                          <div className="panel-heading">
+                            <a
+                              data-toggle="collapse"
+                              data-parent="#accordion-cat-1"
+                              href="#faq-cat-1-sub-2"
+                            >
+                              <h5 className="panel-title">
+                                Get 3d Assets
+                                <span className="pull-right">
+                                  <i className="glyphicon glyphicon-chevron-down" />
+                                </span>
+                              </h5>
+                            </a>
+                          </div>
+                          <div
+                            id="faq-cat-1-sub-2"
+                            className="panel-collapse collapse"
                           >
-                            <h4 className="panel-title">
-                               Virtual Fitting
-                              <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
-                              </span>
-                            </h4>
-                          </a>
-                        </div>
-                        <div
-                          id="faq-cat-1-sub-6"
-                          className="panel-collapse collapse"
-                        >
-                          <div className="panel-body">
-                          <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Get a custom ‘virtual fitting’  on your photograph curated by the finest 3d tailors of XR Couture.</p>
+                            <div className="panel-body">
+                              <div className="button-group-1">
+                                <h5 style={{ color: "#978097" }}>
+                                  CloneX Avatar
+                                </h5>
+                                <button>Download</button>
+                              </div>
+                              <div className="button-group-1">
+                                <h5 style={{ color: "#978097" }}>MetaHuman</h5>
+                                <button>Download</button>
+                              </div>
+                              <div className="button-group-1">
+                                <h5 style={{ color: "#978097" }}>
+                                  Universal Files
+                                </h5>
+                                <button>Download</button>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-
-                      <div className="panel panel-default panel-faq">
-                        <div className="panel-heading">
-                          <a
-                            data-toggle="collapse"
-                            data-parent="#accordion-cat-1"
-                            href="#faq-cat-1-sub-3"
+                        <div className="panel panel-default panel-faq">
+                          <div className="panel-heading">
+                            <a
+                              data-toggle="collapse"
+                              data-parent="#accordion-cat-1"
+                              href="#faq-cat-1-sub-3"
+                            >
+                              <h4 className="panel-title">
+                                Try on AR
+                                <span className="pull-right">
+                                  <i className="glyphicon glyphicon-chevron-down" />
+                                </span>
+                              </h4>
+                            </a>
+                          </div>
+                          <div
+                            id="faq-cat-1-sub-3"
+                            className="panel-collapse collapse"
                           >
-                            <h4 className="panel-title">
-                              Metaverse Showcase		
-                              <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
-                              </span>
-                            </h4>
-                          </a>
-                        </div>
-                        <div
-                          id="faq-cat-1-sub-3"
-                          className="panel-collapse collapse"
-                        >
-                          <div className="panel-body">
-                             <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Experience Virtual Reality through an interactive 3D model, capture it in AR or bring it into your own or Metaverse environment such as Spatial and Oncyber.</p>
+                            <div
+                              className="panel-body"
+                              style={{ color: "rgb(151, 128, 151)" }}
+                            >
+                              <p>
+                                Contrary to popular belief, Lorem Ipsum is not
+                                simply random text. It has roots in a piece of
+                                classical Latin literature from 45 BC, making it
+                                over 2000 years old. Richard McClintock, a Latin
+                                professor at Hampden-Sydney College in Virginia,
+                                looked up one of the more obscure Latin words,
+                                consectetur, from a Lorem Ipsum passage, and
+                                going through the cites of the word in classical
+                                literature, discovered the undoubtable source.
+                              </p>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="panel panel-default panel-faq">
-                        <div className="panel-heading">
-                          <a
-                            data-toggle="collapse"
-                            data-parent="#accordion-cat-1"
-                            href="#faq-cat-1-sub-2"
+                        <div className="panel panel-default panel-faq">
+                          <div className="panel-heading">
+                            <a
+                              data-toggle="collapse"
+                              data-parent="#accordion-cat-1"
+                              href="#faq-cat-1-sub-4"
+                            >
+                              <h4 className="panel-title">
+                                Claim Virtual Fitting
+                                <span className="pull-right">
+                                  <i className="glyphicon glyphicon-chevron-down" />
+                                </span>
+                              </h4>
+                            </a>
+                          </div>
+                          <div
+                            id="faq-cat-1-sub-4"
+                            className="panel-collapse collapse"
                           >
-                            <h5 className="panel-title">
-                              3D Assets
-                              <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
-                              </span>
-                            </h5>
-                          </a>
-                        </div>
-                        <div
-                          id="faq-cat-1-sub-2"
-                          className="panel-collapse collapse"
-                        >
-                          <div className="panel-body">
-                            <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Download high-quality renders, animations and 3d files offered for use as PFPs, artwork display and for creative workings.</p>
+                            <div
+                              className="panel-body"
+                              style={{ color: "rgb(151, 128, 151)" }}
+                            >
+                              <p>
+                                Contrary to popular belief, Lorem Ipsum is not
+                                simply random text. It has roots in a piece of
+                                classical Latin literature from 45 BC, making it
+                                over 2000 years old. Richard McClintock, a Latin
+                                professor at Hampden-Sydney College in Virginia,
+                                looked up one of the more obscure Latin words,
+                                consectetur, from a Lorem Ipsum passage, and
+                                going through the cites of the word in classical
+                                literature, discovered the undoubtable source.
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
-
-                      <div className="panel panel-default panel-faq">
-                        <div className="panel-heading">
-                          <a
-                            data-toggle="collapse"
-                            data-parent="#accordion-cat-1"
-                            href="#faq-cat-1-sub-5"
-                          >
-                            <h4 className="panel-title">
-                              Other Utilities
-                              <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
-                              </span>
-                            </h4>
-                          </a>
-                        </div>
-                        <div
-                          id="faq-cat-1-sub-5"
-                          className="panel-collapse collapse"
-                        >
-                          <div className="panel-body">
-                          <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Meta Drip will be listed for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.</p>
-                          </div>
-                        </div>
-                      </div>
- 
                     </div>
-                  </div>
-                  <div className="tab-pane fade" id="faq-cat-2">
-                    <div
-                      className="panel-group"
-                      id="accordion-cat-2 color-white"
-                    >
-                      <ul>
-                        <li>
-                          <div className="d-flex">
-                            <p className="text-secondary">Blockchain</p> <span className="text-white">: Polygon</span>
-                          </div>
-                        </li>
-                        <li>
-                        <div className="d-flex">
-                            <p className="text-secondary">Contract Address:{" "}</p> <span className="text-white">: {item.phase == 1
-                              ? collectionAddress[0]
-                              : collectionAddress[1]}</span>
-                          </div>
-                        </li>
-                      </ul>
+                    <div className="tab-pane fade" id="faq-cat-2">
+                      <div
+                        className="panel-group"
+                        id="accordion-cat-2 color-white"
+                      >
+                        <ul>
+                          <li>
+                            <h5 style={{ color: "#978097" }}>
+                              Blockchain : POLYGON
+                            </h5>
+                          </li>
+                          <li>
+                            <h5 style={{ color: "#978097" }}>Contract Id:</h5>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
             </div>
           </div>
 
