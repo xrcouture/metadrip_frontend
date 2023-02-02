@@ -2,12 +2,16 @@ import React, { useState, useEffect, useContext } from 'react'
 import headerlogo from '../../assets/xrc.png'
 import { utils } from 'ethers';
 import { Context } from '../../Context';
+import { useLocation } from 'react-router-dom';
 
 
 import './productHeader.css'
 import { Link } from 'react-router-dom';
 
 const ProductHeader = () => {
+
+  const location = useLocation()
+  const homePageLink = location.pathname === '/' ? '#top' : '/'
 
   const {walletAddress, setWalletAddress} = useContext(Context)
 
@@ -173,7 +177,7 @@ const ProductHeader = () => {
     <>
       <div className='header-container'>
 
-        <a href="#top">
+        <a href={homePageLink}>
           <img src={headerlogo} alt="" className="header-logo" />
         </a>
 

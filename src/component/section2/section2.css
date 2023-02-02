@@ -18,6 +18,14 @@
   margin: 0 !important;
   margin-top: 0.5rem !important;
 }
+
+.button-buy-swiper {
+  font-size: 0.7rem !important;
+  padding: 0.3rem 1rem !important;
+  margin-top: -5rem !important;
+  font-family: "Clash Display SemiBold" !important;
+}
+
 .section-two-container .row .subtitle {
   font-size: 0.75rem;
   text-align: center;
@@ -102,6 +110,12 @@
     margin-top: 1.4rem !important;
     margin-left: -0.35rem;
   }
+  .button-buy-swiper {
+    font-size: 0.65rem !important;
+    padding: 0.3rem 1.5rem !important;
+    margin-top: -5rem !important;
+    font-family: "Clash Display SemiBold" !important;
+  }
 }
 
 /* // Medium devices (tablets, 768px and up) */
@@ -129,6 +143,12 @@
     font-size: 0.85rem;
     margin-top: 1.5rem !important;
     margin-left: -0.5rem;
+  }
+  .button-buy-swiper {
+    font-size: 0.85rem !important;
+    padding: 0.3rem 1.5rem !important;
+    margin-top: -6rem !important;
+    font-family: "Clash Display SemiBold" !important;
   }
 }
 
@@ -161,6 +181,12 @@
     margin-top: 1.2rem !important;
     margin-left: -0.5rem;
   }
+  .button-buy-swiper {
+    font-size: 1.2rem !important;
+    padding: 0.55rem 2rem !important;
+    margin-top: -7.5rem !important;
+    font-family: "Clash Display SemiBold" !important;
+  }
 }
 
 @media (min-width: 992px) {
@@ -191,6 +217,12 @@
     font-size: 0.9rem;
     margin-top: 1.5rem !important;
     margin-left: -0.5rem;
+  }
+  .button-buy-swiper {
+    font-size: 1.3rem !important;
+    padding: 0.6rem 2rem !important;
+    margin-top: -8rem !important;
+    font-family: "Clash Display SemiBold" !important;
   }
 }
 
@@ -224,6 +256,12 @@
     margin-top: 1.5rem !important;
     margin-left: -0.5rem;
   }
+  .button-buy-swiper {
+    font-size: 1.4rem !important;
+    padding: 0.75rem 2.2rem !important;
+    margin-top: -8.5rem !important;
+    font-family: "Clash Display SemiBold" !important;
+  }
 }
 
 @media (min-width: 1400px) {
@@ -255,6 +293,12 @@
     margin-top: 2rem !important;
     margin-left: -0.5rem;
   }
+  .button-buy-swiper {
+    font-size: 1.5rem !important;
+    padding: 0.85rem 2.5rem !important;
+    margin-top: -9.5rem !important;
+    font-family: "Clash Display SemiBold" !important;
+  }
 }
 
 @media (min-width: 1800px) {
@@ -285,5 +329,11 @@
     font-size: 1.4rem;
     margin-top: 4rem !important;
     margin-left: -0.5rem;
+  }
+  .button-buy-swiper {
+    font-size: 1.65rem !important;
+    padding: 0.9rem 2.7rem !important;
+    margin-top: -10rem !important;
+    font-family: "Clash Display SemiBold" !important;
   }
 }

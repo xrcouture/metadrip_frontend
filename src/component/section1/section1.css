@@ -67,6 +67,14 @@
 .countdown-date {
   margin-top: 1.5rem !important;
 }
+.video-bg-button {
+  position: absolute;
+  right: 0;
+  white-space: nowrap;
+  /* padding: 2rem 8rem !important; */
+  font-family: "Clash Display Bold" !important;
+  transform: translateX(-25%) scale(1.5);
+}
 
 @media only screen and (min-width: 768px){
   .countdown-content {

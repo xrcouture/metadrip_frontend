@@ -37,7 +37,8 @@ function Social() {
         <div className='rotating-container col-md-6'>
             <img src={imgbg} alt="" className='bg-3d w-80' />
             <img src={vibrance} alt="" className='img3d w-90' /> 
-            <a href='https://heymint.xyz/meta-drip-xrc' target="_blank" className='button-3d header-button'>Whitelist</a>
+            {/* <a href='https://heymint.xyz/meta-drip-xrc' style={{fontFamily: "Clash Display SemiBold"}} target="_blank" className='button-3d header-button button-buy-swiper'>BUY NOW</a> */}
+            <a href='/Vibrance_Splash' style={{fontFamily: "Clash Display SemiBold"}} className='button-3d header-button button-buy-swiper'>BUY NOW</a>
             <img src={ellipse} alt="" className='ellipse-3d' /> 
         </div>
         <div className='col-md-6 social-container-content p-2'>

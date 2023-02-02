@@ -30,7 +30,7 @@ position: absolute;
     font-weight: 500;
     color: #FFFFFF;
     left: 45%;
-    transform: translateX(-50%) scale(1.3);
+    transform: translateX(-50%) scale(1.1);
 }
 .rotating-container{
     display: flex;
