@@ -317,3 +317,27 @@
     margin-right: 2rem;
   }
 }
+.similiar-wearables-container{
+  width: 90%;
+  margin: auto;
+}
+.similiar-wearables-container .swiper-slide{
+  background: linear-gradient(180deg, #e952ec 0%, rgba(245, 111, 111, 0) 100%);
+  border-radius: 24.4617px;
+  padding: 1%;
+  padding-bottom: 3%;
+}
+.similiar-wearables-container .swiper-slide video{
+  border: 5px solid #D19CFB;
+  border-radius: 8%;
+}
+.similiar-wearables-container .swiper-slide-active{
+    border: none;
+    box-shadow: none;
+}
+.swiper-button-prev, .swiper-button-next{
+  opacity: 1 !important;
+  background: white;
+  padding: 3%;
+  border-radius: 50%;
+}
