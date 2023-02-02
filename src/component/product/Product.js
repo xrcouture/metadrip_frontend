@@ -37,8 +37,8 @@ const Product = () => {
   console.log(itemToShow)
   const config = {
     apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
-    // network: Network.MATIC_MAINNET,
-    network:Network.MATIC_MUMBAI
+    network: Network.MATIC_MAINNET,
+    // network:Network.MATIC_MUMBAI
   };
   const [nft, setNfts] = useState([]);
   const [nftCost, setNftCost] = useState(0);
@@ -412,7 +412,7 @@ const Product = () => {
                         className="product-cost"
                         style={{ color: "#D062D3" }}
                       >
-                        {nftCost} MAT
+                        {nftCost} MATIC
                       </div>
                     </div>
                     <div className='extra mt-3 mt-md-2 mt-lg-1 d-none d-md-block '>
@@ -612,7 +612,7 @@ const Product = () => {
                           className="panel-collapse collapse"
                         >
                           <div className="panel-body">
-                             <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Experience Virtual Reality through an interactive 3D model, capture it in AR or bring it into your own or Metaverse environment such as Spatial and Oncyber.</p>
+                             <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Experience the model in your own environment using our AR integration and showcase it within a Metaverse such as Spatial and Oncybr.</p>
                           </div>
                         </div>
                       </div>
@@ -649,7 +649,7 @@ const Product = () => {
                             href="#faq-cat-1-sub-5"
                           >
                             <h4 className="panel-title">
-                              Other Utilities
+                              Earn Passive Income
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-down" />
                               </span>
@@ -662,6 +662,32 @@ const Product = () => {
                         >
                           <div className="panel-body">
                           <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Meta Drip will be listed for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="panel panel-default panel-faq">
+                        <div className="panel-heading">
+                          <a
+                            data-toggle="collapse"
+                            data-parent="#accordion-cat-1"
+                            href="#faq-cat-1-sub-7"
+                          >
+                            <h4 className="panel-title">
+                              More Utilities
+                              <span className="pull-right">
+                                <i className="glyphicon glyphicon-chevron-down" />
+                              </span>
+                            </h4>
+                          </a>
+                        </div>
+                        <div
+                          id="faq-cat-1-sub-7"
+                          className="panel-collapse collapse"
+                        >
+                          <div className="panel-body">
+                          <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>
+                          Meta Drip is our most ambitious utility rewarding project and our aim is to provide utilities as long as we exist. Stay tuned and HODL!
+                          </p>
                           </div>
                         </div>
                       </div>

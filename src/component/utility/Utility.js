@@ -1,6 +1,6 @@
 import React, { useState, useEffect,useContext } from "react";
 import "./utility.css";
-import { useParams } from "react-router-dom";
+import { redirect, useParams } from "react-router-dom";
 import CryptoConvert from "crypto-convert";
 import { ethers } from 'ethers'
 import $ from "jquery";
@@ -26,17 +26,29 @@ function Utility() {
   // console.log(items);
   const {walletAddress} = useContext(Context)
   // console.log(item['start']/10,walletAddress,item['phase'])
-    // axios.post("http://localhost:5000/contract/isItemClaimed",
-    // {
-    //   address:walletAddress,
-    //   itemId:item['start']/10,
-    //   contractId:item['phase']
-    // }).then(res=>{
-    //   setClaimed(res.data.claimed)
-    //   console.log(res.data.claimed)
-    // }).catch(e=>{
-    //   console.log(e)
-    // })
+    axios.post("https://api.metadrip.xrcouture.com/contract/isItemClaimed",
+    {
+      address:walletAddress,
+      itemId:item['start']/10,
+      contractId:item['phase']
+    }).then(res=>{
+      setClaimed(res.data.claimed)
+    }).catch(e=>{
+      console.log(e)
+      toast.error("Something went wrong...!")
+    })
+
+    axios.post("https://api.metadrip.xrcouture.com/utility/isItemClaimed",
+    {
+      address:walletAddress,
+      itemId:item['start']/10,
+      contractId:item['phase']
+    }).then(res=>{
+      setVirtual(res.data.claimed)
+    }).catch(e=>{
+      console.log(e)
+      toast.error("Something went wrong...!")
+    })
   console.log(walletAddress)
   $("[data-toggle=collapse] .panel-title").on('click',function(){
     
@@ -45,17 +57,16 @@ function Utility() {
   const [nft, setNfts] = useState([]);
   const [nftCost, setNftCost] = useState(0);
 
-
-
-
   const claimDCL = () => {
     // console.log(item['start']/10,walletAddress,item['phase'])
-    axios.post("http://localhost:5000/contract/issueTokens",{
+    axios.post("https://api.metadrip.xrcouture.com/contract/issueTokens",{
       address:[walletAddress],
       itemIds:[item['start']/10],
       contractId:item['phase']
     }).then(res=>{
-      toast.success(res.data.message);
+      toast.success(res.data.msg);
+      setClaimed(true)
+      console.log(res)
     }).catch(e=>{
       // console.log(e)
       toast.error(e.response.data.message);
@@ -92,8 +103,17 @@ function Utility() {
     //     temp[i.title]++;
     //   });
     // });
+    console.log("hello world",collectionAddress[item['phase']-1],item['start']+1)
+     alchemy.nft.getOwnersForNft(collectionAddress[item['phase']-1],item['start']+1).then(res=>{
+      if(!res.owners.includes(walletAddress)){
+        console.log(!res.owners.includes(walletAddress))
+        window.location.href = "/"
+        redirect('/')
+      }
+      console.log(res)
+    }).catch(e=>console.log(e))
     alchemy.nft 
-    .getNftsForOwner("0x065366ec359a64dbf3f02cad7987122053fedcb0", {
+    .getNftsForOwner(walletAddress, {
       contractAddresses: collectionAddress,
       omitMetadata: false,
     })
@@ -240,12 +260,12 @@ function Utility() {
                         >
                           <div className="panel-body">
                             <div className="button-group-1">
-                              <h5 style={{ color: "#978097" }}>Decentraland</h5>
-                              {claimed ? <p className="text-success">Claimed</p> : <button onClick={claimDCL}>Claim</button> }
+                              <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Decentraland</h5>
+                              {claimed ? <p className="text-success"style={{fontFamily:"Clash Display Medium"}} >Claimed</p> : <button onClick={claimDCL}>Claim</button> }
                             </div>
                             <div className="button-group-1">
-                              <h5 style={{ color: "#978097" }}>Sandbox</h5>
-                              {item['metaverse_wearables']['sandbox'].status?  <button>Claim</button>: <p className="text-secondary">Coming Soon...</p>}
+                              <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Sandbox</h5>
+                              {item['metaverse_wearables']['sandbox'].status?  <button style={{fontFamily:"Clash Display Medium"}}>Claim</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
                           </div>
                         </div>
@@ -277,10 +297,10 @@ function Utility() {
                               <img src={item['snapchat_ar'].qr} className="snapimg"></img>
                               </> : 
                               <div className="button-group-1">
-                                <h5 style={{ color: "#978097" }}>
-                                  AR
+                                <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
+                                  Snapchat AR
                                 </h5>
-                                {item['snapchat_ar'].status ?  <button>Download</button>: <p className="text-secondary">Coming Soon...</p>}
+                                {item['snapchat_ar'].status ?  <button>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
                             }
                           
@@ -311,7 +331,7 @@ function Utility() {
                           {!virtual?<Formik
                               initialValues={{ 
                                 email: '', 
-                                files: null,
+                                file: null,
                                 comments:""
                               }}
                               validate={values => {
@@ -326,9 +346,23 @@ function Utility() {
                                 return errors;
                               }}
                               onSubmit={(values, { setSubmitting }) => {
-                                console.log(values)
+                                // axios.post("https://api.metadrip.xrcouture.com/utility/isItemClaimed",
+                                // {
+                                //   address:"0x065366ec359a64dbf3f02cad7987122053fedcb0",
+                                //   itemId:item['start']/10,
+                                //   contractId:item['phase']
+                                // }).then(res=>{
+                                //   setVirtual(res.data.claimed)
+                                //   console.log(res)
+                                // }).catch(e=>{
+                                //   console.log(e)
+                                // })
+
                                 setTimeout(() => {
                                   alert(JSON.stringify(values, null, 2));
+                                  console.log({...values,address:walletAddress,
+                                    itemId:item['start']/10,
+                                    contractId:item['phase']})
                                   setSubmitting(false);
                                 }, 400);
                               }}
@@ -358,8 +392,8 @@ function Utility() {
                                     onBlur={handleBlur}
                                     value={values.email}
                                     />
+                                    <p className="text-danger" style={{fontFamily:"Clash Display Medium"}}>{errors.email && touched.email && errors.email}</p>
                                   </div>
-                                  {errors.email && touched.email && errors.email}
 
 
                                   <div class="mb-3 col-md-6">
@@ -367,7 +401,7 @@ function Utility() {
                                     <input 
                                     class="form-control" 
                                     type="file" 
-                                    name="files" 
+                                    name="file" 
                                     id="formFileMultiple" 
                                     multiple 
                                     required
@@ -379,9 +413,9 @@ function Utility() {
                                         setFieldValue("files", event.currentTarget.files)}}
                                       }
                                     />
+                                    <p className="text-danger" style={{fontFamily:"Clash Display Medium"}}>{errors.files && touched.files && errors.files}</p>
                                   </div>
 
-                                  {errors.email && touched.email && errors.email}
                                   <div class="">
                                     <label for="floatingTextarea">Comments</label>
                                     <textarea 
@@ -408,7 +442,7 @@ function Utility() {
                                   <button type="submit" disabled={isSubmitting} class="btn btn-secondary mt-4">Submit</button>
                                 </form>
                               )}
-                            </Formik> : <p className="text-success">You already uploaded the file, We'll contact you soon..</p>}
+                            </Formik> : <p className="text-success" style={{fontFamily:"Clash Display Medium"}}>Virtual Fitting for this NFT has already being claimed, contact us if you have any queries.</p>}
                           </div>
                           </div>
                         </div>
@@ -435,22 +469,22 @@ function Utility() {
                         >
                           <div className="panel-body">
                               <div className="button-group-1">
-                                <h5 style={{ color: "#978097" }}>
+                                <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
                                   OnCyber
                                 </h5>
-                                {item['metaverse_showcase']['oncyber'].status ?  <p className="text-success">Available</p>: <p className="text-secondary">Coming Soon...</p>}
+                                {item['metaverse_showcase']['oncyber'].status ?  <p className="text-success" style={{fontFamily:"Clash Display Medium"}}>Available</p>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                               </div>
                               <div className="button-group-1">
-                                <h5 style={{ color: "#978097" }}>
+                                <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
                                   Spatial
                                 </h5>
-                                {item['metaverse_showcase']['spatial'].status ?  <p className="text-success">Available</p>: <p className="text-secondary">Coming Soon...</p>}
+                                {item['metaverse_showcase']['spatial'].status ?  <p className="text-success" style={{fontFamily:"Clash Display Medium"}}>Available</p>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                               </div>
                               <div className="button-group-1">
-                                <h5 style={{ color: "#978097" }}>
+                                <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
                                   AR
                                 </h5>
-                                {item['metaverse_showcase']['ar'].status ?  <button>Download</button>: <p className="text-secondary">Coming Soon...</p>}
+                                {item['metaverse_showcase']['ar'].status ?  <button>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                               </div>
                           </div>
                         </div>
@@ -476,26 +510,26 @@ function Utility() {
                         >
                           <div className="panel-body">
                             <div className="button-group-1">
-                              <h5 style={{ color: "#978097" }}>
+                              <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
                               PFPs & Artwork
                               </h5>
-                              {item['get_3d_assets']['pfp'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['pfp'].link)}>Download</button>: <p className="text-secondary">Coming Soon...</p>}
+                              {item['get_3d_assets']['pfp'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['pfp'].link)}>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
                             <div className="button-group-1">
-                              <h5 style={{ color: "#978097" }}>Universal File-Download</h5>
-                              {item['get_3d_assets']['glb_file'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['glb_file'].link)}>Download</button>: <p className="text-secondary">Coming Soon...</p>}
+                              <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Universal File</h5>
+                              {item['get_3d_assets']['glb_file'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['glb_file'].link)}>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
                             <div className="button-group-1">
-                              <h5 style={{ color: "#978097" }}>
+                              <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
                               CloneX Avatar
                               </h5>
-                              {item['get_3d_assets']['metahuman'].status ?  <button>Download</button>: <p className="text-secondary">Coming Soon...</p>}
+                              {item['get_3d_assets']['metahuman'].status ?  <button>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
                             <div className="button-group-1">
-                              <h5 style={{ color: "#978097" }}>
+                              <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
                               MetaHuman
                               </h5>
-                              {item['get_3d_assets']['cloneX'].status ?  <button>Download</button>: <p className="text-secondary">Coming Soon...</p>}
+                              {item['get_3d_assets']['cloneX'].status ?  <button>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
                           </div>
                         </div>
@@ -509,7 +543,7 @@ function Utility() {
                             href="#faq-cat-1-sub-5"
                           >
                             <h4 className="panel-title">
-                              Other Utilities
+                              Earn Passive Income
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-down" />
                               </span>
@@ -522,11 +556,37 @@ function Utility() {
                         >
                           <div className="panel-body">
                           <div className="button-group-1">
-                                <h5 style={{ color: "#978097" }}>
-                                  Earn Passive Income
+                                <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
+                                 Passive Income
                                 </h5>
-                                {item['earn_passive'].status ?  <button>Download</button>: <p className="text-secondary">Coming Soon...</p>}
+                                {item['earn_passive'].status ?  <button>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="panel panel-default panel-faq">
+                        <div className="panel-heading">
+                          <a
+                            data-toggle="collapse"
+                            data-parent="#accordion-cat-1"
+                            href="#faq-cat-1-sub-7"
+                          >
+                            <h4 className="panel-title">
+                              More Utilities
+                              <span className="pull-right">
+                                <i className="glyphicon glyphicon-chevron-down" />
+                              </span>
+                            </h4>
+                          </a>
+                        </div>
+                        <div
+                          id="faq-cat-1-sub-7"
+                          className="panel-collapse collapse"
+                        >
+                          <div className="panel-body">
+                          <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>
+                          Meta Drip is our most ambitious utility rewarding project and our aim is to provide utilities as long as we exist. Stay tuned and HODL!
+                          </p>
                           </div>
                         </div>
                       </div>
