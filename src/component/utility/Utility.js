@@ -9,7 +9,7 @@ import { Alchemy, Network } from "alchemy-sdk";
 import { getContractInstance, getGasFees } from "../../data's/helper";
 import { Formik } from 'formik';
 import {saveAs} from 'file-saver';
-
+import { useLocation, useNavigationType } from "react-router-dom";
 import Footer from "../Footer/Footer";
 
 import { Context } from "../../Context";
@@ -18,7 +18,8 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 
 function Utility() {
-  
+  const location = useLocation();
+  const navType = useNavigationType();
   let { name } = useParams();
   const [claimed,setClaimed] = useState(false)
   const [virtual,setVirtual] = useState(false)
@@ -128,8 +129,14 @@ function Utility() {
   }
 
   useEffect( () => {
+    if (navType !== "POP") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
     fun()
-    }, []);
+    }, [location]);
 
 
 
