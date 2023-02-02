@@ -20,6 +20,9 @@ import {saveAs} from 'file-saver';
 
 import { RxIconjarLogo } from "react-icons/rx";
 // based on the product id show the product info
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Pagination, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 
 const Product = () => {
   let { name } = useParams();
@@ -28,11 +31,15 @@ const Product = () => {
   const [saleOn,setSaleOn] = useState(true)
   console.log(item['phase'])
 
-
+  var itemsAll = ["Chrome_Heart","Flora_Flamboyance","Puffy_Crossroads","Oyster_Spell","Vibrance_Splash","Rufflanza","Star_Cloak","Celestial_Dream","Pop_Kiss","Dazzling_Devil","Comic_Boom","Human_Masquerade"]
+  var itemToShow = itemsAll.filter(function(i){
+    return i !== name
+  })
+  console.log(itemToShow)
   const config = {
     apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
-    // network: Network.MATIC_MAINNET,
-    network:Network.MATIC_MAINNET
+    network: Network.MATIC_MAINNET,
+    // network:Network.MATIC_MUMBAI
   };
   const [nft, setNfts] = useState([]);
   const [nftCost, setNftCost] = useState(0);
@@ -79,7 +86,7 @@ const Product = () => {
     //   HTTPAgent: null, //HTTP Agent for server-side proxies (Node.js only)
     // });
     // setCostInDollar(convert.MATIC.USD(1).toFixed(2));  
-    const contract = await getContractInstance(2);
+    const contract = await getContractInstance(item['phase']);
     let totalSupply = await contract.publicCost();
     // console.log(totalSupply);
     setNftCost(Number(totalSupply._hex) * Math.pow(10, -18));
@@ -258,7 +265,7 @@ const Product = () => {
         //   // window.alert("Payment Success")
         //   // transak.close();
         // });
-      const contract = await getContractInstance(2);
+      const contract = await getContractInstance(item['phase']);
       // try {
       //   const seedSale = await contract.setSeedSaleOff();
       //   console.log(seedSale);
@@ -411,7 +418,7 @@ const Product = () => {
                         className="product-cost"
                         style={{ color: "#D062D3" }}
                       >
-                        {nftCost} MAT
+                        {Math.trunc(nftCost)} MATIC
                       </div>
                     </div>
                     <div className='extra mt-3 mt-md-2 mt-lg-1 d-none d-md-block '>
@@ -487,7 +494,7 @@ const Product = () => {
                   </div>
                 </div>
               </div>
-              {saleOn && <h4 className="text-center mb-4" style={{color:"#D062D3"}}>Sales start from 3rd February, 2023</h4>}
+              {!costLoading?saleOn && <h4 className="text-center mb-4" style={{color:"#D062D3"}}>Sales start from 3rd February, 2023</h4>:<p></p>}
               {/* utilities */}
               <div className="tab-accordion mb-4">
               <div>
@@ -611,7 +618,7 @@ const Product = () => {
                           className="panel-collapse collapse"
                         >
                           <div className="panel-body">
-                             <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Experience Virtual Reality through an interactive 3D model, capture it in AR or bring it into your own or Metaverse environment such as Spatial and Oncyber.</p>
+                             <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Experience the model in your own environment using our AR integration and showcase it within a Metaverse such as Spatial and Oncybr.</p>
                           </div>
                         </div>
                       </div>
@@ -648,7 +655,7 @@ const Product = () => {
                             href="#faq-cat-1-sub-5"
                           >
                             <h4 className="panel-title">
-                              Other Utilities
+                              Earn Passive Income
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-down" />
                               </span>
@@ -661,6 +668,32 @@ const Product = () => {
                         >
                           <div className="panel-body">
                           <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Meta Drip will be listed for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="panel panel-default panel-faq">
+                        <div className="panel-heading">
+                          <a
+                            data-toggle="collapse"
+                            data-parent="#accordion-cat-1"
+                            href="#faq-cat-1-sub-7"
+                          >
+                            <h4 className="panel-title">
+                              More Utilities
+                              <span className="pull-right">
+                                <i className="glyphicon glyphicon-chevron-down" />
+                              </span>
+                            </h4>
+                          </a>
+                        </div>
+                        <div
+                          id="faq-cat-1-sub-7"
+                          className="panel-collapse collapse"
+                        >
+                          <div className="panel-body">
+                          <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>
+                          Meta Drip is our most ambitious utility rewarding project and our aim is to provide utilities as long as we exist. Stay tuned and HODL!
+                          </p>
                           </div>
                         </div>
                       </div>
@@ -710,6 +743,48 @@ const Product = () => {
           </div>
 
         </div>
+      </div>
+
+      <div className="similiar-wearables-container">
+        <div>
+        <h1 className="mt-4 mb-4" style={{color:"#fff",fontFamily:"Clash Display Medium"}}>Similiar Wearables you may like</h1>
+        </div>
+      <Swiper
+        spaceBetween={'4%'}
+        slidesPerView={2}
+        onSlideChange={() => console.log("slide")}
+        // centeredSlides={true}
+        touchMoveStopPropagation
+        // slideToClickedSlide={true}
+        className='slides-container mb-4'
+        modules={[Navigation]}
+        controller={true}
+        speed={500}
+        navigation = {true}
+        breakpoints={{
+          450: {
+            width: 450,
+            slidesPerView: 2,
+          },
+          768: {
+            width: 768,
+            slidesPerView: 3,
+          },
+          1200: {
+            width: 1200,
+            slidesPerView: 5,
+          },
+        }}
+      >
+        {itemToShow.map((i)=>(
+          <SwiperSlide >
+            <Link to={`/${items[i].name.replace(" ","_")}`}>
+          <video src={items[i].video} style={{width:"95%"}} autoPlay muted loop />
+          <p className="text-center" style={{color:"white",fontFamily:"Clash Display Medium"}}>{items[i].name}</p>
+            </Link>
+        </SwiperSlide>
+        ))}
+      </Swiper>
       </div>
 
       <Footer />
