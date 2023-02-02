@@ -10,36 +10,39 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Context } from './Context';
 
 import {
-  createBrowserRouter,
-  RouterProvider,
+  // createBrowserRouter,
+  // RouterProvider,
+  Routes,
+  Route
 } from "react-router-dom";
 
 import Assets from './Pages/Assets';
 import Utility from './component/utility/Utility';
 import ProductPage from './Pages/ProductPage';
+import ProtectedRoutes from './ProtectedRoutes';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Homepage />,
-  },
-  {
-    path: '/assets',
-    element: <Assets />,
-  },
-  {
-    path:'/assets/:name',
-    element: <Utility />,
-  },
-  {
-    path: "/:name",
-    element: <ProductPage />
-  },
-  {
-    path: '*',
-    element: <NotFound />
-  }
-]);
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <Homepage />,
+//   },
+//   {
+//     path: '/assets',
+//     element: <Assets />,
+//   },
+//   {
+//     path:'/assets/:name',
+//     element: <Utility />,
+//   },
+//   {
+//     path: "/:name",
+//     element: <ProductPage />
+//   },
+//   {
+//     path: '*',
+//     element: <NotFound />
+//   }
+// ]);
 
 
 function App() {
@@ -48,7 +51,17 @@ function App() {
 
   return (
     <Context.Provider value={{walletAddress, setWalletAddress}}>
-        <RouterProvider router={router} />
+        {/* <RouterProvider router={router} /> */}
+
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path='/assets' element={<Assets />} />
+            <Route path='/assets/:name' element={<Utility />} />
+          </Route>
+          <Route path='/:name' element={<ProductPage />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
     </Context.Provider>
   );
 }
