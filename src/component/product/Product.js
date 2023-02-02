@@ -61,6 +61,7 @@ const Product = () => {
 
   // setId(item['start'])
   const fun=async()=>{
+    setCostLoading(true)
     var temp = {
       "Chrome Heart": 0,
       "Puffy Crossroads": 0,
@@ -113,6 +114,7 @@ const Product = () => {
     }else{
       setSaleOn(false)
     }
+    // setCostLoading(false)
   }
   useEffect(() => {
     if (navType !== "POP") {
@@ -132,7 +134,7 @@ const Product = () => {
     console.log(`available wearables ${10 - nft[name.replace("_", " ")]}/10`);
     setAvailable(10 - nft[name.replace("_", " ")])
     setCostLoading(false)
-  }, 1000);
+  }, 2000);
   $(document).on(function () {
     $(".collapse").on("show.bs.collapse", function () {
       var id = $(this).attr("id");
@@ -506,7 +508,7 @@ const Product = () => {
                   </div>
                 </div>
               </div>
-              {!costLoading?saleOn && <h4 className="text-center mb-4" style={{color:"#D062D3"}}>Sales start from 3rd February, 2023</h4>:<p></p>}
+              {/* {!costLoading?saleOn && <h4 className="text-center mb-4" style={{color:"#D062D3"}}>Sales start from 3rd February, 2023</h4>:<p></p>} */}
               {/* utilities */}
               <div className="tab-accordion mb-4">
               <div>
@@ -765,6 +767,7 @@ const Product = () => {
         spaceBetween={'4%'}
         slidesPerView={2}
         onSlideChange={() => console.log("slide")}
+        onClick={fun}
         // centeredSlides={true}
         touchMoveStopPropagation
         // slideToClickedSlide={true}
