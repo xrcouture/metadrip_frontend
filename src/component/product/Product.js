@@ -19,6 +19,9 @@ import { Formik } from 'formik';
 import {saveAs} from 'file-saver';
 import { RxIconjarLogo } from "react-icons/rx";
 // based on the product id show the product info
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Pagination, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 
 const Product = () => {
   let { name } = useParams();
@@ -27,8 +30,11 @@ const Product = () => {
   const [saleOn,setSaleOn] = useState(true)
   console.log(item['phase'])
 
-
-
+  var itemsAll = ["Chrome_Heart","Flora_Flamboyance","Puffy_Crossroads","Oyster_Spell","Vibrance_Splash","Rufflanza","Star_Cloak","Celestial_Dream","Pop_Kiss","Dazzling_Devil","Comic_Boom","Human_Masquerade"]
+  var itemToShow = itemsAll.filter(function(i){
+    return i !== name
+  })
+  console.log(itemToShow)
   const config = {
     apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
     // network: Network.MATIC_MAINNET,
@@ -482,7 +488,7 @@ const Product = () => {
                   </div>
                 </div>
               </div>
-              {saleOn && <h4 className="text-center mb-4" style={{color:"#D062D3"}}>Sales start from 3rd February, 2023</h4>}
+              {!costLoading?saleOn && <h4 className="text-center mb-4" style={{color:"#D062D3"}}>Sales start from 3rd February, 2023</h4>:<p></p>}
               {/* utilities */}
               <div className="tab-accordion mb-4">
               <div>
@@ -705,6 +711,48 @@ const Product = () => {
           </div>
 
         </div>
+      </div>
+
+      <div className="similiar-wearables-container">
+        <div>
+        <h1 className="mt-4 mb-4" style={{color:"#fff",fontFamily:"Clash Display Medium"}}>Similiar Wearables you may like</h1>
+        </div>
+      <Swiper
+        spaceBetween={'4%'}
+        slidesPerView={2}
+        onSlideChange={() => console.log("slide")}
+        // centeredSlides={true}
+        touchMoveStopPropagation
+        // slideToClickedSlide={true}
+        className='slides-container mb-4'
+        modules={[Navigation]}
+        controller={true}
+        speed={500}
+        navigation = {true}
+        breakpoints={{
+          450: {
+            width: 450,
+            slidesPerView: 2,
+          },
+          768: {
+            width: 768,
+            slidesPerView: 3,
+          },
+          1200: {
+            width: 1200,
+            slidesPerView: 5,
+          },
+        }}
+      >
+        {itemToShow.map((i)=>(
+          <SwiperSlide >
+            <Link to={`/${items[i].name.replace(" ","_")}`}>
+          <video src={items[i].video} style={{height:"95%", width:"95%"}} autoPlay muted loop />
+          <p className="text-center" style={{color:"white",fontFamily:"Clash Display Medium"}}>{items[i].name}</p>
+            </Link>
+        </SwiperSlide>
+        ))}
+      </Swiper>
       </div>
 
       <Footer />
