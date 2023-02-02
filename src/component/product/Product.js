@@ -17,6 +17,7 @@ import { ethers } from "ethers";
 import $ from "jquery";
 import { Formik } from 'formik';
 import {saveAs} from 'file-saver';
+
 import { RxIconjarLogo } from "react-icons/rx";
 // based on the product id show the product info
 
@@ -28,11 +29,10 @@ const Product = () => {
   console.log(item['phase'])
 
 
-
   const config = {
     apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
     // network: Network.MATIC_MAINNET,
-    network:Network.MATIC_MUMBAI
+    network:Network.MATIC_MAINNET
   };
   const [nft, setNfts] = useState([]);
   const [nftCost, setNftCost] = useState(0);
@@ -62,17 +62,22 @@ const Product = () => {
       "Comic Boom": 0,
       "Human Masquerade": 0,
     };
-    const convert = new CryptoConvert({
-      cryptoInterval: 2000, //Crypto prices update interval in ms (default 5 seconds on Node.js & 15 seconds on Browsers)
-      fiatInterval: 60 * 1e3 * 60, //Fiat prices update interval (default every 1 hour)
-      calculateAverage: true, //Calculate the average crypto price from exchanges
-      binance: true, //Use binance rates
-      bitfinex: true, //Use bitfinex rates
-      coinbase: true, //Use coinbase rates
-      kraken: true, //Use kraken rates
-      // onUpdate: (tickers, isFiatUpdate?)=> any, //Callback on every crypto update
-      HTTPAgent: null, //HTTP Agent for server-side proxies (Node.js only)
-    });
+    if(item['phase']===1){
+      setCostInDollar(336)
+    }else{
+      setCostInDollar(303)
+    }
+    // const convert = new CryptoConvert({
+    //   cryptoInterval: 2000, //Crypto prices update interval in ms (default 5 seconds on Node.js & 15 seconds on Browsers)
+    //   fiatInterval: 60 * 1e3 * 60, //Fiat prices update interval (default every 1 hour)
+    //   calculateAverage: true, //Calculate the average crypto price from exchanges
+    //   binance: true, //Use binance rates
+    //   bitfinex: true, //Use bitfinex rates
+    //   coinbase: true, //Use coinbase rates
+    //   kraken: true, //Use kraken rates
+    //   // onUpdate: (tickers, isFiatUpdate?)=> any, //Callback on every crypto update
+    //   HTTPAgent: null, //HTTP Agent for server-side proxies (Node.js only)
+    // });
     // setCostInDollar(convert.MATIC.USD(1).toFixed(2));  
     const contract = await getContractInstance(2);
     let totalSupply = await contract.publicCost();
@@ -80,7 +85,7 @@ const Product = () => {
     setNftCost(Number(totalSupply._hex) * Math.pow(10, -18));
     setInterval(() => {
       // console.log(convert.MATIC.USD(1).toFixed(2));
-      setCostInDollar(convert.MATIC.USD(Number(totalSupply._hex) * Math.pow(10, -18)).toFixed(2));
+      // setCostInDollar(convert.MATIC.USD(Number(totalSupply._hex) * Math.pow(10, -18)).toFixed(2));
     }, 400);
     alchemy.nft.getNftsForContract(DCL_PHASE2_CONTRACT_ADDRESS).then((res) => {
       res.nfts.map((i) => {
@@ -184,7 +189,7 @@ const Product = () => {
         });
 
         // const chainId = networkMap.POLYGON_MAINNET.chainId // Polygon Mainnet
-        const chainId = networkMap.MUMBAI_TESTNET.chainId; // MUMBAI TESTNET
+        const chainId = networkMap.POLYGON_MAINNET.chainId; // POLYGON_MAINNET
 
         if (window.ethereum.networkVersion !== chainId) {
           console.log("switching network");
@@ -199,7 +204,7 @@ const Product = () => {
               console.log("adding network");
               await window.ethereum.request({
                 method: "wallet_addEthereumChain",
-                params: [networkMap.MUMBAI_TESTNET],
+                params: [networkMap.POLYGON_MAINNET],
               });
             }
           }
@@ -223,7 +228,7 @@ const Product = () => {
   const buyNow = async () => {
     console.log("buying");
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-      const chainId = networkMap.MUMBAI_TESTNET.chainId; // MUMBAI_TESTNET
+      const chainId = networkMap.POLYGON_MAINNET.chainId; // POLYGON_MAINNET
       const currentChainId = utils.hexValue(
         parseInt(window.ethereum.networkVersion)
       );
@@ -310,7 +315,7 @@ const Product = () => {
   // Called when clicked on buy now with different network than polygon,
   const switcher = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-      const chainId = networkMap.MUMBAI_TESTNET.chainId; // MUMBAI_TESTNET
+      const chainId = networkMap.POLYGON_MAINNET.chainId; // POLYGON_MAINNET
 
       if (window.ethereum.networkVersion !== chainId) {
         try {
@@ -323,7 +328,7 @@ const Product = () => {
           if (err.code === 4902) {
             await window.ethereum.request({
               method: "wallet_addEthereumChain",
-              params: [networkMap.MUMBAI_TESTNET],
+              params: [networkMap.POLYGON_MAINNET],
             });
           }
         }
