@@ -47,8 +47,8 @@ export const items = {
         },
         snapchat_ar:{
             status:true,
-            qr:"",
-            video:""
+            qr:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Chrome+Heart/Snap+AR/snapcode.png",
+            video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Chrome+Heart/Snap+AR/AR+Promo+Video_HR5.mp4"
         },
         earn_passive:{
             status:false,
@@ -64,11 +64,11 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Flora+Flamboyance/Media+for+Download/Flora+Flamboyance.zip"
             },
             glb_file:{
-                status:true,
-                link:""
+                status:false,
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Flora+Flamboyance/Media+for+Download/Flora+Flamboyance.zip"
             },
             metahuman:{
                 status:false,
@@ -103,8 +103,8 @@ export const items = {
         },
         snapchat_ar:{
             status:true,
-            qr:"",
-            video:""
+            qr:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Flora+Flamboyance/Snap+AR/snapcode.png",
+            video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Flora+Flamboyance/Snap+AR/8.mp4"
         },
         earn_passive:{
             status:false,
@@ -120,11 +120,11 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Puffy+Crossroads/Media+for+Download/Puffy+Crossroads.zip"
             },
             glb_file:{
-                status:true,
-                link:""
+                status:false,
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Chrome+Heart/glb-universal+file/ChromeHeart3.glb"
             },
             metahuman:{
                 status:false,
@@ -159,8 +159,8 @@ export const items = {
         },
         snapchat_ar:{
             status:true,
-            qr:"",
-            video:""
+            qr:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Puffy+Crossroads/Snap+AR/snapcode.png",
+            video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Puffy+Crossroads/Snap+AR/Sequence+01.mp4"
         },
         earn_passive:{
             status:false,
@@ -176,11 +176,11 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Oyster+Spell/Media+for+Download/Oyster+Spell.zip"
             },
             glb_file:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Oyster+Spell/glb-universal+file/Oyster+Spell.glb"
             },
             metahuman:{
                 status:false,
@@ -215,8 +215,8 @@ export const items = {
         },
         snapchat_ar:{
             status:true,
-            qr:"",
-            video:""
+            qr:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Oyster+Spell/Snap+AR/snapcode.png",
+            video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Oyster+Spell/Snap+AR/7_opt.mp4"
         },
         earn_passive:{
             status:false,
@@ -232,11 +232,11 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Vibrance+Splash/Media+for+Download/Vibrance+Splash.zip"
             },
             glb_file:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Vibrance+Splash/3d+Model+AR/Vibrance+Splash.glb"
             },
             metahuman:{
                 status:false,
@@ -271,8 +271,8 @@ export const items = {
         },
         snapchat_ar:{
             status:true,
-            qr:"",
-            video:""
+            qr:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Vibrance+Splash/Snap+AR/snapcode.png",
+            video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Vibrance+Splash/Snap+AR/31.mp4"
         },
         earn_passive:{
             status:false,
@@ -288,10 +288,10 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Rufflanza/Media+for+Download/Rufflanza.zip"
             },
             glb_file:{
-                status:true,
+                status:false,
                 link:""
             },
             metahuman:{
@@ -327,8 +327,8 @@ export const items = {
         },
         snapchat_ar:{
             status:true,
-            qr:"",
-            video:""
+            qr:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Rufflanza/Snap+AR/snapcode.png",
+            video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Rufflanza/Snap+AR/7.mp4"
         },
         earn_passive:{
             status:false,
@@ -339,12 +339,12 @@ export const items = {
         name:"Star Cloak",
         start:0,
         designed_by:"Klaws Design",
-        description:"A hearty treat, this dress is perfect for the Metaverse retreat! The glistening hues and the bewitching iridescent is sure to grab eyeballs.",
+        description:"Be the galaxy’s dazzling ambassador with this outfit that radiates a rare shine and endearing hues. Take on the glitters!",
         phase:2,
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Star+Cloak/Media+for+Download/Star+Cloak.zip"
             },
             glb_file:{
                 status:true,
@@ -400,10 +400,10 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Celestial+Dream/Media+for+Download/Celestial+Dream.zip"
             },
             glb_file:{
-                status:true,
+                status:false,
                 link:""
             },
             metahuman:{
@@ -456,11 +456,11 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Pop+Kiss/Media+for+Download/Pop+Kiss.zip"
             },
             glb_file:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Pop+Kiss/glb-universal+file/Pop+Kiss.glb"
             },
             metahuman:{
                 status:false,
@@ -512,11 +512,11 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Dazzling+Devil/Media+for+Download/Dazzling+Devil.zip"
             },
             glb_file:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Dazzling+Devil/glb-universal+file/Dazzling+Devil.glb"
             },
             metahuman:{
                 status:false,
@@ -568,10 +568,10 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Comic+Boom/Media+for+Download/Comic+Boom.zip"
             },
             glb_file:{
-                status:true,
+                status:false,
                 link:""
             },
             metahuman:{
@@ -624,10 +624,10 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:""
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Human+Masquerade/Media+for+Download/Human+Masquerade.zip"
             },
             glb_file:{
-                status:true,
+                status:false,
                 link:""
             },
             metahuman:{
@@ -671,5 +671,4 @@ export const items = {
         },
         video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/12.mp4"
     },
-
 }

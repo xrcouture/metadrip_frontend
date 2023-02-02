@@ -44,7 +44,7 @@ function Assets() {
       "0x99D6C0d1A656a1ee1F345AE6482D0aFD76daF8a5", //phase 2
     ];
     const alchemy = new Alchemy(config);
-    alchemy.nft
+    alchemy.nft 
       .getNftsForOwner(state, {
         contractAddresses: collectionAddress,
         omitMetadata: false,
@@ -65,23 +65,6 @@ function Assets() {
 
   useEffect(() => {
     fun()
-    // const contract = await getContractInstance(1);
-    // const name = await contract.totalBalance();
-    // let totalSupply = await contract.totalSupply()
-    // totalSupply = Number(totalSupply._hex)
-    // for(let i = 0; i < totalSupply; i++){
-    //   let t = await contract.tokenByIndex(i)
-    //   if(Number.isInteger(t/10)){
-    //     t = t/10-1
-    //     supply[t] = supply[t] + 1
-    //   }
-    //   else{
-    //     t = Math.floor(t/10)
-    //     supply[t] = supply[t] + 1
-    //   }
-    // }
-    // itemSold = supply
-    // console.log(supply)
   }, []);
   console.log(itemSold);
 
