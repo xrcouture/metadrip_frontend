@@ -84,7 +84,7 @@ function Assets() {
       <div>
         <div className="d-flex">
           <img src={assetProfile} alt="asset profile icon" className="asset-profile-icon header-logo" />
-          <div className="asset-profile-icon header-logo" style={{fontFamily: "Clash Display Bold", color: "#fff", fontSize: "3rem", marginLeft: "18rem"}}>{walletAddress.substring(
+          <div className="asset-profile-icon asset-profile-text header-logo" style={{fontFamily: "Clash Display Bold", color: "#fff"}}>{walletAddress.substring(
                 0,
                 8
               )}...{walletAddress.substring(38)}</div>

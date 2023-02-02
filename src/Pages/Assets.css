@@ -73,8 +73,129 @@
 .asset-profile-icon {
     position: absolute !important;
     top: 35% !important;
-    width: 10rem !important;
+    /* width: 10rem !important; */
     /* height: 100px; */
     z-index: 100 !important;
     transform: translate(0%, -50%) !important;
 }
+.asset-profile-text {
+    font-size: 1rem;
+    margin-left: 9rem;
+    font-family: "Clash Display Bold" !important;
+}
+
+/* // Mobile devices (400px and up) */
+@media (min-width: 375px) {
+    .asset-profile-text {
+        font-size: 1.2rem;
+        margin-left: 10.5rem;
+        font-family: "Clash Display Bold" !important;
+    }
+  }
+  
+  @media (min-width: 450px) {
+    .asset-profile-icon {
+        width: 8rem;
+    }
+    .asset-profile-text {
+        font-size: 1.5rem;
+        margin-left: 9rem;
+        font-family: "Clash Display Bold" !important;
+    }
+  }
+  
+  /* // Medium devices (tablets, 768px and up) */
+  @media (min-width: 560px) { 
+    .asset-profile-icon {
+        width: 9rem;
+    }
+    .asset-profile-text {
+        font-size: 1.8rem;
+        margin-left: 14rem;
+        font-family: "Clash Display Bold" !important;
+    }
+  }
+  
+  /* // Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) { 
+    .asset-profile-icon {
+        width: 10rem;
+    }
+    .asset-profile-text {
+        font-size: 1.8rem;
+        margin-left: 15rem !important;
+        font-family: "Clash Display Bold" !important;
+    }
+  }
+  
+  /* // Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) { 
+    .asset-profile-icon {
+        width: 10rem !important;
+        top: 30% !important;
+    }
+    .asset-profile-text {
+        font-size: 2rem;
+        margin-left: 16rem !important;
+        font-family: "Clash Display Bold" !important;
+    }
+  }
+  
+  /* // X-Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) { 
+    .asset-profile-icon {
+        width: 11rem !important;
+        top: 32% !important;
+    }
+    .asset-profile-text {
+        font-size: 2.2rem;
+        margin-left: 18rem !important;
+        font-family: "Clash Display Bold" !important;
+    }
+  }
+  
+  /* // XX-Large devices (larger desktops, 1400px and up) */
+  @media (min-width: 1400px) { 
+    .asset-profile-icon {
+        width: 12rem !important;
+        top: 32% !important;
+    }
+    .asset-profile-text {
+        font-size: 3rem;
+        margin-left: 20rem !important;
+        font-family: "Clash Display Bold" !important;
+    }
+  }
+  
+  /* // XX-Large devices (larger desktops, 1400px and up) */
+  @media (min-width: 1800px) { 
+    .header-container {
+      height: 8.5rem;
+    }
+    .products-container {
+      padding-top: 10.5rem;
+    }
+    .header-logo {
+      margin-left: 4.7rem;
+      width: 18rem;
+    }
+    .header-button {
+      margin-right: 5.5rem;
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+    }
+    .product-video-and-content {
+      margin-right: 5.5rem;
+    }
+    .register-text {
+      right: 13rem !important;
+    }
+    .product-content {
+      padding-left: 0rem;
+      padding-right: 0rem;
+    }
+    .video-bg-button {
+      margin-right: 5.5rem;
+    }
+  }
