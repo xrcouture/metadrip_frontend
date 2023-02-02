@@ -12,10 +12,10 @@ function Slider() {
   const links = {
     1:"/Chrome_Heart",
     2:"/Puffy_Crossroads",
-    3:"/Yifan",
-    4:"/Technological_Hippie",
+    3:"/Oyster_Spell",
+    4:"/Vibrance_Splash",
     5:"/Flora_Flamboyance",
-    6:"/Xenia",
+    6:"/Rufflanza",
     7:"/Star_Cloak",
     8:"/Celestial_Dream",
     9:"/Dazzling_Devil",

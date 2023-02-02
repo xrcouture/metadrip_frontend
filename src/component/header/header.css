@@ -216,6 +216,9 @@ a:hover{
     padding-left: 0rem;
     padding-right: 0rem;
   }
+  .video-bg-button {
+    margin-right: 4rem;
+  }
 }
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
@@ -245,5 +248,8 @@ a:hover{
   .product-content {
     padding-left: 0rem;
     padding-right: 0rem;
+  }
+  .video-bg-button {
+    margin-right: 5.5rem;
   }
 }
