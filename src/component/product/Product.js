@@ -22,8 +22,12 @@ import { RxIconjarLogo } from "react-icons/rx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination, Navigation } from "swiper";
 import { Link } from "react-router-dom";
+import { useLocation, useNavigationType } from "react-router-dom";
+
 
 const Product = () => {
+  const location = useLocation();
+  const navType = useNavigationType();
   let { name } = useParams();
   const item = items[name];
   const [costLoading,setCostLoading] = useState(true)
@@ -103,8 +107,14 @@ const Product = () => {
     }
   }
   useEffect(() => {
+    if (navType !== "POP") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
    fun()
-  }, []);
+  }, [location]);
   console.log(nft)
 
 

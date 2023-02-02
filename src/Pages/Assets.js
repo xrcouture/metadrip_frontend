@@ -10,9 +10,12 @@ import { getContractInstance } from "../data's/helper";
 import { Context } from "../Context";
 import ProductHeader from "../component/productHeader/ProductHeader";
 import Footer from "../component/Footer/Footer" 
+import { useLocation, useNavigationType } from "react-router-dom";
 
 function Assets() {
   const [assets, setAssets] = useState([]);
+  const location = useLocation();
+  const navType = useNavigationType();
   // setAssets("hello")
   // console.log(assets)
   const {walletAddress} = useContext(Context);
@@ -64,8 +67,14 @@ function Assets() {
   }
 
   useEffect(() => {
+    if (navType !== "POP") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
     fun()
-  }, []);
+  }, [location]);
   console.log(itemSold);
 
   return (
