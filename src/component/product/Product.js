@@ -80,7 +80,7 @@ const Product = () => {
       HTTPAgent: null, //HTTP Agent for server-side proxies (Node.js only)
     });
     // setCostInDollar(convert.MATIC.USD(1).toFixed(2));  
-    const contract = await getContractInstance(2);
+    const contract = await getContractInstance(item['phase']);
     let totalSupply = await contract.publicCost();
     // console.log(totalSupply);
     setNftCost(Number(totalSupply._hex) * Math.pow(10, -18));
@@ -259,7 +259,7 @@ const Product = () => {
         //   // window.alert("Payment Success")
         //   // transak.close();
         // });
-      const contract = await getContractInstance(2);
+      const contract = await getContractInstance(item['phase']);
       // try {
       //   const seedSale = await contract.setSeedSaleOff();
       //   console.log(seedSale);
@@ -412,7 +412,7 @@ const Product = () => {
                         className="product-cost"
                         style={{ color: "#D062D3" }}
                       >
-                        {nftCost} MATIC
+                        {Math.trunc(nftCost)} MATIC
                       </div>
                     </div>
                     <div className='extra mt-3 mt-md-2 mt-lg-1 d-none d-md-block '>
