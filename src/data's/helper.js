@@ -1,4 +1,4 @@
-import { ethers } from 'ethers'
+import { ethers, utils } from 'ethers'
 import axios from 'axios';
 export const DCL_PHASE1_CONTRACT_ADDRESS = "0xEDe30DF507576e461cc2cB3AdA75bf9B22dc778d"; //Live - 1
 export const DCL_PHASE2_CONTRACT_ADDRESS = "0x99D6C0d1A656a1ee1F345AE6482D0aFD76daF8a5"; //Live - 2
@@ -18,9 +18,47 @@ export const getContractInstance = async (contractId) => {
     const CONTRACT_ADDRESS =
       contractId == 1 ? DCL_PHASE1_CONTRACT_ADDRESS : DCL_PHASE2_CONTRACT_ADDRESS;
 
-    
+
+    const networkMap = {
+      POLYGON_MAINNET: {
+        chainId: utils.hexValue(137), // '0x89'
+        chainName: "Matic(Polygon) Mainnet",
+        nativeCurrency: { name: "MATIC", symbol: "MATIC", decimals: 18 },
+        rpcUrls: ["https://polygon-rpc.com"],
+        blockExplorerUrls: ["https://www.polygonscan.com/"],
+      },
+      MUMBAI_TESTNET: {
+        chainId: utils.hexValue(80001), // '0x13881'
+        chainName: "Matic(Polygon) Mumbai Testnet",
+        nativeCurrency: { name: "tMATIC", symbol: "tMATIC", decimals: 18 },
+        rpcUrls: ["https://rpc-mumbai.maticvigil.com"],
+        blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+      },
+    };
+      
     // signer - you
-  const ethereum = window.ethereum;
+    const chainId = networkMap.POLYGON_MAINNET.chainId; // MUMBAI TESTNET
+
+    if (window.ethereum.networkVersion !== chainId) {
+      console.log("switching network");
+      try {
+        await window.ethereum.request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: chainId }],
+        });
+      } catch (err) {
+        // This error code indicates that the chain has not been added to MetaMask
+        if (err.code === 4902) {
+          console.log("adding network");
+          await window.ethereum.request({
+            method: "wallet_addEthereumChain",
+            params: [networkMap.POLYGON_MAINNET],
+          });
+        }
+      }
+    }
+    
+    const ethereum = window.ethereum;
     const accounts = await ethereum.request({
       method: "eth_requestAccounts",
     });

@@ -55,7 +55,7 @@ const ProductHeader = () => {
         })
 
         // const chainId = networkMap.POLYGON_MAINNET.chainId // Polygon Mainnet
-        const chainId = networkMap.MUMBAI_TESTNET.chainId // MUMBAI TESTNET
+        const chainId = networkMap.POLYGON_MAINNET.chainId // MUMBAI TESTNET
 
         if (isConnected === 'false' && window.ethereum.networkVersion !== chainId) {
             console.log("switching network")
@@ -70,7 +70,7 @@ const ProductHeader = () => {
                 console.log("adding network")
                 await window.ethereum.request({
                     method: "wallet_addEthereumChain",
-                    params: [networkMap.MUMBAI_TESTNET],
+                    params: [networkMap.POLYGON_MAINNET],
                 })
               }
             }
@@ -193,7 +193,7 @@ const ProductHeader = () => {
 
           <ul className="dropdown-menu header-button" style={{ fontFamily: "Druk Wide Medium" }}>
             <li className='dropdown-items p-1'>
-              <Link to="/assets">Assets</Link></li>
+              <Link to="/assets">My Assets</Link></li>
             <li className='dropdown-items p-1 pt-2' onClick={disconnect}>Disconnect Wallet</li>
             {/* <li className='dropdown-items p-1 pt-2' onClick={changeNetwork}>Switch Network</li> */}
           </ul>

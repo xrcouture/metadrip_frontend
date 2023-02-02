@@ -24,7 +24,7 @@ const Product = () => {
   const config = {
     apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
     // network: Network.MATIC_MAINNET,
-    network:Network.MATIC_MUMBAI
+    network:Network.MATIC_MAINNET
   };
   const [nft, setNfts] = useState([]);
   const [nftCost, setNftCost] = useState(0);
@@ -176,7 +176,7 @@ const Product = () => {
         });
 
         // const chainId = networkMap.POLYGON_MAINNET.chainId // Polygon Mainnet
-        const chainId = networkMap.MUMBAI_TESTNET.chainId; // MUMBAI TESTNET
+        const chainId = networkMap.POLYGON_MAINNET.chainId; // MUMBAI TESTNET
 
         if (window.ethereum.networkVersion !== chainId) {
           console.log("switching network");
@@ -191,7 +191,7 @@ const Product = () => {
               console.log("adding network");
               await window.ethereum.request({
                 method: "wallet_addEthereumChain",
-                params: [networkMap.MUMBAI_TESTNET],
+                params: [networkMap.POLYGON_MAINNET],
               });
             }
           }
@@ -215,7 +215,7 @@ const Product = () => {
   const buyNow = async () => {
     console.log("buying");
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-      const chainId = networkMap.MUMBAI_TESTNET.chainId; // MUMBAI_TESTNET
+      const chainId = networkMap.POLYGON_MAINNET.chainId; // POLYGON_MAINNET
       const currentChainId = utils.hexValue(
         parseInt(window.ethereum.networkVersion)
       );
@@ -306,7 +306,7 @@ const Product = () => {
   // Called when clicked on buy now with different network than polygon,
   const switcher = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-      const chainId = networkMap.MUMBAI_TESTNET.chainId; // MUMBAI_TESTNET
+      const chainId = networkMap.POLYGON_MAINNET.chainId; // POLYGON_MAINNET
 
       if (window.ethereum.networkVersion !== chainId) {
         try {
@@ -319,7 +319,7 @@ const Product = () => {
           if (err.code === 4902) {
             await window.ethereum.request({
               method: "wallet_addEthereumChain",
-              params: [networkMap.MUMBAI_TESTNET],
+              params: [networkMap.POLYGON_MAINNET],
             });
           }
         }
