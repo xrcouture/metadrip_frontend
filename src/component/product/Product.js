@@ -721,13 +721,13 @@ const Product = () => {
                             <p className="text-secondary">Blockchain</p> <span className="text-white">: Polygon</span>
                           </div>
                         </li>
-                        <li>
+                        {/* <li>
                         <div className="d-flex">
                             <p className="text-secondary">Contract Address:{" "}</p> <span className="text-white">: {item.phase == 1
                               ? collectionAddress[0]
                               : collectionAddress[1]}</span>
                           </div>
-                        </li>
+                        </li> */}
                       </ul>
                     </div>
                   </div>
