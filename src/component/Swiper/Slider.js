@@ -10,30 +10,30 @@ import {Link} from 'react-router-dom'
 function Slider() {
 
     // PUBLIC_SALE
-  // const links = {
-  //   1:"/Chrome_Heart",
-  //   2:"/Puffy_Crossroads",
-  //   3:"/Oyster_Spell",
-  //   4:"/Vibrance_Splash",
-  //   5:"/Flora_Flamboyance",
-  //   6:"/Rufflanza",
-  //   7:"/Star_Cloak",
-  //   8:"/Celestial_Dream",
-  //   9:"/Dazzling_Devil",
-  //   10:"/Pop_Kiss",
-  //   11:"/Comic_Boom",
-  //   12:"/Human_Masquerade"
-  // }
   const links = {
-    1:"/Star_Cloak",
-    2:"/Celestial_Dream",
-    3:"/Dazzling_Devil",
-    4:"/Pop_Kiss",
-    5:"/Comic_Boom",
-    6:"/Human_Masquerade"
+    1:"/Chrome_Heart",
+    2:"/Puffy_Crossroads",
+    3:"/Oyster_Spell",
+    4:"/Vibrance_Splash",
+    5:"/Flora_Flamboyance",
+    6:"/Rufflanza",
+    7:"/Star_Cloak",
+    8:"/Celestial_Dream",
+    9:"/Dazzling_Devil",
+    10:"/Pop_Kiss",
+    11:"/Comic_Boom",
+    12:"/Human_Masquerade"
   }
+  // const links = {
+  //   1:"/Star_Cloak",
+  //   2:"/Celestial_Dream",
+  //   3:"/Dazzling_Devil",
+  //   4:"/Pop_Kiss",
+  //   5:"/Comic_Boom",
+  //   6:"/Human_Masquerade"
+  // }
     // PUBLIC_SALE
-  const [buyLink,setBuyLink] = useState(links[3])
+  const [buyLink,setBuyLink] = useState(links[7])
   return (
     <div className="section2-overall">
     <img src={bg} alt="" className="section2-container-background" />
@@ -47,7 +47,7 @@ function Slider() {
           grabCursor={true}
           effect="coverflow"
             // PUBLIC_SALE
-          initialSlide={2}
+          initialSlide={6}
           direction="horizontal"
           updateOnWindowResize
           coverflowEffect={{
@@ -66,7 +66,7 @@ function Slider() {
           autoplay={true}
           slideToClickedSlide={true}
         >
-          {/* <SwiperSlide data-swiper-autoplay="2000" >
+          <SwiperSlide data-swiper-autoplay="2000" >
             <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/1.mp4" className="swiper-image swiper-image-dummy"  muted loop />
             <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/1.mp4" className="swiper-image-video" autoPlay  muted loop />
           </SwiperSlide>
@@ -89,7 +89,7 @@ function Slider() {
           <SwiperSlide>
           <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/6.mp4" className="swiper-image swiper-image-dummy"   muted loop />
           <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/6.mp4" className="swiper-image-video" autoPlay  muted loop /> 
-          </SwiperSlide> */}
+          </SwiperSlide>
           <SwiperSlide>
           <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/7.mp4" className="swiper-image swiper-image-dummy"   muted loop />
           <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/7.mp4" className="swiper-image-video" autoPlay  muted loop /> 

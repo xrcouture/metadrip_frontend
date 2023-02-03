@@ -23,7 +23,7 @@ function Section1() {
       <div className='section1-container-content'>
         <div className='section1-container-1 m-0'>
           <div className=''>
-            <h1 className='countdown-content countdown-content-1'>Pre - Mint Sale ends in<span className='countdown-content-star'>*</span></h1>
+            {/* <h1 className='countdown-content countdown-content-1'>Pre - Mint Sale ends in<span className='countdown-content-star'>*</span></h1> */}
           </div>
           <Countdown
             // timeTillDate="February 1st 2023, 12:00:00 pm"
@@ -31,7 +31,7 @@ function Section1() {
             timeFormat="MMMM Do YYYY, h:mm:ss a"
           />
           <div className=''>
-            <h1 className='countdown-content countdown-date text-center'>3rd February, 2023</h1>
+            {/* <h1 className='countdown-content countdown-date text-center'>3rd February, 2023</h1> */}
           </div>
         </div>
       </div>

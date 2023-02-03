@@ -323,13 +323,13 @@
 }
 .similiar-wearables-container .swiper-slide{
   background: linear-gradient(180deg, #e952ec 0%, rgba(245, 111, 111, 0) 100%);
-  border-radius: 24.4617px;
-  padding: 1%;
-  padding-bottom: 3%;
+  border-radius: 1rem;
+  padding: 0.4rem;
+  padding-bottom: 3rem;
 }
 .similiar-wearables-container .swiper-slide video{
   border: 5px solid #D19CFB;
-  border-radius: 8%;
+  border-radius: 1rem;
 }
 .similiar-wearables-container .swiper-slide-active{
     border: none;
@@ -340,4 +340,9 @@
   background: white;
   padding: 3%;
   border-radius: 50%;
+}
+
+.similiar-wearables-slides .swiper-button-next, .similiar-wearables-slides .swiper-button-prev {
+  top: 40%;
+  transform: translate(0, -50%)
 }

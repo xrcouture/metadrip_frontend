@@ -36,8 +36,8 @@ const Product = () => {
   console.log(item['phase'])
 
   // PUBLIC_SALE
-  // var itemsAll = ["Chrome_Heart","Flora_Flamboyance","Puffy_Crossroads","Oyster_Spell","Vibrance_Splash","Rufflanza","Star_Cloak","Celestial_Dream","Pop_Kiss","Dazzling_Devil","Comic_Boom","Human_Masquerade"]
-  var itemsAll = ["Star_Cloak","Celestial_Dream","Pop_Kiss","Dazzling_Devil","Comic_Boom","Human_Masquerade"]
+  var itemsAll = ["Chrome_Heart","Flora_Flamboyance","Puffy_Crossroads","Oyster_Spell","Vibrance_Splash","Rufflanza","Star_Cloak","Celestial_Dream","Pop_Kiss","Dazzling_Devil","Comic_Boom","Human_Masquerade"]
+  // var itemsAll = ["Star_Cloak","Celestial_Dream","Pop_Kiss","Dazzling_Devil","Comic_Boom","Human_Masquerade"]
   var itemToShow = itemsAll.filter(function(i){
     return i !== name
   })
@@ -79,7 +79,7 @@ const Product = () => {
     if(item['phase']===1){
       setCostInDollar(336)
     }else{
-      setCostInDollar(303)
+      setCostInDollar(336)
     }
     // const convert = new CryptoConvert({
     //   cryptoInterval: 2000, //Crypto prices update interval in ms (default 5 seconds on Node.js & 15 seconds on Browsers)
@@ -440,7 +440,7 @@ const Product = () => {
                       // <p className="text-danger">Sold Out</p>
                       <button className='buy-now text-white mt-2 btn btn-secondary' disabled>Sold Out</button>
                       ) : (
-                      <button type="button" className={`buy-now text-white mt-2 ${saleOn ? "btn btn-secondary": ""}`} onClick={buyNow} disabled={saleOn}>Buy now</button>
+                      <button type="button" className={`buy-now text-white mt-2`} onClick={buyNow}>Buy now</button>
                       )}
                     </div>
                     <div className="mt-md-3">
@@ -468,9 +468,9 @@ const Product = () => {
                     ) : (
                       <button
                       type="button"
-                        className={`buy-now text-white mt-2 ${saleOn ? "btn btn-secondary": ""}`}
+                        className={`buy-now text-white mt-2`}
                         onClick={buyNow}
-                        disabled={saleOn}
+                        // disabled={saleOn}
                       >
                         Buy now
                       </button>
@@ -759,9 +759,9 @@ const Product = () => {
         </div>
       </div>
 
-      <div className="similiar-wearables-container">
+      <div className="similiar-wearables-container mt-5 mb-5">
         <div>
-        <h1 className="mt-4 mb-4" style={{color:"#fff",fontFamily:"Clash Display Medium"}}>Similiar Wearables you may like</h1>
+        <h1 className="mt-4 mb-5" style={{color:"#fff",fontFamily:"Clash Display Medium"}}>Similiar Wearables you may like</h1>
         </div>
       <Swiper
         spaceBetween={'4%'}
@@ -771,7 +771,7 @@ const Product = () => {
         // centeredSlides={true}
         touchMoveStopPropagation
         // slideToClickedSlide={true}
-        className='slides-container mb-4'
+        className='slides-container similiar-wearables-slides mb-5 pb-5'
         modules={[Navigation]}
         controller={true}
         speed={500}

@@ -32,9 +32,9 @@ class Countdown extends React.Component {
     let data = []
 
     for (const property in items) {
-      if (items[property]['phase'] === 2) {
+      // if (items[property]['phase'] === 2) {
         data.push(items[property]['name'])
-      }
+      // }
     }
 
     data = data.map((item) => item.split(' ').join('_'))
@@ -63,7 +63,7 @@ class Countdown extends React.Component {
     return (
       <div>
         <div className="countdown-wrapper countdown-content">
-
+{/* 
             <div className="countdown-container">
               <div className="countdown-item">{days}</div>
               <span className="utility-content-subtitle countdown-item-subtitle">Days</span>
@@ -80,7 +80,7 @@ class Countdown extends React.Component {
 
             <div className="countdown-container">
               <div className="countdown-item">
-                {/* <SVGCircle radius={minutesRadius} /> */}
+              
                 {minutes}
               </div>
               <span className="utility-content-subtitle countdown-item-subtitle">Minutes</span>
@@ -91,11 +91,10 @@ class Countdown extends React.Component {
 
             <div className="countdown-container">
               <div className="countdown-item">
-                {/* <SVGCircle radius={secondsRadius} /> */}
                 {seconds}
               </div>
               <span className="utility-content-subtitle countdown-item-subtitle">Seconds</span>
-            </div>
+            </div> */}
 
           <Link to={`${this.state.link}`} className='header-button video-bg-button d-none d-md-block'>BUY NOW</Link>
 
