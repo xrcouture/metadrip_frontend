@@ -29,6 +29,7 @@
     "react-date-countdown-timer": "^1.1.0",
     "react-dom": "^18.2.0",
     "react-flickity-component": "^4.0.0",
+    "react-ga": "^3.3.1",
     "react-icons": "^4.7.1",
     "react-js-loader": "^0.1.0",
     "react-loader-spinner": "^5.3.4",
@@ -69,7 +70,7 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "^3.2.4",
-    "react-error-overlay": "6.0.9"
+    "react-error-overlay": "6.0.9",
+    "tailwindcss": "^3.2.4"
   }
 }
