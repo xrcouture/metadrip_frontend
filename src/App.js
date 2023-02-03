@@ -48,7 +48,7 @@ import ProtectedRoutes from './ProtectedRoutes';
 
 
 function App() {
-  const TRACKING_ID = "G-L0VT29HWGG";
+  const TRACKING_ID = "G-DVSQY565V0";
   ReactGA.initialize(TRACKING_ID);
   const [walletAddress, setWalletAddress] = useState("")
   useEffect(() => {
