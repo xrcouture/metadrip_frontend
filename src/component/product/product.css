@@ -346,3 +346,11 @@
   top: 40%;
   transform: translate(0, -50%)
 }
+
+.similiar-wearables-slides .swipper-wrapper .swiper-slide{
+  height: auto !important;
+}
+
+.sl-spinner3 {
+  width: 100%;
+}

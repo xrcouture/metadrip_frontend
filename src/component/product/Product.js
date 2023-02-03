@@ -97,16 +97,36 @@ const Product = () => {
     let totalSupply = await contract.publicCost();
     // console.log(totalSupply);
     setNftCost(Number(totalSupply._hex) * Math.pow(10, -18));
+
+    await fetch('https://min-api.cryptocompare.com/data/price?fsym=MATIC&tsyms=USD')
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data.USD * Number(totalSupply._hex) * Math.pow(10, -18))
+      setCostInDollar((data.USD * Number(totalSupply._hex) * Math.pow(10, -18)).toFixed(2))
+    });
+
+
     setInterval(() => {
       // console.log(convert.MATIC.USD(1).toFixed(2));
       // setCostInDollar(convert.MATIC.USD(Number(totalSupply._hex) * Math.pow(10, -18)).toFixed(2));
     }, 400);
-    alchemy.nft.getNftsForContract(DCL_PHASE2_CONTRACT_ADDRESS).then((res) => {
-      res.nfts.map((i) => {
-        let t = i.description.split(":")[0];
-        temp[i.title]++;
+    await alchemy.nft.getNftsForContract(collectionAddress[item['phase']-1]).then((res) => {
+      // console.log(res)
+      res.nfts.map(async(i) => {
+        // console.log(i['tokenUri'].raw)
+        await fetch(i['tokenUri'].raw)
+          .then((response) => response.json())
+          .then((data) => {
+            // console.log(data)
+            temp[data.name]++
+          });
+        // let t = i.description.split(":")[0];
+        // temp[i.title]++;
       });
+
     });
+    // console.log(temp)
+
     setNfts(temp);
     setAvailable(10 - nft[name.replace("_", " ")])
     if(item['phase']===1){
@@ -117,24 +137,35 @@ const Product = () => {
     // setCostLoading(false)
   }
   useEffect(() => {
+    // console.log("CALLED")
+
+    let timer1 = setTimeout(() => setCostLoading(false), 4000);
+
+
     if (navType !== "POP") {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
     }
-   fun()
+    fun()
+
+    return () => {
+      clearTimeout(timer1);
+    };
+
   }, [location]);
   console.log(nft)
 
 
   // console.log(items);
   setTimeout(() => {
+    // console.warn("UPDATED")
     console.log(name, nft[name.replace("_", " ")] + 1, nft);
     console.log(`available wearables ${10 - nft[name.replace("_", " ")]}/10`);
     setAvailable(10 - nft[name.replace("_", " ")])
-    setCostLoading(false)
-  }, 2000);
+  }, 1000);
+
   $(document).on(function () {
     $(".collapse").on("show.bs.collapse", function () {
       var id = $(this).attr("id");
@@ -417,7 +448,7 @@ const Product = () => {
               {/* product desc and buy now - Container */}
               <div className="d-md-flex flex-md-row-reverse mt-md-4 mb-md-5">
 
-                {costLoading ? <Loader type="spinner-default" className="prod-cost mt-5 mt-md-0 col-md-5" bgColor={"#D062D3"} color={'#D062D3'} size={50} />
+                {costLoading ? <Loader type="spinner-default" className="prod-cost mt-5 mt-md-0 col-md-5" bgColor={"#D062D3"} color={'#D062D3'} size={55} />
                 :
                 <div className="prod-cost text-white mt-5 mt-md-0 col-md-5" style={{padding: "0%"}}>
                   <div className="d-flex d-md-block justify-content-between">
