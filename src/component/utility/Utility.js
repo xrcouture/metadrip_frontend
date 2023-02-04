@@ -343,7 +343,8 @@ function Utility() {
                               initialValues={{ 
                                 email: '', 
                                 file: null,
-                                comments:""
+                                comments:"",
+                                files:null
                               }}
                               validate={values => {
                                 const errors = {};
@@ -357,17 +358,22 @@ function Utility() {
                                 return errors;
                               }}
                               onSubmit={(values, { setSubmitting }) => {
-                                // axios.post("https://api.metadrip.xrcouture.com/utility/isItemClaimed",
-                                // {
-                                //   address:"0x065366ec359a64dbf3f02cad7987122053fedcb0",
-                                //   itemId:item['start']/10,
-                                //   contractId:item['phase']
-                                // }).then(res=>{
-                                //   setVirtual(res.data.claimed)
-                                //   console.log(res)
-                                // }).catch(e=>{
-                                //   console.log(e)
-                                // })
+                                const data = new FormData();
+                                data.append('file', values.files);
+                                axios.post("http://localhost:5000/utility/upload",
+                                {
+                                  address:"0x065366ec359a64dbf3f02cad7987122053fedcb0",
+                                  itemId:item['start']/10,
+                                  contractId:item['phase'],
+                                  files:values.files,
+                                  email:values.email,
+                                  comments:values.comments
+                                }).then(res=>{
+                                  setVirtual(res.data.claimed)
+                                  console.log(res)
+                                }).catch(e=>{
+                                  console.log(e)
+                                })
 
                                 setTimeout(() => {
                                   alert(JSON.stringify(values, null, 2));
