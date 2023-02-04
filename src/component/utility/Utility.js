@@ -527,7 +527,7 @@ function Utility() {
                               {item['get_3d_assets']['pfp'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['pfp'].link)}>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
                             <div className="button-group-1">
-                              <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Universal File</h5>
+                              <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Universal File (.glb)</h5>
                               {item['get_3d_assets']['glb_file'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['glb_file'].link)}>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
                             <div className="button-group-1">
