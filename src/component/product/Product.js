@@ -59,7 +59,7 @@ const Product = () => {
     "0x99D6C0d1A656a1ee1F345AE6482D0aFD76daF8a5", //phase 2
   ];
 
-  // setId(item['start'])
+  // setId()
   const fun=async()=>{
     setCostLoading(true)
     var temp = {
@@ -110,18 +110,20 @@ const Product = () => {
       // console.log(convert.MATIC.USD(1).toFixed(2));
       // setCostInDollar(convert.MATIC.USD(Number(totalSupply._hex) * Math.pow(10, -18)).toFixed(2));
     }, 400);
-    await alchemy.nft.getNftsForContract(collectionAddress[item['phase']-1]).then((res) => {
+    // console.warn(collectionAddress[item['phase']-1], item)
+    await alchemy.nft.getNftsForContract(collectionAddress[0]).then((res) => {
       // console.log(res)
-      res.nfts.map(async(i) => {
-        // console.log(i['tokenUri'].raw)
-        await fetch(i['tokenUri'].raw)
-          .then((response) => response.json())
-          .then((data) => {
-            // console.log(data)
-            temp[data.name]++
-          });
-        // let t = i.description.split(":")[0];
-        // temp[i.title]++;
+      res.nfts.map((i) => {
+        // console.warn("called")
+        temp[i.rawMetadata.name]++;
+      });
+
+    });
+    await alchemy.nft.getNftsForContract(collectionAddress[1]).then((res) => {
+      // console.log(res)
+      res.nfts.map((i) => {
+        // console.warn("called")
+        temp[i.rawMetadata.name]++;
       });
 
     });
