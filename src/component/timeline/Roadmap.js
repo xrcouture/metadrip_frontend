@@ -9,12 +9,20 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
 
-import roadmapLogo1 from '../../assets/Q12022.png'
-import roadmapLogo2 from '../../assets/Q22022.PNG'
-import roadmapLogo3 from '../../assets/Q32022.PNG'
-import roadmapLogo4 from '../../assets/Q42022.png'
-import roadmapLogo5 from '../../assets/Q12023.PNG'
-import roadmapLogo6 from '../../assets/Q22023.JPG'
+// import roadmapLogo1 from '../../assets/Q12022.png'
+// import roadmapLogo2 from '../../assets/Q22022.PNG'
+// import roadmapLogo3 from '../../assets/Q32022.PNG'
+// import roadmapLogo4 from '../../assets/Q42022.png'
+// import roadmapLogo5 from '../../assets/Q12023.PNG'
+// import roadmapLogo6 from '../../assets/Q22023.JPG'
+
+// COMPRESSED_WEBP
+import roadmapLogo1 from '../../assets/Q12022.webp'
+import roadmapLogo2 from '../../assets/Q22022.webp'
+import roadmapLogo3 from '../../assets/Q32022.webp'
+import roadmapLogo4 from '../../assets/Q42022.webp'
+import roadmapLogo5 from '../../assets/Q12023.webp'
+import roadmapLogo6 from '../../assets/Q22023.webp'
 
 function Roadmap() {
 

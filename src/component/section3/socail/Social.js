@@ -13,9 +13,13 @@ import passivelg1 from '../../../assets/passive1-lg.png'
 import passivelg2 from '../../../assets/passive2-lg.png'
 import passivelg3 from '../../../assets/passive3-lg-.png'
 import imagebg from '../../../assets/carousel-img.png'
-import virtualpng from '../../../assets/virtual.png'
+// COMPRESSED_WEBP
+// import virtualpng from '../../../assets/virtual.png'
+import virtualpng from '../../../assets/virtual.webp'
 import { MdVideoCameraBack } from "react-icons/md";
-import vibrance from '../../../assets/Vibrance Splash.png'
+// COMPRESSED_WEBP
+// import vibrance from '../../../assets/Vibrance Splash.png'
+import vibrance from '../../../assets/Vibrance Splash.webp'
 import ellipse from '../../../assets/ellipse-bg.png'
 
 

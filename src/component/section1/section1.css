@@ -1,7 +1,8 @@
 .section1-container {
   position: relative;
   height: 100vh;
-  background-image: url('../../assets//carousel-bg.png');
+  /* COMPRESSED_WEBP */
+  background-image: url('../../assets//carousel-bg.webp');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

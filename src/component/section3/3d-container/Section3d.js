@@ -1,6 +1,7 @@
 import React from 'react'
 import './section3d.css'
 import image from "../../../assets/demo.png";
+// COMPRESSED_WEBP
 import decenterland from "../../../assets/decentraland.png";
 import rtfkt from "../../../assets/unreal-engine.png";
 import oncyber from "../../../assets/oncyber.png";
@@ -9,14 +10,22 @@ import sandbox from "../../../assets/sandbox.png";
 import unreal from "../../../assets/unreal.png";
 import spatial from "../../../assets/spatial.png";
 import zepeto from "../../../assets/zepeto.png";
-import decenterlandlg from '../../../assets/cross/Decentraland.png'
-import rtfktlg from '../../../assets/cross/MetaHUman.png'
-import oncyberlg from '../../../assets/cross/Oncybr.png'
-import roboloxlg from '../../../assets/cross/Roblox.png'
-import sandboxlg from '../../../assets/cross/Sandbox.png'
-import zepetolg from '../../../assets/cross/Zepeto.png'
-import clonexlg from '../../../assets/cross/CloneX.png'
-import spatiallg from '../../../assets/cross/Spatial.png'
+// import decenterlandlg from '../../../assets/cross/Decentraland.png'
+import decenterlandlg from '../../../assets/cross/Decentraland.webp'
+// import rtfktlg from '../../../assets/cross/MetaHUman.png'
+import rtfktlg from '../../../assets/cross/MetaHUman.webp'
+// import oncyberlg from '../../../assets/cross/Oncybr.png'
+import oncyberlg from '../../../assets/cross/Oncybr.webp'
+// import roboloxlg from '../../../assets/cross/Roblox.png'
+import roboloxlg from '../../../assets/cross/Roblox.webp'
+// import sandboxlg from '../../../assets/cross/Sandbox.png'
+import sandboxlg from '../../../assets/cross/Sandbox.webp'
+// import zepetolg from '../../../assets/cross/Zepeto.png'
+import zepetolg from '../../../assets/cross/Zepeto.webp'
+// import clonexlg from '../../../assets/cross/CloneX.png'
+import clonexlg from '../../../assets/cross/CloneX.webp'
+// import spatiallg from '../../../assets/cross/Spatial.png'
+import spatiallg from '../../../assets/cross/Spatial.webp'
 
 
 function Section3d() {
