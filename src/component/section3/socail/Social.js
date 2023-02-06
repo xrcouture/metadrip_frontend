@@ -1,39 +1,45 @@
 import React,{useState} from 'react'
 import './social.css'
-import imgbg from '../../../assets/3dbackground.png'
-import img3d from '../../../assets/3d.png'
+// import imgbg from '../../../assets/3dbackground.png'
+// import img3d from '../../../assets/3d.png'
 import Carousel from 'react-bootstrap/Carousel';
 // import vid from '../../../assets/sample-video.mp4'
-import vid from '../../../assets/vibrant-video_r.mp4'
+// import vid from '../../../assets/vibrant-video_r.mp4'
 import passive1 from '../../../assets/passive1.png'
 import passive2 from '../../../assets/passive2.png'
 import passive3 from '../../../assets/passive3.png'
 import passive4 from '../../../assets/passive4.png'
-import passivelg1 from '../../../assets/passive1-lg.png'
-import passivelg2 from '../../../assets/passive2-lg.png'
-import passivelg3 from '../../../assets/passive3-lg-.png'
-import imagebg from '../../../assets/carousel-img.png'
+// import passivelg1 from '../../../assets/passive1-lg.png'
+// import passivelg2 from '../../../assets/passive2-lg.png'
+// import passivelg3 from '../../../assets/passive3-lg-.png'
+// import imagebg from '../../../assets/carousel-img.png'
+
 // COMPRESSED_WEBP
 // import virtualpng from '../../../assets/virtual.png'
-import virtualpng from '../../../assets/virtual.webp'
 import { MdVideoCameraBack } from "react-icons/md";
 // COMPRESSED_WEBP
 // import vibrance from '../../../assets/Vibrance Splash.png'
-import vibrance from '../../../assets/Vibrance Splash.webp'
-import ellipse from '../../../assets/ellipse-bg.png'
-
-
-
-
+// import ellipse from '../../../assets/ellipse-bg.png'
 
 
 function Social() {
 
-        const [index, setIndex] = useState(0);
-      
-        const handleSelect = (selectedIndex, e) => {
-          setIndex(selectedIndex);
-        }
+    const [index, setIndex] = useState(0);
+  
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+    }
+
+    const virtualpng = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/virtual.webp'
+    const vibrance = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Vibrance Splash.webp'
+
+    const imgbg = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/3dbackground.png'
+    const ellipse = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/ellipse-bg.png'
+    const passivelg1 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/passive1-lg.png'
+    const passivelg2 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/passive2-lg.png'
+    const passivelg3 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/passive3-lg.png'
+
+    const vid = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/vibrant-video_r.mp4'
 
   return (
     <div className='social-container'>

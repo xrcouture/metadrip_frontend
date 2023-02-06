@@ -1,9 +1,12 @@
 import React,{useState,useEffect} from 'react'
 import './utility.css'
-import image1 from '../../../assets/utility-bg.png'
-import image2 from '../../../assets/section3-1.png'
+// import image1 from '../../../assets/utility-bg.png'
+// import image2 from '../../../assets/section3-1.png'
 
 function Utility() {
+
+  const image1 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/utility-bg.png'
+  const image2 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/section3-1.png'
 
   return (
     <div className='utility'>

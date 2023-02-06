@@ -2,11 +2,16 @@ import React from "react";
 import "./community.css";
 import { RiTwitterLine } from "react-icons/ri";
 import { RxDiscordLogo } from "react-icons/rx";
-import partner1 from "../../assets/partner1.png";
-import partner2 from "../../assets/partner2.png";
-import partner3 from "../../assets/partner3.png";
+// import partner1 from "../../assets/partner1.png";
+// import partner2 from "../../assets/partner2.png";
+// import partner3 from "../../assets/partner3.png";
 
 function Community() {
+
+  const partner1 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/partner1.png'
+  const partner2 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/partner2.png'
+  const partner3 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/partner3.png'
+
   return (
     <div className="community-container">
       <div className="row">

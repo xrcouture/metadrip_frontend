@@ -16,15 +16,17 @@ import 'swiper/modules/pagination/pagination.min.css'
 // import roadmapLogo5 from '../../assets/Q12023.PNG'
 // import roadmapLogo6 from '../../assets/Q22023.JPG'
 
-// COMPRESSED_WEBP
-import roadmapLogo1 from '../../assets/Q12022.webp'
-import roadmapLogo2 from '../../assets/Q22022.webp'
-import roadmapLogo3 from '../../assets/Q32022.webp'
-import roadmapLogo4 from '../../assets/Q42022.webp'
-import roadmapLogo5 from '../../assets/Q12023.webp'
-import roadmapLogo6 from '../../assets/Q22023.webp'
 
 function Roadmap() {
+
+// COMPRESSED_WEBP
+const roadmapLogo4 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Q42022.webp'
+const roadmapLogo1 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Q12022.webp'
+const roadmapLogo2 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Q22022.webp'
+const roadmapLogo3 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Q32022.webp'
+const roadmapLogo5 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Q12023.webp'
+const roadmapLogo6 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Q22023.webp'
+
 
   
   return (
