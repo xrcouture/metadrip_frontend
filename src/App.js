@@ -60,10 +60,10 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Homepage />} />
-          {/* <Route element={<ProtectedRoutes />}> */}
+          <Route element={<ProtectedRoutes />}>
             <Route path='/assets' element={<Assets />} />
             <Route path='/assets/:name' element={<Utility />} />
-          {/* </Route> */}
+          </Route>
           <Route path='/:name' element={<ProductPage />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
