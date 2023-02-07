@@ -96,7 +96,7 @@ class Countdown extends React.Component {
               <span className="utility-content-subtitle countdown-item-subtitle">Seconds</span>
             </div> */}
 
-          <Link to={`/products`} className='header-button video-bg-button d-none d-md-block'>BUY NOW</Link>
+          <Link to={`/products`} className='header-button video-bg-button'>BUY NOW</Link>
 
         </div>
       </div>

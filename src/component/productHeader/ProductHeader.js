@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import headerlogo from '../../assets/xrc.png'
+// import headerlogo from '../../assets/xrc.png'
 import { utils } from 'ethers';
 import { Context } from '../../Context';
 import { useLocation } from 'react-router-dom';
@@ -9,6 +9,8 @@ import './productHeader.css'
 import { Link } from 'react-router-dom';
 
 const ProductHeader = () => {
+
+  const headerlogo = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/xrc.png'
 
   const location = useLocation()
   const homePageLink = location.pathname === '/' ? '#top' : '/'

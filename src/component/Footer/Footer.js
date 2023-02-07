@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './footer.css'
-import xrlogo from '../../assets/xr_logo.png'
-import instagramLogo from '../../assets/instagram.png';
-import websiteLogo from '../../assets/website.png';
-import { GrSend } from 'react-icons/gr';
-import { RxTwitterLogo,RxDiscordLogo } from 'react-icons/rx';
+// import xrlogo from '../../assets/xr_logo.png'
+// import instagramLogo from '../../assets/instagram.png';
+// import websiteLogo from '../../assets/website.png';
+// import { GrSend } from 'react-icons/gr';
+import { RxTwitterLogo,RxDiscordLogo, RxInstagramLogo } from 'react-icons/rx';
 import {FaLinkedinIn} from 'react-icons/fa'
 import { Formik } from 'formik';
 import { ToastContainer, toast } from 'react-toast'
@@ -15,17 +15,16 @@ const baseURL = "https://api.metadrip.xrcouture.com/query/set";
 
 function Footer() {
 
-   
-      const [supportMsg, setSupportMsg] = useState("")
-      const [error, setError] = useState("")
+    const xrlogo = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/xr_logo.png'
 
+    const [supportMsg, setSupportMsg] = useState("")
+    const [error, setError] = useState("")
 
-
-    
     const [text,setText] = useState("none")
     useEffect(()=>{
             document.getElementsByTagName('textarea')[0].focus();
     },[text,supportMsg])
+
     return (
         <div className='footer-container row'>
             <ToastContainer />
@@ -39,7 +38,8 @@ function Footer() {
 
                             <div className='social-icon-1'>
                                 <a href='https://www.instagram.com/xr.couture/' target="_blank" style={{textDecoration:"none"}}>
-                                <img className='icon-footer' src={instagramLogo} alt='Instagram'></img>
+                                {/* <img className='icon-footer' src={instagramLogo} alt='Instagram'></img> */}
+                                <RxInstagramLogo color='#EDE9E9' size={50} className='icon-footer'/>
                                 </a>
                             </div>
                             <div className='social-icon-1'>

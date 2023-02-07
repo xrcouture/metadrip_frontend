@@ -1,6 +1,6 @@
 import React, { useEffect, useState,useCallback } from "react";
-import image from "../../assets/image-1.png";
-import bg from "../../assets/background-section2.png";
+// import image from "../../assets/image-1.png";
+// import bg from "../../assets/background-section2.png";
 import "./slider.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, EffectCoverflow, Navigation, Pagination,Thumbs } from "swiper";
@@ -8,6 +8,8 @@ import Section2 from "../section2/Section2";
 
 import {Link} from 'react-router-dom'
 function Slider() {
+
+  const bg = "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/background-section2.png"
 
     // PUBLIC_SALE
   const links = {
