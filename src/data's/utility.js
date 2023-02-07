@@ -33,7 +33,9 @@ export const items = {
                 link:""
             },
             ar:{
-                status:false,
+                status:true,
+                link:"../../assets/qr/ChromeHeart.png",
+                name:"ChromeHeart.png"
             }
         },
         metaverse_wearables:{
@@ -89,7 +91,9 @@ export const items = {
                 link:""
             },
             ar:{
-                status:false,
+                status:true,
+                link:"../../assets/qr/FloaraFamboyance.png",
+                name:"FloaraFamboyance.png"
             }
         },
         metaverse_wearables:{
@@ -145,7 +149,9 @@ export const items = {
                 link:""
             },
             ar:{
-                status:false,
+                status:true,
+                link:"../../assets/qr/PuffyCrossroads.png",
+                name:"PuffyCrossroads.png"
             }
         },
         metaverse_wearables:{
@@ -201,7 +207,9 @@ export const items = {
                 link:""
             },
             ar:{
-                status:false,
+                status:true,
+                link:"../../assets/qr/Oyster_Spell.png",
+                name:"Oyster_Spell.png"
             }
         },
         metaverse_wearables:{
@@ -257,7 +265,9 @@ export const items = {
                 link:""
             },
             ar:{
-                status:false,
+                status:true,
+                link:"../../assets/qr/VibranceSplash.png",
+                name:"VibranceSplash.png"
             }
         },
         metaverse_wearables:{
@@ -313,7 +323,9 @@ export const items = {
                 link:""
             },
             ar:{
-                status:false,
+                status:true,
+                link:"../../assets/qr/Rufflanza.png",
+                name:"Rufflanza.png"
             }
         },
         metaverse_wearables:{
@@ -481,7 +493,9 @@ export const items = {
                 link:""
             },
             ar:{
-                status:false,
+                status:true,
+                link:"../../assets/qr/PopKiss.png",
+                name:"PopKiss.png"
             }
         },
         metaverse_wearables:{
@@ -537,7 +551,9 @@ export const items = {
                 link:""
             },
             ar:{
-                status:false,
+                status:true,
+                link:"../assets/qr/DazzlingDevil.png",
+                name:"DazzlingDevil.png"
             }
         },
         metaverse_wearables:{
@@ -593,7 +609,9 @@ export const items = {
                 link:""
             },
             ar:{
-                status:false,
+                status:true,
+                link:"../assets/qr/ComicBoom.png",
+                name:"ComicBoom.png"
             }
         },
         metaverse_wearables:{
@@ -649,7 +667,9 @@ export const items = {
                 link:""
             },
             ar:{
-                status:false,
+                status:true,
+                link:"../../assets/qr/HumanMasquerade.png",
+                name:"HumanMasquerade.png"
             }
         },
         metaverse_wearables:{

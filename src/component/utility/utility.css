@@ -61,7 +61,7 @@
 }
 .tab-accordion{
     background: #191717;
-    border-radius: 5%;
+    border-radius: 1.5rem;
     padding: 5%;
 }
 .nav-tabs>li.active a{
@@ -226,11 +226,6 @@ outline: none !important;;
 }
 
 a[aria-expanded=true] i.glyphicon:before {
-    /* content: "\f0da";
-    float: right;
-    border: none;
-    font-size: 20px !important;
-    font-family: 'FontAwesome'; */
     transform: rotate(270deg);
     -webkit-transform: rotate(270deg);
 }
@@ -240,4 +235,8 @@ a[aria-expanded=true] i.glyphicon:before {
 } */
 .collapsed i.glyphicon{
     transform: rotate(180deg);
+}
+.qr-img{
+    height: 100px;
+    width: 100px;
 }

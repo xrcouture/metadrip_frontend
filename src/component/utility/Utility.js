@@ -1,6 +1,6 @@
 import React, { useState, useEffect,useContext } from "react";
 import "./utility.css";
-import { redirect, useParams } from "react-router-dom";
+import { redirect, useParams,Navigate } from "react-router-dom";
 import $ from "jquery";
 import { items } from "../../data's/utility";
 import { Alchemy, Network } from "alchemy-sdk";
@@ -25,6 +25,20 @@ function Utility() {
   const [claimed,setClaimed] = useState(false)
   const [virtual,setVirtual] = useState(false)
   const item = items[name];
+  const [img, setImg] = useState()
+  const fetchImage = async () => {
+    // item['metaverse_showcase']['ar'].link
+    try {
+      console.warn(item['metaverse_showcase']['ar'].name)
+        const response = await import(`../../assets/qr/${item['metaverse_showcase']['ar'].name}`) // change relative path to suit your needs
+        setImg(response.default)
+    } catch (err) {
+        console.log(err)
+    } finally {
+        console.log("done")
+    }
+}
+
   const {walletAddress} = useContext(Context)
     axios.post("https://api.metadrip.xrcouture.com/contract/isItemClaimed",
     {
@@ -101,15 +115,25 @@ function Utility() {
       "Human Masquerade": 0,
     };
     alchemy.nft.getNftsForOwner(walletAddress,{contractAddresses:[collectionAddress[item['phase']-1]]}).then(res=>{
-      if(res.owners){
-        if(!res.owners.includes(walletAddress)){
-          console.log(res.owners.includes(walletAddress));
-          redirect('/')
+      console.log(res)
+      if(res.ownedNfts.length>0){
+        if(!res.ownedNfts.includes(walletAddress)){
+          console.warn(res.owners.includes(walletAddress));
+          // redirect('/')
           window.location.href = "/"
+          // <Navigate to="/assets" />
+          // Navigate('/assets')
+        }else{
+        //   redirect('/')
+        window.location.href = "/"
+        // Navigate('/assets')
+        // <Navigate to="/assets" />
         }
       }else{
         // redirect('/')
-        // window.location.href = "/"
+        window.location.href = "/"
+        // Navigate('/assets')
+        // <Navigate to="/assets" />
       }
      
     })
@@ -143,7 +167,9 @@ function Utility() {
     }
     fun()
     }, [location]);
-
+    if(item['metaverse_showcase']['ar'].status===true){
+      fetchImage()
+      }
 
 
   $(document).on(function () {
@@ -289,6 +315,7 @@ function Utility() {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-4"
+                            className="collapsed"
                           >
                             <h4 className="panel-title">
                             AR Try-on
@@ -326,6 +353,7 @@ function Utility() {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-6"
+                            className="collapsed"
                           >
                             <h4 className="panel-title">
                               Virtual Fitting
@@ -474,6 +502,7 @@ function Utility() {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-3"
+                            className="collapsed"
                           >
                             <h4 className="panel-title">
                               Metaverse Showcase		
@@ -504,7 +533,7 @@ function Utility() {
                                 <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
                                   AR
                                 </h5>
-                                {item['metaverse_showcase']['ar'].status ?  <button>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
+                                {item['metaverse_showcase']['ar'].status ?  <img src={img} alt="QR" className="qr-img" />: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                               </div>
                           </div>
                         </div>
@@ -515,6 +544,7 @@ function Utility() {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-2"
+                            className="collapsed"
                           >
                             <h5 className="panel-title">
                               3D Assets
@@ -567,6 +597,7 @@ function Utility() {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-5"
+                            className="collapsed"
                           >
                             <h4 className="panel-title">
                               Earn Passive Income
@@ -596,6 +627,7 @@ function Utility() {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-7"
+                            className="collapsed"
                           >
                             <h4 className="panel-title">
                               More Utilities
