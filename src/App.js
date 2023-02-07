@@ -22,6 +22,7 @@ import Assets from './Pages/Assets';
 import Utility from './component/utility/Utility';
 import ProductPage from './Pages/ProductPage';
 import ProtectedRoutes from './ProtectedRoutes';
+import Product from './component/Products/Product';
 
 // const router = createBrowserRouter([
 //   {
@@ -61,10 +62,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route element={<ProtectedRoutes />}>
-            <Route path='/assets' element={<Assets />} />
             <Route path='/assets/:name' element={<Utility />} />
+            <Route path='/assets' element={<Assets />} />
           </Route>
           <Route path='/:name' element={<ProductPage />} />
+          <Route path='/products' element={<Product />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
     </Context.Provider>

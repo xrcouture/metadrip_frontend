@@ -1,32 +1,31 @@
 import React, { useState, useEffect,useContext } from "react";
 import "./utility.css";
 import { redirect, useParams } from "react-router-dom";
-import CryptoConvert from "crypto-convert";
-import { ethers } from 'ethers'
 import $ from "jquery";
 import { items } from "../../data's/utility";
 import { Alchemy, Network } from "alchemy-sdk";
-import { getContractInstance, getGasFees } from "../../data's/helper";
 import { Formik } from 'formik';
 import {saveAs} from 'file-saver';
 import { useLocation, useNavigationType } from "react-router-dom";
 import Footer from "../Footer/Footer";
-
 import { Context } from "../../Context";
 import ProductHeader from "../productHeader/ProductHeader";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
-
+import Modal from 'react-bootstrap/Modal';
+import Terms from "./Terms";
+import { closeSVGIcon } from "@transak/transak-sdk";
 function Utility() {
   const location = useLocation();
+  const [agreed, setAgreed] = useState(true)
+  const [wear, setWear] = useState(false);
+  const [terms, setTerms] = useState(false);
   const navType = useNavigationType();
   let { name } = useParams();
   const [claimed,setClaimed] = useState(false)
   const [virtual,setVirtual] = useState(false)
   const item = items[name];
-  // console.log(items);
   const {walletAddress} = useContext(Context)
-  // console.log(item['start']/10,walletAddress,item['phase'])
     axios.post("https://api.metadrip.xrcouture.com/contract/isItemClaimed",
     {
       address:walletAddress,
@@ -51,8 +50,11 @@ function Utility() {
       toast.error("Something went wrong...!")
     })
   console.log(walletAddress)
-  $("[data-toggle=collapse] .panel-title").on('click',function(){
-    
+  $("#accordian-header").on('click',function() {
+      const i = document.getElementById("accordian-header").childNodes[0]
+      console.log(i)
+      $('#icon').toggleClass('glyphicon-chevron-up glyphicon-chevron-right');
+
   })
 
   const [nft, setNfts] = useState([]);
@@ -162,7 +164,7 @@ function Utility() {
         .closest(".panel-heading")
         .removeClass("active-faq");
       $('a[href="#' + id + '"] .panel-title span').html(
-        '<i class="glyphicon glyphicon-chevron-down"></i>'
+        '<i class="glyphicon glyphicon-chevron-up"></i>'
       );
     });
   });
@@ -185,7 +187,7 @@ function Utility() {
       style={{zIndex:100000}}
       />
       {/* Same as */}
-    <ToastContainer />
+    {/* <ToastContainer /> */}
     <ProductHeader />
     <div className="utility-page mb-5">
       {/* <iframe src="https://metadrip.xrcouture.com" width="100%" height="500"/> */}
@@ -260,7 +262,7 @@ function Utility() {
                             >
                               Cross-Platform Usage
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h4>
                           </a>
@@ -291,7 +293,7 @@ function Utility() {
                             <h4 className="panel-title">
                             AR Try-on
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h4>
                           </a>
@@ -328,7 +330,7 @@ function Utility() {
                             <h4 className="panel-title">
                               Virtual Fitting
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h4>
                           </a>
@@ -339,6 +341,12 @@ function Utility() {
                         >
                           <div className="panel-body">
                           <div className="form-virtual-fitting">
+
+                          {/* <Button variant="primary" >
+                            Custom Width Modal
+                          </Button> */}
+                          <p onClick={() => setWear(true)} className="modal-button mt-4"  style={{ color: "#8633DA" ,fontFamily:"Clash Display Medium" }}>How to wear...?</p>
+
                           {!virtual?<Formik
                               initialValues={{ 
                                 email: '', 
@@ -392,7 +400,7 @@ function Utility() {
                                 <form onSubmit={handleSubmit}>
                                   <div className="row">
                                   <div class="mb-3 col-md-6">
-                                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                                    <label for="exampleFormControlInput1" class="form-label"  style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Email address</label>
                                     <input 
                                     type="email" 
                                     class="form-control" 
@@ -408,7 +416,7 @@ function Utility() {
 
 
                                   <div class="mb-3 col-md-6">
-                                    <label for="formFileMultiple" class="form-label">Select files</label>
+                                    <label for="formFileMultiple" class="form-label"  style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Select files</label>
                                     <input 
                                     class="form-control" 
                                     type="file" 
@@ -424,11 +432,12 @@ function Utility() {
                                         setFieldValue("files", event.currentTarget.files)}}
                                       }
                                     />
+                                    {/* <FaCloudUploadAlt /> Choose File */}
                                     <p className="text-danger" style={{fontFamily:"Clash Display Medium"}}>{errors.files && touched.files && errors.files}</p>
                                   </div>
 
                                   <div class="">
-                                    <label for="floatingTextarea">Comments</label>
+                                    <label for="floatingTextarea"  style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Comments</label>
                                     <textarea 
                                     class="form-control" 
                                     placeholder="Leave a comment here" 
@@ -450,7 +459,7 @@ function Utility() {
                                   /> */}
 
                                   </div>
-                                  <button type="submit" disabled={isSubmitting} class="btn btn-secondary mt-4">Submit</button>
+                                  <button type="submit" style={{background:"#8633DA"}} disabled={isSubmitting} class="btn btn-secondary mt-4">Submit</button>
                                 </form>
                               )}
                             </Formik> : <p className="text-success" style={{fontFamily:"Clash Display Medium"}}>Virtual Fitting for this NFT has already being claimed, contact us if you have any queries.</p>}
@@ -469,7 +478,7 @@ function Utility() {
                             <h4 className="panel-title">
                               Metaverse Showcase		
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h4>
                           </a>
@@ -510,7 +519,7 @@ function Utility() {
                             <h5 className="panel-title">
                               3D Assets
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h5>
                           </a>
@@ -520,15 +529,15 @@ function Utility() {
                           className="panel-collapse collapse"
                         >
                           <div className="panel-body">
-                            <div className="button-group-1">
-                              <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
+                            <div className="button-group-1" >
+                              <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }} > 
                               PFPs & Artwork
                               </h5>
-                              {item['get_3d_assets']['pfp'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['pfp'].link)}>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
+                              {item['get_3d_assets']['pfp'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['pfp'].link)} data-bs-toggle="tooltip" data-bs-placement="top"  title="Agree Terms & Conditions to download" disabled={agreed}>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Universal File</h5>
-                              {item['get_3d_assets']['glb_file'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['glb_file'].link)}>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
+                              {item['get_3d_assets']['glb_file'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['glb_file'].link)} className={agreed? "btn-disabled":""} disabled={agreed}>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
@@ -541,6 +550,12 @@ function Utility() {
                               MetaHuman
                               </h5>
                               {item['get_3d_assets']['cloneX'].status ?  <button>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
+                            </div>
+                            <div class="form-check mt-4">
+                            <input class="form-check-input" type="checkbox" value={agreed} onChange={()=>setAgreed(!agreed)} id="flexCheckDefault" />
+                              <label class="form-check-label ml-2" for="flexCheckDefault" style={{color:"#777777"}} >
+                              I agree with the <span onClick={() => setTerms(true)} className="modal-button"  style={{ color: "#8633DA" ,fontFamily:"Clash Display Medium" }}>Terms and Conditions</span>
+                              </label>
                             </div>
                           </div>
                         </div>
@@ -556,7 +571,7 @@ function Utility() {
                             <h4 className="panel-title">
                               Earn Passive Income
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h4>
                           </a>
@@ -585,7 +600,7 @@ function Utility() {
                             <h4 className="panel-title">
                               More Utilities
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h4>
                           </a>
@@ -632,6 +647,84 @@ function Utility() {
         </div>
       </div>
     </div>
+    <Modal
+        show={wear}
+        animation={false}
+        centered={true}
+        onHide={() => setWear(false)}
+        dialogClassName="modal-90w"
+        aria-labelledby="example-custom-modal-styling-title"
+        style={{zIndex:1000000,opacity:1}}
+        size="xl"
+        scrollable={true}
+      >
+        <Modal.Header>
+          <Modal.Title id="example-custom-modal-styling-title">
+            <h3 style={{fontFamily:"Clash Display Bold",color:"white"}}>WEAR DIGITAL FASHION</h3>
+          </Modal.Title>
+          <button type="button" class="btn-close btn-close-white" aria-label="Close" onClick={()=>setWear(!wear)}></button>
+        </Modal.Header>
+        <Modal.Body>
+          <h4 style={{fontFamily:"Clash Display Medium", color:"grey"}}>
+          How to wear Digital Fashion
+          </h4>
+          <h5 style={{fontFamily:"Clash Display Light",color:"rgb(151, 128, 151)"}}>
+          Step into the world of XR Couture, where shopping for clothes is as effortless and enjoyable as shopping in the physical realm.
+          <br />
+          <br />
+          Get ready to don our latest fashions with ease, as we guide you through a seamless process. Simply log into your XR Couture account, select the outfit of your dreams, and have a photo at the ready to upload.
+          <br />
+          <br />
+          If you're torn between multiple options, let us take the reins. Our advanced virtual fitting technology will select the best photo for you, ensuring you look your absolute best in your new XR Couture attire.
+          </h5>
+
+          <h4 style={{fontFamily:"Clash Display Medium",color:"rgb(151, 128, 151)"}}>Photo & Fitting Guide</h4>
+
+          <h5 style={{fontFamily:"Clash Display Light",color:"rgb(151, 128, 151)"}}>
+          The first step is to choose a good high-quality picture on which you would like to wear the digital item(s).
+
+          <br/>
+          For a flawless Digital fashion image, we want you to follow some best practices. Just keep the following things in mind for a perfect Digital fashion photoshoot: 
+
+          <br/>
+          1. A good lightning with no shadows falling on you.<br/>
+          2. A photo with minimal/tight fitted clothing such as a swimsuit or sports wear.<br/>
+          3. The clothing you wear must be smaller to the digital items you wish to wear.<br/>
+          4. Your body and face must be in sharp focus.<br/>
+          5. Hair tied up/ not covering your body.<br/>
+          6. Avoid any hindrance from any object or accessory covering your body.<br/>
+          </h5>
+
+          <br/>
+          <br/>
+          <h5 style={{fontFamily:"Clash Display Light",color:"rgb(151, 128, 151)"}}>
+          With these tips in mind, your digital attire will be expertly tailored with precision, creating a personalized look that truly reflects your sense of style. Simply add your desired items to your cart, complete your purchase, and await the arrival of your new virtual wardrobe. With a turnaround time of just 48 hours or less, your dream outfit will be delivered straight to your inbox in no time.
+          Experience the simplicity, versatility, and eco-friendliness of digital fashion with XR Couture. Get started today and elevate your virtual wardrobe in minutes!
+          </h5>
+        </Modal.Body>
+      </Modal>
+      <Modal
+        show={terms}
+        animation={false}
+        centered={true}
+        onHide={() => setTerms(false)}
+        dialogClassName="modal-90w"
+        aria-labelledby="example-custom-modal-styling-title"
+        style={{zIndex:1000000,opacity:1}}
+        size="xl"
+        scrollable={true}
+      >
+        <Modal.Header>
+          <Modal.Title id="example-custom-modal-styling-title">
+          <h3 style={{fontFamily:"Clash Display Bold",color:"white"}} className="text-center mt-4">USER LICENSE AGREEMENT</h3>
+          <h5 style={{fontFamily:"Clash Display Light",color:"white"}}>TERMS OF USE</h5>
+          </Modal.Title>
+            <button type="button" class="btn-close btn-close-white" aria-label="Close" onClick={()=>setTerms(!terms)}></button>
+        </Modal.Header>
+        <Modal.Body>
+            <Terms />
+        </Modal.Body>
+      </Modal>
     <Footer />
     </div>
   );

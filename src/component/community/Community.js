@@ -12,7 +12,7 @@ function Community() {
       <div className="row">
         <div className="join-community-container col-md-6">
           {/* <p className="utility-content-subtitle utility-content-header-join-us text-center">Join us</p> */}
-          <p className="utility-content-header-join text-center text-light">Join the community</p>
+          <h3 className="utility-content-header-join text-center" style={{fontFamily:"Clash Display Bold"}}>Join the community</h3>
         <div className="community-subtitle-container">
           <p className="text-center community-subtile-text">
             Join our discord channel or follow us on twitter to keep up to date
