@@ -52,11 +52,12 @@
 /* .active-faq {
     border-left: 5px solid #888888;
 } */
-.panel-faq .panel-heading .panel-title,
+.panel-faq .panel-heading .panel-title,label,
 .panel-faq .panel-heading .panel-title span {
     font-size: 15px;
     font-weight: normal;
     font-family: "Clash Display Medium";
+    
 }
 .tab-accordion{
     background: #191717;
@@ -147,8 +148,17 @@
     display: flex;
     flex-direction: column;
 }
-.form-virtual-fitting form input{
-    background-color: white;
+.form-virtual-fitting form input,
+#floatingTextarea2{
+    background-color: transparent;
+    border: 1px solid #5d4e69;
+    color: #777777;
+}
+.form-virtual-fitting form input:focus,
+#floatingTextarea2:focus{
+    background-color: transparent;
+    border: 1px solid #5d4e69;
+    color: #777777;
 }
 #floatingTextarea2{
     margin: 0 !important;
@@ -166,4 +176,68 @@
     margin-top:-100%;
     margin-left: -10%;
 
+}
+.modal-button{
+    cursor: pointer;
+    color: white;
+}
+.form-label{
+    color: "#978097" !important; 
+}
+input:focus {
+      background: transparent;
+      outline: none;;
+  }
+
+.form-check-input{
+    background-color: transparent;
+    outline: .5px solid #777777;
+}
+.form-check-input:checked{
+    background-color: #8649E8;
+    outline: none !important;
+    border: none;
+}
+.form-check-input:focus-within{
+    background-color: transparent;
+    outline: none !important;;
+}
+.btn.disabled {
+    pointer-events: auto;
+}
+/* input[type=file]{
+visibility: hidden !important;
+} */
+input[type="file"]::file-selector-button {
+    background-color: #777777;
+  }
+input[type="file"]::file-selector-button:hover{
+    background-color: #777777;
+  }
+input[type="file"]:focus-within{
+outline: none !important;;
+}
+
+.modal-content{
+    background-color:#0c0c0c !important
+}
+.modal-title button{
+    color: white;
+}
+
+a[aria-expanded=true] i.glyphicon:before {
+    /* content: "\f0da";
+    float: right;
+    border: none;
+    font-size: 20px !important;
+    font-family: 'FontAwesome'; */
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+}
+
+/* a[aria-expanded="false"].collapsed i.glyphicon:before {
+    transform: rotate(90deg);
+} */
+.collapsed i.glyphicon{
+    transform: rotate(180deg);
 }

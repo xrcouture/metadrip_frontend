@@ -162,7 +162,6 @@ const Product = () => {
 
   // console.log(items);
   setTimeout(() => {
-    // console.warn("UPDATED")
     console.log(name, nft[name.replace("_", " ")] + 1, nft);
     console.log(`available wearables ${10 - nft[name.replace("_", " ")]}/10`);
     setAvailable(10 - nft[name.replace("_", " ")])
@@ -188,7 +187,6 @@ const Product = () => {
       );
     });
   });
-
   // console.log(item["metaverse_wearables"]["sandbox"].status);
 
   // const { name } = useParams()

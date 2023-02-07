@@ -293,12 +293,12 @@ left: -8%;
 
 .utility-content-header-join-us {
   font-size: 0.85rem !important;
-  font-family: "Clash Display ExtraLight" !important;
+  /* font-family: "Clash Display ExtraLight" !important; */
 }
 
 .utility-content-header-join {
   font-size: 1rem !important;
-  font-family: "Clash Display Light" !important;
+  /* font-family: "Clash Display Light" !important; */
 }
 .community-subtitle-container {
   margin-top: 1rem;
