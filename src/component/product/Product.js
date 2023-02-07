@@ -580,7 +580,7 @@ const Product = () => {
                             >
                               Cross-Platform Usage
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h4>
                           </a>
@@ -600,11 +600,12 @@ const Product = () => {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-4"
+                            className="collapsed"
                           >
                             <h4 className="panel-title">
                             AR Try-on
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h4>
                           </a>
@@ -624,11 +625,12 @@ const Product = () => {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-6"
+                            className="collapsed"
                           >
                             <h4 className="panel-title">
                                Virtual Fitting
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h4>
                           </a>
@@ -649,11 +651,12 @@ const Product = () => {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-3"
+                            className="collapsed"
                           >
                             <h4 className="panel-title">
                               Metaverse Showcase		
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h4>
                           </a>
@@ -673,11 +676,12 @@ const Product = () => {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-2"
+                            className="collapsed"
                           >
                             <h5 className="panel-title">
                               3D Assets
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h5>
                           </a>
@@ -698,11 +702,12 @@ const Product = () => {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-5"
+                            className="collapsed"
                           >
                             <h4 className="panel-title">
                               Earn Passive Income
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h4>
                           </a>
@@ -722,11 +727,12 @@ const Product = () => {
                             data-toggle="collapse"
                             data-parent="#accordion-cat-1"
                             href="#faq-cat-1-sub-7"
+                            className="collapsed"
                           >
                             <h4 className="panel-title">
                               More Utilities
                               <span className="pull-right">
-                                <i className="glyphicon glyphicon-chevron-down" />
+                                <i className="glyphicon glyphicon-chevron-up" />
                               </span>
                             </h4>
                           </a>
