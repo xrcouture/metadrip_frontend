@@ -8,7 +8,11 @@
 }
 
 .buy-now {
-  background-color: #8633DA;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #8633DA !important;
   padding: 0.5rem;
   border-radius: 10px;
   width: 100%;
@@ -107,8 +111,9 @@
   .buy-now {
     width: auto;
   }
-  .extra {
-    text-align: right;
+  .extra-des {
+    display: flex !important;
+    justify-content: flex-end;
   }
   .product-cost {
     font-size: 1rem;
@@ -356,3 +361,18 @@
   width: 100%;
 }
 
+.btn-group{
+  position: relative !important;
+}
+.show{
+  text-align: center;
+  border-radius: .5rem;
+  display: flex !important;
+  flex-direction: column;
+}
+.btn-group.show .dropdown-toggle::after{
+  transform: rotate(180deg);
+}
+.dropdown-item:hover{
+  color:#fff !important;
+}

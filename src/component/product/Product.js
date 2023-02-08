@@ -1,30 +1,29 @@
 import React, { useContext, useEffect, useState } from "react";
 import { getParsedEthersError } from "@enzoferey/ethers-error-parser";
 import "./product.css";
-import CryptoConvert from "crypto-convert";
 import { ToastContainer, toast } from 'react-toastify';
 import ProductHeader from "../productHeader/ProductHeader";
 import { utils } from "ethers";
 import { Alchemy, Network } from "alchemy-sdk";
-import { DCL_PHASE2_CONTRACT_ADDRESS, getContractInstance, getGasFees } from "../../data's/helper";
+import {  getContractInstance, getGasFees } from "../../data's/helper";
 import { Context } from "../../Context";
 import Loader from "react-js-loader";
 import transakSDK from "@transak/transak-sdk";
-import { useAsyncError, useParams } from "react-router";
+import { useParams } from "react-router";
 import { items } from "../../data's/utility";
 import Footer from "../Footer/Footer";
 import { ethers } from "ethers";
 import $ from "jquery";
 import { Formik } from 'formik';
 import {saveAs} from 'file-saver';
-
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { RxIconjarLogo } from "react-icons/rx";
 // based on the product id show the product info
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination, Navigation } from "swiper";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigationType } from "react-router-dom";
-
+import HoverVideoPlayer from 'react-hover-video-player';
 
 const Product = () => {
   const location = useLocation();
@@ -53,6 +52,8 @@ const Product = () => {
   const [costInDollar, setCostInDollar] = useState(0);
   const [id,setId] = useState(item['start'])
   const alchemy = new Alchemy(config);
+  const [dropdowndes, setDropdowndes] = useState(false)
+  const [dropdown, setDropdown] = useState(false)
 
   const collectionAddress = [
     "0xEDe30DF507576e461cc2cB3AdA75bf9B22dc778d", //phase 1
@@ -277,8 +278,7 @@ const Product = () => {
     }
   };
 
-  const buyNow = async () => {
-    console.log("buying");
+  const buyNowUsingCrypto = async() =>{
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
       const chainId = networkMap.POLYGON_MAINNET.chainId; // POLYGON_MAINNET
       const currentChainId = utils.hexValue(
@@ -346,6 +346,94 @@ const Product = () => {
       } catch (error) {
         console.log(error)
       }
+      // const tm = await contract.connect(signer)
+
+
+      }
+      else if (isConnected === 'true' && window.ethereum.networkVersion && currentChainId !== chainId) {
+        console.log(window.ethereum.networkVersion, chainId)
+        document.getElementById('switch-network-modal').style.display = "flex"
+      }
+      else if (isConnected === 'false') {
+        console.log("connect metamask")
+        document.getElementById('connect-modal').style.display = "flex"
+      }
+    } else {
+      console.log("No wallet");
+      // connectWallet()
+    }
+  }
+
+  const buyNowUsingCard = async () => {
+    console.log("buying");
+    if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+      const chainId = networkMap.POLYGON_MAINNET.chainId; // POLYGON_MAINNET
+      const currentChainId = utils.hexValue(
+        parseInt(window.ethereum.networkVersion)
+      );
+      const isConnected = localStorage.getItem("isConnected") || "false";
+
+      if (
+        isConnected === "true" &&
+        window.ethereum.networkVersion &&
+        currentChainId === chainId
+      ) {
+        const transak = new transakSDK(settings);
+        transak.init();
+
+        transak.on(transak.ALL_EVENTS, (data) => {
+          console.log(data);
+        });
+
+        // This will trigger when the user closed the widget
+        transak.on(transak.EVENTS.TRANSAK_WIDGET_CLOSE, (eventData) => {
+          console.log(eventData);
+          transak.close();
+        });
+
+        // This will trigger when the user marks payment is made.
+        transak.on(transak.EVENTS.TRANSAK_ORDER_SUCCESSFUL, (orderData) => {
+          console.log(orderData);
+          buyNowUsingCrypto()
+          // window.alert("Payment Success")
+          // transak.close();
+        });
+      // const contract = await getContractInstance(item['phase']);
+      // try {
+      //   const seedSale = await contract.setSeedSaleOff();
+      //   console.log(seedSale);
+      //   toast.success("Seed Sale Off");
+      // } catch (error) {
+      //   toast.error(`Transaction not successful - ${error.error.data.message.split(":")[2]}`);
+      //   console.log(error.error.data.message); 
+      // }
+      // console.log(nft[name.replace("_", " ")]+id+1)
+      // let totalSupply = await contract.publicCost();
+      // const { maxFeePerGas, maxPriorityFeePerGas } = await getGasFees();
+      // const ethereum = window.ethereum;
+      // const accounts = await ethereum.request({
+      //   method: "eth_requestAccounts",
+      // });
+      
+      // const provider = new ethers.providers.Web3Provider(ethereum)
+      // const walletAddress = accounts[0]    // first account in MetaMask
+      // const signer = provider.getSigner(walletAddress)
+      // try {
+      //   const tx = await contract.tokenMint(nft[name.replace("_", " ")]+id+1, {
+      //   // const tx = await contract.tokenMint(13, {
+      //     // maxFeePerGas,
+      //     // maxPriorityFeePerGas,
+      //     // value: ethers.utils.parseUnits(totalSupply.toString(), 0),
+      //     value: ethers.utils.parseUnits(totalSupply.toString(), "wei"),
+      //     gasLimit: 1000000,
+      //   });
+      //   // const tx = await contract.setSeedSaleOn()
+      //   await tx.wait();
+      //   toast.success("Token Minted Successfully")
+      //   console.log(tx);
+      // } catch (error) {
+      //   console.log(error)
+      // }
       // const tm = await contract.connect(signer)
 
 
@@ -466,12 +554,23 @@ const Product = () => {
                         {Math.trunc(nftCost)} MATIC
                       </div>
                     </div>
-                    <div className='extra mt-3 mt-md-2 mt-lg-1 d-none d-md-block '>
+                    {/* desktop button */}
+                    <div className='extra-des mt-3 mt-md-2 mt-lg-1 d-none d-md-block '>
                     {10 - nft[name.replace("_", " ")] == 0 ? (
                       // <p className="text-danger">Sold Out</p>
                       <button className='buy-now text-white mt-2 btn btn-secondary' disabled>Sold Out</button>
                       ) : (
-                      <button type="button" className={`buy-now text-white mt-2`} onClick={buyNow}>Buy now</button>
+                        <ButtonDropdown isOpen={dropdowndes} toggle={()=>setDropdowndes(!dropdowndes)} direction="down" >
+                            <DropdownToggle caret className="buy-now text-white mt-2 w-auto"> 
+                              Buy Now
+                            </DropdownToggle>
+                            <DropdownMenu className="w-100">
+                              <DropdownItem className="mt-2" style={{fontSize:"15px", fontFamily:"Clash Display Medium",  backgroundColor:"transparent", color:"#777777"}} onClick={buyNowUsingCard}>Buy using Card</DropdownItem>
+                              {/* <DropdownItem divider /> */}
+                              <DropdownItem className="mt-2" style={{fontSize:"15px",fontFamily:"Clash Display Medium",  backgroundColor:"transparent", color:"#777777"}} onClick={buyNowUsingCrypto}>Buy using Crypto</DropdownItem>
+                            </DropdownMenu>
+                          </ButtonDropdown>
+                      // <button type="button" className={`buy-now text-white mt-2`} onClick={buyNow}>Buy now</button>
                       )}
                     </div>
                     <div className="mt-md-3">
@@ -493,18 +592,29 @@ const Product = () => {
                       </div>
                     </div>
                   </div>
+                  {/* mobile button */}
                   <div className="extra mt-3 mt-md-0 d-md-none ">
                     {10 - nft[name.replace("_", " ")] == 0 ? (
                       <button className='buy-now text-white mt-2 btn btn-secondary' disabled>Sold Out</button>
                     ) : (
-                      <button
-                      type="button"
-                        className={`buy-now text-white mt-2`}
-                        onClick={buyNow}
-                        // disabled={saleOn}
-                      >
-                        Buy now
-                      </button>
+                      <ButtonDropdown isOpen={dropdown} toggle={()=>setDropdown(!dropdown)} direction="down" className="w-100">
+                            <DropdownToggle caret className="buy-now text-white mt-2"> 
+                              Buy Now
+                            </DropdownToggle>
+                            <DropdownMenu className="w-100">
+                              <DropdownItem className="mt-2 " style={{fontSize:"15px", fontFamily:"Clash Display Medium", backgroundColor:"transparent", color:"#777777"}} onClick={buyNowUsingCard}>Buy using Card</DropdownItem>
+                              {/* <DropdownItem divider /> */}
+                              <DropdownItem className="mt-2" style={{fontSize:"15px",fontFamily:"Clash Display Medium", backgroundColor:"transparent", color:"#777777"}} onClick={buyNowUsingCrypto}>Buy using Crypto</DropdownItem>
+                            </DropdownMenu>
+                          </ButtonDropdown>
+                      // <button
+                      // type="button"
+                      //   className={`buy-now text-white mt-2`}
+                      //   onClick={buyNow}
+                      //   // disabled={saleOn}
+                      // >
+                      //   Buy now
+                      // </button>
                     )}
                   </div>
                 </div>
@@ -831,7 +941,19 @@ const Product = () => {
         {itemToShow.map((i)=>(
           <SwiperSlide >
             <Link to={`/${items[i].name.replace(" ","_")}`}>
-          <video src={items[i].video} style={{width:"95%"}} autoPlay muted loop />
+            <HoverVideoPlayer
+                                videoSrc={items[i].video}
+                                style={{width:"95%"}}
+                                pausedOverlay={
+                                <video src={items[i].video} className="" style={{width:"100%"}} alt={item} loop muted/>             
+                                }
+                                loadingOverlay={
+                                    <div className="loading-overlay">
+                                    <div className="loading-spinner" />
+                                    </div>
+                                }
+                                />
+          {/* <video src={items[i].video} style={{width:"95%"}} autoPlay muted loop /> */}
           <p className="text-center" style={{color:"white",fontFamily:"Clash Display Medium"}}>{items[i].name}</p>
             </Link>
         </SwiperSlide>
