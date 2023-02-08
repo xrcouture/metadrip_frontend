@@ -123,18 +123,18 @@ function Utility() {
         if(!res.ownedNfts.includes(walletAddress)){
           console.warn(res.owners.includes(walletAddress));
           // redirect('/')
-          window.location.href = "/"
+          // window.location.href = "/"
           // <Navigate to="/assets" />
           // Navigate('/assets')
         }else{
         //   redirect('/')
-        window.location.href = "/"
+        // window.location.href = "/"
         // Navigate('/assets')
         // <Navigate to="/assets" />
         }
       }else{
         // redirect('/')
-        window.location.href = "/"
+        // window.location.href = "/"
         // Navigate('/assets')
         // <Navigate to="/assets" />
       }
