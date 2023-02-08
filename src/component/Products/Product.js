@@ -1,8 +1,8 @@
 import React from 'react'
 import './Products.css'
-import { items } from '../../data\'s/utility'
+import { items } from "../../data's/utility"
 import Footer from '../Footer/Footer'
-import { Link } from'react-router-dom'
+import { Link } from 'react-router-dom'
 import HoverVideoPlayer from 'react-hover-video-player';
 import image1 from '../../assets/image-1.png'
 import ProductHeader from '../productHeader/ProductHeader'

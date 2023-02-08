@@ -1,24 +1,30 @@
-import React, { useState,useEffect } from 'react'
-import './section1.css'
+import React, { lazy, Suspense } from 'react'
 import Countdown from './Countdown';
-// import video from '../../assets/videobg.mp4'
-// import videoPortrait from '../../assets/V4_Vid_Portrait.mp4';
 import moment from 'moment-timezone';
+import './section1.css'
 
+const VideoContainer = lazy(() => import('../VideoContainer/VideoContainer'));
 
 function Section1() {
 
   return (
     <div className='section1-container' id='top'>
-     
 
-      <video autoPlay={true} loop muted className="video-bg-section1 d-none d-md-block">
-        <source src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/V_T6_1920x1080.mp4"/>
-      </video>
+      <Suspense>
+        <VideoContainer data={{
+          autoplay : true,
+          classnames : "video-bg-section1 d-none d-md-block",
+          src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/V_T6_1920x1080.mp4"
+        }} />
+      </Suspense>
 
-      <video autoPlay={true} loop muted className="video-bg-section1 d-block d-md-none">
-        <source src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/T6_+1080x1920.mp4" />
-        </video>
+      <Suspense>
+        <VideoContainer data={{
+          autoplay : true,
+          classnames : "video-bg-section1 d-block d-md-none",
+          src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/T6_+1080x1920.mp4"
+        }} />
+      </Suspense>
     
       <div className='section1-container-content'>
         <div className='section1-container-1 m-0'>

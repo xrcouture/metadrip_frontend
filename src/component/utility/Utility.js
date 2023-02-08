@@ -1,6 +1,6 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect,useContext, lazy, Suspense } from "react";
 import "./utility.css";
-import { redirect, useParams,Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import $ from "jquery";
 import { items } from "../../data's/utility";
 import { Alchemy, Network } from "alchemy-sdk";
@@ -12,9 +12,12 @@ import { Context } from "../../Context";
 import ProductHeader from "../productHeader/ProductHeader";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
+
 import Modal from 'react-bootstrap/Modal';
 import Terms from "./Terms";
-import { closeSVGIcon } from "@transak/transak-sdk";
+
+const VideoContainer = lazy(() => import('../VideoContainer/VideoContainer'));
+
 function Utility() {
   const location = useLocation();
   const [agreed, setAgreed] = useState(true)
@@ -219,13 +222,18 @@ function Utility() {
       {/* <iframe src="https://metadrip.xrcouture.com" width="100%" height="500"/> */}
       <div className="row mt-4 align-items-start product-video-and-content">
         <div className="col-xs-12 col-sm-7 col-md-6 col-lg-6 col-xl-5 overflow-hidden d-flex justify-content-center d-flex flex-column">
-          <video
-            src={item.video}
-            className="utility-page-video align-self-center"
-            muted
-            autoPlay
-            loop
-          />
+            <Suspense fallback={
+              <video
+                src={item.video}
+                className="utility-page-video align-self-center"
+              />
+            }>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "utility-page-video align-self-center",
+                src : item.video
+              }} />
+            </Suspense>
         </div>
         <div className="col-xs-12 col-sm-5 col-md-6 col-lg-6 col-xl-7 product-content">
           <div className="asset-details-header">
