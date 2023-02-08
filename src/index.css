@@ -30,10 +30,6 @@ code {
   src: url("./ClashDisplay_Complete/Fonts/WEB/fonts/ClashDisplay-Extralight.ttf");
 }
 @font-face {
-  font-family: Clash Display Bold;
-  src: url("./ClashDisplay_Complete/Fonts/WEB/fonts/ClashDisplay-Bold.ttf");
-}
-@font-face {
   font-family: Clash Display Medium;
   src: url("./ClashDisplay_Complete/Fonts/WEB/fonts/ClashDisplay-Medium.ttf");
 }
