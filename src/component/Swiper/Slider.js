@@ -1,17 +1,17 @@
-import React, { useEffect, useState,useCallback } from "react";
-// import image from "../../assets/image-1.png";
-// import bg from "../../assets/background-section2.png";
-import "./slider.css";
+import React, { useState, lazy, Suspense } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { A11y, EffectCoverflow, Navigation, Pagination,Thumbs } from "swiper";
+import { A11y, EffectCoverflow, Navigation, Pagination } from "swiper";
 import Section2 from "../section2/Section2";
+import "./slider.css";
 
 import {Link} from 'react-router-dom'
+
+const VideoContainer = lazy(() => import('../VideoContainer/VideoContainer'));
+
 function Slider() {
 
   const bg = "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/background-section2.png"
 
-    // PUBLIC_SALE
   const links = {
     1:"/Chrome_Heart",
     2:"/Puffy_Crossroads",
@@ -26,16 +26,9 @@ function Slider() {
     11:"/Comic_Boom",
     12:"/Human_Masquerade"
   }
-  // const links = {
-  //   1:"/Star_Cloak",
-  //   2:"/Celestial_Dream",
-  //   3:"/Dazzling_Devil",
-  //   4:"/Pop_Kiss",
-  //   5:"/Comic_Boom",
-  //   6:"/Human_Masquerade"
-  // }
-    // PUBLIC_SALE
+
   const [buyLink,setBuyLink] = useState(links[7])
+
   return (
     <div className="section2-overall">
     <img src={bg} alt="" className="section2-container-background" />
@@ -68,54 +61,152 @@ function Slider() {
           autoplay={true}
           slideToClickedSlide={true}
         >
-          <SwiperSlide data-swiper-autoplay="2000" >
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/1.mp4" className="swiper-image swiper-image-dummy"  muted loop />
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/1.mp4" className="swiper-image-video" autoPlay  muted loop />
+
+          <SwiperSlide data-swiper-autoplay="2000">
+            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/1.mp4" className="swiper-image swiper-image-dummy" muted loop />
+
+            <Suspense>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "swiper-image-video",
+                src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/1.mp4"
+              }} />
+            </Suspense>
+            
           </SwiperSlide>
+
           <SwiperSlide>
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/2.mp4" className="swiper-image swiper-image-dummy"   muted loop />           
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/2.mp4" className="swiper-image-video" autoPlay  muted loop />           
+            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/2.mp4" className="swiper-image swiper-image-dummy"   muted loop />   
+            
+            <Suspense>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "swiper-image-video",
+                src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/2.mp4"
+              }} />
+            </Suspense>
           </SwiperSlide>
+
           <SwiperSlide>
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/3.mp4" className="swiper-image swiper-image-dummy"   muted loop />
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/3.mp4" className="swiper-image-video" autoPlay  muted loop />  
+            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/3.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            
+            <Suspense>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "swiper-image-video",
+                src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/3.mp4"
+              }} />
+            </Suspense>
           </SwiperSlide>
+
           <SwiperSlide>
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/4.mp4" className="swiper-image swiper-image-dummy"   muted loop />
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/4.mp4" className="swiper-image-video" autoPlay  muted loop /> 
+            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/4.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            
+            <Suspense>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "swiper-image-video",
+                src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/4.mp4"
+              }} />
+            </Suspense>
           </SwiperSlide>
+
           <SwiperSlide>
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/5.mp4" className="swiper-image swiper-image-dummy"   muted loop />
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/5.mp4" className="swiper-image-video" autoPlay  muted loop /> 
+            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/5.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            
+            <Suspense>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "swiper-image-video",
+                src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/5.mp4"
+              }} />
+            </Suspense>
           </SwiperSlide>
+
           <SwiperSlide>
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/6.mp4" className="swiper-image swiper-image-dummy"   muted loop />
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/6.mp4" className="swiper-image-video" autoPlay  muted loop /> 
+            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/6.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            
+            <Suspense>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "swiper-image-video",
+                src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/6.mp4"
+              }} />
+            </Suspense>
           </SwiperSlide>
+
           <SwiperSlide>
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/7.mp4" className="swiper-image swiper-image-dummy"   muted loop />
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/7.mp4" className="swiper-image-video" autoPlay  muted loop /> 
+            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/7.mp4" className="swiper-image swiper-image-dummy" muted loop />
+
+            <Suspense>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "swiper-image-video",
+                src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/7.mp4"
+              }} />
+            </Suspense>
           </SwiperSlide>
+
           <SwiperSlide>
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/8.mp4" className="swiper-image swiper-image-dummy"   muted loop />
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/8.mp4" className="swiper-image-video" autoPlay  muted loop /> 
+            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/8.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            
+            <Suspense>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "swiper-image-video",
+                src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/8.mp4"
+              }} />
+            </Suspense>
           </SwiperSlide>
+
           <SwiperSlide>
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/9.mp4" className="swiper-image swiper-image-dummy"   muted loop />
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/9.mp4" className="swiper-image-video" autoPlay  muted loop /> 
+            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/9.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            
+            <Suspense>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "swiper-image-video",
+                src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/9.mp4"
+              }} />
+            </Suspense>
           </SwiperSlide>
+
           <SwiperSlide>
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/10.mp4" className="swiper-image swiper-image-dummy"   muted loop />
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/10.mp4" className="swiper-image-video" autoPlay  muted loop /> 
+            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/10.mp4" className="swiper-image swiper-image-dummy" muted loop />
+
+            <Suspense>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "swiper-image-video",
+                src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/10.mp4"
+              }} />
+            </Suspense>
           </SwiperSlide>
+
           <SwiperSlide>
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/11.mp4" className="swiper-image swiper-image-dummy"   muted loop />
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/11.mp4" className="swiper-image-video" autoPlay  muted loop /> 
+            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/11.mp4" className="swiper-image swiper-image-dummy" muted loop />
+
+            <Suspense>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "swiper-image-video",
+                src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/11.mp4"
+              }} />
+            </Suspense>
           </SwiperSlide>
+
           <SwiperSlide>
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/12.mp4" className="swiper-image swiper-image-dummy"   muted loop />
-          <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/12.mp4" className="swiper-image-video" autoPlay  muted loop /> 
+            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/12.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            
+            <Suspense>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "swiper-image-video",
+                src : "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/12.mp4"
+              }} />
+            </Suspense>
           </SwiperSlide>
+
         </Swiper>
       </div>
     </div>

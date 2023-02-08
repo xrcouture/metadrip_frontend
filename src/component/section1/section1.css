@@ -2,11 +2,23 @@
   position: relative;
   height: 100vh;
   /* COMPRESSED_WEBP */
-  /* background-image: url('../../assets//carousel-bg.webp'); */
-  background-image: url('https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/carousel-bg.webp');
+  /* background-image: url('../../assets//desktop-bg-fallback.webp'); */
+  /* background-image: url('https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/carousel-bg.webp'); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+@media (max-width: 768px) { 
+  .section1-container {
+    position: relative;
+    height: 100vh;
+    /* COMPRESSED_WEBP */
+    /* background-image: url('../../assets//mobile-bg-fallback.webp'); */
+    /* background-image: url('https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/carousel-bg.webp'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 .video-bg-section1{
   height: 100%;

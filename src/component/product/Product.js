@@ -1,30 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
-import { getParsedEthersError } from "@enzoferey/ethers-error-parser";
+import React, { useContext, useEffect, useState, lazy, Suspense } from "react";
 import "./product.css";
-import CryptoConvert from "crypto-convert";
 import { ToastContainer, toast } from 'react-toastify';
 import ProductHeader from "../productHeader/ProductHeader";
 import { utils } from "ethers";
 import { Alchemy, Network } from "alchemy-sdk";
-import { DCL_PHASE2_CONTRACT_ADDRESS, getContractInstance, getGasFees } from "../../data's/helper";
+import { getContractInstance, getGasFees } from "../../data's/helper";
 import { Context } from "../../Context";
 import Loader from "react-js-loader";
-import transakSDK from "@transak/transak-sdk";
-import { useAsyncError, useParams } from "react-router";
+import { useParams } from "react-router";
 import { items } from "../../data's/utility";
 import Footer from "../Footer/Footer";
 import { ethers } from "ethers";
 import $ from "jquery";
-import { Formik } from 'formik';
-import {saveAs} from 'file-saver';
 
-import { RxIconjarLogo } from "react-icons/rx";
-// based on the product id show the product info
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Pagination, Navigation } from "swiper";
+import { Navigation } from "swiper";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigationType } from "react-router-dom";
 
+
+const VideoContainer = lazy(() => import('../VideoContainer/VideoContainer'));
 
 const Product = () => {
   const location = useLocation();
@@ -37,11 +32,11 @@ const Product = () => {
 
   // PUBLIC_SALE
   var itemsAll = ["Chrome_Heart","Flora_Flamboyance","Puffy_Crossroads","Oyster_Spell","Vibrance_Splash","Rufflanza","Star_Cloak","Celestial_Dream","Pop_Kiss","Dazzling_Devil","Comic_Boom","Human_Masquerade"]
-  // var itemsAll = ["Star_Cloak","Celestial_Dream","Pop_Kiss","Dazzling_Devil","Comic_Boom","Human_Masquerade"]
+
   var itemToShow = itemsAll.filter(function(i){
     return i !== name
   })
-  console.log(itemToShow)
+
   const config = {
     apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
     network: Network.MATIC_MAINNET,
@@ -426,13 +421,18 @@ const Product = () => {
 
           {/* video */}
           <div className="col-xs-12 col-sm-7 col-md-6 col-lg-6 col-xl-5 overflow-hidden d-flex justify-content-center d-flex flex-column">
-            <video
-              src={item.video}
-              className="utility-page-video align-self-center"
-              muted
-              autoPlay
-              loop
-            />
+            <Suspense fallback={
+              <video
+                src={item.video}
+                className="utility-page-video align-self-center"
+              />
+            }>
+              <VideoContainer data={{
+                autoplay : true,
+                classnames : "utility-page-video align-self-center",
+                src : item.video
+              }} />
+            </Suspense>
           </div>
 
           {/* Contents */}
