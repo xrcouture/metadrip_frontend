@@ -216,10 +216,10 @@ const Product = () => {
   const { walletAddress, setWalletAddress } = useContext(Context);
 
   const settings = {
-    // apiKey: 'b48cfd7e-12a9-4be3-90e7-8bd8386735dd',
-    // environment: 'PRODUCTION',
-    apiKey: "6d705e03-0b9d-4190-bc69-1fcdc7dd80bc",
-    environment: "STAGING",
+    apiKey: 'b48cfd7e-12a9-4be3-90e7-8bd8386735dd',
+    environment: 'PRODUCTION',
+    // apiKey: "6d705e03-0b9d-4190-bc69-1fcdc7dd80bc",
+    // environment: "STAGING",
     defaultCryptoCurrency: "MATIC",
     themeColor: "732f7e",
     hostURL: window.location.origin,
