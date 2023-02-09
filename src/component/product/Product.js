@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, lazy, Suspense } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./product.css";
 import { ToastContainer, toast } from 'react-toastify';
 import ProductHeader from "../productHeader/ProductHeader";
@@ -23,8 +23,6 @@ import { Navigation } from "swiper";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigationType } from "react-router-dom";
 import HoverVideoPlayer from 'react-hover-video-player';
-
-const VideoContainer = lazy(() => import('../VideoContainer/VideoContainer'));
 
 const Product = () => {
   const location = useLocation();
@@ -224,8 +222,8 @@ const Product = () => {
     defaultCryptoCurrency: "MATIC",
     themeColor: "732f7e",
     hostURL: window.location.origin,
-    widgetHeight: "75vh",
-    widgetWidth: "30vw",
+    widgetHeight: "70vh",
+    // widgetWidth: "a",
     walletAddress: walletAddress,
     exchangeScreenTitle: "Purchase NFT",
     // fiatCurrency: 'GBP', // If you want to limit fiat selection eg 'GBP'
@@ -513,18 +511,13 @@ const Product = () => {
 
           {/* video */}
           <div className="col-xs-12 col-sm-7 col-md-6 col-lg-6 col-xl-5 overflow-hidden d-flex justify-content-center d-flex flex-column">
-            <Suspense fallback={
-              <video
-                src={item.video}
-                className="utility-page-video align-self-center"
-              />
-            }>
-              <VideoContainer data={{
-                autoplay : true,
-                classnames : "utility-page-video align-self-center",
-                src : item.video
-              }} />
-            </Suspense>
+            <video
+              src={item.video}
+              autoPlay
+              loop
+              muted
+              className="utility-page-video align-self-center"
+            />
           </div>
 
           {/* Contents */}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useContext, lazy, Suspense } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import "./utility.css";
 import { useParams } from "react-router-dom";
 import $ from "jquery";
@@ -15,8 +15,6 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import Modal from 'react-bootstrap/Modal';
 import Terms from "./Terms";
-
-const VideoContainer = lazy(() => import('../VideoContainer/VideoContainer'));
 
 function Utility() {
   const location = useLocation();
@@ -222,18 +220,13 @@ function Utility() {
       {/* <iframe src="https://metadrip.xrcouture.com" width="100%" height="500"/> */}
       <div className="row mt-4 align-items-start product-video-and-content">
         <div className="col-xs-12 col-sm-7 col-md-6 col-lg-6 col-xl-5 overflow-hidden d-flex justify-content-center d-flex flex-column">
-            <Suspense fallback={
-              <video
-                src={item.video}
-                className="utility-page-video align-self-center"
-              />
-            }>
-              <VideoContainer data={{
-                autoplay : true,
-                classnames : "utility-page-video align-self-center",
-                src : item.video
-              }} />
-            </Suspense>
+            <video
+              src={item.video}
+              autoPlay
+              loop
+              muted
+              className="utility-page-video align-self-center"
+            />
         </div>
         <div className="col-xs-12 col-sm-5 col-md-6 col-lg-6 col-xl-7 product-content">
           <div className="asset-details-header">
