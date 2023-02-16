@@ -138,7 +138,7 @@ function Assets() {
                     </Link>
                   </div>
                 ))
-              : !pending && walletAddress ? <h1 style={{color:"white",textAlign:"center"}}>No NFT's "Start Collecting"</h1> : <h1 style={{color:"white",textAlign:"center"}}>Connect Your Wallet</h1>}
+              : !pending && walletAddress ? <h1 style={{color:"white",textAlign:"center"}}>No NFT's <Link to="/products" className="text-underling text-white" ><u>"Start Collecting"</u></Link></h1> : <h1 style={{color:"white",textAlign:"center"}}>Connect Your Wallet</h1>}
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ import { Context } from "../../Context";
 import ProductHeader from "../productHeader/ProductHeader";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
-
+import how from '../../assets/how.mp4'
 import Modal from 'react-bootstrap/Modal';
 import Terms from "./Terms";
 
@@ -29,44 +29,50 @@ function Utility() {
   const [virtual,setVirtual] = useState(false)
   const item = items[name];
   const [img, setImg] = useState()
-  const fetchImage = async () => {
-    // item['metaverse_showcase']['ar'].link
-    try {
-      console.warn(item['metaverse_showcase']['ar'].name)
-        const response = await import(`../../assets/qr/${item['metaverse_showcase']['ar'].name}`) // change relative path to suit your needs
-        setImg(response.default)
-    } catch (err) {
-        console.log(err)
-    } finally {
-        console.log("done")
-    }
-}
+
+
+
 
   const {walletAddress} = useContext(Context)
+  const contractIsClaimed = () =>{
     axios.post("https://api.metadrip.xrcouture.com/contract/isItemClaimed",
     {
       address:walletAddress,
       itemId:item['start']/10,
       contractId:item['phase']
-    }).then(res=>{
+    },                                {
+      headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+      },
+  }).then(res=>{
       setClaimed(res.data.claimed)
     }).catch(e=>{
       console.log(e)
       toast.error("Something went wrong...!")
     })
-
-    axios.post("https://api.metadrip.xrcouture.com/utility/isItemClaimed",
-    {
-      address:walletAddress,
-      itemId:item['start']/10,
-      contractId:item['phase']
+  }
+  
+    const isItemClaimed = () =>{
+      axios.post("https://api.metadrip.xrcouture.com/utility/isItemClaimed",
+      {
+        address:walletAddress,
+        itemId:item['start']/10,
+        contractId:item['phase']
+      },                                {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+        },
     }).then(res=>{
-      setVirtual(res.data.claimed)
-    }).catch(e=>{
-      console.log(e)
-      toast.error("Something went wrong...!")
-    })
-  console.log(walletAddress)
+        setVirtual(res.data.claimed)
+      }).catch(e=>{
+        console.log(e)
+        toast.error("Something went wrong...!")
+      })
+      console.log(walletAddress)
+    }
+
   $("#accordian-header").on('click',function() {
       const i = document.getElementById("accordian-header").childNodes[0]
       console.log(i)
@@ -83,8 +89,13 @@ function Utility() {
       address:[walletAddress],
       itemIds:[item['start']/10],
       contractId:item['phase']
-    }).then(res=>{
-      toast.success(res.data.msg);
+    },                                {
+      headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+      },
+  }).then(res=>{
+      toast.success("Successfully Claimed, Check your decentranland backpack");
       setClaimed(true)
       console.log(res)
     }).catch(e=>{
@@ -101,6 +112,8 @@ function Utility() {
       apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
       network: Network.MATIC_MAINNET,
     };
+    isItemClaimed()
+    contractIsClaimed()
     const alchemy = new Alchemy(config);
 
     var temp = {
@@ -125,7 +138,6 @@ function Utility() {
           // redirect('/')
           // window.location.href = "/"
           // <Navigate to="/assets" />
-          // Navigate('/assets')
         }else{
         //   redirect('/')
         // window.location.href = "/"
@@ -170,9 +182,7 @@ function Utility() {
     }
     fun()
     }, [location]);
-    if(item['metaverse_showcase']['ar'].status===true){
-      fetchImage()
-      }
+
 
 
   $(document).on(function () {
@@ -308,7 +318,7 @@ function Utility() {
                           <div className="panel-body">
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Decentraland</h5>
-                              {claimed ? <p className="text-success"style={{fontFamily:"Clash Display Medium"}} >Claimed</p> : <button onClick={claimDCL}>Claim</button> }
+                              {claimed ? <p className="text-success"style={{fontFamily:"Clash Display Medium"}} >Successfully Claimed, Check your decentraland backpack</p> : <button onClick={claimDCL}>Claim</button> }
                             </div>
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Sandbox</h5>
@@ -381,13 +391,14 @@ function Utility() {
                           {/* <Button variant="primary" >
                             Custom Width Modal
                           </Button> */}
-                          <p onClick={() => setWear(true)} className="modal-button mt-4"  style={{ color: "#8633DA" ,fontFamily:"Clash Display Medium" }}>How to wear...?</p>
+                          <p onClick={() => setWear(true)} className="modal-button mt-4"  style={{ color: "#8633DA" ,fontFamily:"Clash Display Medium" }}>How to use Virtual Fitting?</p>
 
                           {!virtual?<Formik
                               initialValues={{ 
                                 email: '', 
                                 file: null,
-                                comments:""
+                                comments:"",
+                                files:null
                               }}
                               validate={values => {
                                 const errors = {};
@@ -400,24 +411,27 @@ function Utility() {
                                 }
                                 return errors;
                               }}
-                              onSubmit={(values, { setSubmitting }) => {
-                                // axios.post("https://api.metadrip.xrcouture.com/utility/isItemClaimed",
-                                // {
-                                //   address:"0x065366ec359a64dbf3f02cad7987122053fedcb0",
-                                //   itemId:item['start']/10,
-                                //   contractId:item['phase']
-                                // }).then(res=>{
-                                //   setVirtual(res.data.claimed)
-                                //   console.log(res)
-                                // }).catch(e=>{
-                                //   console.log(e)
-                                // })
-
+                              onSubmit={async(values, { setSubmitting,resetForm }) => {
+                                const data = {
+                                    'comments':values.comments,
+                                    'email':values.email,
+                                    'file':values.file,
+                                    'files':values.files,
+                                    'itemId': item['start']/10,
+                                    'contractId':item['phase'],
+                                    'address':walletAddress
+                                }
+                                await axios.post("https://api.metadrip.xrcouture.com/utility/upload",data,{  
+                              headers:{
+                                'Access-Control-Allow-Origin': '*',
+                                  'Content-Type': "multipart/form-data"
+                              }}).then(res=>console.log(
+                                toast.success("Form submitted successfully")
+                              )).catch((err)=>{
+                                toast.error("Oops, Something went wrong. Try again!")
+                              })  
                                 setTimeout(() => {
-                                  alert(JSON.stringify(values, null, 2));
-                                  console.log({...values,address:walletAddress,
-                                    itemId:item['start']/10,
-                                    contractId:item['phase']})
+                                  resetForm()
                                   setSubmitting(false);
                                 }, 400);
                               }}
@@ -430,7 +444,8 @@ function Utility() {
                                 handleBlur,
                                 handleSubmit,
                                 isSubmitting,
-                                setFieldValue
+                                setFieldValue,
+                                resetForm
                                 /* and other goodies */
                               }) => (
                                 <form onSubmit={handleSubmit}>
@@ -460,6 +475,7 @@ function Utility() {
                                     id="formFileMultiple" 
                                     multiple 
                                     required
+                                    accept="image/x-png,image/gif,image/jpeg"
                                     onChange={(event) => {
                                       if(event.currentTarget.files.length>10){
                                         alert(`You can upload a maximum of 10 files and you are trying to upload ${event.currentTarget.files.length} files`)
@@ -541,7 +557,7 @@ function Utility() {
                                 <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
                                   AR
                                 </h5>
-                                {item['metaverse_showcase']['ar'].status ?  <img src={img} alt="QR" className="qr-img" />: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
+                                {item['metaverse_showcase']['ar'].status ?  <img src={item['metaverse_showcase']['ar'].link} alt="QR" className="qr-img" />: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                               </div>
                           </div>
                         </div>
@@ -700,33 +716,31 @@ function Utility() {
       >
         <Modal.Header>
           <Modal.Title id="example-custom-modal-styling-title">
-            <h3 style={{fontFamily:"Clash Display Bold",color:"white"}}>WEAR DIGITAL FASHION</h3>
+            <h3 style={{fontFamily:"Clash Display Bold",color:"white"}}>VIRTUAL FITTING</h3>
           </Modal.Title>
           <button type="button" class="btn-close btn-close-white" aria-label="Close" onClick={()=>setWear(!wear)}></button>
         </Modal.Header>
         <Modal.Body>
-          <h4 style={{fontFamily:"Clash Display Medium", color:"grey"}}>
+          <div className="row">
+            <div className="col-md-7">
+
+            
+          {/* <h4 className="text-left text-justify" style={{fontFamily:"Clash Display Medium", color:"#fff"}}>
           How to wear Digital Fashion
-          </h4>
-          <h5 style={{fontFamily:"Clash Display Light",color:"rgb(151, 128, 151)"}}>
-          Step into the world of XR Couture, where shopping for clothes is as effortless and enjoyable as shopping in the physical realm.
+          </h4> */}
+          <h5 className="text-left text-justify" style={{fontFamily:"Clash Display Light",color:"#fff"}}>
+          Get a bespoke  <b>‘virtual-fitting’</b> on a photograph to flaunt on your socials, digitally tailored by our elite 3d designers.
           <br />
-          <br />
-          Get ready to don our latest fashions with ease, as we guide you through a seamless process. Simply log into your XR Couture account, select the outfit of your dreams, and have a photo at the ready to upload.
-          <br />
-          <br />
-          If you're torn between multiple options, let us take the reins. Our advanced virtual fitting technology will select the best photo for you, ensuring you look your absolute best in your new XR Couture attire.
           </h5>
 
-          <h4 style={{fontFamily:"Clash Display Medium",color:"rgb(151, 128, 151)"}}>Photo & Fitting Guide</h4>
+          <h4 className="text-left text-justify" style={{fontFamily:"Clash Display Medium",color:"#fff"}}>Photo & Fitting Guide</h4>
 
-          <h5 style={{fontFamily:"Clash Display Light",color:"rgb(151, 128, 151)"}}>
-          The first step is to choose a good high-quality picture on which you would like to wear the digital item(s).
-
+          <h5 className="text-left text-justify" style={{fontFamily:"Clash Display Light",color:"#fff"}}>
+          The first step is to choose a good <b>high-quality picture</b> on which you would like to wear the digital item(s). For a flawless Digital fashion image, we want you to follow some <b>best practices.</b> Just keep the following things in mind :
           <br/>
           For a flawless Digital fashion image, we want you to follow some best practices. Just keep the following things in mind for a perfect Digital fashion photoshoot: 
 
-          <br/>
+          <br/><br /> <br/>
           1. A good lightning with no shadows falling on you.<br/>
           2. A photo with minimal/tight fitted clothing such as a swimsuit or sports wear.<br/>
           3. The clothing you wear must be smaller to the digital items you wish to wear.<br/>
@@ -734,13 +748,13 @@ function Utility() {
           5. Hair tied up/ not covering your body.<br/>
           6. Avoid any hindrance from any object or accessory covering your body.<br/>
           </h5>
-
+          </div>
+          <div className="col-md-5">
+            <video src={how} className="w-100" alt="how to wear" muted loop autoPlay />
+          </div>
+          </div>
           <br/>
           <br/>
-          <h5 style={{fontFamily:"Clash Display Light",color:"rgb(151, 128, 151)"}}>
-          With these tips in mind, your digital attire will be expertly tailored with precision, creating a personalized look that truly reflects your sense of style. Simply add your desired items to your cart, complete your purchase, and await the arrival of your new virtual wardrobe. With a turnaround time of just 48 hours or less, your dream outfit will be delivered straight to your inbox in no time.
-          Experience the simplicity, versatility, and eco-friendliness of digital fashion with XR Couture. Get started today and elevate your virtual wardrobe in minutes!
-          </h5>
         </Modal.Body>
       </Modal>
       <Modal

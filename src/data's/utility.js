@@ -1,5 +1,5 @@
 export const items = {
-    "Chrome_Heart":{
+    "Chrome_Heart":{    
         name:"Chrome Heart",
         start:0,
         designed_by:"Klaws Design",
@@ -34,8 +34,7 @@ export const items = {
             },
             ar:{
                 status:true,
-                link:"../../assets/qr/ChromeHeart.png",
-                name:"ChromeHeart.png"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/AR_QR_Codes/chrome_heart.png",
             }
         },
         metaverse_wearables:{
@@ -70,7 +69,7 @@ export const items = {
             },
             glb_file:{
                 status:false,
-                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Flora+Flamboyance/Media+for+Download/Flora+Flamboyance.zip"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Flora+Flamboyance/glb-universal+file/Flora+Flamboyance+.glb"
             },
             metahuman:{
                 status:false,
@@ -92,8 +91,7 @@ export const items = {
             },
             ar:{
                 status:true,
-                link:"../../assets/qr/FloaraFamboyance.png",
-                name:"FloaraFamboyance.png"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/AR_QR_Codes/flora_flamboyance.png",
             }
         },
         metaverse_wearables:{
@@ -128,7 +126,7 @@ export const items = {
             },
             glb_file:{
                 status:false,
-                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Chrome+Heart/glb-universal+file/ChromeHeart3.glb"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Puffy+Crossroads/glb-universal+file/Puffy+Crossroads.glb"
             },
             metahuman:{
                 status:false,
@@ -150,8 +148,7 @@ export const items = {
             },
             ar:{
                 status:true,
-                link:"../../assets/qr/PuffyCrossroads.png",
-                name:"PuffyCrossroads.png"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/AR_QR_Codes/puffy_crossroads.png",
             }
         },
         metaverse_wearables:{
@@ -208,8 +205,7 @@ export const items = {
             },
             ar:{
                 status:true,
-                link:"../../assets/qr/Oyster_Spell.png",
-                name:"Oyster_Spell.png"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/AR_QR_Codes/oyster_spell.png",
             }
         },
         metaverse_wearables:{
@@ -266,8 +262,7 @@ export const items = {
             },
             ar:{
                 status:true,
-                link:"../../assets/qr/VibranceSplash.png",
-                name:"VibranceSplash.png"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/AR_QR_Codes/vibrance.png",
             }
         },
         metaverse_wearables:{
@@ -301,8 +296,8 @@ export const items = {
                 link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Rufflanza/Media+for+Download/Rufflanza.zip"
             },
             glb_file:{
-                status:false,
-                link:""
+                status:true,
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Rufflanza/glb-universal+file/Rufflanza.glb"
             },
             metahuman:{
                 status:false,
@@ -324,8 +319,7 @@ export const items = {
             },
             ar:{
                 status:true,
-                link:"../../assets/qr/Rufflanza.png",
-                name:"Rufflanza.png"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/AR_QR_Codes/ruflanza.png",
             }
         },
         metaverse_wearables:{
@@ -356,10 +350,10 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Star+Cloak/Media+for+Download/Star+Cloak.zip"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Star+Cloak/Media+For+Download/Star+Cloak.zip"
             },
             glb_file:{
-                status:true,
+                status:false,
                 link:""
             },
             metahuman:{
@@ -381,7 +375,8 @@ export const items = {
                 link:""
             },
             ar:{
-                status:false,
+                status:true,
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/AR_QR_Codes/star.png"
             }
         },
         metaverse_wearables:{
@@ -437,7 +432,8 @@ export const items = {
                 link:""
             },
             ar:{
-                status:false,
+                status:true,
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/AR_QR_Codes/celestial_dream.png"
             }
         },
         metaverse_wearables:{
@@ -468,7 +464,7 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Pop+Kiss/Media+for+Download/Pop+Kiss.zip"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Pop+Kiss/Media+For+Download/Pop+Kiss.zip"
             },
             glb_file:{
                 status:true,
@@ -526,7 +522,7 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Dazzling+Devil/Media+for+Download/Dazzling+Devil.zip"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Dazzling+Devil/Media+For+Download/Dazzling+Devil.zip"
             },
             glb_file:{
                 status:true,
@@ -552,8 +548,7 @@ export const items = {
             },
             ar:{
                 status:true,
-                link:"../assets/qr/DazzlingDevil.png",
-                name:"DazzlingDevil.png"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/AR_QR_Codes/Dazzling_devil.png",
             }
         },
         metaverse_wearables:{
@@ -584,11 +579,11 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Comic+Boom/Media+for+Download/Comic+Boom.zip"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Comic+Boom/Media+For+Download/Comic+Boom.zip"
             },
             glb_file:{
-                status:false,
-                link:""
+                status:true,
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Comic+Boom/glb-universal+file/Comic+Boom.glb"
             },
             metahuman:{
                 status:false,
@@ -610,8 +605,7 @@ export const items = {
             },
             ar:{
                 status:true,
-                link:"../assets/qr/ComicBoom.png",
-                name:"ComicBoom.png"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/AR_QR_Codes/comic_boom.png",
             }
         },
         metaverse_wearables:{
@@ -642,11 +636,11 @@ export const items = {
         get_3d_assets:{
             pfp:{
                 status:true,
-                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Human+Masquerade/Media+for+Download/Human+Masquerade.zip"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Human+Masquerade/Media+For+Download/Human+Masquerade.zip"
             },
             glb_file:{
-                status:false,
-                link:""
+                status:true,
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Human+Masquerade/glb-universal+file/Human+Masquerade+.glb"
             },
             metahuman:{
                 status:false,
@@ -668,8 +662,8 @@ export const items = {
             },
             ar:{
                 status:true,
-                link:"../../assets/qr/HumanMasquerade.png",
-                name:"HumanMasquerade.png"
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/AR_QR_Codes/human_masquerade.png",
+
             }
         },
         metaverse_wearables:{
