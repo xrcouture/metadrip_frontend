@@ -444,6 +444,7 @@ const Product = () => {
               autoPlay
               loop
               muted
+              playsInline
               className="utility-page-video align-self-center"
             />
           </div>

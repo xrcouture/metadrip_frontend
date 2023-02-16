@@ -25,7 +25,7 @@ function Product() {
                                 videoSrc={items[item].video}
                                 style={{width:"100%"}}
                                 pausedOverlay={
-                                <video src={items[item].video} className="" style={{width:"100%"}} alt={item} loop muted/>             
+                                <video src={items[item].video} playsInline className="" style={{width:"100%"}} alt={item} loop muted/>             
                                 }
                                 loadingOverlay={
                                     <div className="loading-overlay">

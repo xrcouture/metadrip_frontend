@@ -234,6 +234,7 @@ function Utility() {
               src={item.video}
               autoPlay
               loop
+              playsInline
               muted
               className="utility-page-video align-self-center"
             />
@@ -344,7 +345,7 @@ function Utility() {
                             {
                               item['snapchat_ar'].status ?
                               <>
-                              <video src={item['snapchat_ar'].video} muted autoPlay loop className="snapvideo"></video>
+                              <video playsInline src={item['snapchat_ar'].video} muted autoPlay loop className="snapvideo"></video>
                               <img src={item['snapchat_ar'].qr} className="snapimg"></img>
                               </> : 
                               <div className="button-group-1">
@@ -743,7 +744,7 @@ function Utility() {
           </h5>
           </div>
           <div className="col-md-5">
-            <video src={how} className="w-100" alt="how to wear" muted loop autoPlay />
+            <video src={how} playsInline className="w-100" alt="how to wear" muted loop autoPlay />
           </div>
           </div>
           <br/>
