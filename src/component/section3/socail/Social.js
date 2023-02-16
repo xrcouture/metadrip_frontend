@@ -64,7 +64,7 @@ function Social() {
                 {/* ..................................................... */}
                 <Carousel  interval="10000000"  activeIndex={index} onSelect={handleSelect} className="w-80" controls={true}>
                     <Carousel.Item>
-                        <video src={vid} autoPlay={true} loop muted className='video-player w-100 h-100' />
+                        <video src={vid} playsInline autoPlay={true} loop muted className='video-player w-100 h-100' />
                         <MdVideoCameraBack color='white' className='icon-video' size={28}/>
                     </Carousel.Item>
                     <Carousel.Item>

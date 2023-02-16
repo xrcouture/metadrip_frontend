@@ -63,7 +63,7 @@ function Slider() {
         >
 
           <SwiperSlide data-swiper-autoplay="2000">
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/1.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            <video playsInline src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/1.mp4" className="swiper-image swiper-image-dummy" muted loop />
 
             <Suspense>
               <VideoContainer data={{
@@ -76,7 +76,7 @@ function Slider() {
           </SwiperSlide>
 
           <SwiperSlide>
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/2.mp4" className="swiper-image swiper-image-dummy"   muted loop />   
+            <video playsInline src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/2.mp4" className="swiper-image swiper-image-dummy"   muted loop />   
             
             <Suspense>
               <VideoContainer data={{
@@ -88,7 +88,7 @@ function Slider() {
           </SwiperSlide>
 
           <SwiperSlide>
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/3.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            <video playsInline src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/3.mp4" className="swiper-image swiper-image-dummy" muted loop />
             
             <Suspense>
               <VideoContainer data={{
@@ -100,7 +100,7 @@ function Slider() {
           </SwiperSlide>
 
           <SwiperSlide>
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/4.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            <video playsInline src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/4.mp4" className="swiper-image swiper-image-dummy" muted loop />
             
             <Suspense>
               <VideoContainer data={{
@@ -112,7 +112,7 @@ function Slider() {
           </SwiperSlide>
 
           <SwiperSlide>
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/5.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            <video playsInline src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/5.mp4" className="swiper-image swiper-image-dummy" muted loop />
             
             <Suspense>
               <VideoContainer data={{
@@ -124,7 +124,7 @@ function Slider() {
           </SwiperSlide>
 
           <SwiperSlide>
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/6.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            <video playsInline src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/6.mp4" className="swiper-image swiper-image-dummy" muted loop />
             
             <Suspense>
               <VideoContainer data={{
@@ -136,7 +136,7 @@ function Slider() {
           </SwiperSlide>
 
           <SwiperSlide>
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/7.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            <video playsInline src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/7.mp4" className="swiper-image swiper-image-dummy" muted loop />
 
             <Suspense>
               <VideoContainer data={{
@@ -148,7 +148,7 @@ function Slider() {
           </SwiperSlide>
 
           <SwiperSlide>
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/8.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            <video playsInline src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/8.mp4" className="swiper-image swiper-image-dummy" muted loop />
             
             <Suspense>
               <VideoContainer data={{
@@ -160,7 +160,7 @@ function Slider() {
           </SwiperSlide>
 
           <SwiperSlide>
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/9.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            <video playsInline src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/9.mp4" className="swiper-image swiper-image-dummy" muted loop />
             
             <Suspense>
               <VideoContainer data={{
@@ -172,7 +172,7 @@ function Slider() {
           </SwiperSlide>
 
           <SwiperSlide>
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/10.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            <video playsInline src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/10.mp4" className="swiper-image swiper-image-dummy" muted loop />
 
             <Suspense>
               <VideoContainer data={{
@@ -184,7 +184,7 @@ function Slider() {
           </SwiperSlide>
 
           <SwiperSlide>
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/11.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            <video playsInline src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/11.mp4" className="swiper-image swiper-image-dummy" muted loop />
 
             <Suspense>
               <VideoContainer data={{
@@ -196,7 +196,7 @@ function Slider() {
           </SwiperSlide>
 
           <SwiperSlide>
-            <video src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/12.mp4" className="swiper-image swiper-image-dummy" muted loop />
+            <video playsInline src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/12.mp4" className="swiper-image swiper-image-dummy" muted loop />
             
             <Suspense>
               <VideoContainer data={{
