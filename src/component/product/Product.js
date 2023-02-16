@@ -23,6 +23,7 @@ import { Navigation } from "swiper";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigationType } from "react-router-dom";
 import HoverVideoPlayer from 'react-hover-video-player';
+import axios from "axios";
 
 const Product = () => {
   const location = useLocation();
@@ -31,6 +32,7 @@ const Product = () => {
   const item = items[name];
   const [costLoading,setCostLoading] = useState(true)
   const [saleOn,setSaleOn] = useState(true)
+  const [tokenId, setTokenId] = useState(0)
   console.log(item['phase'])
 
   // PUBLIC_SALE
@@ -40,17 +42,11 @@ const Product = () => {
     return i !== name
   })
 
-  const config = {
-    apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
-    network: Network.MATIC_MAINNET,
-    // network:Network.MATIC_MUMBAI
-  };
   const [nft, setNfts] = useState([]);
   const [nftCost, setNftCost] = useState(0);
   const [available,setAvailable] = useState(0)
   const [costInDollar, setCostInDollar] = useState(0);
   const [id,setId] = useState(item['start'])
-  const alchemy = new Alchemy(config);
   const [dropdowndes, setDropdowndes] = useState(false)
   const [dropdown, setDropdown] = useState(false)
 
@@ -62,84 +58,26 @@ const Product = () => {
   // setId()
   const fun=async()=>{
     setCostLoading(true)
-    var temp = {
-      "Chrome Heart": 0,
-      "Puffy Crossroads": 0,
-      "Oyster Spell": 0,
-      "Vibrance Splash": 0,
-      "Flora Flamboyance": 0,
-      "Rufflanza": 0,
-      "Star Cloak": 0,
-      "Celestial Dream": 0,
-      "Dazzling Devil": 0,
-      "Pop Kiss": 0,
-      "Comic Boom": 0,
-      "Human Masquerade": 0,
-    };
-    if(item['phase']===1){
-      setCostInDollar(336)
-    }else{
-      setCostInDollar(336)
-    }
-    // const convert = new CryptoConvert({
-    //   cryptoInterval: 2000, //Crypto prices update interval in ms (default 5 seconds on Node.js & 15 seconds on Browsers)
-    //   fiatInterval: 60 * 1e3 * 60, //Fiat prices update interval (default every 1 hour)
-    //   calculateAverage: true, //Calculate the average crypto price from exchanges
-    //   binance: true, //Use binance rates
-    //   bitfinex: true, //Use bitfinex rates
-    //   coinbase: true, //Use coinbase rates
-    //   kraken: true, //Use kraken rates
-    //   // onUpdate: (tickers, isFiatUpdate?)=> any, //Callback on every crypto update
-    //   HTTPAgent: null, //HTTP Agent for server-side proxies (Node.js only)
-    // });
-    // setCostInDollar(convert.MATIC.USD(1).toFixed(2));  
-    const contract = await getContractInstance(item['phase']);
-    let totalSupply = await contract.publicCost();
-    // console.log(totalSupply);
-    setNftCost(Number(totalSupply._hex) * Math.pow(10, -18));
-
-    await fetch('https://min-api.cryptocompare.com/data/price?fsym=MATIC&tsyms=USD')
-    .then((response) => response.json())
-    .then((data) => {
-      // console.log(data.USD * Number(totalSupply._hex) * Math.pow(10, -18))
-      setCostInDollar((data.USD * Number(totalSupply._hex) * Math.pow(10, -18)).toFixed(2))
-    });
-
-
-    setInterval(() => {
-      // console.log(convert.MATIC.USD(1).toFixed(2));
-      // setCostInDollar(convert.MATIC.USD(Number(totalSupply._hex) * Math.pow(10, -18)).toFixed(2));
-    }, 400);
-    // console.warn(collectionAddress[item['phase']-1], item)
-    await alchemy.nft.getNftsForContract(collectionAddress[0]).then((res) => {
-      // console.log(res)
-      res.nfts.map((i) => {
-        // console.warn("called")
-        temp[i.rawMetadata.name]++;
+    await axios.post("https://api.metadrip.xrcouture.com/product/getNfts",{"name":name.replace("_"," ")},                                {
+      headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+      },
+  }).then(async(res) => {
+      console.log(res)
+      setNftCost((res.data.price * Math.pow(10, -18)).toFixed(2))
+      setTokenId(res.data.data.tokenIn)
+      setAvailable(res.data.totalAvailable)
+      await fetch('https://min-api.cryptocompare.com/data/price?fsym=MATIC&tsyms=USD')
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data.USD * Number(totalSupply._hex) * Math.pow(10, -18))
+        setCostInDollar((data.USD * res.data.price * Math.pow(10, -18)).toFixed(2))
       });
-
-    });
-    await alchemy.nft.getNftsForContract(collectionAddress[1]).then((res) => {
-      // console.log(res)
-      res.nfts.map((i) => {
-        // console.warn("called")
-        temp[i.rawMetadata.name]++;
-      });
-
-    });
-    // console.log(temp)
-
-    setNfts(temp);
-    setAvailable(10 - nft[name.replace("_", " ")])
-    if(item['phase']===1){
-      setSaleOn(true)
-    }else{
-      setSaleOn(false)
-    }
-    // setCostLoading(false)
+    })
+    setCostLoading(false)
   }
   useEffect(() => {
-    // console.log("CALLED")
 
     let timer1 = setTimeout(() => setCostLoading(false), 4000);
 
@@ -151,21 +89,13 @@ const Product = () => {
       });
     }
     fun()
-
+   
     return () => {
       clearTimeout(timer1);
     };
 
   }, [location]);
-  console.log(nft)
 
-
-  // console.log(items);
-  setTimeout(() => {
-    console.log(name, nft[name.replace("_", " ")] + 1, nft);
-    console.log(`available wearables ${10 - nft[name.replace("_", " ")]}/10`);
-    setAvailable(10 - nft[name.replace("_", " ")])
-  }, 1000);
 
   $(document).on(function () {
     $(".collapse").on("show.bs.collapse", function () {
@@ -187,13 +117,6 @@ const Product = () => {
       );
     });
   });
-  // console.log(item["metaverse_wearables"]["sandbox"].status);
-
-  // const { name } = useParams()
-  // console.log(name)
-
-  // const item = items[name]
-  // console.log(item)
 
   const networkMap = {
     POLYGON_MAINNET: {
@@ -344,9 +267,8 @@ const Product = () => {
         console.log(tx);
       } catch (error) {
         console.log(error)
+        toast.error("Oops, Something went wrong. Try again!")
       }
-      // const tm = await contract.connect(signer)
-
 
       }
       else if (isConnected === 'true' && window.ethereum.networkVersion && currentChainId !== chainId) {
@@ -361,6 +283,9 @@ const Product = () => {
       console.log("No wallet");
       // connectWallet()
     }
+    setTimeout(()=>{
+      fun()
+    },10000)
   }
 
   const buyNowUsingCard = async () => {
@@ -449,6 +374,9 @@ const Product = () => {
       console.log("No wallet");
       // connectWallet()
     }
+    setTimeout(()=>{
+      fun()
+    },10000)
   };
 
   // Called when clicked on buy now with different network than polygon,
@@ -555,7 +483,7 @@ const Product = () => {
                     </div>
                     {/* desktop button */}
                     <div className='extra-des mt-3 mt-md-2 mt-lg-1 d-none d-md-block '>
-                    {10 - nft[name.replace("_", " ")] == 0 ? (
+                    {available == 0 ? (
                       // <p className="text-danger">Sold Out</p>
                       <button className='buy-now text-white mt-2 btn btn-secondary' disabled>Sold Out</button>
                       ) : (
@@ -577,7 +505,7 @@ const Product = () => {
                         className="product-cost"
                         style={{ color: "#F9F9F9", textAlign: "right" }}
                       >
-                        {10 - nft[name.replace("_", " ")]} / 10
+                        {available} / 10
                       </div>
                       <div
                         className="product-cost product-content-subtitle"
@@ -890,13 +818,13 @@ const Product = () => {
           {/* Modals */}
           <div className="modal-background">
             <div className='switch-network-modal text-white' id='switch-network-modal' style={{ display: "none" }}>
-              <div className='modal-title' style={{fontFamily: "Clash Display SemiBold", fontSize: "1.5rem"}}>Wrong Network Detected</div>
+              <div className='modal-title' style={{fontFamily: "Clash Display Bold", fontSize: "1.5rem"}}>Wrong Network Detected</div>
               <div className='modal-description' style={{fontFamily: "Clash Display Light", fontSize: "1rem"}}>You need to be connected to Polygon Mainnet to buy, but you are currently connected to different network.</div>
               <button className='buy-now' style={{width: "100%", fontFamily: "Clash Display SemiBold"}} onClick={switcher}>Switch To Polygon Mainnet</button>
             </div>
 
             <div className='switch-network-modal connect-modal text-white' id='connect-modal' style={{ display: "none" }}>
-              <div className='modal-title' style={{fontFamily: "Clash Display SemiBold", fontSize: "1.5rem"}}>Please Connect Your Wallet</div>
+              <div className='modal-title' style={{fontFamily: "Clash Display Bold", fontSize: "1.5rem"}}>Please Connect Your Wallet</div>
               <div className='modal-description' style={{fontFamily: "Clash Display Light", fontSize: "1rem"}}>You need to connect your MetaMask Wallet, Please click the below button the connect to MetaMask.</div>
               <button className='buy-now' style={{width: "100%", fontFamily: "Clash Display SemiBold"}} onClick={connectWallet}>Connect Wallet</button>
             </div>
