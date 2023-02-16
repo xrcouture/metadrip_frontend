@@ -63,7 +63,7 @@ function Footer() {
                         </div>
                     </div>
                     <div className='col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-4 footer-logo-container'>
-                        <img src={xrlogo} alt="" className='footer-img' />
+                        <img src="https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/XRC_Homepage/homepage_contents/xrcwithtext.webp" alt="" className='footer-img' />
                         <p className='logo-font'>All Rights Reserved. &#8482;</p>
                     </div>
                 </div>
@@ -146,7 +146,6 @@ function Footer() {
                                 <button onClick={handleSubmit} disabled={isSubmitting} type="submit"><i class="fa fa-paper-plane"></i></button><br />
                             </div>
                                 <div className='footer-response-msg text-danger'>{errors.email && touched.email && errors.email}</div>
-                                
                                 </form>
                             )}
                             </Formik>

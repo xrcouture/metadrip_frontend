@@ -1,7 +1,7 @@
 .footer-container {
   position: relative;
   height: max-content;
-  background: #282121;
+  background: #181818 ;
   width: 100%;
 }
 .footer-textarea{
@@ -219,7 +219,7 @@ textarea {
 .footer-section-1 {
   padding-top: 0.5rem;
   padding-bottom: 1.5rem;
-  background: #282121; 
+  background: #181818; 
 }
 
 .footer-response-msg {

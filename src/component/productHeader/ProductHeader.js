@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 const ProductHeader = () => {
 
-  const headerlogo = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/xrc.png'
+  const headerlogo = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/XRC_Homepage/homepage_contents/XRC_480x2160_White.png'
 
   const location = useLocation()
   const homePageLink = location.pathname === '/' ? '#top' : '/'
