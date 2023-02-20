@@ -12,11 +12,12 @@ import { Context } from "../../Context";
 import ProductHeader from "../productHeader/ProductHeader";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
-import how from '../../assets/how.mp4'
+// import how from '../../assets/how.mp4'
 import Modal from 'react-bootstrap/Modal';
 import Terms from "./Terms";
 
 function Utility() {
+  const how = "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/how.mp4"
   const location = useLocation();
   const [agreed, setAgreed] = useState(true)
   const [wear, setWear] = useState(false);
