@@ -70,7 +70,7 @@ const roadmapLogo6 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadr
                   <div style={{fontFamily: "Clash Display Light"}}> MVFW 22</div>
                   </div>
                   <div className='swip-card-content-desc'>
-                  - Launch of Meta Drip <br />
+                  - Launch of Metadrip <br />
                   - Partnered with Decentraland <br />
                   - Launch of XR Couture HQ on DCL <br />
                   - Sold out: Pre-Sale of Phase 1 <br />
@@ -143,7 +143,7 @@ const roadmapLogo6 = 'https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadr
                 <div className='swip-card-content'>
                   <div className='swip-card-content-title'>
                   <div >Q1 2023</div>
-                  <div style={{fontFamily: "Clash Display Light"}}> Launch of Meta Drip <br/>Phase 2</div>
+                  <div style={{fontFamily: "Clash Display Light"}}> Launch of Metadrip <br/>Phase 2</div>
                   </div>
                   <div className='swip-card-content-desc'>
                   - Relaunch with exciting perks<br/>

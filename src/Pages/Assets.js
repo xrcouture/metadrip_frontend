@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Header from "../component/header/Header";
 import "./Assets.css";
 import asset from "../assets/asset-bg.png";
-import assetProfile from "../assets/asset-profile.png"
+// import assetProfile from "../assets/asset-profile.png"
 import { Link } from "react-router-dom";
 import { Alchemy, Network } from "alchemy-sdk";
 import { ThreeDots } from "react-loader-spinner";
@@ -13,6 +13,9 @@ import Footer from "../component/Footer/Footer"
 import { useLocation, useNavigationType } from "react-router-dom";
 
 function Assets() {
+
+  // const assetProfile = "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/XRC_Homepage/homepage_contents/xrcnew.webp"
+
   const [assets, setAssets] = useState([]);
   const location = useLocation();
   const navType = useNavigationType();
@@ -82,7 +85,7 @@ function Assets() {
     <div className="asset-page">
       <ProductHeader />
 
-      <div>
+      {/* <div>
         <div className="d-flex">
           <img src={assetProfile} alt="asset profile icon" className="asset-profile-icon header-logo" />
           <div className="asset-profile-icon asset-profile-text header-logo" style={{ fontFamily: "Clash Display Bold", color: "#fff" }}>{walletAddress.substring(
@@ -91,19 +94,22 @@ function Assets() {
           )}...{walletAddress.substring(38)}</div>
         </div>
         <img src={asset} alt="asset" className="asset-bg" />
-      </div>
+      </div> */}
 
 
-      <div className="asset-container">
+      <div className="asset-container products-container">
         <div></div>
-        <h1
-          className="text-center pt-5 pb-5"
+        {/* <h1
+          className="text-center pt-5 pb-5 asset-header-title"
           style={{ fontFamily: "Clash Display Medium", color: "white", textDecoration: "underline #C44DD6" }}
         >
-          Assets
-        </h1>
+          My Assets
+        </h1> */}
+
+        <h2 className='text-center mb-5 pb-1' style={{fontFamily: "Clash Display Medium", color: "#fff", margin: "auto"}}>MY ASSETS</h2>
+
         <div>
-          <div className="row m-4" style={{ marginLeft: "5%" }}>
+          <div className="row p-4">
             {pending && (
               <div className="loading">
                 <ThreeDots

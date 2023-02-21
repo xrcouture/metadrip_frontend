@@ -6,7 +6,7 @@ function Section2() {
     <div className='section-two-container'>
         <div className='row flex-column-reverse flex-md-row'>
             <div className='col-md-6 subtitle' style={{fontFamily:"Clash Display Light"}}> 
-           <b style={{fontFamily:"Clash Display Medium"}}> META DRIP</b>  is XR Couture’s most ambitious multi-utility Digital Fashion NFT project. The 12-look digital wearables collection created by our cutting edge 3D artists was successfully launched at Decentraland's inaugural Metaverse Fashion Week and was featured in the Wall Street Journal and Vogue Business.
+           <b style={{fontFamily:"Clash Display Medium"}}> METADRIP</b>  is XR Couture’s most ambitious multi-utility Digital Fashion NFT project. The 12-look digital wearables collection created by our cutting edge 3D artists was successfully launched at Decentraland's inaugural Metaverse Fashion Week and was featured in the Wall Street Journal and Vogue Business.
             </div>
             <div className='col-md-6 text-right align-items-center align-items-md-end title d-flex justify-content-center flex-column section-2-title' style={{fontFamily:"Clash Display Medium"}}>
                 <p className='text-right title' style={{fontFamily:"Clash Display Medium"}}>

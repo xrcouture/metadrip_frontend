@@ -15,7 +15,7 @@ function Product() {
     <ProductHeader />
     <div className='products-container pb-4 d-flex flex-column align-items-center'>
         <img src={bg} className="bg-product-img" alt="gradient-bg"/>
-        <h2 className='text-center mb-4' style={{fontFamily: "Clash Display Medium", color: "#fff"}}>EXPLORE METADRIP</h2>
+        <h2 className='text-center mb-5' style={{fontFamily: "Clash Display Medium", color: "#fff"}}>EXPLORE METADRIP</h2>
         <div className='row mt-4'>
             {itemsAll.map(item=>(
                 <div className='col-md-4 col-sm-6 col-xs-12 d-flex justify-content-center mb-4' key={item}>
