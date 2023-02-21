@@ -5,6 +5,7 @@ export const items = {
         designed_by:"Klaws Design",
         description:"A hearty treat, this dress is perfect for the Metaverse retreat! The glistening hues and the bewitching iridescent is sure to grab eyeballs.",
         phase:1,
+        dcl_Id:5,
         get_3d_assets:{
             pfp:{
                 status:true,
@@ -62,13 +63,14 @@ export const items = {
         designed_by:"Gulnara Gulia",
         description:"Antique and priceless, this outfit is sure to make your Metaverse Vogue seamless! The glistening hues and the sleeve just amps the look.",
         phase:1,
+        dcl_Id:0,
         get_3d_assets:{
             pfp:{
                 status:true,
                 link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Flora+Flamboyance/Media+for+Download/Flora+Flamboyance.zip"
             },
             glb_file:{
-                status:false,
+                status:true,
                 link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Flora+Flamboyance/glb-universal+file/Flora+Flamboyance+.glb"
             },
             metahuman:{
@@ -119,13 +121,14 @@ export const items = {
         designed_by:"SCSsubconscious",
         description:"We say blue and pink is the new gold as this dress is all set to make you the Metaverse Queen! Let you fashion ‘puff’ up.",
         phase:1,
+        dcl_Id:2,
         get_3d_assets:{
             pfp:{
                 status:true,
                 link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Puffy+Crossroads/Media+for+Download/Puffy+Crossroads.zip"
             },
             glb_file:{
-                status:false,
+                status:true,
                 link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+1/Puffy+Crossroads/glb-universal+file/Puffy+Crossroads.glb"
             },
             metahuman:{
@@ -176,6 +179,7 @@ export const items = {
         designed_by:"Yifan Pu",
         description:"As soft to the eyes as cotton, be the ‘cool’ Metaverse Diva with more so cool gloves and purse in hand’. Get ready to make a fashion statement like never before!",
         phase:1,
+        dcl_Id:1,
         get_3d_assets:{
             pfp:{
                 status:true,
@@ -233,6 +237,7 @@ export const items = {
         designed_by:"Technological Hippie",
         description:"Vibe with the vibrance Splash so perfectly well! Such enchanting colors, everybody’s gonna give a second glance!",
         phase:1,
+        dcl_Id:4,
         get_3d_assets:{
             pfp:{
                 status:true,
@@ -290,6 +295,7 @@ export const items = {
         designed_by:"Xenia Joost",
         description:"To keep the Metaverse clean and pristine, the goddess with its extravagant dress has arrived. Guess what, it’s the dress that’s become the favorite talk of the town!",
         phase:1,
+        dcl_Id:3,
         get_3d_assets:{
             pfp:{
                 status:true,
@@ -347,14 +353,15 @@ export const items = {
         designed_by:"Klaws Design",
         description:"Be the galaxy’s dazzling ambassador with this outfit that radiates a rare shine and endearing hues. Take on the glitters!",
         phase:2,
+        dcl_Id:4,
         get_3d_assets:{
             pfp:{
                 status:true,
                 link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Star+Cloak/Media+For+Download/Star+Cloak.zip"
             },
             glb_file:{
-                status:false,
-                link:""
+                status:true,
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/GLB/Star+Cloak.glb"
             },
             metahuman:{
                 status:false,
@@ -404,14 +411,15 @@ export const items = {
         designed_by:"Soledad Gallardo",
         description:"A cutting-edge design by Soledad Gallardo, that’s sure to illuminate your wardrobe collection. With bright hues and enchanting design, the outfit is sure to make a glorious hit in the Metaverse. Evoking a brilliant digi-craftsmanship, this is one of the super awesome outfits of our second NFT collection.",
         phase:2,
+        dcl_Id:5,
         get_3d_assets:{
             pfp:{
                 status:true,
                 link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Utilities/PHASE+2/Celestial+Dream/Media+for+Download/Celestial+Dream.zip"
             },
             glb_file:{
-                status:false,
-                link:""
+                status:true,
+                link:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/GLB/Celestial+Dream.glb"
             },
             metahuman:{
                 status:false,
@@ -461,6 +469,7 @@ export const items = {
         designed_by:"Yazata",
         description:"A bespoke world of imagination, channelised in reality, the outfit is a peppy, chic, and stupendous work of Yazata. Embodying pop culture in its most playful form, let your virtual wardrobe be ready to be kissed by the hottest outfit of Metaverse.",
         phase:2,
+        dcl_Id:3,
         get_3d_assets:{
             pfp:{
                 status:true,
@@ -519,6 +528,7 @@ export const items = {
         designed_by:"Lucii",
         description:"Straight from the streets of LA, the mind-blowing outfit by Lucii is ready to give your virtual closet a blend of futuristic and gala vibes. The multi-colored flashlights, the leather finesse, and the ‘ready-to-rock’ boots underline the designer’s cutting-edge creativity and imagination. Be the multi-hued spotlight in the Metaverse!",
         phase:2,
+        dcl_Id:1,
         get_3d_assets:{
             pfp:{
                 status:true,
@@ -576,6 +586,7 @@ export const items = {
         designed_by:"Fabeeo Breen",
         description:"An expert in curating virtual fashion, this outfit is a remarkable innovation of the designer Fabeeo. The pop landscape with all that jazz just got a splash of galvanizing hues with this multi-colored hoodie. Would you rather be the Lord of the Pop in the Metaverse and have all the limelight coming in you.",
         phase:2,
+        dcl_Id:0,
         get_3d_assets:{
             pfp:{
                 status:true,
@@ -633,6 +644,7 @@ export const items = {
         designed_by:"Givaa Damn",
         description:"Beyond the physical gravity is a world and it’s extremely magnificent’. A glimpse of the beautiful world of the universe and its creature, digi-crafted in enthralling outfits by Givaa. Investing a lot in the power of nature and imagination, the designer created the perfect outfit for Metascapes.",
         phase:2,
+        dcl_Id:2,
         get_3d_assets:{
             pfp:{
                 status:true,

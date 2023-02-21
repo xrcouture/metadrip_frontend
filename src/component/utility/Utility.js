@@ -28,16 +28,16 @@ function Utility() {
   const [virtual,setVirtual] = useState(false)
   const item = items[name];
   const [img, setImg] = useState()
-
-
+  const [dclLoading , setDclLoading] = useState(false)
+  
 
 
   const {walletAddress} = useContext(Context)
-  const contractIsClaimed = () =>{
+  const isItemClaimed = () =>{
     axios.post("https://api.metadrip.xrcouture.com/contract/isItemClaimed",
     {
       address:walletAddress,
-      itemId:item['start']/10,
+      itemId:item['dcl_Id'],
       contractId:item['phase']
     },                                {
       headers: {
@@ -52,25 +52,25 @@ function Utility() {
     })
   }
   
-    const isItemClaimed = () =>{
-      axios.post("https://api.metadrip.xrcouture.com/utility/isItemClaimed",
-      {
-        address:walletAddress,
-        itemId:item['start']/10,
-        contractId:item['phase']
-      },                                {
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json',
-        },
-    }).then(res=>{
-        setVirtual(res.data.claimed)
-      }).catch(e=>{
-        console.log(e)
-        toast.error("Something went wrong...!")
-      })
-      console.log(walletAddress)
-    }
+    // const isItemClaimed = () =>{
+    //   axios.post("https://api.metadrip.xrcouture.com/utility/isItemClaimed",
+    //   {
+    //     address:walletAddress,
+    //     itemId:item['start']/10,
+    //     contractId:item['phase']
+    //   },                                {
+    //     headers: {
+    //         'Access-Control-Allow-Origin': '*',
+    //         'Content-Type': 'application/json',
+    //     },
+    // }).then(res=>{
+    //     setVirtual(res.data.claimed)
+    //   }).catch(e=>{
+    //     console.log(e)
+    //     toast.error("Something went wrong...!")
+    //   })
+    //   console.log(walletAddress)
+    // }
 
   $("#accordian-header").on('click',function() {
       const i = document.getElementById("accordian-header").childNodes[0]
@@ -82,26 +82,28 @@ function Utility() {
   const [nft, setNfts] = useState([]);
   const [nftCost, setNftCost] = useState(0);
 
-  // const claimDCL = () => {
-  //   // console.log(item['start']/10,walletAddress,item['phase'])
-  //   axios.post("https://api.metadrip.xrcouture.com/contract/issueTokens",{
-  //     address:[walletAddress],
-  //     itemIds:[item['start']/10],
-  //     contractId:item['phase']
-  //   },                                {
-  //     headers: {
-  //         'Access-Control-Allow-Origin': '*',
-  //         'Content-Type': 'application/json',
-  //     },
-  // }).then(res=>{
-  //     toast.success("Successfully Claimed, Check your decentranland backpack");
-  //     setClaimed(true)
-  //     console.log(res)
-  //   }).catch(e=>{
-  //     // console.log(e)
-  //     toast.error(e.response.data.message);
-  //   })
-  // }
+  const claimDCL = () => {
+    // console.log(item['start']/10,walletAddress,item['phase'])
+    setDclLoading(true)
+    axios.post("https://api.metadrip.xrcouture.com/contract/issueTokens",{
+      address:[walletAddress],
+      itemIds:[item['dcl_Id']],
+      contractId:item['phase']
+    },                                {
+      headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+      },
+  }).then(res=>{
+      toast.success("🥳 Successfully Claimed, Check your decentranland backpack");
+      setClaimed(true)
+      setDclLoading(false)
+      console.log(res)
+    }).catch(e=>{
+      // console.log(e)
+      toast.error(e.response.data.message);
+    })
+  }
   const collectionAddress = [
     "0xEDe30DF507576e461cc2cB3AdA75bf9B22dc778d", //phase 1
     "0x99D6C0d1A656a1ee1F345AE6482D0aFD76daF8a5", //phase 2
@@ -112,7 +114,7 @@ function Utility() {
       network: Network.MATIC_MAINNET,
     };
     isItemClaimed()
-    contractIsClaimed()
+    // contractIsClaimed()
     const alchemy = new Alchemy(config);
 
     var temp = {
@@ -299,7 +301,7 @@ function Utility() {
                               className="panel-title"
                               style={{ fontFamily: "Clash Display SemiBold" }}
                             >
-                              Cross-Platform Usage
+                              Cross-Platform &nbsp; Usage
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -313,8 +315,7 @@ function Utility() {
                           <div className="panel-body">
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Decentraland</h5>
-                              {claimed ? <p className="text-success"style={{fontFamily:"Clash Display Medium"}} >Successfully Claimed, Check your decentraland backpack</p> : <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Under Maintenance...</p> }
-                              {/* {claimed ? <p className="text-success"style={{fontFamily:"Clash Display Medium"}} >Successfully Claimed, Check your decentraland backpack</p> : <button onClick={claimDCL}>Claim</button> } */}
+                              {claimed ? <p className="text-success"style={{fontFamily:"Clash Display Medium"}} >🥳 Successfully Claimed, Check your decentraland backpack</p> : <button onClick={claimDCL} disabled={dclLoading}>{dclLoading?'Transferring...':'Claim'}</button> }
                             </div>
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Sandbox</h5>
@@ -332,7 +333,7 @@ function Utility() {
                             className="collapsed"
                           >
                             <h4 className="panel-title">
-                            AR Try-on
+                            AR &nbsp; Try-on
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -349,6 +350,9 @@ function Utility() {
                               <>
                               <video playsInline src={item['snapchat_ar'].video} muted autoPlay loop className="snapvideo"></video>
                               <img src={item['snapchat_ar'].qr} className="snapimg"></img>
+                                <p className="text-justify" style={{color: "#978097", fontFamily:"Clash Display Medium"}}>
+                                  Scan snapcode using Snapchat application on your mobile.
+                                </p>
                               </> : 
                               <div className="button-group-1">
                                 <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
@@ -370,7 +374,7 @@ function Utility() {
                             className="collapsed"
                           >
                             <h4 className="panel-title">
-                              Virtual Fitting
+                              Virtual &nbsp; Fitting
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -525,7 +529,7 @@ function Utility() {
                             className="collapsed"
                           >
                             <h4 className="panel-title">
-                              Metaverse Showcase		
+                              Metaverse &nbsp; Showcase		
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -551,9 +555,9 @@ function Utility() {
                               </div>
                               <div className="button-group-1">
                                 <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
-                                  AR
+                                  View in AR
                                 </h5>
-                                {item['metaverse_showcase']['ar'].status ?  <img src={item['metaverse_showcase']['ar'].link} alt="QR" className="qr-img" />: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
+                                {item['metaverse_showcase']['ar'].status ?  <div><img src={item['metaverse_showcase']['ar'].link} alt="QR" className="qr-img" /> <p className="text-center mt-2" style={{color: "#978097", fontFamily:"Clash Display Medium"}}>Scan QR</p></div>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                               </div>
                           </div>
                         </div>
@@ -567,7 +571,7 @@ function Utility() {
                             className="collapsed"
                           >
                             <h5 className="panel-title">
-                              3D Assets
+                              Download &nbsp; Files
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -583,11 +587,17 @@ function Utility() {
                               <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }} > 
                               PFPs & Artwork
                               </h5>
-                              {item['get_3d_assets']['pfp'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['pfp'].link)} data-bs-toggle="tooltip" data-bs-placement="top"  title="Agree Terms & Conditions to download" disabled={agreed}>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
+                              {item['get_3d_assets']['pfp'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['pfp'].link)} data-bs-toggle="tooltip" data-bs-placement="top">Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
-                            <div className="button-group-1">
-                              <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Universal File (.glb)</h5>
-                              {item['get_3d_assets']['glb_file'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['glb_file'].link)} className={agreed? "btn-disabled":""} disabled={agreed}>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
+                            <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }} className="mt-4">Universal File (.glb)</h5>
+                            <div className="button-group-1" style={{alignItems:'flex-start'}}>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value={agreed} onChange={()=>setAgreed(!agreed)} id="flexCheckDefault" />
+                              <label class="form-check-label ml-2" for="flexCheckDefault" style={{color:"#777777"}} >
+                              I agree with the <span onClick={() => setTerms(true)} className="modal-button"  style={{ color: "#8633DA" ,fontFamily:"Clash Display Medium" }}>Terms and Conditions</span>
+                              </label>
+                            </div>
+                              {item['get_3d_assets']['glb_file'].status?  <button onClick={()=>saveAs(item['get_3d_assets']['glb_file'].link)} className={agreed? "btn-disabled btn btn-secondary button-group-disabled":""} title={agreed?"Agree terms and conditions to download":""} disabled={agreed} style={{cursor:agreed?'not-allowed':'pointer'}}>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
                             </div>
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
@@ -600,12 +610,6 @@ function Utility() {
                               MetaHuman
                               </h5>
                               {item['get_3d_assets']['cloneX'].status ?  <button>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
-                            </div>
-                            <div class="form-check mt-4">
-                            <input class="form-check-input" type="checkbox" value={agreed} onChange={()=>setAgreed(!agreed)} id="flexCheckDefault" />
-                              <label class="form-check-label ml-2" for="flexCheckDefault" style={{color:"#777777"}} >
-                              I agree with the <span onClick={() => setTerms(true)} className="modal-button"  style={{ color: "#8633DA" ,fontFamily:"Clash Display Medium" }}>Terms and Conditions</span>
-                              </label>
                             </div>
                           </div>
                         </div>
@@ -620,7 +624,7 @@ function Utility() {
                             className="collapsed"
                           >
                             <h4 className="panel-title">
-                              Earn Passive Income
+                              Earn &nbsp; Royalties
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -632,12 +636,15 @@ function Utility() {
                           className="panel-collapse collapse"
                         >
                           <div className="panel-body">
-                          <div className="button-group-1">
+                            <p className="text-justify" style={{color: "#978097", fontFamily:"Clash Display Medium"}}>
+                              You will soon be able to earn royalties. Details coming out soon.
+                            </p>
+                          {/* <div className="button-group-1">
                                 <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>
                                  Passive Income
                                 </h5>
                                 {item['earn_passive'].status ?  <button>Download</button>: <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Coming Soon...</p>}
-                            </div>
+                            </div> */}
                           </div>
                         </div>
                       </div>
@@ -650,7 +657,7 @@ function Utility() {
                             className="collapsed"
                           >
                             <h4 className="panel-title">
-                              More Utilities
+                              More&nbsp; Utilities
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -662,8 +669,8 @@ function Utility() {
                           className="panel-collapse collapse"
                         >
                           <div className="panel-body">
-                          <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>
-                          Meta Drip is our most ambitious utility rewarding project and our aim is to provide utilities as long as we exist. Stay tuned and HODL!
+                          <p className="text-justify" style={{color: "#978097", fontFamily:"Clash Display Medium"}}>
+                          Metadrip is our most ambitious utility rewarding project and our aim is to provide utilities as long as we exist. Stay tuned and HODL!
                           </p>
                           </div>
                         </div>

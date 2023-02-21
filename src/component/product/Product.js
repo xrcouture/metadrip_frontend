@@ -616,7 +616,7 @@ const Product = () => {
                               className="panel-title"
                               style={{ fontFamily: "Clash Display SemiBold" }}
                             >
-                              Cross-Platform Usage
+                              Cross-Platform &nbsp;Usage
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -641,7 +641,7 @@ const Product = () => {
                             className="collapsed"
                           >
                             <h4 className="panel-title">
-                            AR Try-on
+                            AR&nbsp; Try-on
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -666,7 +666,7 @@ const Product = () => {
                             className="collapsed"
                           >
                             <h4 className="panel-title">
-                               Virtual Fitting
+                               Virtual &nbsp;Fitting
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -692,7 +692,7 @@ const Product = () => {
                             className="collapsed"
                           >
                             <h4 className="panel-title">
-                              Metaverse Showcase		
+                              Metaverse &nbsp;Showcase		
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -717,7 +717,7 @@ const Product = () => {
                             className="collapsed"
                           >
                             <h5 className="panel-title">
-                              3D Assets
+                              Download&nbsp; Files
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -743,7 +743,7 @@ const Product = () => {
                             className="collapsed"
                           >
                             <h4 className="panel-title">
-                              Earn Passive Income
+                                Earn&nbsp; Royalties
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -755,7 +755,7 @@ const Product = () => {
                           className="panel-collapse collapse"
                         >
                           <div className="panel-body">
-                          <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Meta Drip will be listed for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.</p>
+                          <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>Metadrip will be listed for sale on web2 platforms, such as Roblox, Zepeto, etc. The revenue earned from these platforms will be shared amongst the holders.</p>
                           </div>
                         </div>
                       </div>
@@ -768,7 +768,7 @@ const Product = () => {
                             className="collapsed"
                           >
                             <h4 className="panel-title">
-                              More Utilities
+                              More&nbsp; Utilities
                               <span className="pull-right">
                                 <i className="glyphicon glyphicon-chevron-up" />
                               </span>
@@ -781,7 +781,7 @@ const Product = () => {
                         >
                           <div className="panel-body">
                           <p className="text-white text-justify" style={{fontFamily:"Clash Display Light"}}>
-                          Meta Drip is our most ambitious utility rewarding project and our aim is to provide utilities as long as we exist. Stay tuned and HODL!
+                          Metadrip is our most ambitious utility rewarding project and our aim is to provide utilities as long as we exist. Stay tuned and HODL!
                           </p>
                           </div>
                         </div>
