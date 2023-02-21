@@ -23,13 +23,13 @@ function Assets() {
   const navType = useNavigationType();
   // setAssets("hello")
   // console.log(assets)
-  // const {walletAddress} = useContext(Context);
+  const {walletAddress} = useContext(Context);
   const [pending, setPending] = useState(false);
-  const [user, setuser] = useState(false);
-  const [state, setstate] = useState(
-    "0x065366ec359a64dbf3f02cad7987122053fedcb0"
-  );
-  const walletAddress = state
+  // const [user, setuser] = useState(false);
+  // const [state, setstate] = useState(
+  //   "0x065366ec359a64dbf3f02cad7987122053fedcb0"
+  // );
+  // const walletAddress = state
   let itemSold = {}
   const fun = async () => {
     let supply = {
@@ -126,14 +126,14 @@ function Assets() {
                 />
               </div>
             )}
-            {!pending && itemsAll.length > 0
-              ? itemsAll.map((i) => (
+            {!pending && assets.length > 0
+              ? assets.map((i) => (
                 <div className="col-md-4 d-flex justify-content-center">
                   <Link
-                    to={`/assets/${items[i].name.replace(" ", "_")}`}
+                    to={`/assets/${i.rawMetadata.name.replace(" ", "_")}`}
                   >
                     <div className="asset-card pb-5 mb-5">
-                      <video src={items[i].video} className="asset-img" ></video>
+                      <img src={i.rawMetadata.image} className="asset-img" />
                       <p
                         style={{
                           color: "white",
@@ -141,7 +141,7 @@ function Assets() {
                         }}
                         className="mt-2 asset-title"
                       >
-                        {items[i].name}
+                        {i.rawMetadata.name}
                       </p>
                     </div>
                   </Link>
@@ -160,21 +160,3 @@ function Assets() {
 export default Assets;
 
 
-{/* <div className="col-md-4 d-flex justify-content-center">
-                  <Link
-                    to={`/assets/${i.rawMetadata.name.replace(" ", "_")}`}
-                  >
-                    <div className="asset-card pb-5 mb-5">
-                      <img src={i.rawMetadata.image} className="asset-img" />
-                      <p
-                        style={{
-                          color: "white",
-                          fontFamily: "Clash Display Medium",
-                        }}
-                        className="mt-2 asset-title"
-                      >
-                        {i.rawMetadata.name}
-                      </p>
-                    </div>
-                  </Link>
-                </div> */}

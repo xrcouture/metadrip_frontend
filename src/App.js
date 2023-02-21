@@ -61,7 +61,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route>
+          <Route element={<ProtectedRoutes />}>
             <Route path='/assets/:name' element={<Utility />} />
             <Route path='/assets' element={<Assets />} />
           </Route>

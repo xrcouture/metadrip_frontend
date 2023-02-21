@@ -33,24 +33,24 @@ function Utility() {
 
 
   const {walletAddress} = useContext(Context)
-  // const contractIsClaimed = () =>{
-  //   axios.post("https://api.metadrip.xrcouture.com/contract/isItemClaimed",
-  //   {
-  //     address:walletAddress,
-  //     itemId:item['start']/10,
-  //     contractId:item['dcl_Id']
-  //   },                                {
-  //     headers: {
-  //         'Access-Control-Allow-Origin': '*',
-  //         'Content-Type': 'application/json',
-  //     },
-  // }).then(res=>{
-  //     setClaimed(res.data.claimed)
-  //   }).catch(e=>{
-  //     console.log(e)
-  //     toast.error("Something went wrong...!")
-  //   })
-  // }
+  const isItemClaimed = () =>{
+    axios.post("https://api.metadrip.xrcouture.com/contract/isItemClaimed",
+    {
+      address:walletAddress,
+      itemId:item['dcl_Id'],
+      contractId:item['phase']
+    },                                {
+      headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+      },
+  }).then(res=>{
+      setClaimed(res.data.claimed)
+    }).catch(e=>{
+      console.log(e)
+      toast.error("Something went wrong...!")
+    })
+  }
   
     // const isItemClaimed = () =>{
     //   axios.post("https://api.metadrip.xrcouture.com/utility/isItemClaimed",
@@ -85,28 +85,24 @@ function Utility() {
   const claimDCL = () => {
     // console.log(item['start']/10,walletAddress,item['phase'])
     setDclLoading(true)
-    setTimeout(()=>{
-      setDclLoading(false)
-      setClaimed(true)
+    axios.post("https://api.metadrip.xrcouture.com/contract/issueTokens",{
+      address:[walletAddress],
+      itemIds:[item['dcl_Id']],
+      contractId:item['phase']
+    },                                {
+      headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+      },
+  }).then(res=>{
       toast.success("🥳 Successfully Claimed, Check your decentranland backpack");
-    },2000)
-  //   axios.post("https://api.metadrip.xrcouture.com/contract/issueTokens",{
-  //     address:[walletAddress],
-  //     itemIds:[item['start']/10],
-  //     contractId:item['phase']
-  //   },                                {
-  //     headers: {
-  //         'Access-Control-Allow-Origin': '*',
-  //         'Content-Type': 'application/json',
-  //     },
-  // }).then(res=>{
-  //     toast.success("🥳 Successfully Claimed, Check your decentranland backpack");
-  //     setClaimed(true)
-  //     console.log(res)
-  //   }).catch(e=>{
-  //     // console.log(e)
-  //     toast.error(e.response.data.message);
-  //   })
+      setClaimed(true)
+      setDclLoading(false)
+      console.log(res)
+    }).catch(e=>{
+      // console.log(e)
+      toast.error(e.response.data.message);
+    })
   }
   const collectionAddress = [
     "0xEDe30DF507576e461cc2cB3AdA75bf9B22dc778d", //phase 1
@@ -117,7 +113,7 @@ function Utility() {
       apiKey: "g7dUSvAcvJnj2Qf0HOIHlxindWYB88gu",
       network: Network.MATIC_MAINNET,
     };
-    // isItemClaimed()
+    isItemClaimed()
     // contractIsClaimed()
     const alchemy = new Alchemy(config);
 
@@ -141,17 +137,17 @@ function Utility() {
         if(!res.ownedNfts.includes(walletAddress)){
           console.warn(res.owners.includes(walletAddress));
           // redirect('/')
-          // window.location.href = "/"
+          window.location.href = "/"
           // <Navigate to="/assets" />
         }else{
         //   redirect('/')
-        // window.location.href = "/"
+        window.location.href = "/"
         // Navigate('/assets')
         // <Navigate to="/assets" />
         }
       }else{
         // redirect('/')
-        // window.location.href = "/"
+        window.location.href = "/"
         // Navigate('/assets')
         // <Navigate to="/assets" />
       }
