@@ -82,26 +82,26 @@ function Utility() {
   const [nft, setNfts] = useState([]);
   const [nftCost, setNftCost] = useState(0);
 
-  const claimDCL = () => {
-    // console.log(item['start']/10,walletAddress,item['phase'])
-    axios.post("https://api.metadrip.xrcouture.com/contract/issueTokens",{
-      address:[walletAddress],
-      itemIds:[item['start']/10],
-      contractId:item['phase']
-    },                                {
-      headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-      },
-  }).then(res=>{
-      toast.success("Successfully Claimed, Check your decentranland backpack");
-      setClaimed(true)
-      console.log(res)
-    }).catch(e=>{
-      // console.log(e)
-      toast.error(e.response.data.message);
-    })
-  }
+  // const claimDCL = () => {
+  //   // console.log(item['start']/10,walletAddress,item['phase'])
+  //   axios.post("https://api.metadrip.xrcouture.com/contract/issueTokens",{
+  //     address:[walletAddress],
+  //     itemIds:[item['start']/10],
+  //     contractId:item['phase']
+  //   },                                {
+  //     headers: {
+  //         'Access-Control-Allow-Origin': '*',
+  //         'Content-Type': 'application/json',
+  //     },
+  // }).then(res=>{
+  //     toast.success("Successfully Claimed, Check your decentranland backpack");
+  //     setClaimed(true)
+  //     console.log(res)
+  //   }).catch(e=>{
+  //     // console.log(e)
+  //     toast.error(e.response.data.message);
+  //   })
+  // }
   const collectionAddress = [
     "0xEDe30DF507576e461cc2cB3AdA75bf9B22dc778d", //phase 1
     "0x99D6C0d1A656a1ee1F345AE6482D0aFD76daF8a5", //phase 2
@@ -313,7 +313,8 @@ function Utility() {
                           <div className="panel-body">
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Decentraland</h5>
-                              {claimed ? <p className="text-success"style={{fontFamily:"Clash Display Medium"}} >Successfully Claimed, Check your decentraland backpack</p> : <button onClick={claimDCL}>Claim</button> }
+                              {claimed ? <p className="text-success"style={{fontFamily:"Clash Display Medium"}} >Successfully Claimed, Check your decentraland backpack</p> : <p className="text-secondary" style={{fontFamily:"Clash Display Medium"}}>Under Maintenance...</p> }
+                              {/* {claimed ? <p className="text-success"style={{fontFamily:"Clash Display Medium"}} >Successfully Claimed, Check your decentraland backpack</p> : <button onClick={claimDCL}>Claim</button> } */}
                             </div>
                             <div className="button-group-1">
                               <h5 style={{ color: "#978097" ,fontFamily:"Clash Display Medium" }}>Sandbox</h5>
