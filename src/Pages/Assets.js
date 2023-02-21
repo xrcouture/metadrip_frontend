@@ -11,8 +11,10 @@ import { Context } from "../Context";
 import ProductHeader from "../component/productHeader/ProductHeader";
 import Footer from "../component/Footer/Footer"
 import { useLocation, useNavigationType } from "react-router-dom";
+import { items } from "../data's/utility";
 
 function Assets() {
+  var itemsAll = ["Chrome_Heart","Flora_Flamboyance","Puffy_Crossroads","Oyster_Spell","Vibrance_Splash","Rufflanza","Star_Cloak","Celestial_Dream","Pop_Kiss","Dazzling_Devil","Comic_Boom","Human_Masquerade"]
 
   // const assetProfile = "https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/XRC_Homepage/homepage_contents/xrcnew.webp"
 
@@ -124,9 +126,41 @@ function Assets() {
                 />
               </div>
             )}
-            {!pending && assets.length > 0
-              ? assets.map((i) => (
+            {!pending && itemsAll.length > 0
+              ? itemsAll.map((i) => (
                 <div className="col-md-4 d-flex justify-content-center">
+                  <Link
+                    to={`/assets/${items[i].name.replace(" ", "_")}`}
+                  >
+                    <div className="asset-card pb-5 mb-5">
+                      <video src={items[i].video} className="asset-img" ></video>
+                      <p
+                        style={{
+                          color: "white",
+                          fontFamily: "Clash Display Medium",
+                        }}
+                        className="mt-2 asset-title"
+                      >
+                        {items[i].name}
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+                
+              ))
+              : !pending && walletAddress ? <h1 style={{ color: "white", textAlign: "center" }}>No NFT's <Link to="/products" className="text-underling text-white" ><u>"Start Collecting"</u></Link></h1> : <h1 style={{ color: "white", textAlign: "center" }}>Connect Your Wallet</h1>}
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
+export default Assets;
+
+
+{/* <div className="col-md-4 d-flex justify-content-center">
                   <Link
                     to={`/assets/${i.rawMetadata.name.replace(" ", "_")}`}
                   >
@@ -143,15 +177,4 @@ function Assets() {
                       </p>
                     </div>
                   </Link>
-                </div>
-              ))
-              : !pending && walletAddress ? <h1 style={{ color: "white", textAlign: "center" }}>No NFT's <Link to="/products" className="text-underling text-white" ><u>"Start Collecting"</u></Link></h1> : <h1 style={{ color: "white", textAlign: "center" }}>Connect Your Wallet</h1>}
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </div>
-  );
-}
-
-export default Assets;
+                </div> */}
