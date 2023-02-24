@@ -774,7 +774,7 @@ function Utility() {
         <Modal.Header>
           <Modal.Title id="example-custom-modal-styling-title">
           <h3 style={{fontFamily:"Clash Display Bold",color:"white"}} className="text-center mt-4">USER LICENSE AGREEMENT</h3>
-          <h5 style={{fontFamily:"Clash Display Light",color:"white"}}>TERMS OF USE</h5>
+          <h5 style={{fontFamily:"Clash Display Light",color:"white", textAlign: "left"}}>TERMS OF USE</h5>
           </Modal.Title>
             <button type="button" class="btn-close btn-close-white" aria-label="Close" onClick={()=>setTerms(!terms)}></button>
         </Modal.Header>
