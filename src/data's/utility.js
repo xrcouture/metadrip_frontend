@@ -396,9 +396,9 @@ export const items = {
             }
         },
         snapchat_ar:{
-            status:false,
-            qr:"",
-            video:""
+            status:true,
+            qr:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Phase+2+AR+Filters/snapcode+(4).png",
+            video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Phase+2+AR+Filters/Star+cloak.mp4"
         },
         earn_passive:{
             status:false,
@@ -454,9 +454,9 @@ export const items = {
             }
         },
         snapchat_ar:{
-            status:false,
-            qr:"",
-            video:""
+            status:true,
+            qr:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Phase+2+AR+Filters/snapcode+(3).png",
+            video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Phase+2+AR+Filters/Celestial+Dream.mp4"
         },
         earn_passive:{
             status:false,
@@ -513,9 +513,9 @@ export const items = {
             }
         },
         snapchat_ar:{
-            status:false,
-            qr:"",
-            video:""
+            status:true,
+            qr:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Phase+2+AR+Filters/snapcode+(2).png",
+            video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Phase+2+AR+Filters/Pop+kiss.mp4"
         },
         earn_passive:{
             status:false,
@@ -571,9 +571,9 @@ export const items = {
             }
         },
         snapchat_ar:{
-            status:false,
-            qr:"",
-            video:""
+            status:true,
+            qr:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Phase+2+AR+Filters/snapcode+(1).png",
+            video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Phase+2+AR+Filters/Dazzling+devil+.mp4"
         },
         earn_passive:{
             status:false,
@@ -629,9 +629,9 @@ export const items = {
             }
         },
         snapchat_ar:{
-            status:false,
-            qr:"",
-            video:""
+            status:true,
+            qr:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Phase+2+AR+Filters/snapcode.png",
+            video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Phase+2+AR+Filters/Comic+boom.mov"
         },
         earn_passive:{
             status:false,
@@ -688,9 +688,9 @@ export const items = {
             }
         },
         snapchat_ar:{
-            status:false,
-            qr:"",
-            video:""
+            status:true,
+            qr:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Phase+2+AR+Filters/snapcode+(5).png",
+            video:"https://xrcouture-xrcie.s3.ap-south-1.amazonaws.com/Metadrip/Phase+2+AR+Filters/Human+M.mp4"
         },
         earn_passive:{
             status:false,
